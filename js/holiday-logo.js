@@ -117,32 +117,55 @@
   // On the coloured bar the logo sits in a white pill as tall as the bar,
   // filling its left end, and the bar gets a thin white edge so the two
   // read as one piece (Philip 2026-10-09). The pill reaches the bar's edges
-  // by taking back the bar's own padding, so it follows the bar as it
+  // by taking back the bar's own padding in CSS, so it follows the bar as it
   // shrinks on scroll and on small screens.
   var nav = img.closest("nav"), a = img.closest("a");
   if (!nav || !a) return;
+  // Inset from the bar's edge, as the WhatsApp pill is, so a rim of the
+  // bar's colour shows round it.
+  var INSET = 4;
   var css = document.createElement("style");
   css.textContent =
     "nav.nav-holiday{border:1px solid rgba(255,255,255,.55) !important}" +
     "nav.nav-holiday.nav-scrolled{border-width:0 0 1px 0 !important}" +
+    // The pill is inset a fixed 4px from the bar's inner edge, top and
+    // bottom, in EVERY state. Negative margins used to cancel the bar's own
+    // padding, but that padding animates over 0.25s on scroll and the margins
+    // were only recomputed afterwards, so mid-shrink the pill stood taller
+    // than the bar (Philip 2026-10-14: "when you scroll the logo looks
+    // funny"). Insets need no maths and no listener, so they cannot lag.
     "nav.nav-holiday .nav-name{border-radius:999px;align-self:stretch;" +
-    "background:rgba(255,255,255,.95);box-shadow:0 4px 14px rgba(26,82,208,.24)}";
+    // Animate the pull in step with the bar's own padding transition, or the
+    // margin snaps to the scrolled value while the bar is still shrinking and
+    // the pill juts out past the bar's left end for a few frames.
+    "transition:margin 0.25s ease, padding 0.25s ease;" +
+    // Cancel the bar's own vertical padding, then inset by INSET. Written as
+    // the bar's own clamps so the browser re-resolves them every frame of the
+    // padding transition, which the old JS margins could not do.
+    "margin-top:calc(" + INSET + "px - clamp(10px, 1.6vw, 12px));" +
+    "margin-bottom:calc(" + INSET + "px - clamp(10px, 1.6vw, 12px));" +
+    // The left pull mirrors the bar's own padding-left clamp, so the pill
+    // reaches the bar's left end in both states and follows the transition.
+    "margin-left:calc(" + INSET + "px - clamp(14px, 2vw, 18px));" +
+    "padding-left:calc(clamp(14px, 2vw, 18px) - " + INSET + "px);" +
+    "background:rgba(255,255,255,.95);box-shadow:0 4px 14px rgba(26,82,208,.24)}" +
+    "nav.nav-holiday.nav-scrolled .nav-name{" +
+    "margin-top:calc(" + INSET + "px - 6px);" +
+    "margin-bottom:calc(" + INSET + "px - 6px);" +
+    "margin-left:calc(" + INSET + "px - clamp(18px, 5vw, 64px));" +
+    "padding-left:calc(clamp(18px, 5vw, 64px) - " + INSET + "px)}";
   document.head.appendChild(css);
   nav.classList.add("nav-holiday");
   function fit() {
-    var cs = getComputedStyle(nav), h = img.offsetHeight || 38, k = h / 228;
+    var h = img.offsetHeight || 38, k = h / 228;
     var vbw = img.naturalHeight ? 228 * img.naturalWidth / img.naturalHeight : 1054;
     var ox = 504.86 * k;  // the point the scale keeps fixed: the letters' own origin
     img.style.transformOrigin = ox + "px 114.29%";
     // the drawing's right edge after scaling, past the picture's own box
     var spill = ox + 1.14 * ((vbw - 14) * k - ox) - vbw * k;
-    // inset by INSET px from the bar's edge, as the WhatsApp pill is, so a
-    // rim of the bar's colour shows round it, with the WhatsApp pill's shadow
-    var INSET = 4, pt = parseFloat(cs.paddingTop), pb = parseFloat(cs.paddingBottom), pl = parseFloat(cs.paddingLeft);
-    a.style.marginTop = -(pt - INSET) + "px";
-    a.style.marginBottom = -(pb - INSET) + "px";
-    a.style.marginLeft = -(pl - INSET) + "px";
-    a.style.paddingLeft = (pl - INSET) + "px";
+    // The insets are all CSS now (margin + align-self:stretch), so they
+    // follow the bar's own shrink with no maths here and cannot lag
+    // mid-transition. Only the right spill needs the measured drawing.
     a.style.paddingRight = Math.max(6, Math.round(spill + 0.3 * h)) + "px";
   }
   fit();
