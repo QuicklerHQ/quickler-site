@@ -134,26 +134,17 @@
     // were only recomputed afterwards, so mid-shrink the pill stood taller
     // than the bar (Philip 2026-10-14: "when you scroll the logo looks
     // funny"). Insets need no maths and no listener, so they cannot lag.
-    "nav.nav-holiday .nav-name{border-radius:999px;align-self:stretch;" +
-    // Animate the pull in step with the bar's own padding transition, or the
-    // margin snaps to the scrolled value while the bar is still shrinking and
-    // the pill juts out past the bar's left end for a few frames.
-    "transition:margin 0.25s ease, padding 0.25s ease;" +
-    // Cancel the bar's own vertical padding, then inset by INSET. Written as
-    // the bar's own clamps so the browser re-resolves them every frame of the
-    // padding transition, which the old JS margins could not do.
-    "margin-top:calc(" + INSET + "px - clamp(10px, 1.6vw, 12px));" +
-    "margin-bottom:calc(" + INSET + "px - clamp(10px, 1.6vw, 12px));" +
-    // The left pull mirrors the bar's own padding-left clamp, so the pill
-    // reaches the bar's left end in both states and follows the transition.
-    "margin-left:calc(" + INSET + "px - clamp(14px, 2vw, 18px));" +
-    "padding-left:calc(clamp(14px, 2vw, 18px) - " + INSET + "px);" +
-    "background:rgba(255,255,255,.95);box-shadow:0 4px 14px rgba(26,82,208,.24)}" +
-    "nav.nav-holiday.nav-scrolled .nav-name{" +
-    "margin-top:calc(" + INSET + "px - 6px);" +
-    "margin-bottom:calc(" + INSET + "px - 6px);" +
-    "margin-left:calc(" + INSET + "px - clamp(18px, 5vw, 64px));" +
-    "padding-left:calc(clamp(18px, 5vw, 64px) - " + INSET + "px)}";
+    // The pill wraps the logo and nothing else (Philip 2026-10-14: "the pill
+    // just snaps around the size of the logo"). Its gaps are set from the
+    // logo's own height in fit(), so width and height shrink by the same
+    // factor and the shape holds in every state. It used to stretch to the
+    // bar's height and reach for the bar's left end, which tied its width to
+    // the bar's padding: that padding grows to 64px when the bar goes edge to
+    // edge, holding the pill 40px wider than its height called for, so it
+    // stretched from a pill into a lozenge as it got shorter.
+    "nav.nav-holiday .nav-name{border-radius:999px;align-self:center;" +
+    "margin:0;transition:padding 0.25s ease;" +
+    "background:rgba(255,255,255,.95);box-shadow:0 4px 14px rgba(26,82,208,.24)}";
   document.head.appendChild(css);
   nav.classList.add("nav-holiday");
   function fit() {
@@ -163,9 +154,22 @@
     img.style.transformOrigin = ox + "px 114.29%";
     // the drawing's right edge after scaling, past the picture's own box
     var spill = ox + 1.14 * ((vbw - 14) * k - ox) - vbw * k;
-    // The insets are all CSS now (margin + align-self:stretch), so they
-    // follow the bar's own shrink with no maths here and cannot lag
-    // mid-transition. Only the right spill needs the measured drawing.
+    // Every gap is a fraction of the logo's own height, so all four shrink by
+    // the same factor the logo does and the pill keeps its shape. The
+    // fractions are the approved 9 October look measured back: a 42px logo
+    // sat in a 66.7px pill (12.35px above and below, 0.294) with a 14px gap
+    // to its left (0.333). The right also carries the drawing's own spill,
+    // which scales with the logo as well.
+    // The vertical gap is the same fraction of the logo's height as the side
+    // ones, so the pill shrinks by one factor in both directions. A negative
+    // margin of the same size keeps that growth out of the layout: without it
+    // the pill's padding stacks on the bar's own and the bar swells from 77px
+    // to 92px, shifting every nav item on every page. The pill is not
+    // stretched to the bar's height, so it cannot overhang mid-transition.
+    var v = Math.round(0.294 * h);
+    a.style.paddingTop = a.style.paddingBottom = v + "px";
+    a.style.marginTop = a.style.marginBottom = -v + "px";
+    a.style.paddingLeft = Math.round(h / 3) + "px";
     a.style.paddingRight = Math.max(6, Math.round(spill + 0.3 * h)) + "px";
   }
   fit();
