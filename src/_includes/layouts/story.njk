@@ -62,7 +62,9 @@
         {%- if hero.actions %}
         <div class="story-actions">
             {%- for a in hero.actions %}
-            <a href="{{ a.href }}" class="btn {{ a.style or 'btn-primary' }}">{{ a.label }}</a>
+            {#- An action that leaves the site opens in a new tab, so someone
+                booking a demo still has the page behind them. -#}
+            <a href="{{ a.href }}" class="btn {{ a.style or 'btn-primary' }}"{% if '//' in a.href and site.domain not in a.href %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ a.label }}</a>
             {%- endfor %}
         </div>
         {%- endif %}
@@ -172,7 +174,8 @@
         {%- if b.actions %}
         <div class="story-actions">
             {%- for a in b.actions %}
-            <a href="{{ a.href }}" class="btn {{ a.style or 'btn-primary' }}">{{ a.label }}</a>
+            {#- As in the hero: a link off the site opens in a new tab. -#}
+            <a href="{{ a.href }}" class="btn {{ a.style or 'btn-primary' }}"{% if '//' in a.href and site.domain not in a.href %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ a.label }}</a>
             {%- endfor %}
         </div>
         {%- endif %}
