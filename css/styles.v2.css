@@ -5057,11 +5057,15 @@ nav {
     display: grid;
     /* Columns follow the card count (--n, set inline by the template) so a
        2-card section is 2 columns and a 3-card section is 3 -- never an ugly
-       3+1 wrap. Capped at 3; the template keeps sections to 2-3 cards. */
-    grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr));
+       3+1 wrap. The comment used to claim a cap of 3 and there was none, so a
+       6-card section laid 6 columns across and broke its headings mid-word
+       ("assessment-s", "OpenDocume-nt"). --cols clamps the real count to 3,
+       so 4 cards go 3+1 and 6 go 3+3, each column a readable width. */
+    --cols: min(var(--n, 3), 3);
+    grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
     gap: clamp(18px, 2.5vw, 28px);
     width: 100%;
-    max-width: min(100%, calc(var(--n, 3) * 340px));
+    max-width: min(100%, calc(var(--cols) * 340px));
     margin-inline: auto;
     text-align: left;
 }

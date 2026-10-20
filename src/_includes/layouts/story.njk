@@ -145,7 +145,12 @@
     <div class="story-inner">
         {%- if b.eyebrow %}<p class="story-eyebrow">{{ b.eyebrow }}</p>{% endif %}
         <h2 class="story-h2">{{ b.heading | safe }}</h2>
-        <div class="story-cards" style="--n: {{ b.items | length }}">
+        {#- Column count is decided here, not in CSS: 4 cards read better as 2x2
+   than as an unbalanced 3+1, and anything above 3 wraps rather than
+   squeezing (6 across gave 160px columns that broke headings mid-word). -#}
+        {%- set _n = b.items | length %}
+        {%- set _cols = 2 if _n == 4 else (3 if _n > 3 else _n) %}
+        <div class="story-cards" style="--n: {{ _cols }}">
             {%- for it in b.items %}
             <a class="story-card" href="{{ it.href }}">{%- if it.kicker %}<span class="story-card-kicker">{{ it.kicker }}</span>{% endif %}<h3>{{ it.title }}</h3><p>{{ it.text }}</p></a>
             {%- endfor %}
@@ -301,7 +306,9 @@
     <div class="story-inner">
         <p class="story-eyebrow">{{ rel.label }}</p>
         <h2 class="story-h2">Related workflows</h2>
-        <div class="story-cards" style="--n: {{ rel.related | length }}">
+        {%- set _rn = rel.related | length %}
+        {%- set _rcols = 2 if _rn == 4 else (3 if _rn > 3 else _rn) %}
+        <div class="story-cards" style="--n: {{ _rcols }}">
             {%- for it in rel.related %}
             <a class="story-card" href="{{ it.href }}"><h3>{{ it.title }}</h3></a>
             {%- endfor %}
