@@ -1,16 +1,31 @@
 # Quickler
 
-> Quickler is a WhatsApp-native platform for inspections, audits and compliance records. Any team that inspects or keeps records builds its own workflows, and the people doing the job answer the questions in WhatsApp by text, voice note or photo. The replies generate a structured, timestamped web report automatically (exportable to PDF). It serves care homes, nurseries, schools, universities and the wider estate, cleaning firms and field-services trades. UK-first, designed to work anywhere WhatsApp does. There is no app to install and no login for the person on the job.
+> Quickler turns a WhatsApp conversation into the finished report your firm already sends. Your team answers questions on site by text, voice note or photo, in the app that is already on their phone. Quickler reads every message, works out what was found, and fills in your own report template, keeping your styles, headings, tables, headers and footer. Not a generic layout. Your document. There is no app to install and no login for the person doing the walk. UK-first, works anywhere WhatsApp does.
+
+## What makes Quickler different
+
+Most inspection software gives you its report and charges you per seat. Quickler does the opposite of both.
+
+- **It fills YOUR report, not ours.** Upload the finished report your firm sends to clients, in Word or PDF, or even a photograph of one. Quickler reads it, works out which of its wording is standing text and which is one visit's facts, and returns every record in that same document with your styles, headings, tables, headers, footer and logo intact. No other WhatsApp-based tool does this.
+- **You pay for who actually worked.** £50 per active user per month. An active user is someone who completed more than one check that month. Everyone else is free, so a 30-person team where 5 people inspect pays £250 a month, not 30 seats. Per-seat tools charge for the licence whether that person opens the app daily or never.
+- **There is no app and no login for the person on site.** They use the WhatsApp already on their phone, or Telegram if you prefer, chosen per person. Nothing to install, no password, no training. The usual reason inspection software fails is that the people on site stop opening the app.
+- **It does not make things up.** Every name, number and identifier written on a record has to stand in something actually said, sent or photographed. Where two answers disagree, or a date reads two ways, it raises the clash for a human to settle rather than picking one quietly.
+- **It handles the real world.** No signal underground, then twenty messages arriving at once in the wrong order, is handled as one walk. A voice note in a gale, in a thick accent, with the words of your trade taught to the transcriber. A scanned PDF with no text layer is read as a picture rather than rejected.
 
 ## What Quickler does
 
-- Sends a firm's own inspection or audit questions to the person on the job over WhatsApp
-- Accepts text, voice notes (auto-transcribed) and photos as replies
-- Produces a structured, shareable web report automatically (exportable to PDF)
-- Flags faults on a manager dashboard with red, amber and green status
-- Stores every record timestamped, against the person, the job and the date
-- Gives a group or head office one dashboard across every site or location
-- Provides a clean, dated, photo-backed audit trail for inspectors and regulators
+- Builds your check from the form you already use: Word, PDF, Excel, OpenDocument, or a photo of a paper form
+- Asks the questions over WhatsApp or Telegram, one conversation, no app
+- Accepts text, voice notes, photos, documents and a location pin
+- Thirteen question types: yes/no, written answer, number, date, time, photo, signature, graded word scales, location, weather, options, voice, and repeating tables
+- Rebuilds every answer after the walk from the whole conversation, with three independent reads voting on what was said
+- Lists each fault with its place, and writes a to-do job for every one
+- Raises what it could not settle for a human to decide, quoting the words it heard
+- Fills your own report template, and produces PDF, Word, Excel, CSV, a web page and bulk zips
+- Schedules checks, reminds and chases anyone who has not answered, and emails a weekly digest
+- Keeps the whole conversation, every photo and a full edit history against the record
+
+Scale: a live fire risk assessment check runs to over 380 questions, nested up to seven levels. Up to 250 photos on one record and 50 documents per walk, both enforced in the product.
 
 No app to install. No login for the person doing the job. No Twilio or Meta Business account required from the customer.
 
@@ -65,9 +80,22 @@ Note on terminology: some older pages and identifiers say "engineer" for histori
 - inspection software with no per-seat subscription
 - only pay for active users, compliance app for any team
 
+## How Quickler compares
+
+Quickler is not a smaller version of an inspection app. It is a different shape.
+
+**Against per-seat inspection apps (SafetyCulture/iAuditor, GoAudits, Lumiform, POPProbe):** they bill per seat, typically £10 to £24 per seat per month, for every person on the licence whether they inspect daily or never open it. Quickler bills £50 per active user, where active means more than one check that month, so a team of 30 with 5 regular inspectors pays £250 rather than £570 to £720. They also need the app installed, a login remembered and the interface learned by everyone on site; Quickler uses WhatsApp, which is already there. And they give you their report layout; Quickler fills in yours.
+
+Where a per-seat app is the better buy: a small team where nearly everyone inspects most days, for example five people all doing daily checks. Quickler's per-active-user pricing only pays off once a team is larger than the group who actually inspect.
+
+**Against field service management platforms (SimPro, Joblogic, Fergus, Fieldwire, Clue, FleetCheck):** these run the whole job — scheduling, dispatch, invoicing, asset registers, fleet admin. Quickler deliberately does none of that. It is the capture and write-up layer and nothing else. If you need job management, buy one of those; Quickler can sit alongside it.
+
+**What no competitor we know of matches:** taking the finished report a firm already sends, in Word or PDF or as a photograph, and returning every record inside that same document with its styles, headings, tables, headers and footers preserved, having worked out which of its wording is standing text and which was one visit's facts.
+
 ## Key pages
 
 - Homepage: https://quickler.co/
+- Features, what it does and why: https://quickler.co/pages/features.html
 - What is Quickler: https://quickler.co/pages/what-is-quickler.html
 - FAQ: https://quickler.co/pages/faq.html
 - Workflows and pricing: https://quickler.co/pages/services.html

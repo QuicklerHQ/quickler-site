@@ -1,11 +1,36 @@
 {
   "links": [
-    { "label": "Home", "href": "/" },
-    { "label": "Workflows", "href": "/pages/services.html" },
-    { "label": "Pricing", "href": "/pages/pricing.html" },
-    { "label": "About", "href": "/pages/about.html" },
-    { "label": "Support", "href": "/pages/help/index.html" }
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Features",
+      "href": "/pages/features.html"
+    },
+    {
+      "label": "Workflows",
+      "href": "/pages/services.html"
+    },
+    {
+      "label": "Pricing",
+      "href": "/pages/pricing.html"
+    },
+    {
+      "label": "About",
+      "href": "/pages/about.html"
+    },
+    {
+      "label": "Support",
+      "href": "/pages/help/index.html"
+    }
   ],
-  "login": { "label": "Login", "href": "https://app.quickler.co/login" },
-  "cta": { "label": "Try on WhatsApp", "href": "/pages/demo.html" }
+  "login": {
+    "label": "Login",
+    "href": "https://app.quickler.co/login"
+  },
+  "cta": {
+    "label": "Try on WhatsApp",
+    "href": "/pages/demo.html"
+  }
 }
