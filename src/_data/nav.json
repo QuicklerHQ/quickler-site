@@ -1,20 +1,16 @@
 {
   "links": [
     {
-      "label": "Home",
-      "href": "/"
-    },
-    {
       "label": "Features",
       "href": "/pages/features.html"
     },
     {
-      "label": "Workflows",
-      "href": "/pages/services.html"
-    },
-    {
       "label": "Pricing",
       "href": "/pages/pricing.html"
+    },
+    {
+      "label": "Use cases",
+      "href": "/pages/services.html"
     },
     {
       "label": "About",
