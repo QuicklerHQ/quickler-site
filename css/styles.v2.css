@@ -3310,6 +3310,8 @@ a.callout-btn {
 
     nav {
         padding: 12px 18px 12px 22px;
+        /* keep the pill from stretching to the full shell on a wide screen */
+        max-width: 1380px;
     }
 
     .nav-name img {
@@ -3338,6 +3340,30 @@ a.callout-btn {
     .impact-box {
         min-height: 0;
         padding: 34px;
+    }
+}
+
+/* ---------------------------------------------------------------------------
+   WIDE SCREENS (21 Oct 2026)
+   The shell used to stop growing at 1380px, so on a 1920px monitor the page
+   used 72% of the screen and on a 2560px one just 54%: a narrow column of
+   content marooned in dead space. Philip: "a butt tonne of pages only work on
+   50% zoom".
+
+   The fix widens the SHELL only -- nav, sections, card grids. Text columns keep
+   their ch-based caps (.story-lede 44ch, .story-text 52ch), because a line of
+   prose 200 characters wide is genuinely harder to read, not better. So the
+   page fills the screen without the paragraphs turning into a wall.
+   --------------------------------------------------------------------------- */
+@media (min-width: 1500px) {
+    :root {
+        --content-width: 1560px;
+    }
+}
+
+@media (min-width: 1800px) {
+    :root {
+        --content-width: 1720px;
     }
 }
 
@@ -4767,7 +4793,10 @@ nav {
     border-color: #ffffff;
 }
 .story-inner {
-    max-width: var(--width-page);
+    /* --content-width, not the fixed --width-page token: it tracks the wide
+       -screen ladder (1200 / 1380 / 1560 / 1720) so sections keep growing on a
+       big monitor instead of stopping dead at 1200px. */
+    max-width: var(--content-width, var(--width-page));
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -5065,7 +5094,12 @@ nav {
     grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
     gap: clamp(18px, 2.5vw, 28px);
     width: 100%;
-    max-width: min(100%, calc(var(--cols) * 340px));
+    /* Per-column width grows with the viewport instead of sitting at a flat
+       340px, so on a wide monitor the cards fill the section rather than
+       huddling in the middle. The 340px floor is what keeps headings from
+       breaking mid-word; the 420px ceiling stops a 2-card row sprawling. */
+    --col-w: clamp(340px, 24vw, 420px);
+    max-width: min(100%, calc(var(--cols) * var(--col-w)));
     margin-inline: auto;
     text-align: left;
 }
@@ -5603,9 +5637,14 @@ nav {
 
 /* Comparison tables inside article panels. Centred block, left-aligned cells,
    subtle hairlines. Inherits white text on gradient/photo panels. */
+/* The body is an inline-level/shrink-to-fit box in a centred flex column, so a
+   table inside it collapsed to its content width (451px on the pricing page)
+   and the table's own max-width never got the chance to apply. Giving the body
+   the full column lets the table reach its 44em cap and stay readable. */
+.story-article-body:has(table) { width: 100%; }
 .story-article-body table {
     margin: 0.8em auto; border-collapse: collapse; text-align: left;
-    font-size: clamp(0.9rem, 1.1vw, 1rem); max-width: 44em; width: 100%;
+    font-size: clamp(0.95rem, 1.05vw, 1.05rem); max-width: 44em; width: 100%;
 }
 .story-article-body th,
 .story-article-body td {
