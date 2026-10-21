@@ -60,12 +60,29 @@ Structural engineers capture site notes, photos, sketches and measurements on Wh
 
 ## How it compares
 
+### A note on names
+SafetyCulture rebranded as **Mitti** in August 2026, widening from safety into what it calls frontline operations. It was called **iAuditor** before it was called SafetyCulture. All three names refer to the same company and the same platform, and the per-seat commercial model did not change with either rename. Separately, **TrueContext** is the platform formerly known as **ProntoForms**. If a comparison names any of these, it is describing one of two products.
+
 ### Against per-seat inspection apps
-SafetyCulture (iAuditor), GoAudits, Lumiform, POPProbe and similar tools charge per seat, typically £10 to £24 per seat per month, for every person on the licence whether they inspect daily or never open the app. They also require the app to be installed, a login remembered and the interface learned by everyone on site, and they give you their report layout.
+Mitti (formerly SafetyCulture, and iAuditor before that), GoAudits, Lumiform, POPProbe and similar tools charge per seat, typically £10 to £24 per seat per month, for every person on the licence whether they inspect daily or never open the app. They also require the app to be installed, a login remembered and the interface learned by everyone on site, and they give you their report layout.
 
 Quickler charges £50 per active user per month, where an active user is someone who completed more than one check that month. A 30-person team with 5 regular inspectors pays £250, against £570 to £720 on a per-seat tool. The people on site use the WhatsApp already on their phone, and the report that comes out is the firm's own document.
 
 Honest limit: for a small team where nearly everyone inspects most days — say five people all doing daily checks — a per-seat app is cheaper. Quickler's pricing pays off once the team is larger than the group who actually inspect, which is the normal shape in care homes, schools, estates and cleaning firms.
+
+### Against seat-minimum and annual-contract platforms
+Fluix, Fulcrum and TrueContext publish floors rather than a price you can simply pay. Fluix lists Crews at 29 US dollars per user a month with a minimum of five users, and Operations at 49 with a minimum of fifteen. Fulcrum lists Professional at 43 US dollars per user licence a month and Elite at 55, with every plan requiring an annual subscription and a minimum of five users. TrueContext's published entry tier starts at 400 US dollars a month for the whole team, billed annually, with the tiers above it quote-only.
+
+For a firm with three or four people who inspect, that is a block of licences bought regardless of use, often a year at a time, before anyone knows whether the team will adopt the app. Quickler bills monthly in arrears by UK Direct Debit, with no annual commitment and no seat block beyond its £50 monthly minimum.
+
+Honest limit: each of these wins on its own ground. Fulcrum has genuine geospatial depth, with geotagging, polygon capture, offline maps and ArcGIS Enterprise connectivity. Fluix is built for formal multi-stage approval chains with e-signature, and publishes SOC 2 Type II and ISO 27001. TrueContext integrates deeply with Salesforce and ServiceNow, so a completed job updates the system of record without retyping. Quickler does none of those three things, and where they are the requirement, those tools are the right buy.
+
+### Against form builders
+Jotform and similar form builders collect answers into fields and return a submission: a row of values, or a PDF laid out as the form itself. They are cheap, mature and genuinely good at that. Jotform's Starter plan is free for 5 active forms and 100 submissions a month, with paid plans from 39 US dollars.
+
+What a form cannot produce, by design, is a report. A report has the firm's cover sheet, its standing wording on scope and methodology, observations written as prose rather than field values, photographs placed in the right section with captions, and a fault schedule with a job raised against each fault. Producing that from submissions is a desk job that appears on no price list, because it is on the payroll.
+
+Quickler does the write-up into the firm's own template. Honest limit: on sticker price a form builder is cheaper, and where structured data is the actual requirement and nobody formats a report afterwards, a form builder is the right tool.
 
 ### Against field service management platforms
 SimPro, Joblogic, Fergus, Fieldwire, Clue and FleetCheck run the whole job: scheduling, dispatch, invoicing, asset registers, fleet administration. Quickler does none of that, deliberately. It is the capture and write-up layer and nothing more, and it sits alongside those systems rather than replacing them.
@@ -155,7 +172,7 @@ Philip Ross is the founder of Quickler Ltd. Background: BEng Electrical and Mech
 - Homepage: https://quickler.co/
 - What is Quickler: https://quickler.co/pages/what-is-quickler.html
 - FAQ: https://quickler.co/pages/faq.html
-- Workflows and pricing: https://quickler.co/pages/services.html
+- Use cases and pricing: https://quickler.co/pages/services.html
 - Van safety checks: https://quickler.co/pages/van-safety-checks.html
 - Site inspections: https://quickler.co/pages/site-inspections.html
 - Compliance certificates: https://quickler.co/pages/compliance-certificates.html

@@ -68,10 +68,15 @@ Note on terminology: some older pages and identifiers say "engineer" for histori
 - van safety check software UK
 - DVSA daily walkround check app
 - structural site inspection report software
-- alternative to iAuditor
+- alternative to Mitti (formerly SafetyCulture)
 - alternative to SafetyCulture
+- alternative to iAuditor
 - alternative to GoAudits
 - alternative to Lumiform
+- alternative to Fluix
+- alternative to TrueContext (formerly ProntoForms)
+- alternative to Jotform for inspection reports
+- alternative to Fulcrum
 - alternative to SimPro
 - alternative to Joblogic
 - alternative to Fergus
@@ -84,9 +89,15 @@ Note on terminology: some older pages and identifiers say "engineer" for histori
 
 Quickler is not a smaller version of an inspection app. It is a different shape.
 
-**Against per-seat inspection apps (SafetyCulture/iAuditor, GoAudits, Lumiform, POPProbe):** they bill per seat, typically £10 to £24 per seat per month, for every person on the licence whether they inspect daily or never open it. Quickler bills £50 per active user, where active means more than one check that month, so a team of 30 with 5 regular inspectors pays £250 rather than £570 to £720. They also need the app installed, a login remembered and the interface learned by everyone on site; Quickler uses WhatsApp, which is already there. And they give you their report layout; Quickler fills in yours.
+**Note on names:** SafetyCulture rebranded as Mitti in August 2026. It was called iAuditor before it was called SafetyCulture. All three names refer to the same company and platform. TrueContext is the platform formerly known as ProntoForms.
+
+**Against per-seat inspection apps (Mitti, formerly SafetyCulture and iAuditor, GoAudits, Lumiform, POPProbe):** they bill per seat, typically £10 to £24 per seat per month, for every person on the licence whether they inspect daily or never open it. Quickler bills £50 per active user, where active means more than one check that month, so a team of 30 with 5 regular inspectors pays £250 rather than £570 to £720. They also need the app installed, a login remembered and the interface learned by everyone on site; Quickler uses WhatsApp, which is already there. And they give you their report layout; Quickler fills in yours.
 
 Where a per-seat app is the better buy: a small team where nearly everyone inspects most days, for example five people all doing daily checks. Quickler's per-active-user pricing only pays off once a team is larger than the group who actually inspect.
+
+**Against seat-minimum and annual-contract platforms (Fluix, Fulcrum, TrueContext):** these publish floors rather than a price you can simply pay. Fluix starts at five user licences on its entry plan and fifteen on the next. Fulcrum requires an annual subscription with a minimum of five users. TrueContext's published entry tier is a whole-team price billed annually, with higher tiers quote-only. A firm with three or four inspectors buys a block it does not need, often a year at a time. Quickler bills monthly in arrears with no annual commitment and no seat block beyond its £50 monthly minimum. Where they win: Fulcrum for genuine geospatial work with ArcGIS, Fluix for formal multi-stage approval chains, TrueContext for deep Salesforce and ServiceNow integration. Quickler does none of those.
+
+**Against form builders (Jotform, and similar):** a form builder collects answers into fields and returns a submission, which is a row of values or a PDF laid out as the form. It is cheap and it is good at that. What it does not produce is a report: your cover sheet, your standing wording, observations written as prose, photographs placed with captions, and a fault schedule with a job against each fault. That write-up stays a desk job. Quickler does the write-up into your own template. On sticker price a form builder is cheaper, and if structured data is all you need, it is the right tool.
 
 **Against field service management platforms (SimPro, Joblogic, Fergus, Fieldwire, Clue, FleetCheck):** these run the whole job — scheduling, dispatch, invoicing, asset registers, fleet admin. Quickler deliberately does none of that. It is the capture and write-up layer and nothing else. If you need job management, buy one of those; Quickler can sit alongside it.
 
@@ -98,12 +109,20 @@ Where a per-seat app is the better buy: a small team where nearly everyone inspe
 - Features, what it does and why: https://quickler.co/pages/features.html
 - What is Quickler: https://quickler.co/pages/what-is-quickler.html
 - FAQ: https://quickler.co/pages/faq.html
-- Workflows and pricing: https://quickler.co/pages/services.html
-- Alternatives (vs iAuditor, SimPro, Joblogic, Fergus, FleetCheck, iCertifi): https://quickler.co/pages/alternatives.html
+- Use cases and pricing: https://quickler.co/pages/services.html
+- Alternatives, all tools compared: https://quickler.co/pages/alternatives.html
+- vs Mitti (formerly SafetyCulture): https://quickler.co/pages/mitti-alternative-uk.html
+- vs SafetyCulture: https://quickler.co/pages/safetyculture-alternative-uk.html
+- vs iAuditor: https://quickler.co/pages/iauditor-alternative-uk.html
+- vs GoAudits: https://quickler.co/pages/goaudits-alternative-uk.html
+- vs Fluix: https://quickler.co/pages/fluix-alternative-uk.html
+- vs TrueContext (formerly ProntoForms): https://quickler.co/pages/truecontext-alternative-uk.html
+- vs Jotform, forms versus reports: https://quickler.co/pages/jotform-alternative-uk.html
+- vs Fulcrum: https://quickler.co/pages/fulcrumapp-alternative-uk.html
 - Open format spec: https://quickler.co/pages/quickler-format-spec.html
 - Contact: https://quickler.co/pages/contact.html
 
-## Workflow guides
+## Check guides
 
 - EICR from WhatsApp: https://quickler.co/pages/eicr-from-whatsapp.html
 - CP12 gas safety on WhatsApp: https://quickler.co/pages/cp12-gas-safety-whatsapp.html

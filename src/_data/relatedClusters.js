@@ -218,7 +218,12 @@ const clusters = {
     pages: [
       ["iauditor-alternative-uk", "iAuditor alternative"],
       ["safetyculture-alternative-uk", "SafetyCulture alternative"],
+      ["mitti-alternative-uk", "Mitti alternative"],
       ["goaudits-alternative-uk", "GoAudits alternative"],
+      ["fluix-alternative-uk", "Fluix alternative"],
+      ["truecontext-alternative-uk", "TrueContext alternative"],
+      ["jotform-alternative-uk", "Jotform alternative"],
+      ["fulcrumapp-alternative-uk", "Fulcrum alternative"],
       ["lumiform-alternative-uk", "Lumiform alternative"],
       ["fleetcheck-alternative-uk", "FleetCheck alternative"],
       ["simpro-alternative-uk", "SimPro alternative"],
