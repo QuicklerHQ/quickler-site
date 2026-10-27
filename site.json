@@ -22,7 +22,7 @@
     "jurisdiction": "Scotland, UK",
     "company_number": "SC882439",
     "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/SC882439",
-    "ico_registration": "C1910464",
+    "ico_registration": "ZC124993",
     "founder": "Philip Ross"
   },
   "primary_positioning": "WhatsApp field compliance reports for UK and global trades. No app for engineers to install. No per-user subscription. EU data residency.",
@@ -101,7 +101,7 @@
   },
   "data_and_compliance": {
     "data_residency": "EU",
-    "ico_registration": "C1910464",
+    "ico_registration": "ZC124993",
     "data_processing_agreement": true,
     "customer_owns_data": true,
     "export_format": ["PDF", "CSV"]

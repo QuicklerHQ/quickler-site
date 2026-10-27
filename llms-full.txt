@@ -112,7 +112,7 @@ Pricing is £50 per active user per month, with a £50 monthly minimum. An activ
 ## Data, security and compliance
 
 - All data stored on EU servers
-- Quickler Ltd is registered with the Information Commissioner's Office (ICO C1910464)
+- Quickler Ltd is registered with the Information Commissioner's Office (ICO ZC124993)
 - Customers sign a Data Processing Agreement; the customer is the controller, Quickler is the processor
 - Records are timestamped and linked to engineer, job and date
 - Photos are attached to the originating question for evidence chain
@@ -148,7 +148,7 @@ Pricing is £50 per active user per month, with a £50 monthly minimum. An activ
 
 **Can I use Quickler for structural site inspections?** Yes - structural engineers use Quickler to capture site notes, photos and measurements during the visit.
 
-**How is Quickler GDPR compliant?** ICO registered (C1910464), EU data residency, DPA with each customer, full data subject rights.
+**How is Quickler GDPR compliant?** ICO registered (ZC124993), EU data residency, DPA with each customer, full data subject rights.
 
 **Who owns the data?** The customer. Quickler is the processor; the customer is the controller. Full export available on cancellation.
 
@@ -158,7 +158,7 @@ Pricing is £50 per active user per month, with a £50 monthly minimum. An activ
 - Jurisdiction: Scotland, United Kingdom
 - Company number: SC882439
 - Companies House: https://find-and-update.company-information.service.gov.uk/company/SC882439
-- ICO registration: C1910464
+- ICO registration: ZC124993
 - Founder: Philip Ross
 - Website: https://quickler.co/
 - Contact: hello@quickler.co
