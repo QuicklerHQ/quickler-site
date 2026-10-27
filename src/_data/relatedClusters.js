@@ -235,7 +235,7 @@ const clusters = {
       ["clue-alternative-uk", "Clue alternative"],
       ["iauditor-cost-uk", "iAuditor cost"],
       ["how-to-replace-iauditor-uk", "Replace iAuditor"],
-      ["no-subscription-compliance", "Only pay for active users"],
+      ["no-subscription-compliance", "Only pay for the phone numbers doing checks"],
     ],
   },
   scotland: {
