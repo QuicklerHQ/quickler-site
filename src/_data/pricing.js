@@ -18,7 +18,7 @@
 // uses the dashboard. The first phone number is always charged (£50 minimum). Everything is
 // unlimited on paid (reports, photos, messages, workflows). Free tier: 10
 // reports a month, up to 10 photos per report, unlimited users, free forever.
-// There is NO trial. Billed monthly in arrears by UK Direct Debit. No setup fee.
+// There is NO trial. Billed monthly in arrears by UK Direct Debit.
 //
 // Pages that hardcode a custom pricing sentence in prose should instead use
 // {{ pricing.sentence }} / {{ pricing.shortSentence }} so they stay in sync.
@@ -70,7 +70,6 @@ const included = [
   "Human sign-off",
   "Evidence kept with the job",
   "PDF export",
-  "No setup fee",
 ];
 
 // The free trial. days: 0 disables all trial wording. The free tier (below) is
@@ -114,7 +113,7 @@ const minimumShort = "£50 a month minimum, then £50 per phone number above tha
 const overflowLine = "Big team? Talk to us.";
 
 // Billing line.
-const billing = "Billed monthly in arrears by UK Direct Debit. No setup fee.";
+const billing = "Billed monthly in arrears by UK Direct Debit.";
 
 // ---- Generated, reusable wording (so prose never hardcodes numbers) ----
 // Trial is off; trialLine stays empty so any template reading it renders nothing.
