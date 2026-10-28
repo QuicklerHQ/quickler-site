@@ -12,10 +12,10 @@
 //   3. Update `unit`, `perUnitLine`, `included`, `trial` as needed.
 //   4. Rebuild. Every page that renders pricing via the shortcodes follows.
 //
-// CURRENT MODEL: per PHONE NUMBER. £50 per phone number per month. A phone
+// CURRENT MODEL: per PHONE NUMBER. £75 per phone number per month. A phone
 // number counts when it did at least one check that month. Numbers that do no
 // checks are free, and so is everyone who only gets the reports by email or
-// uses the dashboard. The first phone number is always charged (£50 minimum). Everything is
+// uses the dashboard. The first phone number is always charged (£75 minimum). Everything is
 // unlimited on paid (reports, photos, messages, workflows). Free tier: 10
 // reports a month, up to 10 photos per report, unlimited users, free forever.
 // There is NO trial. Billed monthly in arrears by UK Direct Debit.
@@ -32,10 +32,10 @@ const model = "seat";
 
 // What one unit is, in the current model. Used in generated sentences.
 const unit = {
-  singular: "phone number",             // "£50 per phone number"
+  singular: "phone number",             // "£75 per phone number"
   plural: "phone numbers",              // "only pay for the phone numbers doing checks"
-  perUnitPrice: "£50",                  // headline per-unit price, or "" if not per-unit
-  perUnitLine: "£50 per phone number per month",
+  perUnitPrice: "£75",                  // headline per-unit price, or "" if not per-unit
+  perUnitLine: "£75 per phone number per month",
 };
 
 // The plans/tiers. Keep the SAME shape if you switch model:
@@ -52,7 +52,7 @@ const plans = [
   },
   {
     name: "Paid",
-    price: 50,
+    price: 75,
     priceSuffix: " per phone number / mo",
     quantity: 0,
     quantityLabel: "Only pay for the numbers doing checks. Numbers with no checks are free.",
@@ -101,13 +101,13 @@ const fairUse =
 
 // The monthly minimum. There is always one billable phone number to keep the
 // account live, whether or not anyone files a report that month. So a paid
-// account never costs less than £50 in a month. State this plainly so the first
+// account never costs less than £75 in a month. State this plainly so the first
 // bill is never a surprise.
 const minimumLine =
-  "There is a £50 minimum each month. One phone number is always charged to keep " +
+  "There is a £75 minimum each month. One phone number is always charged to keep " +
   "your account live, whether or not anyone files a report that month. Above " +
   "that minimum you only pay for the people who actually worked.";
-const minimumShort = "£50 a month minimum, then £50 per phone number above that.";
+const minimumShort = "£75 a month minimum, then £75 per phone number above that.";
 
 // Overflow line for big teams.
 const overflowLine = "Big team? Talk to us.";
@@ -130,14 +130,14 @@ const sentence =
 // A short version for tight spots (meta descriptions, cards).
 const shortSentence =
   model === "seat"
-    ? `${unit.perUnitPrice} per phone number per month, ${CURRENCY}50 minimum. Only pay for who works. ${freeTier.shortLine}`
+    ? `${unit.perUnitPrice} per phone number per month, ${CURRENCY}75 minimum. Only pay for who works. ${freeTier.shortLine}`
     : `Plans from ${CURRENCY}${plans[0].price}/mo.`;
 
 // A plain description for guide prose, reads naturally mid-paragraph, no
 // trailing full stop.
 const bundleList =
   model === "seat"
-    ? `${unit.perUnitPrice} per phone number per month with a ${CURRENCY}50 monthly minimum, plus a free tier of ${freeTier.reports} reports a month, and numbers that do no checks are always free`
+    ? `${unit.perUnitPrice} per phone number per month with a ${CURRENCY}75 monthly minimum, plus a free tier of ${freeTier.reports} reports a month, and numbers that do no checks are always free`
     : plans.map((p) => `${p.name} at ${CURRENCY}${p.price} a month`).join(", ");
 
 // The pricing headline as a sentence fragment, for prose openers.
