@@ -40,6 +40,17 @@ Quickler is strongest where the same compliance workflow runs many times per wee
 4. **Report.** Once the engineer submits the final answer, a formatted PDF report is emailed to the manager. The dashboard updates in real time.
 5. **Sign-off.** For workflows that require a qualified signatory (EICR, CP12), the accountable engineer reviews and signs the final PDF. Quickler does not bypass professional sign-off.
 
+## How the AI works, and how to get the best from it
+
+- Old-fashioned code is a light switch: the same result every time. AI is more like a dice: it picks the most likely answer, so it works on chances, not certainties.
+- Every clear thing the person on the job says paints another side of the dice with the right answer. A photo paints a side; "pin in, gauge in the green, in date" paints three more. Paint five sides of six and it is nearly always right; nothing files until somebody says done, and anything Quickler cannot settle is raised for a person rather than guessed.
+- Mentioning the broken extinguisher down the corridor while checking a good one paints the wrong number. Saying only "it's fine" leaves the sides blank.
+- AI cannot paint what it has never seen. Asked about a book it has not read, an AI answers confidently from the reviews. Quickler knows only what is said in that room, plus the firm's Check.
+- Being specific is what makes it work: "John Smith" could be thousands of people; "John Smith at Smith Cleaning in Perth, who I spoke to today" is one.
+- Quickler uses both. Switches (code) handle what must never be wrong, such as Yes, No or N/A only and no question left unanswered. The dice (AI) handles the judgement of which box the words belong in.
+- Most inspection apps work like a lift, stopping at every floor in order. Quickler works like a satnav: walk into a room, say what you see in any order, and it puts each thing in its place and asks only about what is still missing.
+- In short: say what you see, be specific, and stick to what is in front of you.
+
 ## Primary use cases
 
 ### EICR - Electrical Installation Condition Report
