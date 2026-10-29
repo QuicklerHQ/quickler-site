@@ -6,5 +6,8 @@
     for s in scripts %}
     <script src="{{ s }}"></script>
     {%- endfor %}
+    {%- if copyForAi %}
+    <script src="/js/copy-for-ai.js" defer></script>
+    {%- endif %}
   </body>
 </html>

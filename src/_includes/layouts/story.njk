@@ -59,13 +59,18 @@
         {%- if hero.eyebrow %}<p class="story-eyebrow">{{ hero.eyebrow }}</p>{% endif %}
         <h1 class="story-h1">{{ hero.heading | safe }}</h1>
         {%- if hero.lede %}<p class="story-lede">{{ hero.lede | priceTokens | safe }}</p>{% endif %}
-        {%- if hero.actions %}
+        {%- if hero.actions or copyForAi %}
         <div class="story-actions">
-            {%- for a in hero.actions %}
+            {%- for a in hero.actions or [] %}
             {#- An action that leaves the site opens in a new tab, so someone
                 booking a demo still has the page behind them. -#}
             <a href="{{ a.href }}" class="btn {{ a.style or 'btn-primary' }}"{% if '//' in a.href and site.domain not in a.href %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ a.label }}</a>
             {%- endfor %}
+            {#- Help pages (copyForAi, from help.11tydata.json): copy the page as
+                clean text for an AI chat (js/copy-for-ai.js). -#}
+            {%- if copyForAi %}
+            <button type="button" class="btn btn-secondary" data-copy-for-ai>Copy for AI chat</button>
+            {%- endif %}
         </div>
         {%- endif %}
         {%- if hero.actionNote %}<p class="story-action-note">{{ hero.actionNote }}</p>{% endif %}
@@ -423,5 +428,8 @@
 {%- for s in scripts %}
 <script src="{{ s }}"></script>
 {%- endfor %}
+{%- if copyForAi %}
+<script src="/js/copy-for-ai.js" defer></script>
+{%- endif %}
 </body>
 </html>
