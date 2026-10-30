@@ -16,8 +16,8 @@
 // number counts when it did at least one check that month. Numbers that do no
 // checks are free, and so is everyone who only gets the reports by email or
 // uses the dashboard. The first phone number is always charged (£75 minimum). Everything is
-// unlimited on paid (reports, photos, messages, workflows). Free tier: 10
-// reports a month, up to 10 photos per report, unlimited users, free forever.
+// unlimited on paid (Records, photos, messages, Checks). Free tier: 10
+// Records a month, up to 10 photos per Record, unlimited users, free forever.
 // There is NO trial. Billed monthly in arrears by UK Direct Debit.
 //
 // Pages that hardcode a custom pricing sentence in prose should instead use
@@ -47,8 +47,8 @@ const plans = [
     price: 0,
     priceSuffix: "/mo",
     quantity: 10,
-    quantityLabel: "reports a month",
-    note: "Up to 10 photos per report. Unlimited users. Free forever.",
+    quantityLabel: "Records a month",
+    note: "Up to 10 photos per Record. Unlimited users. Free forever.",
   },
   {
     name: "Paid",
@@ -56,7 +56,7 @@ const plans = [
     priceSuffix: " per phone number / mo",
     quantity: 0,
     quantityLabel: "Only pay for the numbers doing checks. Numbers with no checks are free.",
-    note: "Unlimited reports, photos and workflows.",
+    note: "Unlimited Records, photos and Checks.",
   },
 ];
 
@@ -66,10 +66,10 @@ const included = [
   "Only pay for the phone numbers doing checks",
   "Numbers with no checks are free",
   "Unlimited reports and photos",
-  "Unlimited workflows",
+  "Unlimited Checks",
   "Human sign-off",
   "Evidence kept with the job",
-  "PDF export",
+  "PDF download",
 ];
 
 // The free trial. days: 0 disables all trial wording. The free tier (below) is
@@ -84,8 +84,8 @@ const trial = {
 const freeTier = {
   reports: 10,
   photosPerReport: 10,
-  line: "Free forever: 10 reports a month, up to 10 photos per report, unlimited users. No card to start.",
-  shortLine: "Free forever: 10 reports a month. No card, no trial clock.",
+  line: "Free forever: 10 Records a month, up to 10 photos per Record, unlimited users. No card to start.",
+  shortLine: "Free forever: 10 Records a month. No card, no trial clock.",
 };
 
 // Fair-use clause. Backs the "unlimited" promise on paid accounts: unlimited is
@@ -124,7 +124,7 @@ const trialLine = trial.days
 // A full, dense pricing sentence for prose / SEO bodies / FAQ answers.
 const sentence =
   model === "seat"
-    ? `${unit.perUnitLine}. A phone number counts when it did at least one check that month, so you add your whole team and only pay for who actually works. ${minimumLine} Everything is unlimited on a paid account: reports, photos, messages and workflows. ${freeTier.line} ${billing}`
+    ? `${unit.perUnitLine}. A phone number counts when it did at least one check that month, so you add your whole team and only pay for who actually works. ${minimumLine} Everything is unlimited on a paid account: Records, photos, messages and Checks. ${freeTier.line} ${billing}`
     : `Plans from ${CURRENCY}${plans[0].price}/mo. ${billing}`;
 
 // A short version for tight spots (meta descriptions, cards).
@@ -137,7 +137,7 @@ const shortSentence =
 // trailing full stop.
 const bundleList =
   model === "seat"
-    ? `${unit.perUnitPrice} per phone number per month with a ${CURRENCY}75 monthly minimum, plus a free tier of ${freeTier.reports} reports a month, and numbers that do no checks are always free`
+    ? `${unit.perUnitPrice} per phone number per month with a ${CURRENCY}75 monthly minimum, plus a free tier of ${freeTier.reports} Records a month, and numbers that do no checks are always free`
     : plans.map((p) => `${p.name} at ${CURRENCY}${p.price} a month`).join(", ");
 
 // The pricing headline as a sentence fragment, for prose openers.
