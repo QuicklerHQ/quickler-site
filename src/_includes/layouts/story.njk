@@ -90,17 +90,14 @@
     plain:true (white). The auto-rhythm uses loop.index (1-based): odd ->
     gradient band, even -> white. -#}
 {%- for b in blocks %}
-{%- if b.feature %}{% set altcls = "story-feature" %}
-{%- elif b.plain %}{% set altcls = "" %}
-{%- elif b.alt %}{% set altcls = "story-alt" %}
-{%- elif loop.index is odd %}{% set altcls = "story-feature" %}
-{%- else %}{% set altcls = "" %}{% endif %}
+{#- App look (Philip 4 Nov 2026: "work and look basically the same as the web app"): every panel is plain white, no gradient bands, no photo panels. -#}
+{%- set altcls = "" %}
 {%- if b.type == "prose" %}
 {#- bgImage: a full-bleed photo behind this panel with a dark scrim over it so
     the text stays legible. The panel forces the white-on-dark text styling
     (story-photo reuses .story-feature's white text rules) regardless of the
     alternating colour rhythm. -#}
-<section class="story {{ 'story-photo' if b.bgImage else altcls }}"{% if b.bgImage %} style="--bg-photo: url('{{ b.bgImage }}'){% if b.bgDim %}; --scrim-edge: {{ b.bgDim }}; --scrim-mid: {{ b.bgDim - 0.08 }}{% endif %}"{% endif %}>
+<section class="story {{ altcls }}"{% if b.bgImage %} style="--bg-photo: url('{{ b.bgImage }}'){% if b.bgDim %}; --scrim-edge: {{ b.bgDim }}; --scrim-mid: {{ b.bgDim - 0.08 }}{% endif %}"{% endif %}>
     <div class="story-inner">
         {%- if b.eyebrow %}<p class="story-eyebrow">{{ b.eyebrow }}</p>{% endif %}
         {%- if b.heading %}<h2 class="story-h2">{{ b.heading | safe }}</h2>{% endif %}
@@ -108,8 +105,8 @@
     </div>
 </section>
 {%- elif b.type == "split" %}
-<section class="story {{ 'story-photo' if b.bgImage else altcls }}"{% if b.bgImage %} style="--bg-photo: url('{{ b.bgImage }}'){% if b.bgDim %}; --scrim-edge: {{ b.bgDim }}; --scrim-mid: {{ b.bgDim - 0.08 }}{% endif %}"{% endif %}>
-    {%- if b.bgImage %}
+<section class="story {{ altcls }}"{% if b.bgImage %} style="--bg-photo: url('{{ b.bgImage }}'){% if b.bgDim %}; --scrim-edge: {{ b.bgDim }}; --scrim-mid: {{ b.bgDim - 0.08 }}{% endif %}"{% endif %}>
+    {%- if false %}
     {#- Photo-backed split: full-panel photo + scrim (like prose). The media
         column is dropped; copy centres so the text reads over the photo. -#}
     <div class="story-inner">
@@ -176,7 +173,7 @@
     </div>
 </section>
 {%- elif b.type == "cta" %}
-<section class="story story-cta {{ 'story-photo' if b.bgImage else altcls }}"{% if b.bgImage %} style="--bg-photo: url('{{ b.bgImage }}'){% if b.bgDim %}; --scrim-edge: {{ b.bgDim }}; --scrim-mid: {{ b.bgDim - 0.08 }}{% endif %}"{% endif %}>
+<section class="story story-cta {{ altcls }}"{% if b.bgImage %} style="--bg-photo: url('{{ b.bgImage }}'){% if b.bgDim %}; --scrim-edge: {{ b.bgDim }}; --scrim-mid: {{ b.bgDim - 0.08 }}{% endif %}"{% endif %}>
     <div class="story-inner">
         {%- if b.eyebrow %}<p class="story-eyebrow">{{ b.eyebrow }}</p>{% endif %}
         <h2 class="story-h2">{{ b.heading | safe }}</h2>
@@ -248,10 +245,7 @@
 {#- photo every 3rd panel (if the page has an articlePhoto); else alternate
     gradient (odd) / white (even), exactly like the blocks loop. -#}
 {%- set usePhoto = articlePhoto and (loop.index0 % 3 == 2) and ap.kind != 'lede' and ap.kind != 'takeaways' %}
-{%- if usePhoto %}{% set acls = "story-photo" %}
-{%- elif ap.kind == 'lede' %}{% set acls = "" %}
-{%- elif n is odd %}{% set acls = "story-feature" %}
-{%- else %}{% set acls = "" %}{% endif %}
+{%- set usePhoto = false %}{%- set acls = "" %}
 <section class="story story-article story-article-{{ ap.kind or 'default' }} {{ acls }}"{% if usePhoto %} style="--bg-photo: url('{{ articlePhoto }}'); --scrim-edge: 0.92; --scrim-mid: 0.84"{% endif %}>
     <div class="story-inner story-article-inner">
         {%- if ap.eyebrow %}<p class="story-eyebrow">{{ ap.eyebrow }}</p>{% endif %}
@@ -269,7 +263,7 @@
     before it. `relatedLinks`: [{ label, href, blurb? }] in front-matter. -#}
 {%- if relatedLinks and relatedLinks | length %}
 {%- set rn = ((blocks | length) or 0) + ((articlePanels | length) or 0) + 1 %}
-<section class="story story-article story-related {{ 'story-feature' if rn is odd }}">
+<section class="story story-article story-related ">
     <div class="story-inner story-article-inner">
         <p class="story-eyebrow">Keep reading</p>
         <h2 class="story-h2">Related guides</h2>

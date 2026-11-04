@@ -1,0 +1,230 @@
+/* APP LOOK (Philip 4 Nov 2026: "redesign the website to work and look basically
+   the same as the web app", "do every single page"). Loaded after styles.v2.css
+   on every page. Values copied from the web app's own base.css so the two read
+   as one product: white page, white pill top bar, one calm column of white
+   cards with a thin blue-grey line, blue pill for the main action. */
+
+:root {
+    --app-ink-strong: #0c1734;
+    --app-ink: #213055;
+    --app-ink-soft: #5c6b90;
+    --app-line: rgba(24, 52, 132, 0.18);
+    --app-line-strong: rgba(24, 52, 132, 0.25);
+    --app-accent: #1a52d0;
+    --app-accent-hover: #1a57f0;
+    --app-tint: rgba(47, 107, 255, 0.08);
+    --app-col: 960px;
+}
+
+html, body { background: #ffffff !important; color: var(--app-ink); }
+
+/* Top bar: the app's white pill. */
+body nav[aria-label="Primary"] {
+    position: sticky;
+    top: max(10px, env(safe-area-inset-top, 0px));
+    z-index: 100;
+    width: min(calc(100% - 32px), 1240px);
+    max-width: 1240px;
+    margin: 16px auto 0;
+    padding: 12px 14px 12px 18px;
+    background: #ffffff !important;
+    border: 1px solid var(--app-line) !important;
+    border-radius: 999px;
+    box-shadow: 0 2px 12px rgba(18, 41, 111, 0.08) !important;
+}
+body nav[aria-label="Primary"] .nav-name {
+    background: none !important; box-shadow: none !important;
+    padding: 0 !important; border-radius: 0 !important; height: auto !important;
+}
+body nav[aria-label="Primary"] .nav-name img { height: 38px; width: auto; }
+body nav[aria-label="Primary"] .nav-menu a {
+    color: var(--app-ink-soft) !important;
+    font-size: 0.92rem; font-weight: 600;
+    padding: 10px 12px; border-radius: 999px;
+    background: none !important; text-shadow: none !important;
+}
+body nav[aria-label="Primary"] .nav-menu a:hover,
+body nav[aria-label="Primary"] .nav-menu a:focus-visible,
+body nav[aria-label="Primary"] .nav-menu a[aria-current="page"] {
+    background: var(--app-tint) !important; color: var(--app-accent) !important;
+}
+body nav[aria-label="Primary"] .nav-menu a.nav-cta-pill {
+    background: var(--app-accent) !important; color: #ffffff !important;
+    border: 1px solid var(--app-accent) !important; padding: 9px 18px;
+    box-shadow: none !important;
+}
+body nav[aria-label="Primary"] .nav-menu a.nav-cta-pill:hover { background: var(--app-accent-hover) !important; }
+body nav[aria-label="Primary"] .nav-toggle {
+    background: #ffffff !important; border: 1px solid var(--app-line-strong) !important;
+}
+body nav[aria-label="Primary"] .hamburger-line { background: var(--app-accent) !important; }
+@media (max-width: 900px) {
+    body nav[aria-label="Primary"] { border-radius: 22px; padding: 10px 12px; }
+    body nav[aria-label="Primary"] .nav-name img { height: 28px; }
+    body nav[aria-label="Primary"].nav-open .nav-menu {
+        background: #ffffff !important; border: 1px solid var(--app-line) !important;
+        border-radius: 18px; box-shadow: 0 8px 32px rgba(18, 41, 111, 0.1) !important;
+    }
+}
+
+/* Sections: no bands, no photos. Each panel is one white card in one column. */
+.story, .story.story-alt, .story.story-feature, .story.story-photo,
+.story.story-hero, .story.story-cta, .story.story-article {
+    background: #ffffff !important; background-image: none !important;
+    color: var(--app-ink) !important;
+    padding: 14px 16px !important; min-height: 0 !important;
+}
+.story .story-inner, .story .story-article-inner {
+    max-width: var(--app-col) !important; margin: 0 auto !important;
+    background: #ffffff;
+    border: 1px solid var(--app-line-strong);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(18, 41, 111, 0.05);
+    padding: clamp(22px, 4vw, 40px) !important;
+}
+.story.story-hero { padding-top: 40px !important; }
+.story.story-hero .story-inner { border: 0; box-shadow: none; padding-top: 8px !important; }
+.story-footer .story-inner, .story-seo .story-seo-inner { border: 0; box-shadow: none; }
+
+/* Type: the app's sizes, not poster sizes. */
+.story .story-h1 {
+    color: var(--app-ink-strong) !important;
+    font-size: clamp(1.9rem, 4.2vw, 2.7rem) !important;
+    line-height: 1.12; letter-spacing: -0.02em; text-shadow: none !important;
+}
+.story .story-h2 {
+    color: var(--app-ink-strong) !important;
+    font-size: clamp(1.35rem, 2.6vw, 1.75rem) !important;
+    line-height: 1.2; letter-spacing: -0.02em; text-shadow: none !important;
+}
+.story .story-h2::after { display: none !important; }
+.story .story-eyebrow {
+    color: var(--app-accent) !important; text-shadow: none !important;
+    font-size: 0.78rem; letter-spacing: 0.08em;
+}
+.story .story-text, .story .story-lede, .story .story-article-body,
+.story .story-article-body p, .story .story-article-body li {
+    color: var(--app-ink) !important; text-shadow: none !important;
+    font-size: 1.04rem; line-height: 1.6;
+}
+.story .story-lede { color: var(--app-ink-soft) !important; font-size: 1.12rem; }
+.story a:not(.btn):not(.story-card):not(.story-tag) { color: var(--app-accent); }
+
+/* Cards, steps and tags: the rows of the app's Checks list. */
+.story .story-card, .story .story-step {
+    background: #ffffff !important; color: var(--app-ink) !important;
+    border: 1px solid var(--app-line-strong) !important;
+    border-radius: 16px !important; box-shadow: none !important;
+    transition: border-color 0.15s ease, background 0.15s ease;
+}
+.story a.story-card:hover { border-color: rgba(47, 107, 255, 0.45) !important; background: #fbfcff !important; transform: none !important; }
+.story .story-card h3, .story .story-step h3 { color: var(--app-ink-strong) !important; }
+.story .story-card p, .story .story-step p { color: var(--app-ink) !important; }
+.story .story-card-kicker { color: var(--app-accent) !important; }
+.story .story-step-n { background: var(--app-accent) !important; color: #ffffff !important; }
+.story .story-tag {
+    background: #ffffff !important; color: var(--app-ink-soft) !important;
+    border: 1.5px solid var(--app-line-strong) !important; border-radius: 8px !important;
+}
+.story .story-tag:hover { color: var(--app-accent) !important; border-color: rgba(47, 107, 255, 0.35) !important; background: rgba(47, 107, 255, 0.05) !important; }
+
+/* Buttons: the app's. Main action a blue pill; others an outline. */
+.btn {
+    border-radius: 8px !important; box-shadow: none !important;
+    border: 1.5px solid var(--app-line-strong) !important;
+    background: #ffffff !important; color: var(--app-ink-soft) !important;
+    font-weight: 600; text-decoration: none !important;
+}
+.btn:hover { background: rgba(47, 107, 255, 0.05) !important; border-color: rgba(47, 107, 255, 0.3) !important; color: var(--app-accent) !important; }
+.btn.btn-primary {
+    border-radius: 999px !important;
+    background: var(--app-accent) !important; border-color: var(--app-accent) !important; color: #ffffff !important;
+}
+.btn.btn-primary:hover { background: var(--app-accent-hover) !important; border-color: var(--app-accent-hover) !important; color: #ffffff !important; }
+
+/* Tables inside article cards. */
+.story-article-body table { border: 1px solid var(--app-line-strong); border-radius: 12px; overflow: hidden; }
+.story-article-body th { background: #f6f9ff; color: var(--app-ink-strong); }
+.story-article-body td, .story-article-body th { border-color: var(--app-line) !important; }
+
+footer, .site-footer { background: #ffffff !important; color: var(--app-ink-soft) !important; border-top: 1px solid var(--app-line); }
+footer a, .site-footer a { color: var(--app-ink-soft) !important; }
+footer a:hover, .site-footer a:hover { color: var(--app-accent) !important; }
+
+/* The web app scrolls like a normal page. No full-screen panels, no snap,
+   no down-arrow. */
+body.page-story { height: auto !important; min-height: 100vh; overflow: visible !important; overflow-x: hidden !important; background: #ffffff !important; }
+.story-scroll {
+    height: auto !important; overflow: visible !important;
+    scroll-snap-type: none !important; scroll-behavior: auto;
+    padding-bottom: 32px;
+}
+.story { height: auto !important; scroll-snap-align: none !important; scroll-snap-stop: normal !important; justify-content: flex-start !important; }
+.story .story-inner { max-height: none !important; overflow: visible !important; }
+[class*="scroll-arrow"], [class*="story-arrow"], .story-next, .scroll-cue { display: none !important; }
+body nav[aria-label="Primary"] { position: sticky !important; left: auto !important; right: auto !important; }
+
+/* Split panels get the same card as every other panel; cards sit two to a row
+   so the words have room. */
+.story .story-split {
+    max-width: var(--app-col) !important; margin: 0 auto !important;
+    background: #ffffff; border: 1px solid var(--app-line-strong); border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(18, 41, 111, 0.05); padding: clamp(22px, 4vw, 40px) !important;
+}
+.story .story-split .story-inner { border: 0 !important; box-shadow: none !important; padding: 0 !important; }
+.story .story-cards { display: grid !important; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)) !important; gap: 14px !important; max-width: none !important; }
+.story .story-steps { display: grid !important; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)) !important; gap: 14px !important; max-width: none !important; }
+.story .story-article-body h3 { color: var(--app-ink-strong); margin-top: 1.2em; }
+
+/* LITERALLY THE APP (Philip 4 Nov 2026 23:06: "literally redesign everything to
+   be like the app.quickler.co"). The app's page is one white panel with a thin
+   border (its "All Checks" panel) holding a list of rounded rows. Here: the page
+   body is that panel, every section is one of its rows, text left-aligned, row
+   titles in the app's bold row size, the label above a row in the app's plain
+   panel-label style. */
+.story-scroll {
+    max-width: 960px !important; margin: 48px auto 40px !important;
+    border: 1px solid var(--app-line-strong); border-radius: 20px;
+    background: #ffffff; box-shadow: 0 8px 32px rgba(18, 41, 111, 0.05);
+    padding: 26px 28px 12px !important;
+}
+.story-scroll > .story, .story-scroll .story { padding: 0 0 14px !important; }
+.story .story-inner, .story .story-article-inner, .story .story-split {
+    max-width: none !important; border-radius: 16px !important;
+    border: 1px solid var(--app-line-strong) !important; box-shadow: none !important;
+    padding: 22px 24px !important; text-align: left !important;
+}
+.story .story-text-centre, .story .story-inner, .story .story-actions, .story .story-h1, .story .story-h2,
+.story .story-eyebrow, .story .story-lede, .story .story-action-note { text-align: left !important; justify-content: flex-start !important; margin-left: 0 !important; margin-right: 0 !important; }
+.story .story-eyebrow {
+    color: var(--app-ink) !important; text-transform: none !important; letter-spacing: 0 !important;
+    font-weight: 500 !important; font-size: 0.98rem !important; margin: 0 0 10px !important;
+}
+.story .story-h2 { font-size: clamp(1.15rem, 2vw, 1.3rem) !important; font-weight: 700 !important; margin: 0 0 8px !important; }
+.story .story-h1 { font-size: clamp(1.6rem, 3.4vw, 2.1rem) !important; margin: 0 0 12px !important; }
+.story.story-hero { padding-top: 0 !important; }
+.story.story-hero .story-inner { border: 1px solid var(--app-line-strong) !important; padding-top: 22px !important; }
+.story .story-text, .story .story-article-body p, .story .story-article-body li { font-size: 0.98rem !important; }
+.story .story-lede { font-size: 1.02rem !important; max-width: none !important; }
+.story .story-card, .story .story-step { border-radius: 14px !important; padding: 16px 18px !important; }
+.btn { padding: 7px 16px !important; font-size: 0.9rem !important; }
+@media (max-width: 640px) {
+    .story-scroll { margin: 20px 10px 24px !important; padding: 16px 10px 4px !important; }
+    .story .story-inner, .story .story-article-inner, .story .story-split { padding: 16px 16px !important; }
+}
+
+/* Simpler, clearer, whiter (Philip 4 Nov 2026 23:07). No shadows anywhere,
+   lighter lines, every line of text left-aligned. */
+.story-scroll, .story .story-inner, .story .story-article-inner, .story .story-split,
+.story .story-card, .story .story-step, body nav[aria-label="Primary"] { box-shadow: none !important; }
+.story-scroll { border-color: rgba(24, 52, 132, 0.14) !important; }
+.story .story-inner, .story .story-article-inner, .story .story-split,
+.story .story-card, .story .story-step { border-color: rgba(24, 52, 132, 0.14) !important; }
+.story *, .story-scroll * { text-align: left !important; }
+.story .story-h1 br { display: none; }
+.story .story-lede, .story .story-text { color: var(--app-ink) !important; }
+.story .story-inner, .story .story-copy, .story .story-split, .story .story-actions { align-items: flex-start !important; }
+.story .story-eyebrow, .story .story-action-note { align-self: flex-start !important; width: auto !important; }
+.story .story-h1, .story .story-h2, .story .story-text, .story .story-lede { margin-left: 0 !important; margin-right: auto !important; max-width: none !important; }
+.story .story-card-kicker { text-transform: none !important; letter-spacing: 0 !important; color: var(--app-ink-soft) !important; font-weight: 500 !important; font-size: 0.85rem !important; }
+.story .story-card h3, .story .story-step h3 { font-weight: 700 !important; font-size: 1.05rem !important; }
