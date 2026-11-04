@@ -221,10 +221,19 @@ body nav[aria-label="Primary"] { position: sticky !important; left: auto !import
 .story .story-inner, .story .story-article-inner, .story .story-split,
 .story .story-card, .story .story-step { border-color: rgba(24, 52, 132, 0.14) !important; }
 .story *, .story-scroll * { text-align: left !important; }
-.story .story-h1 br { display: none; }
 .story .story-lede, .story .story-text { color: var(--app-ink) !important; }
 .story .story-inner, .story .story-copy, .story .story-split, .story .story-actions { align-items: flex-start !important; }
 .story .story-eyebrow, .story .story-action-note { align-self: flex-start !important; width: auto !important; }
 .story .story-h1, .story .story-h2, .story .story-text, .story .story-lede { margin-left: 0 !important; margin-right: auto !important; max-width: none !important; }
 .story .story-card-kicker { text-transform: none !important; letter-spacing: 0 !important; color: var(--app-ink-soft) !important; font-weight: 500 !important; font-size: 0.85rem !important; }
 .story .story-card h3, .story .story-step h3 { font-weight: 700 !important; font-size: 1.05rem !important; }
+.story .story-tags { justify-content: flex-start !important; }
+.story .story-inner .story-inner, .story .story-inner [class*="pricing-"][class*="card"], .story .story-inner .story-inner-raw { border: 0 !important; padding: 0 !important; box-shadow: none !important; }
+.story-seo, .story-seo .story-seo-inner { background: #ffffff !important; }
+.story-seo .story-seo-inner { border: 1px solid rgba(24, 52, 132, 0.14); border-radius: 16px; max-width: 904px !important; margin: 0 auto 14px !important; }
+.story-article-body table { margin-left: 0 !important; }
+.story pre, .story-article-body pre { max-width: 100%; overflow-x: auto; white-space: pre; }
+.story code { overflow-wrap: anywhere; }
+.story code { display: inline-block; max-width: 100%; overflow-x: auto; vertical-align: bottom; white-space: pre; }
+pre, code { max-width: 100% !important; overflow-x: auto !important; }
+pre code, code { display: inline-block; box-sizing: border-box; }
