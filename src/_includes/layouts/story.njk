@@ -138,7 +138,20 @@
     {%- if hero.lede %}<p class="hey-lede">{{ hero.lede | safe }}</p>{% endif %}
     {%- set a0 = (hero.actions or [])[0] %}{% if a0 %}<a class="hey-btn" href="{{ a0.href }}">{{ a0.label }}</a>{% endif %}
     <div class="hey-note">No obligation, no card needed.</div>
-    {%- if homeVideo %}<div class="hey-frame">{{ blockBody({type: 'video', video: homeVideo.video, portrait: homeVideo.portrait}, site.domain) }}</div>{% endif %}
+    {%- if homeVideo %}
+    {#- HEY's frame (Philip 5 Nov 2026 12:45): a picture of the app under a
+        colour wash, with one white "See how Quickler works" pill; pressing it
+        swaps the picture for the video. -#}
+    <div class="hey-frame hey-frame-mock" id="hey-watch-frame">
+      <div class="hey-mock" aria-hidden="true">
+        <div class="hey-mock-head"><span>All Checks</span><span class="hey-mock-add">+ Add</span></div>
+        {%- for r in [['Fire risk assessment','14 Station Road','3 Faults','Today'],['Fire door inspection','Hillview Care Home','All clear','Today'],['Health and safety site visit','Unit 4, Dock Street','1 Fault','Yesterday'],['Insurance survey','Mill Lane warehouse','2 Faults','Mon'],['COSHH assessment','Hillview School kitchen','All clear','2 Nov'],['Fire risk assessment','The Old Mill flats','4 Faults','30 Oct']] %}
+        <div class="hey-mock-row"><span class="hey-mock-dot{% if 'Fault' in r[2] %} hey-mock-dot-red{% endif %}"></span><span class="hey-mock-main"><b>{{ r[0] }}</b><span>{{ r[1] }} · {{ r[2] }}</span></span><em>{{ r[3] }}</em></div>
+        {%- endfor %}
+      </div>
+      <button type="button" class="hey-watch" onclick="var f=document.getElementById('hey-watch-frame');f.classList.add('hey-frame-playing');f.innerHTML='<div class=&quot;hey-watch-video{% if homeVideo.portrait %} hey-watch-portrait{% endif %}&quot;><iframe src=&quot;https://www.youtube-nocookie.com/embed/{{ homeVideo.video }}?autoplay=1&amp;rel=0&amp;playsinline=1&quot; title=&quot;See how Quickler works&quot; allow=&quot;autoplay; encrypted-media; picture-in-picture; fullscreen&quot; allowfullscreen></iframe></div>';"><svg width="14" height="16" viewBox="0 0 14 16" aria-hidden="true"><path d="M0 0l14 8-14 8z" fill="currentColor"/></svg> See how Quickler works</button>
+    </div>
+    {%- endif %}
   </div>
 
   {%- if wall %}

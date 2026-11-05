@@ -513,3 +513,52 @@ body.app-home .shell-wide, body.app-heypage .shell-wide { width: calc(100% - 2 *
    the screen (Philip 5 Nov 2026 12:37). */
 nav[aria-label="Primary"] { width: min(calc(100% - 32px), 1100px) !important; max-width: 1100px !important; }
 body.app-home .hey, body.app-heypage .hey { max-width: none; }
+
+/* HEY's video frame (Philip 5 Nov 2026 12:45): the app under a colour wash, a
+   white pill to play. */
+.hey-frame-mock { position: relative; max-width: 900px; padding: 22px 22px 0; min-height: 300px; overflow: hidden; }
+.hey-mock { background: #fff; border-radius: 14px 14px 0 0; padding: 18px 20px 6px; text-align: left; }
+.hey-mock-head { display: flex; justify-content: space-between; align-items: center; font-size: 1.15rem; color: #0c1734; margin-bottom: 10px; }
+.hey-mock-add { border: 1px solid #c9cfdc; border-radius: 999px; padding: 3px 12px; font-size: 0.85rem; font-weight: 700; color: #5c6b90; }
+.hey-mock-row { display: flex; align-items: center; gap: 12px; padding: 11px 4px; border-top: 1px solid #eef0f5; }
+.hey-mock-dot { width: 9px; height: 9px; border-radius: 50%; background: #22a06b; flex: none; }
+.hey-mock-dot-red { background: #e5484d; }
+.hey-mock-main { display: flex; flex-direction: column; min-width: 0; flex: 1; }
+.hey-mock-main b { font-size: 0.98rem; color: #0c1734; font-weight: 600; }
+.hey-mock-main span { font-size: 0.85rem; color: #5c6b90; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hey-mock-row em { font-style: normal; font-size: 0.8rem; color: #5c6b90; flex: none; }
+.hey-frame-mock::after { content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(90,79,207,0.78), rgba(124,58,237,0.62) 50%, rgba(244,63,140,0.55)); pointer-events: none; }
+.hey-watch { position: absolute; z-index: 2; left: 50%; top: 50%; transform: translate(-50%, -50%); display: inline-flex; align-items: center; gap: 10px; border: 0; cursor: pointer;
+  background: #fff; color: #0c1734; font: inherit; font-weight: 700; font-size: 1.05rem; padding: 14px 24px; border-radius: 999px; box-shadow: 0 10px 30px rgba(12,23,52,0.25); white-space: nowrap; }
+.hey-watch:hover { transform: translate(-50%, -50%) scale(1.04); }
+.hey-frame-playing { padding: 22px 22px 0; min-height: 0; }
+.hey-frame-playing::after { display: none; }
+.hey-watch-video { position: relative; width: 100%; aspect-ratio: 16 / 9; }
+.hey-watch-video.hey-watch-portrait { width: min(100%, 360px); aspect-ratio: 9 / 16; margin: 0 auto; }
+.hey-watch-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 12px 12px 0 0; }
+
+/* HEY's narrow and phone mode (Philip 5 Nov 2026 12:45): the top bar hugs the
+   top, a MENU word instead of a burger, and the menu opens inside the same white
+   card: big centred links, then SIGN IN and TRY side by side; the page behind
+   blurs. */
+@media (max-width: 1040px) {
+  nav[aria-label="Primary"] { flex-wrap: wrap !important; margin-top: 10px !important; padding: 10px 12px 10px 20px !important; border-radius: 26px !important; }
+  nav[aria-label="Primary"] .nav-name img { height: 32px; }
+  nav[aria-label="Primary"] .nav-toggle { display: inline-flex !important; width: auto !important; height: auto !important; border: 0 !important; background: none !important; box-shadow: none !important;
+    padding: 10px 10px !important; font: inherit; font-weight: 800; font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase; color: #0c1734 !important; margin-left: auto; cursor: pointer; }
+  nav[aria-label="Primary"] .nav-menu { display: none !important; }
+  nav[aria-label="Primary"].nav-open .nav-menu { display: grid !important; position: static !important; inset: auto !important; width: 100% !important; height: auto !important; flex-basis: 100%;
+    grid-template-columns: 1fr 1fr; gap: 4px 10px; padding: 14px 0 6px !important; background: none !important; border: 0 !important; box-shadow: none !important;
+    opacity: 1 !important; visibility: visible !important; transform: none !important; pointer-events: auto !important; }
+  nav[aria-label="Primary"].nav-open .nav-menu a:not(.nav-login):not(.nav-cta-pill) { grid-column: 1 / -1; justify-self: center; font-size: 1.7rem !important; font-weight: 600 !important; padding: 6px 12px !important; color: #0c1734 !important; background: none !important; }
+  nav[aria-label="Primary"].nav-open .nav-menu a.nav-login,
+  nav[aria-label="Primary"].nav-open .nav-menu a.nav-cta-pill { justify-content: center; text-align: center; margin: 22px 0 0 !important; padding: 14px 10px !important; font-size: 0.95rem !important; }
+  body.nav-page-open main, body.nav-page-open footer, body.nav-page-open .hey-float { filter: blur(6px); transition: filter 0.2s ease; }
+}
+@media (max-width: 600px) {
+  body.app-home .shell-wide, body.app-heypage .shell-wide { width: calc(100% - 20px) !important; }
+  .hey-hero { padding-left: 18px; padding-right: 18px; }
+  .hey-btn { font-size: 0.9rem; padding: 14px 22px; }
+  .hey-frame-mock { padding: 14px 14px 0; min-height: 260px; }
+  .hey-watch { font-size: 0.95rem; padding: 12px 18px; }
+}
