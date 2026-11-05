@@ -70,3 +70,38 @@ body.app-home footer, body.app-heypage footer { background: #fdf0f7 !important; 
 .aw.aw-place, .aw.aw-place > *, .aw-ba2 { background: transparent !important; }
 .aw-ba2-h { background: #fff !important; }
 .aw-ba2-arrow { background: #fff; border-radius: 999px; padding: 12px 10px; box-shadow: 0 6px 20px rgba(35,28,51,.10); align-self: center; }
+/* "Snap it there and then": three phone screens with arrows (Philip 5 Nov 2026 15:53). */
+.aw.aw-snap-w, .aw:has(> .aw-snap), .aw:has(.aw-snap) { background: transparent !important; box-shadow: none !important; border: 0 !important; overflow: visible !important; }
+.aw-snap { display: flex; align-items: center; justify-content: center; gap: clamp(8px, 2vw, 22px); }
+.aw-phone { position: relative; width: min(260px, 28vw); aspect-ratio: 9 / 18.5; border-radius: 28px; background: #fff; border: 8px solid #0c1734; box-shadow: 0 16px 44px rgba(35,28,51,.22); display: flex; flex-direction: column; overflow: hidden; }
+.aw-phone-dark { background: #000; }
+.aw-ph-top { display: flex; align-items: center; gap: 8px; padding: 10px; background: #f0f2f5; font-size: .85rem; font-weight: 600; color: #0c1734; }
+.aw-ph-av img { border-radius: 50%; display: block; }
+.aw-ph-chat { flex: 1; padding: 10px 8px; background-color: #fff; background-image: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("/appui/quickler-chat-bg.jpg"); background-size: cover; display: flex; flex-direction: column; justify-content: flex-end; }
+.aw-ph-chat .wa-text { font-size: .72rem; line-height: 1.45; }
+.aw-ph-chat .wa-bubble { max-width: 100% !important; }
+.aw-ph-bar { display: flex; align-items: center; gap: 6px; padding: 8px; background: #f0f2f5; }
+.aw-ph-input { flex: 1; background: #fff; border-radius: 999px; padding: 7px 12px; font-size: .75rem; color: #8a94ad; }
+.aw-ph-cam { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; color: #3b4a6b; }
+.aw-ph-view { flex: 1; overflow: hidden; }
+.aw-ph-view img { width: 100%; height: 100%; object-fit: cover; object-position: 38% 50%; display: block; }
+.aw-ph-shoot { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 12px 0 16px; background: #000; color: #fff; font-size: .7rem; }
+.aw-ph-modes { display: flex; gap: 14px; opacity: .8; } .aw-ph-modes b { color: #ffd54f; }
+.aw-ph-shutter { width: 46px; height: 46px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 4px #000, 0 0 0 7px #fff; }
+.aw-ph-send { display: flex; align-items: center; gap: 8px; padding: 10px 8px 14px; background: #000; }
+.aw-ph-capin { flex: 1; background: #1f2c34; color: #a8b3bd; border-radius: 999px; padding: 8px 12px; font-size: .72rem; }
+.aw-ph-go { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: #25d366; }
+.aw-ph-hot { box-shadow: 0 0 0 3px #e53935 !important; }
+.aw-ph-shutter.aw-ph-hot { box-shadow: 0 0 0 4px #000, 0 0 0 7px #fff, 0 0 0 10px #e53935 !important; }
+.aw-ph-cap { position: absolute; left: 50%; bottom: -40px; transform: translateX(-50%); white-space: nowrap; font-size: .9rem; font-weight: 600; color: #0c1734; }
+.aw-phone { margin-bottom: 44px; overflow: visible; }
+.aw-phone > .aw-ph-top, .aw-phone > .aw-ph-view { border-radius: 20px 20px 0 0; overflow: hidden; }
+.aw-phone > .aw-ph-bar, .aw-phone > .aw-ph-shoot, .aw-phone > .aw-ph-send { border-radius: 0 0 20px 20px; }
+.aw-snap-arrow { flex: none; background: #fff; border-radius: 999px; padding: 8px; box-shadow: 0 6px 20px rgba(35,28,51,.10); }
+@media (max-width: 760px) { .aw-snap { flex-direction: column; } .aw-phone { width: min(240px, 70vw); } .aw-snap-arrow svg { transform: rotate(90deg); } }
+.aw-dl { overflow: visible; }
+.aw-dl-btn { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: transparent; cursor: pointer; border-radius: 8px; }
+.aw-dl-menu { position: absolute; top: calc(100% + 6px); right: 0; z-index: 8; display: flex; flex-direction: column; min-width: 150px; background: #fff; border: 1px solid #dfe3f0; border-radius: 12px; box-shadow: 0 12px 30px rgba(12,23,52,.16); padding: 6px; }
+.aw-dl-menu[hidden] { display: none; }
+.aw-dl-menu a { padding: 8px 12px; border-radius: 8px; color: #0c1734; text-decoration: none; font-size: .9rem; }
+.aw-dl-menu a:hover { background: #f4f5fa; }

@@ -264,3 +264,11 @@
     }
   });
 })();
+
+/* Download in the real report window opens the app's own menu: PDF, CSV,
+   Excel file, Web page (Philip 5 Nov 2026 15:55). */
+document.addEventListener("click", function (e) {
+  var b = e.target.closest && e.target.closest(".aw-dl-btn");
+  document.querySelectorAll(".aw-dl-menu").forEach(function (m) { if (!b || m.parentNode !== b.parentNode) { m.hidden = true; } });
+  if (b) { e.preventDefault(); var m = b.nextElementSibling; m.hidden = !m.hidden; b.setAttribute("aria-expanded", String(!m.hidden)); }
+});
