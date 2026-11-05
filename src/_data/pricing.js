@@ -130,10 +130,11 @@ const shortSentence =
     : `Plans from ${CURRENCY}${plans[0].price}/mo.`;
 
 // A plain description for guide prose, reads naturally mid-paragraph, no
-// trailing full stop.
+// trailing full stop. Kept short (5 Nov 2026): pages follow it with their own
+// "free for everyone else" and "no card" lines, which it used to repeat.
 const bundleList =
   model === "seat"
-    ? `${unit.perUnitPrice} a month for each phone number on the account, after a 14-day free trial with no card needed to start. Reports, the dashboard, sharing and downloads are free for everyone else`
+    ? `${unit.perUnitPrice} a month for each phone number on the account, after a 14-day free trial`
     : plans.map((p) => `${p.name} at ${CURRENCY}${p.price} a month`).join(", ");
 
 // The pricing headline as a sentence fragment, for prose openers.

@@ -450,3 +450,58 @@ body.app-home { background: #f6f4f1 !important; }
 .hey-cloud a:hover { background: #8fefd0; }
 body.app-home .app-section { overflow-x: hidden; }
 body.app-home footer { background: transparent; }
+
+/* EVERY OTHER PAGE AS HEY'S PAGES (Philip 5 Nov 2026 12:13). */
+body.app-heypage { background: #f6f4f1 !important; }
+body.app-heypage .app-section { overflow-x: hidden; }
+.hey-hero-page { padding-bottom: clamp(32px, 5vw, 56px); margin-bottom: 56px; }
+.hey-kicker { font-size: 0.85rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #7C3AED; margin-bottom: 10px; }
+.hey-h1-page { font-size: clamp(2.2rem, 5.4vw, 3.8rem); }
+.hey-sub-page { font-weight: 600; font-size: clamp(1.1rem, 2.2vw, 1.4rem); margin-bottom: 26px; }
+.hey-second { margin-top: 12px; }
+.hey-second a { color: #5A4FCF; font-weight: 700; }
+.hey-body { max-width: 720px; margin: 0 auto; }
+.hey-body .site-words, .hey-body .site-words p, .hey-body .site-words li { font-size: 1.12rem !important; line-height: 1.65 !important; color: #213055 !important; }
+.hey-block-prose .hey-body, .hey-block-split .hey-body, .hey-block-cta .hey-body { text-align: center; }
+.hey-body .site-tiles { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; text-align: left; max-width: 900px; margin: 0 auto; }
+.hey-block-cards .hey-body, .hey-block-steps .hey-body, .hey-block-raw .hey-body { max-width: 900px; text-align: left; }
+.hey-body .rec-tile.site-tile { background: #fff; border: 0 !important; border-radius: 18px; box-shadow: 0 6px 20px rgba(12,23,52,0.07); padding: 22px 24px !important; }
+.hey-body .rec-tile .row-title { font-size: 1.15rem !important; }
+.hey-body .wf-q-read { background: #fff; border-radius: 18px; padding: 10px 24px 6px; box-shadow: 0 6px 20px rgba(12,23,52,0.07); }
+.hey-body .q-row .q-label { font-size: 1.05rem; font-weight: 700; color: #0c1734; }
+.hey-body .site-q-words { font-size: 1.02rem !important; color: #213055 !important; }
+.hey-body .site-pills { justify-content: center; }
+.hey-body .site-pills .btn-round-add { background: #b9f5e1; border: 0; color: #1f2fd0; font-weight: 700; }
+.hey-body .site-actions { justify-content: center; display: flex; }
+.hey-body .site-actions .wf-action-group { background: transparent; gap: 12px; }
+.hey-body .site-actions .wf-action-btn { background: linear-gradient(90deg, #5A4FCF, #7C3AED 55%, #F43F8C); color: #fff !important; border-radius: 999px; padding: 12px 24px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.02em; }
+.hey-body .site-actions .wf-action-btn + .wf-action-btn { background: #e9e5df; color: #0c1734 !important; }
+.hey-body .site-raw { background: #fff; border-radius: 18px; padding: 24px; box-shadow: 0 6px 20px rgba(12,23,52,0.07); }
+.hey-long { text-align: left; background: #fff; border-radius: 18px; padding: 28px; box-shadow: 0 6px 20px rgba(12,23,52,0.07); }
+.hey-long h2, .hey-long h3 { color: #0c1734; }
+
+/* TOP BAR AS HEY'S (Philip 5 Nov 2026 12:13): dark bold links, a NEW badge,
+   a grey "SIGN IN" pill and a gradient "TRY" pill. */
+nav[aria-label="Primary"] { box-shadow: 0 8px 24px rgba(12,23,52,0.08) !important; border: 0 !important; }
+nav[aria-label="Primary"] .nav-menu a { color: #0c1734 !important; font-weight: 700 !important; font-size: 1rem !important; position: relative; }
+nav[aria-label="Primary"] .nav-menu a:hover { background: transparent !important; color: #5A4FCF !important; }
+nav[aria-label="Primary"] .nav-menu a.nav-login { background: #ece8e2 !important; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 800 !important; padding: 10px 18px !important; margin-left: 10px; }
+nav[aria-label="Primary"] .nav-menu a.nav-cta-pill { background: linear-gradient(90deg, #5A4FCF, #2F6BFF) !important; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 800 !important; padding: 10px 20px !important; color: #fff !important; }
+nav[aria-label="Primary"] .nav-new { position: absolute; top: -10px; left: 50%; transform: translateX(-50%) rotate(-6deg); background: #ff6f61; color: #fff; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.06em; padding: 2px 7px; border-radius: 999px; line-height: 1.3; }
+/* The app's Checks panel under every HEY hero (Philip 5 Nov 2026 12:17). */
+.hey-panel { max-width: 900px; margin: 0 auto 40px !important; padding: 26px 28px 20px !important; background: #fff !important; }
+.hey-panel-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 0 0 14px; }
+.hey-panel-head .dash-section-title { font-weight: 400; color: var(--ink); font-size: 1.05rem; }
+.hey-panel .site-drop { margin-bottom: 12px; }
+.hey-panel .site-drop .wf-name.site-h { font-size: 1.15rem; }
+.hey-panel .site-drop-body { padding-top: 6px; }
+.hey-panel-intro { margin: 0 4px 14px; }
+.hey-more { max-width: 900px; margin: 0 auto 40px !important; background: #fff; }
+.hey-quotes { display: flex; justify-content: center; flex-wrap: wrap; gap: 28px; margin: 0 0 18px; }
+.hey-quote { font-style: italic; font-weight: 700; font-size: 1.05rem; color: #0c1734; }
+/* HEY's floating "Try" button, shown once the page scrolls. */
+.hey-float { position: fixed; right: 22px; bottom: 22px; z-index: 90; padding: 14px 24px; border-radius: 999px; font-weight: 800; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.95rem;
+  color: #fff !important; text-decoration: none; background: linear-gradient(90deg, #5A4FCF, #7C3AED 55%, #F43F8C); box-shadow: 0 10px 28px rgba(124,58,237,0.35);
+  opacity: 0; transform: translateY(16px); pointer-events: none; transition: opacity .25s ease, transform .25s ease; }
+.hey-float.hey-float-on { opacity: 1; transform: none; pointer-events: auto; }
+@media (max-width: 600px) { .hey-float { right: 12px; bottom: 12px; padding: 12px 18px; font-size: 0.85rem; } }

@@ -25,6 +25,7 @@
 {%- elif articlePanels %}{% set _mode = 'record' %}
 {%- elif ('pricing' in _pl) or ('about' in _pl) or ('contact' in _pl) or ('/help/' in _pl) or ('faq' in _pl) or ('support' in _pl) or ('plans' in _pl) or ('legal' in _pl) or ('privacy' in _pl) or ('terms' in _pl) or ('cookies' in _pl) or ('dpa' in _pl) %}{% set _mode = 'settings' %}
 {%- else %}{% set _mode = 'checks' %}{% endif %}
+{%- if _mode == 'checks' or _mode == 'settings' %}{% set _mode = 'heypage' %}{% endif %}
 {%- set _chev %}<svg class="wf-expand-chevron" width="16" height="10" viewBox="0 0 12 7" fill="none" aria-hidden="true"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>{% endset %}
 
 {%- macro actionGroup(actions, domain) %}
@@ -131,11 +132,12 @@
     letter on a stack of paper; a coloured band; a cloud of every page. -#}
 <div class="hey">
   <div class="hey-hero">
+    {%- if heroQuotes %}<div class="hey-quotes">{% for q in heroQuotes %}<div class="hey-quote">“{{ q }}”</div>{% endfor %}</div>{% endif %}
     <h1 class="hey-h1">{{ hero.heading | safe }}</h1>
     {%- if hero.sub %}<p class="hey-sub">{{ hero.sub | safe }}</p>{% endif %}
     {%- if hero.lede %}<p class="hey-lede">{{ hero.lede | safe }}</p>{% endif %}
     {%- set a0 = (hero.actions or [])[0] %}{% if a0 %}<a class="hey-btn" href="{{ a0.href }}">{{ a0.label }}</a>{% endif %}
-    {%- if hero.actionNote %}<div class="hey-note">{{ hero.actionNote }}</div>{% endif %}
+    <div class="hey-note">No obligation, no card needed.</div>
     {%- if homeVideo %}<div class="hey-frame">{{ blockBody({type: 'video', video: homeVideo.video, portrait: homeVideo.portrait}, site.domain) }}</div>{% endif %}
   </div>
 
@@ -200,6 +202,67 @@
   </section>
 </div>
 
+{%- elif _mode == 'heypage' %}
+{#- ── EVERY OTHER PAGE, as HEY's own pages (Philip 5 Nov 2026 12:13-12:14: "we
+    can copy things harder", the old Settings-style head "makes no sense"): the
+    same white hero card and gradient headline as Home, then each part a
+    centred section with a gradient headline. -#}
+<div class="hey">
+  <div class="hey-hero hey-hero-page">
+    {%- if hero.eyebrow %}<div class="hey-kicker">{{ hero.eyebrow }}</div>{% endif %}
+    <h1 class="hey-h1 hey-h1-page">{{ hero.heading | safe }}</h1>
+    {%- if hero.lede %}<p class="hey-sub hey-sub-page">{{ hero.lede | priceTokens | safe }}</p>{% endif %}
+    {%- set a0 = (hero.actions or [])[0] %}{% if a0 %}<a class="hey-btn" href="{{ a0.href }}"{% if '//' in a0.href and site.domain not in a0.href %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ a0.label }}</a>{% endif %}
+    {%- if a0 and 'signup' in a0.href %}<div class="hey-note">No obligation, no card needed.</div>{% elif hero.actionNote %}<div class="hey-note">{{ hero.actionNote }}</div>{% endif %}
+  </div>
+  {#- Below the HEY hero, the page's parts sit in the app's own Checks panel
+      (Philip 5 Nov 2026 12:17): a panel title like "All FAQs", a button top
+      right where the app has Add, and each part a Check tile that opens when
+      clicked to show its explanation, with a short answer at the right where
+      the app shows the time. A block whose words hold <h3> questions becomes
+      one tile per question. -#}
+  {%- set _ptitle = panelTitle or ('All ' + (hero.eyebrow or 'about Quickler')) %}
+  {%- set _pbtn = panelButton or {label: 'Contact', href: 'mailto:hello@quickler.co'} %}
+  <div class="card hey-panel" id="wf-section-card">
+    <div class="wf-section-head hey-panel-head">
+      <div class="dash-section-title">{{ _ptitle }}</div>
+      <a class="btn-round-add btn-round-add-primary" href="{{ _pbtn.href }}">{{ _pbtn.label }}</a>
+    </div>
+    {%- for b in blocks or [] %}
+      {%- set _rows = (b.html | qaRows) if (b.html and '<h3' in b.html) else [] %}
+      {%- if _rows | length > 1 %}
+        {%- for r in _rows %}{% if r.q %}
+        {%- set _plain = r.a | striptags | trim %}
+        {%- set _short = 'Yes' if _plain.startsWith('Yes') else ('No' if _plain.startsWith('No.') or _plain.startsWith('No,') else '') %}
+        <details class="wf-card site-drop">
+          <summary class="wf-title-row"><span class="wf-name-block"><h2 class="wf-name site-h">{{ r.q | safe }}</h2></span>{% if _short %}<span class="wf-activity">{{ _short }}</span>{% endif %}<svg class="wf-expand-chevron" width="16" height="10" viewBox="0 0 12 7" fill="none" aria-hidden="true"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></summary>
+          <div class="wf-body site-drop-body"><div class="site-words">{{ r.a | priceTokens | safe }}</div></div>
+        </details>
+        {%- elif r.a | striptags | trim %}
+        <div class="site-words hey-panel-intro">{{ r.a | priceTokens | safe }}</div>
+        {%- endif %}{% endfor %}
+      {%- else %}
+      <details class="wf-card site-drop">
+        <summary class="wf-title-row"><span class="wf-name-block"><h2 class="wf-name site-h">{{ (b.heading or b.videoName or b.eyebrow or 'More') | safe }}</h2></span>{% if b.answer or (b.eyebrow and b.heading) %}<span class="wf-activity">{{ b.answer or b.eyebrow }}</span>{% endif %}<svg class="wf-expand-chevron" width="16" height="10" viewBox="0 0 12 7" fill="none" aria-hidden="true"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></summary>
+        <div class="wf-body site-drop-body">{{ blockBody(b, site.domain) }}</div>
+      </details>
+      {%- endif %}
+    {%- endfor %}
+    {#- The questions written in the page's long text become tiles too. -#}
+    {%- set _srows = (seoBody | qaRows) if (seoBody and '<h3' in seoBody) else [] %}
+    {%- for r in _srows %}{% if r.q %}
+      {%- set _plain = r.a | striptags | trim %}
+      {%- set _short = 'Yes' if _plain.startsWith('Yes') else ('No' if _plain.startsWith('No.') or _plain.startsWith('No,') else '') %}
+      <details class="wf-card site-drop">
+        <summary class="wf-title-row"><span class="wf-name-block"><h3 class="wf-name site-h">{{ r.q | safe }}</h3></span>{% if _short %}<span class="wf-activity">{{ _short }}</span>{% endif %}<svg class="wf-expand-chevron" width="16" height="10" viewBox="0 0 12 7" fill="none" aria-hidden="true"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></summary>
+        <div class="wf-body site-drop-body"><div class="site-words">{{ r.a | priceTokens | safe }}</div></div>
+      </details>
+    {%- endif %}{% endfor %}
+  </div>
+  {%- if seoBody and not (_srows | length) %}
+  <details class="wf-card site-drop hey-more"><summary class="wf-title-row"><span class="wf-name-block"><span class="wf-name">More detail</span></span><svg class="wf-expand-chevron" width="16" height="10" viewBox="0 0 12 7" fill="none" aria-hidden="true"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></summary><div class="wf-body site-drop-body"><div class="site-words">{{ seoBody | priceTokens | safe }}</div></div></details>
+  {%- endif %}
+</div>
 {%- elif _mode == 'checks' %}
 {#- ── HOME: the "All Checks" panel (templates/dashboard.html). -#}
 <div class="dash-main"><div>
@@ -396,7 +459,7 @@
   "url": "{{ site.domain }}",
   "logo": "{{ site.domain }}/assets/icons/apple-touch-icon.png",
   "email": "{{ site.email }}",
-  "description": "Quickler is a WhatsApp-native platform for inspections, audits and compliance records. Any team builds its own Checks and the person on the job answers in WhatsApp by text, voice note or photo, producing a structured, timestamped report automatically. No app to install and no login for the person on the job. Used by care homes, nurseries, schools, universities and estates, cleaning firms and field-services trades. UK-first.",
+  "description": "Quickler is a WhatsApp-native platform for inspections, audits and compliance records. Any team builds its own Checks and the person on the job answers in WhatsApp by text, voice note or photo, producing a structured, timestamped report automatically. No new app to install and no login for the person on the job. Used by care homes, nurseries, schools, universities and estates, cleaning firms and field-services trades. UK-first.",
   "foundingLocation": {"@type": "Country", "name": "Scotland"},
   "founder": {"@type": "Person", "name": "Philip Ross"},
   "sameAs": ["{{ site.linkedin }}"]
@@ -411,7 +474,7 @@
   "applicationSubCategory": "Inspection, audit and compliance software",
   "operatingSystem": "WhatsApp (any device), web dashboard",
   "url": "{{ site.domain }}",
-  "description": "A WhatsApp-native inspection, audit and compliance tool. Teams build their own Checks; the person on the job answers questions in WhatsApp by text, voice note or photo, and a structured report is produced automatically. No app to install, no login for the person on the job. For care homes, nurseries, schools, universities and estates, cleaning firms and field-services trades.",
+  "description": "A WhatsApp-native inspection, audit and compliance tool. Teams build their own Checks; the person on the job answers questions in WhatsApp by text, voice note or photo, and a structured report is produced automatically. No new app to install, no login for the person on the job. For care homes, nurseries, schools, universities and estates, cleaning firms and field-services trades.",
   "offers": {
     "@type": "Offer",
     "price": "75",

@@ -1,11 +1,33 @@
 {
   "links": [
-    { "label": "Features", "href": "/pages/features.html" },
-    { "label": "Pricing", "href": "/pages/pricing.html" },
-    { "label": "Guides", "href": "/pages/guides.html" },
-    { "label": "FAQs", "href": "/pages/faq.html" },
-    { "label": "About", "href": "/pages/about.html" }
+    {
+      "label": "Features",
+      "href": "/pages/features.html"
+    },
+    {
+      "label": "AI",
+      "href": "/pages/ai.html",
+      "new": true
+    },
+    {
+      "label": "How it works",
+      "href": "/pages/how-it-works.html"
+    },
+    {
+      "label": "Pricing",
+      "href": "/pages/pricing.html"
+    },
+    {
+      "label": "FAQs",
+      "href": "/pages/faq.html"
+    }
   ],
-  "login": { "label": "Sign in", "href": "https://app.quickler.co/login" },
-  "cta": { "label": "Try free for 14 days", "href": "https://app.quickler.co/signup" }
+  "login": {
+    "label": "Sign in",
+    "href": "https://app.quickler.co/login"
+  },
+  "cta": {
+    "label": "Try Quickler free",
+    "href": "https://app.quickler.co/signup"
+  }
 }
