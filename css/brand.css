@@ -6,3 +6,6 @@ body.app-home main, body.app-heypage main {
   background: linear-gradient(170deg, #e9f0ff 0%, #f1ebff 38%, #fbeaf5 75%, #fdf0f7 100%) !important;
 }
 body.app-home footer, body.app-heypage footer { background: #fdf0f7 !important; }
+/* Emoji in the WhatsApp windows in colour, as on the phone (Philip 5 Nov 2026
+   14:15): colour emoji fonts first, symbol fonts after for ⌖ and ▸. */
+.aw .wa-text, .aw .wa-bubble { font-family: var(--font, 'Space Grotesk'), "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Apple Symbols", "Noto Sans Symbols 2", "Noto Sans Symbols", sans-serif !important; }
