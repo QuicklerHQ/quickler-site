@@ -104,7 +104,7 @@ SimPro, Joblogic, Fergus, Fieldwire, Clue and FleetCheck run the whole job: sche
 Taking the finished report a firm already sends to its clients — Word, PDF, or a photograph of one — and returning every record inside that same document, with its styles, headings, tables, headers, footers and logo preserved. Quickler reads a finished report rather than a blank template, so it can separate the firm's standing wording from one visit's facts and place each record's words where the firm's own words were.
 
 Also unusual, each verified in the product:
-- The person on site needs no new app, no login and no training, on WhatsApp or Telegram, chosen per person
+- The person on site needs no new app, no login and very little to learn, on WhatsApp or Telegram, chosen per person
 - Nothing is invented: every name, number and identifier must stand in something actually said, sent or photographed
 - Clashes are raised rather than resolved silently, quoting the words heard and when they were said
 - A record never files itself just because the questions happen to be answered; a person says done
