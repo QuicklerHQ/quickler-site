@@ -1,0 +1,44 @@
+---json
+{
+  "layout": "layouts/believe.njk",
+  "permalink": "/accessibility/index.html",
+  "seo": { "title": "Accessibility | Quickler", "description": "How accessible Quickler is, how we tested it, what is still not right, and how to tell us.", "canonical": "https://quickler.co/accessibility/", "lang": "en" }
+}
+---
+<div class="card">
+  <h1 class="site-home-h2" style="font-size:2rem">Accessibility.</h1>
+  <p class="site-words">We aim for WCAG 2.2 level AA on this website and in the Quickler app. We are not there yet in the app, and this page says where. Last reviewed 5 November 2026.</p>
+  <style>.ad-q{padding:14px 0;border-top:1px solid var(--line,#e5e5e5)}.ad-q h2{font-size:1.05rem;margin:0 0 4px}.ad-q ul{margin:6px 0 0 1.1em;padding:0}.ad-q li{margin:3px 0}</style>
+
+  <div class="ad-q"><h2>How we tested</h2>
+    <p class="site-words">On 5 November 2026 we ran the axe-core checker on the home page, Features, Pricing, FAQs, Status, What's new, What we believe, the guides page, a guide, How it works, and the Privacy, Terms, Cookies and Your data pages. Each was run at desktop width and at phone width. We also went through the site by hand with the keyboard only, with reduced motion switched on, and at 200 percent zoom and 320 pixels wide. The app was checked the same way with axe-core on a test firm: the dashboard, settings, a Record, the view-only share link and the PDF.</p>
+    <p class="site-words">We have not yet tested with a person who uses a screen reader every day, and we have not run a full test with NVDA, JAWS, VoiceOver or TalkBack on every page. Automated checkers find about a third of problems at most, so there will be things we have missed.</p>
+  </div>
+
+  <div class="ad-q"><h2>What works well</h2>
+    <ul class="site-words">
+      <li>The person on the job does not type into a form. They use WhatsApp, so their phone's own VoiceOver or TalkBack, their keyboard dictation and voice notes all work as they already do. Voice notes are understood and turned into the Record.</li>
+      <li>A skip link appears when you press Tab on the first page load, and takes you straight to the content.</li>
+      <li>Every control on the main pages can be reached with the keyboard, and shows a clear outline when it has focus.</li>
+      <li>The cookie question is a labelled region and can be answered with the keyboard.</li>
+      <li>Moving animation stops when your device is set to reduce motion.</li>
+      <li>Pages reflow to a single column at 320 pixels wide and at 200 percent zoom, with no sideways scrolling.</li>
+      <li>Small grey text, links and the red labels on the main pages were darkened on 5 November so they meet the 4.5 to 1 contrast ratio. The automated check found 117 problems on ten main pages at two sizes before, and 4 after.</li>
+      <li>Images that carry meaning have a text description; decorative ones are hidden from screen readers.</li>
+      <li>The PDF of a Record is tagged, has a title and a language set, so a screen reader can read it in order.</li>
+    </ul>
+  </div>
+
+  <div class="ad-q"><h2>What is not right yet</h2>
+    <ul class="site-words">
+      <li>On the home page, the see-through buttons laid over the picture of a Record are smaller than 24 pixels tall on a phone. The same actions are in the real app, and the picture can be scrolled and read without them.</li>
+      <li>Some older pages, mostly the country pages, the contact page and the data processing agreement, are still on an older layout. They have no skip link and were not tested page by page.</li>
+      <li>In the app, the unselected Yes, No and N/A buttons and some grey answer text are too pale on white, a few small buttons are smaller than 24 pixels, the Record rows put buttons inside a clickable row which a screen reader may not reach, and some file pickers and settings buttons have no label. The pages have no top-level heading. We have passed the full list to the people building the app. We will take these off this page as each one is fixed.</li>
+      <li>The Record's view-only share link has the same pale grey on white for some answers.</li>
+    </ul>
+  </div>
+
+  <div class="ad-q"><h2>Tell us</h2>
+    <p class="site-words">If something on Quickler is hard for you to use, email <a href="mailto:hello@quickler.co">hello@quickler.co</a> with the page and what happened. We will reply.</p>
+  </div>
+</div>
