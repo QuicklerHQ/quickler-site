@@ -386,3 +386,8 @@ footer { text-align: left; max-width: 960px; margin: 0 auto; padding: 40px 16px 
 .site-foot-small a { color: var(--ink-soft); }
 .site-version { opacity: 0.6; }
 @media (max-width: 640px) { .site-foot-cols { grid-template-columns: 1fr 1fr; } }
+/* Name, email and face under the letter, as Basecamp's (Philip 5 Nov 2026). */
+.site-letter-who { display: flex; align-items: center; gap: 14px; margin-top: 6px; }
+.site-letter-face { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; flex: 0 0 auto; }
+.site-letter-name-plain a { color: var(--accent); }
+.site-letter-role { font-style: italic; color: var(--ink-soft); font-size: 0.95rem; }
