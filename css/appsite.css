@@ -508,5 +508,8 @@ nav[aria-label="Primary"] .nav-new { position: absolute; top: -10px; left: 50%; 
 
 /* Wider, like HEY (Philip 5 Nov 2026 12:32): the hero card and page run to the
    top bar's width instead of a narrow column; reading text keeps its measure. */
-body.app-home .shell-wide, body.app-heypage .shell-wide { max-width: min(1240px, calc(100% - 32px)) !important; }
+body.app-home .shell-wide, body.app-heypage .shell-wide { width: calc(100% - 2 * clamp(16px, 2vw, 40px)) !important; max-width: none !important; }
+/* HEY's top bar is a narrower pill than the card below it; the card grows with
+   the screen (Philip 5 Nov 2026 12:37). */
+nav[aria-label="Primary"] { width: min(calc(100% - 32px), 1100px) !important; max-width: 1100px !important; }
 body.app-home .hey, body.app-heypage .hey { max-width: none; }
