@@ -48,6 +48,9 @@ jobs:
       # Whichever attempt actually deployed provides the URL.
       url: ${{ steps.deploy1.outputs.page_url || steps.deploy2.outputs.page_url || steps.deployment.outputs.page_url }}
     steps:
+      # A stuck attempt now gives up after about 2.5 minutes and the next one
+      # tries (5 Nov 2026: two deploys hung 5 to 12 minutes and held up every
+      # later push; Philip: 'why does this keep happening? fix it').
       # GitHub's Pages deployment API intermittently rejects the first attempt
       # with "Deployment failed, try again later" (a ~9s hard reject, not a
       # timeout) and then succeeds on a plain rerun. Retry in-job so a single
@@ -57,15 +60,24 @@ jobs:
       - name: Deploy to GitHub Pages (attempt 1)
         id: deploy1
         continue-on-error: true
+        timeout-minutes: 3
         uses: actions/deploy-pages@v4
+        with:
+          timeout: 150000
 
       - name: Deploy to GitHub Pages (attempt 2)
         id: deploy2
         if: steps.deploy1.outcome == 'failure'
         continue-on-error: true
+        timeout-minutes: 3
         uses: actions/deploy-pages@v4
+        with:
+          timeout: 150000
 
       - name: Deploy to GitHub Pages (final attempt)
         id: deployment
         if: steps.deploy1.outcome == 'failure' && steps.deploy2.outcome == 'failure'
+        timeout-minutes: 4
         uses: actions/deploy-pages@v4
+        with:
+          timeout: 200000
