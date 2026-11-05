@@ -168,7 +168,7 @@
   <section class="hey-sec">
     <h2 class="hey-h2">{{ f.title }}</h2>
     <p class="hey-p">{{ f.text | safe }}</p>
-    {%- if f.image %}<div class="hey-shot hey-shot-phone"><picture><source srcset="{{ f.image }}.webp" type="image/webp"><img src="{{ f.image }}.jpg" alt="{{ f.title }} in Quickler" width="640" height="915" loading="lazy"></picture></div>{% endif %}
+    {%- if f.image %}<div class="hey-shot hey-shot-phone"><picture><source srcset="{{ f.image }}.webp" type="image/webp"><img src="{{ f.image }}.jpg" alt="{{ f.title }} in Quickler" loading="lazy"></picture></div>{% endif %}
     {%- if f.href %}<p class="hey-p"><a href="{{ f.href }}">{{ f.more or 'More about this' }}</a></p>{% endif %}
   </section>
   {%- endfor %}
