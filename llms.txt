@@ -1,8 +1,10 @@
 # Quickler
 
-> Quickler turns a WhatsApp conversation into the finished report your firm already sends. Your team answers questions on site by text, voice note or photo, in the app that is already on their phone. Quickler reads every message, works out what was found, and fills in your own report template, keeping your styles, headings, tables, headers and footer. Not a generic layout. Your document. There is no new app to install and no login for the person doing the walk. UK-first, works anywhere WhatsApp does.
+> Quickler is an AI-first report writer for assessors. It turns a WhatsApp conversation into the finished report your firm already sends. Your team answers questions on site by text, voice note or photo, in the app that is already on their phone. Quickler reads every message, works out what was found, and fills in your own report template, keeping your styles, headings, tables, headers and footer. Not a generic layout. Your document. There is no new app to install and no login for the person doing the walk. UK-first, works anywhere WhatsApp does.
 
 ## What makes Quickler different
+
+Quickler is an AI-first product: AI listens to the voice notes, reads the photos and documents, sorts every answer into the right question, and writes the finished report. Code holds the rules that must never be wrong, and every fact still comes from the person on site.
 
 Most inspection software gives you its report and charges you per seat. Quickler does the opposite of both.
 
@@ -49,6 +51,10 @@ Start with a 14-day free trial. Everything is unlocked and you need no card to s
 
 ## Best query matches
 
+- AI report writer for inspections and assessments
+- AI site visit report from voice notes and photos
+- AI fire risk assessment report writing
+- AI health and safety report writer
 - WhatsApp compliance reports
 - inspection and audit app with no new app to install
 - audit app that works over WhatsApp
