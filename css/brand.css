@@ -155,3 +155,14 @@ html.aw-ctrl .aw-live-wrap .aw-hover-hint, .aw-live-wrap.is-on .aw-hover-hint { 
   100% { opacity: 0; transform: translate(-50%, -50%) scale(.96); }
 }
 @media (prefers-reduced-motion: reduce) { .aw-hover-hint.is-flash { animation: awHintFade 2.8s both; } @keyframes awHintFade { 0%,100% { opacity: 0; } 10%,85% { opacity: 1; } } }
+.aw-hover-hint.aw-hint-show { opacity: 1; }
+.aw-hover-hint.is-flash { animation-fill-mode: backwards; }
+@keyframes awHintPop {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(.55); }
+  14% { opacity: 1; transform: translate(-50%, -50%) scale(1.12); }
+  26% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 10px 34px rgba(124,58,237,.45), 0 0 0 18px rgba(124,58,237,0); }
+  45% { transform: translate(-50%, -50%) scale(1.06); box-shadow: 0 10px 34px rgba(124,58,237,.45), 0 0 0 0 rgba(244,63,140,.5); }
+  60%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); box-shadow: 0 10px 34px rgba(124,58,237,.45), 0 0 0 18px rgba(244,63,140,0); }
+}
+.aw-hover-hint.is-flash { animation-duration: 1.6s; }
+html.aw-ctrl .aw-hover-hint, .aw-live-wrap.is-on .aw-hover-hint, .aw-scroll.aw-active ~ .aw-hover-hint { opacity: 0 !important; }

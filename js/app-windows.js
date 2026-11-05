@@ -265,33 +265,37 @@ document.addEventListener("click", function (e) {
   document.addEventListener("touchstart", function (e) { document.querySelectorAll(".aw-live-wrap.is-on").forEach(function (w) { if (!w.contains(e.target)) w.classList.remove("is-on"); }); }, { passive: true });
 })();
 
-/* Flash the hint big when a window first comes into view, and again when
-   someone scrolls or swipes over it without using it (5 Nov 2026 17:42). */
+/* The how-to-use hint stays up until someone actually uses the window
+   (Philip 5 Nov 2026 17:59): holding Ctrl or double tapping hides it; letting
+   go of Ctrl, tapping away, or scrolling the window out of view and back brings
+   it back, with a pop. */
 (function () {
-  var touch = window.matchMedia && window.matchMedia("(hover: none)").matches;
-  function flash(tip) {
-    if (!tip || tip._last && Date.now() - tip._last < 4000) return;
-    tip._last = Date.now();
-    tip.classList.remove("is-flash"); void tip.offsetWidth; tip.classList.add("is-flash");
-  }
-  function hostOf(el) { return el.closest(".aw-live-wrap") || el.parentNode; }
+  var root = document.documentElement;
   var tips = Array.prototype.slice.call(document.querySelectorAll(".aw-hover-hint"));
+  function inUse(host) {
+    return root.classList.contains("aw-ctrl") || host.classList.contains("is-on") || !!host.querySelector(".aw-scroll.aw-active");
+  }
+  function pop(tip) { tip.classList.remove("is-flash"); void tip.offsetWidth; tip.classList.add("is-flash"); }
+  function update(tip) {
+    var host = tip.parentNode, show = !inUse(host) && tip._seen;
+    if (show && !tip.classList.contains("aw-hint-show")) { tip.classList.add("aw-hint-show"); pop(tip); }
+    else if (!show && (tip.classList.contains("aw-hint-show") || tip.classList.contains("is-flash"))) tip.classList.remove("aw-hint-show", "is-flash");
+  }
+  function all() { tips.forEach(update); }
   tips.forEach(function (tip) {
     tip.addEventListener("animationend", function () { tip.classList.remove("is-flash"); });
-    var host = tip.parentNode;
-    var inUse = function () { return host.classList.contains("is-on") || host.querySelector(".aw-active") || document.documentElement.classList.contains("aw-ctrl"); };
-    host.addEventListener("wheel", function (e) { if (!e.ctrlKey && !inUse()) flash(tip); }, { passive: true });
-    if (touch) host.addEventListener("touchmove", function () { if (!inUse()) flash(tip); }, { passive: true });
+    if ("MutationObserver" in window) new MutationObserver(function () { update(tip); }).observe(tip.parentNode, { attributes: true, subtree: true, attributeFilter: ["class"] });
   });
+  if ("MutationObserver" in window) new MutationObserver(all).observe(root, { attributes: true, attributeFilter: ["class"] });
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(function (es) {
       es.forEach(function (en) {
-        if (!en.isIntersecting) return;
-        io.unobserve(en.target);
         var tip = en.target.querySelector(":scope > .aw-hover-hint");
-        setTimeout(function () { flash(tip); }, 500);
+        if (!tip) return;
+        tip._seen = en.isIntersecting;
+        update(tip);
       });
-    }, { threshold: 0.55 });
+    }, { threshold: 0.4 });
     tips.forEach(function (tip) { io.observe(tip.parentNode); });
-  }
+  } else { tips.forEach(function (tip) { tip._seen = true; update(tip); }); }
 })();
