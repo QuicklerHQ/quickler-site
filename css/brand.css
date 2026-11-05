@@ -35,3 +35,10 @@ body.app-home footer, body.app-heypage footer { background: #fdf0f7 !important; 
 .aw-real img { display: block; width: 100%; max-width: 760px; height: auto; margin: 0 auto; border-radius: 14px; }
 .aw-report { height: min(620px, 72vh); padding: 0 !important; background: #fff; }
 .aw-report img { max-width: 780px !important; border-radius: 0 !important; }
+/* Before and after bubbles the same width and height, so they read as one
+   message changing (Philip 5 Nov 2026 15:42). */
+.aw-ba2-chat { display: flex; }
+.aw-ba2-chat .wa-row { flex: 1; display: flex; margin: 0; }
+.aw-ba2-chat .wa-bubble { flex: 1; width: 100%; box-sizing: border-box; display: flex; flex-direction: column; }
+.aw-ba2-chat .wa-text { flex: 1; }
+.aw-ba2-chat .wa-time { align-self: flex-end; }
