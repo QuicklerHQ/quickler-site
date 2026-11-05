@@ -13,6 +13,24 @@
     "dateText": "3 November 2026"
   },
   {
+    "date": "2026-11-02",
+    "title": "Photos in Word, tidier Record page",
+    "items": [
+      "The Word file draws photos four to a row, no taller than 3.5 cm, the size they are in your own reports.",
+      "The To check box and its links are gone from the Record page."
+    ],
+    "dateText": "2 November 2026"
+  },
+  {
+    "date": "2026-10-28",
+    "title": "Re-reading a Check keeps your questions",
+    "items": [
+      "If a Check already has questions, re-reading it from What does this check cover? keeps every question and only adds new ones.",
+      "Only you delete questions, on the questions page."
+    ],
+    "dateText": "28 October 2026"
+  },
+  {
     "date": "2026-10-21",
     "title": "Usual answers and clearer Records",
     "items": [
@@ -24,6 +42,19 @@
       "Questions with blank sub-questions are now counted properly in the score."
     ],
     "dateText": "21 October 2026"
+  },
+  {
+    "date": "2026-10-14",
+    "title": "Safer restarts and more photos",
+    "items": [
+      "A paying firm's Record now holds up to 250 photos.",
+      "A photo, even one captioned with words like \"start again\", never restarts a walk that already has answers.",
+      "If a walk has answers, saying something that sounds like a restart asks you to reply restart first.",
+      "A bare Yes to the closing message no longer ticks every other question as OK.",
+      "A Formal report in your own template no longer has a View this report online line.",
+      "On a phone or touch screen, a shared Record has no section list in the way."
+    ],
+    "dateText": "14 October 2026"
   },
   {
     "date": "2026-10-12",
@@ -40,28 +71,25 @@
   },
   {
     "date": "2026-10-05",
-    "title": "Landscape PDFs and quicker pages",
-    "items": [
-      "PDFs are now landscape, smaller, with photos as small tiles and no cover page.",
-      "Signatures are drawn the same in the PDF as on the Record.",
-      "Records and photos load faster, and the sign-in page no longer reloads on its own.",
-      "After a photo, Quickler waits for 30 seconds of quiet and then gives you the count.",
-      "A Fault said on a Yes/No question stays on that question."
-    ],
-    "dateText": "5 October 2026"
-  },
-  {
-    "date": "2026-09-30",
-    "title": "Edit right in the row",
+    "title": "Edit in the row, landscape PDFs",
     "items": [
       "Click the words on a Record to edit them in the row, with no pop-up.",
       "Drag photos in and out of a question. You can delete a photo and bring it back.",
       "A deleted photo is left off the PDF and the shared page.",
-      "Each question can be in the score or left out, and you can choose how silence counts.",
-      "The WhatsApp list shows a big green tick and a red cross, and is never split.",
-      "The billing page shows the real due date and every invoice you have paid."
+      "PDFs are now landscape, a fifth smaller, with photos as small tiles and no cover page.",
+      "The billing page shows the real due date and every invoice you have paid.",
+      "Each question can be in the score or left out, and you can choose how silence counts."
     ],
-    "dateText": "30 September 2026"
+    "dateText": "5 October 2026"
+  },
+  {
+    "date": "2026-09-28",
+    "title": "Two small fixes",
+    "items": [
+      "A question label keeps its last word. Only the OK? and Issue? tags are tidied away.",
+      "Downloading the PDF of a Record with a great many photos now redraws it, instead of giving you an old copy."
+    ],
+    "dateText": "28 September 2026"
   },
   {
     "date": "2026-09-24",
@@ -119,7 +147,10 @@
     "items": [
       "The opener now tells you to say restart if you want to begin a Check again.",
       "Messages use plainer words.",
-      "Behind-the-scenes fixes."
+      "A schedule with no valid time no longer fires by mistake.",
+      "Sign-in links no longer fail when they expire.",
+      "A payment notice from the bank is never counted twice.",
+      "Safer handling of names and labels you type in."
     ],
     "dateText": "19 August 2026"
   }
