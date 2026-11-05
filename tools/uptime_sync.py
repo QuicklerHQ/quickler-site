@@ -15,7 +15,11 @@ PARTS = [  # monitor name -> what the page calls it
     ('reports.quickler.co/health', 'WhatsApp and Telegram recording',
      'The service that answers on site and writes the Record'),
 ]
-SPANS = [('24h', '24 hours'), ('7d', '7 days'), ('30d', '30 days'), ('90d', '90 days')]
+# Each span shows only once the monitors are that old (Philip 5 Nov 2026: "when we get to 3 months add
+# that, 6 months, 1 year, 2 years, 4 years"). (key, label, days needed)
+SPANS = [('24h', '24 hours', 1), ('7d', '7 days', 7), ('30d', '30 days', 30), ('90d', '3 months', 90),
+         ('6m', '6 months', 182), ('1y', '1 year', 365), ('2y', '2 years', 730), ('4y', '4 years', 1461)]
+HOLD = {'6m'}  # waiting on Philip (Q37): the 3 to 18 Aug 2026 app monitor outage sits inside 6 months
 
 def build():
     src = json.loads(SRC.read_text())
@@ -23,7 +27,9 @@ def build():
     parts = []
     for key, name, what in PARTS:
         m = mons[key]
-        nums = [{'label': l, 'pct': f"{float(m[k]):.2f}"} for k, l in SPANS if m.get(k) is not None]
+        age = (src['updated'] - m['since']) / 86400
+        nums = [{'label': l, 'pct': f"{float(m[k]):.2f}"} for k, l, need in SPANS
+                if m.get(k) is not None and age >= need and k not in HOLD]
         parts.append({'name': name, 'what': what, 'up_now': bool(m['up_now']), 'nums': nums})
     return {'source': src.get('source', 'UptimeRobot'), 'updated': src['updated'], 'parts': parts}
 

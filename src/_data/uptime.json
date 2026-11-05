@@ -1,6 +1,6 @@
 {
  "source": "UptimeRobot, checked every 5 minutes",
- "updated": 1793896439,
+ "updated": 1793912181,
  "parts": [
   {
    "name": "The app and report links",
@@ -20,7 +20,7 @@
      "pct": "99.99"
     },
     {
-     "label": "90 days",
+     "label": "3 months",
      "pct": "99.99"
     }
    ]
@@ -43,7 +43,7 @@
      "pct": "99.98"
     },
     {
-     "label": "90 days",
+     "label": "3 months",
      "pct": "99.98"
     }
    ]
