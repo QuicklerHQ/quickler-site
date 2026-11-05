@@ -580,3 +580,18 @@ body.app-home .hey, body.app-heypage .hey { max-width: none; }
 .hey-sec .hey-p b { font-weight: inherit; }
 .hey-shot-phone { max-width: 360px; margin: 26px auto 0; padding: 10px; border-radius: 28px; background: #fff; box-shadow: 0 16px 44px rgba(12,23,52,0.14); }
 .hey-shot-phone img { display: block; width: 100%; height: auto; border-radius: 20px; }
+
+/* More Quickler, less HEY (Philip 5 Nov 2026 13:19): the app's own look, white
+   rounded cards with a soft line, the logo's purple-to-pink gradient, light
+   weights, no mint or coral. The letter's words tilt with its page. */
+.hey-paper { transform: rotate(-0.7deg); }
+.hey-h2-plain { font-weight: 400 !important; }
+.hey-bubble { background: #fff !important; border: 1px solid #dfe3f0; box-shadow: 0 6px 20px rgba(12,23,52,0.06) !important; }
+.hey-bubble-who { border: 1px solid #dfe3f0; box-shadow: none !important; }
+.hey-bubble-quote { font-weight: 400 !important; }
+.hey-bubble p b { font-weight: 600; }
+.hey-band { margin: 0 auto 72px !important; padding: clamp(40px, 7vw, 72px) 24px !important; max-width: 1100px; border-radius: 28px; background: #fff !important; border: 1px solid #dfe3f0; color: #0c1734 !important; }
+.hey-band-h { font-weight: 400 !important; color: transparent !important; background: linear-gradient(90deg, #2F6BFF, #7C3AED 55%, #F43F8C); -webkit-background-clip: text; background-clip: text; }
+.hey-band-sub { font-weight: 400 !important; color: #213055 !important; }
+.hey-band .hey-note, .hey-band-note { color: #5c6b90 !important; }
+.hey-band .hey-note-light { color: #5c6b90 !important; }
