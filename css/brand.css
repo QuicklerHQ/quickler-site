@@ -17,3 +17,20 @@ body.app-home footer, body.app-heypage footer { background: #fdf0f7 !important; 
 .aw-hint.is-on { opacity: 1; }
 /* The coloured feature headings in bold (Philip 5 Nov 2026 14:23). */
 .hey-sec .hey-h2 { font-weight: 700 !important; }
+/* "It keeps your place": before and after one voice note, side by side. */
+.aw-ba { display: grid; grid-template-columns: 1fr auto 1fr; gap: 18px; align-items: start; padding: clamp(16px, 3vw, 32px); background: #f4f5fa; text-align: left; }
+.aw-ba-col { background: #fff; border: 1px solid #dfe3f0; border-radius: 16px; padding: 18px 20px; }
+.aw-ba-h { font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: #5c6b90; margin-bottom: 10px; }
+.aw-ba-row { padding: 9px 0; border-top: 1px solid #eef0f5; font-size: 1rem; color: #213055; line-height: 1.7; }
+.aw-ba-row:first-child { border-top: 0; }
+.aw-ba-row b { color: #0c1734; margin-right: 6px; }
+.aw-ba-row s { color: #8a94ad; }
+.aw-ba-row em { font-style: normal; font-size: .75rem; font-weight: 700; margin-left: 5px; padding: 2px 7px; border-radius: 999px; vertical-align: 1px; }
+.aw-ba-row em.ok { background: #e3f6ec; color: #11795a; }
+.aw-ba-row em.bad { background: #fde7e7; color: #c62828; }
+.aw-ba-row em.na { background: #eef0f5; color: #5c6b90; }
+.aw-ba-said { margin-top: 14px; background: #dcf8c6; border-radius: 12px; padding: 12px 14px; color: #213055; font-size: .98rem; line-height: 1.5; }
+.aw-ba-mic { color: #5c6b90; font-size: .8rem; }
+.aw-ba-left { margin-top: 14px; font-size: .95rem; color: #213055; }
+.aw-ba-arrow { align-self: center; font-size: 1.8rem; color: #7C3AED; }
+@media (max-width: 760px) { .aw-ba { grid-template-columns: 1fr; } .aw-ba-arrow { transform: rotate(90deg); justify-self: center; } }
