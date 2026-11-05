@@ -1,0 +1,18 @@
+{%- set appUi = true %}
+<!DOCTYPE html>
+<html lang="en">
+{% include "partials/head.njk" %}
+<body class="page-app app-settings">
+{% include "partials/nav.njk" %}
+<main id="main-content">
+<section class="app-section" style="padding-top:28px;">
+  <div class="shell-wide rec-shell">
+  <div class="site-record">
+    {{ content | safe }}
+  </div>
+  </div>
+</section>
+</main>
+{% include "partials/footer.njk" %}
+</body>
+</html>

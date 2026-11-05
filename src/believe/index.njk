@@ -1,0 +1,16 @@
+---json
+{
+  "layout": "layouts/believe.njk",
+  "permalink": "/believe/index.html",
+  "seo": { "title": "What we believe | Quickler", "description": "Nine things Quickler stands by: it never makes things up, you sign the report, your layout not ours, and more.", "canonical": "https://quickler.co/believe/" }
+}
+---
+<div class="card">
+  <h1 class="site-home-h2" style="font-size:2rem">What we believe.</h1>
+  <p class="site-words">Nine things that shape how Quickler works. Each one is true of the product today.</p>
+  <div class="site-tiles" style="grid-template-columns:1fr">
+  {%- for b in beliefs %}
+    <a class="rec-tile site-tile" href="/believe/{{ b.n }}/"><span class="row-main"><span class="row-title">{{ b.title }}</span></span><span class="row-when">{{ b.n }}</span></a>
+  {%- endfor %}
+  </div>
+</div>
