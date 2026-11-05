@@ -149,6 +149,8 @@
         const banner = document.createElement("div");
         banner.id = BANNER_ID;
         banner.className = "cookie-banner";
+        banner.setAttribute("role", "region");
+        banner.setAttribute("aria-label", "Cookies");
         banner.innerHTML = `
             <p class="cookie-banner-copy">
                 Allow analytics cookies to help us improve the site? Anonymous usage stats are collected either way. <a href="/pages/privacy.html">Privacy</a>.
@@ -255,3 +257,21 @@
         });
     });
 })();
+
+// Skip link target: pages without their own #main-content use the first <main>, or the content right after the nav.
+document.addEventListener("DOMContentLoaded", function () {
+    var link = document.querySelector(".skip-link");
+    if (!link) {
+        link = document.createElement("a");
+        link.className = "skip-link";
+        link.textContent = "Skip to main content";
+        link.setAttribute("href", "#main-content");
+        document.body.insertBefore(link, document.body.firstChild);
+    }
+    var t = document.getElementById("main-content") || document.querySelector("main");
+    if (!t) { var n = document.querySelector("nav"); t = n && n.nextElementSibling; }
+    if (!t) { link.remove(); return; }
+    if (!t.id) t.id = "main-content";
+    link.setAttribute("href", "#" + t.id);
+    if (!t.hasAttribute("tabindex")) t.setAttribute("tabindex", "-1");
+});

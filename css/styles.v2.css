@@ -1417,9 +1417,9 @@ section#top {
 .contact-methods a,
 .detail-body a,
 .contact-copy a {
-    color: var(--accent-mid);
+    color: #3f50b8;
     text-decoration: none;
-    border-bottom: 1px solid rgba(91, 120, 214, 0.3);
+    border-bottom: 1px solid rgba(63, 80, 184, 0.4);
     transition: border-color 0.2s ease, color 0.2s ease;
 }
 
@@ -1661,9 +1661,9 @@ section#top {
 }
 
 .form-note a {
-    color: var(--accent-mid);
+    color: #3f50b8;
     text-decoration: none;
-    border-bottom: 1px solid rgba(91, 120, 214, 0.3);
+    border-bottom: 1px solid rgba(63, 80, 184, 0.4);
 }
 
 .form-note a:hover,
@@ -1694,9 +1694,9 @@ section#top {
 }
 
 .cookie-banner-copy a {
-    color: var(--accent-mid);
+    color: #3f50b8;
     text-decoration: none;
-    border-bottom: 1px solid rgba(91, 120, 214, 0.3);
+    border-bottom: 1px solid rgba(63, 80, 184, 0.4);
 }
 
 .cookie-banner-copy a:hover,
@@ -2070,6 +2070,14 @@ a.callout-btn {
 .detail-body h3 {
     margin-top: 36px;
     margin-bottom: 4px;
+}
+
+.detail-body h2 {
+    margin-top: 36px;
+    margin-bottom: 4px;
+    font-size: 1.08rem;
+    line-height: 1.22;
+    font-weight: 500;
 }
 
 .detail-body ul li,
@@ -6074,3 +6082,10 @@ nav {
 .contact-clean-form .ccf-opt { font-weight: 400; color: var(--ink-soft); }
 .contact-clean-form .ccf-col { display: flex; flex-direction: column; gap: 12px; }
 .contact-clean-form select { width: 100%; padding: 13px 15px; font: inherit; font-size: 0.95rem; border: 1px solid var(--line-strong); border-radius: 14px; background: var(--surface-card); color: var(--ink); }
+
+/* Accessibility (5 Nov 2026): skip link (seen only on focus) and darker small grey text. */
+.skip-link { position: absolute; left: 8px; top: -60px; z-index: 10000; background: #fff; color: #1b1f3a; padding: 10px 16px; border-radius: 8px; font-weight: 700; text-decoration: none; box-shadow: 0 2px 10px rgba(0,0,0,.25); }
+.skip-link:focus { top: 8px; outline: 3px solid #3f50b8; outline-offset: 2px; }
+[tabindex="-1"]:focus { outline: none; }
+.site-version { opacity: 1; color: #5a5f78; }
+.hey-float { display: none; } /* floating button is styled only on the app-style pages */

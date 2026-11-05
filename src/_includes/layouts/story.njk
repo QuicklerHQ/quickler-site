@@ -93,7 +93,7 @@
 {#- One Check tile, open. -#}
 {%- macro checkTile(title, when, id) %}
 <div class="wf-card wf-expanded"{% if id %} id="{{ id }}"{% endif %}>
-  <div class="wf-title-row" aria-expanded="true">
+  <div class="wf-title-row">
     <span class="wf-name-block"><span class="wf-name">{{ title | safe }}</span></span>
     {%- if when %}<span class="wf-activity">{{ when }}</span>{% endif %}
     <svg class="wf-expand-chevron" width="16" height="10" viewBox="0 0 12 7" fill="none" aria-hidden="true"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
@@ -284,7 +284,7 @@
     </div>
   </div>
   <div class="wf-card wf-expanded" id="top">
-    <div class="wf-title-row" aria-expanded="true">
+    <div class="wf-title-row">
       <span class="wf-name-block"><h1 class="wf-name site-h">{{ hero.heading | safe }}</h1></span>
       <svg class="wf-expand-chevron" width="16" height="10" viewBox="0 0 12 7" fill="none" aria-hidden="true"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
     </div>
@@ -296,7 +296,7 @@
   {%- for b in blocks or [] %}
   {%- set _t = b.heading or b.videoName or b.eyebrow or 'More' %}
   <div class="wf-card wf-expanded">
-    <div class="wf-title-row" aria-expanded="true">
+    <div class="wf-title-row">
       <span class="wf-name-block"><h2 class="wf-name site-h">{{ _t | safe }}</h2></span>
       {%- if b.eyebrow and b.heading %}<span class="wf-activity">{{ b.eyebrow }}</span>{% endif %}
       <svg class="wf-expand-chevron" width="16" height="10" viewBox="0 0 12 7" fill="none" aria-hidden="true"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
