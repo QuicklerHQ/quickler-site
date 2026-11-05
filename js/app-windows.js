@@ -186,7 +186,7 @@
     box.addEventListener("wheel", function (e) {
       if (box.classList.contains("aw-active")) return;
       if (e.ctrlKey) { e.preventDefault(); box.scrollTop += e.deltaY; box.scrollLeft += e.deltaX; }
-      else if (Math.abs(e.deltaY) > 2) { hint(box, "Hold Ctrl and scroll to move inside"); }
+      else if (Math.abs(e.deltaY) > 2 && !box._hinted) { box._hinted = true; hint(box, "Hold Ctrl and scroll to move inside"); }
     }, { passive: false });
     var last = 0;
     box.addEventListener("touchend", function () {
