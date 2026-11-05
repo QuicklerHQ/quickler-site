@@ -66,3 +66,7 @@ body.app-home footer, body.app-heypage footer { background: #fdf0f7 !important; 
 .aw-hs { position: absolute; display: block; padding: 0; border: 0; background: transparent; cursor: pointer; pointer-events: auto; border-radius: 8px; }
 .aw-hs:hover, .aw-hs:focus-visible { outline: 2px solid rgba(124,58,237,.55); outline-offset: 2px; background: rgba(124,58,237,.06); }
 .aw-hs-done { background: rgba(17,121,90,.18) !important; outline: 2px solid #11795a !important; }
+/* No grey behind the before/after pair; the arrow sits on a white bar (Philip 5 Nov 2026 15:54). */
+.aw.aw-place, .aw.aw-place > *, .aw-ba2 { background: transparent !important; }
+.aw-ba2-h { background: #fff !important; }
+.aw-ba2-arrow { background: #fff; border-radius: 999px; padding: 12px 10px; box-shadow: 0 6px 20px rgba(35,28,51,.10); align-self: center; }
