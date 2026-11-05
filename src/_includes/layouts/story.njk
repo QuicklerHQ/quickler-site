@@ -217,7 +217,6 @@
     centred section with a gradient headline. -#}
 <div class="hey">
   <div class="hey-hero hey-hero-page">
-    {%- if hero.eyebrow %}<div class="hey-kicker">{{ hero.eyebrow }}</div>{% endif %}
     <h1 class="hey-h1 hey-h1-page">{{ hero.heading | safe }}</h1>
     {%- if hero.lede %}<p class="hey-sub hey-sub-page">{{ hero.lede | priceTokens | safe }}</p>{% endif %}
     {%- set a0 = (hero.actions or [])[0] %}{% if a0 %}<a class="hey-btn" href="{{ a0.href }}"{% if '//' in a0.href and site.domain not in a0.href %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ a0.label }}</a>{% endif %}
