@@ -166,3 +166,15 @@ html.aw-ctrl .aw-live-wrap .aw-hover-hint, .aw-live-wrap.is-on .aw-hover-hint { 
 }
 .aw-hover-hint.is-flash { animation-duration: 1.6s; }
 html.aw-ctrl .aw-hover-hint, .aw-live-wrap.is-on .aw-hover-hint, .aw-scroll.aw-active ~ .aw-hover-hint { opacity: 0 !important; }
+/* quickler.co/status/ (5 Nov 2026). */
+.qs { max-width: 900px; margin: 0 auto 40px; display: grid; gap: 14px; }
+.qs-part { padding: 20px 22px !important; text-align: left; }
+.qs-top { display: flex; justify-content: space-between; gap: 14px; align-items: flex-start; }
+.qs-name { font-size: 1.15rem; color: #0c1734; font-weight: 600; }
+.qs-what { font-size: .92rem; color: #5c6b90; margin-top: 2px; }
+.qs-now { white-space: nowrap; font-weight: 700; font-size: .9rem; padding: 4px 12px; border-radius: 999px; background: #eef0f5; color: #5c6b90; }
+.qs-now.is-up { background: #e3f6ec; color: #11795a; } .qs-now.is-down { background: #fde7e7; color: #c62828; }
+.qs-nums { display: flex; flex-wrap: wrap; gap: 10px 26px; margin-top: 14px; }
+.qs-n b { display: block; font-size: 1.5rem; font-weight: 500; color: #0c1734; } .qs-n span { font-size: .85rem; color: #5c6b90; }
+.qs-wait { font-size: .92rem; color: #5c6b90; }
+.qs { margin: 0 !important; gap: 12px; } .qs-part { background: #fff; border: 1px solid #dfe3f0; border-radius: 16px; }
