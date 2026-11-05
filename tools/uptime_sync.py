@@ -19,7 +19,10 @@ PARTS = [  # monitor name -> what the page calls it
 # that, 6 months, 1 year, 2 years, 4 years"). (key, label, days needed)
 SPANS = [('24h', '24 hours', 1), ('7d', '7 days', 7), ('30d', '30 days', 30), ('90d', '3 months', 90),
          ('6m', '6 months', 182), ('1y', '1 year', 365), ('2y', '2 years', 730), ('4y', '4 years', 1461)]
-HOLD = {'6m'}  # waiting on Philip (Q37): the 3 to 18 Aug 2026 app monitor outage sits inside 6 months
+HOLD = set()
+# Count only from when testing moved off prod onto its own lab server (July 2026; Philip 5 Nov 2026 20:57:
+# "probably not so useful to count things until I had 2 servers, as I initially only pushed right to prod").
+COUNT_FROM = 1782864000  # 1 July 2026 00:00 UTC
 
 def build():
     src = json.loads(SRC.read_text())
@@ -27,7 +30,7 @@ def build():
     parts = []
     for key, name, what in PARTS:
         m = mons[key]
-        age = (src['updated'] - m['since']) / 86400
+        age = (src['updated'] - max(m['since'], COUNT_FROM)) / 86400
         nums = [{'label': l, 'pct': f"{float(m[k]):.2f}"} for k, l, need in SPANS
                 if m.get(k) is not None and age >= need and k not in HOLD]
         parts.append({'name': name, 'what': what, 'up_now': bool(m['up_now']), 'nums': nums})
