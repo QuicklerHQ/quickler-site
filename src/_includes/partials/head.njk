@@ -4,6 +4,7 @@ seo.ogLocale (default en_GB), seo.twitterCard (default summary), seo.twitterTitl
 seo.twitterDescription, seo.hreflang [{lang,href}], seo.jsonld (raw string, opt). Favicon set + font
 preload are identical on every page -> defined ONCE here. -#}
 <head>
+  {%- if baseHref %}<base href="{{ baseHref }}">{% endif %}
   <script src="/js/cookie-consent.js" defer></script>
   <script src="/js/nav-compact.js" defer></script>
   {%- if not appUi %}<script src="/js/reel-nav.js" defer></script>{% endif %}

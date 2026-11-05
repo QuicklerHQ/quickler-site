@@ -626,3 +626,13 @@ nav[aria-label="Primary"] { position: sticky; z-index: 50; }
 @media (max-width: 600px) { .hey-bubble .hey-bubble-who { white-space: normal; text-align: right; } }
 .hey-bubble .hey-bubble-who { order: 0 !important; flex-basis: 100%; justify-content: flex-end; text-align: right; margin: -6px 0 0 !important; white-space: normal; }
 body.app-home footer, body.app-heypage footer { width: auto !important; box-sizing: border-box; }
+/* guides.quickler.co: every guide, A to Z (Philip 5 Nov 2026 13:40). */
+.guides-az { max-width: 900px; margin: 0 auto; }
+.guides-letter { margin: 28px 0 8px; font-size: 1.6rem; font-weight: 400; color: #7C3AED; }
+.guides-list { list-style: none; margin: 0; padding: 0; columns: 2 320px; column-gap: 32px; }
+.guides-list li { break-inside: avoid; padding: 6px 0; border-bottom: 1px solid #eef0f5; }
+.guides-list a { color: #0c1734; text-decoration: none; font-size: 1rem; }
+.guides-list a:hover { color: #5A4FCF; }
+/* The page cloud in the app's own pill style, Quickler colours (Philip 5 Nov 2026 13:41). */
+.hey-cloud a { background: #fff !important; border: 1px solid #dfe3f0; color: #5A4FCF !important; font-weight: 500 !important; }
+.hey-cloud a:hover { background: linear-gradient(90deg, #2F6BFF, #7C3AED 55%, #F43F8C) !important; color: #fff !important; border-color: transparent; }

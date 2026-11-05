@@ -1,0 +1,32 @@
+---json
+{
+  "layout": "layouts/story.njk",
+  "permalink": "/guides/index.html",
+  "eleventyExcludeFromCollections": true,
+  "appMode": "heypage",
+  "panelTitle": "All guides",
+  "panelButton": { "label": "Try Quickler", "href": "https://app.quickler.co/signup" },
+  "hero": {
+    "eyebrow": "Quickler guides",
+    "heading": "Free guides for people who inspect.",
+    "lede": "Plain answers to what assessors look up: fire risk, health and safety, insurance surveys, care homes, schools, gas, electrics and more. Each one is free to read.",
+    "actions": [ { "label": "Try Quickler free for 14 days", "href": "https://app.quickler.co/signup" } ]
+  },
+  "blocks": [],
+  "seo": {
+    "title": "Quickler Guides | Free inspection and assessment guides",
+    "description": "Free, plain guides for assessors: fire risk, health and safety, insurance surveys, care homes, schools, gas and electrical checks.",
+    "canonical": "https://quickler.co/guides/",
+    "lang": "en"
+  }
+}
+---
+{%- set ns = { letter: '' } %}
+<div class="guides-az">
+{%- for g in collections.guidesOnly %}
+  {%- set L = g.title[0] | upper %}
+  {%- if L != ns.letter %}{% if ns.letter %}</ul>{% endif %}<h2 class="guides-letter">{{ L }}</h2><ul class="guides-list">{% set ns = { letter: L } %}{% endif %}
+  <li><a href="{{ g.url }}">{{ g.title }}</a></li>
+{%- endfor %}
+</ul>
+</div>

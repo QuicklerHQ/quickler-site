@@ -12,6 +12,18 @@ module.exports = function (eleventyConfig) {
   // Complete index of every content page (reel pages under /pages/), so the
   // guides/all-articles page can list ALL articles and none get orphaned.
   // Excludes utility pages (demo, redirects) and the index pages themselves.
+  // The guides alone (pages drawn as a Record, with articlePanels), for the
+  // guides.quickler.co home (Philip 5 Nov 2026 13:40).
+  eleventyConfig.addCollection("guidesOnly", (api) => {
+    return api.getAll()
+      .filter((p) => (p.url || "").startsWith("/pages/") && p.data.articlePanels && p.data.articlePanels.length)
+      .map((p) => {
+        const t = ((p.data.seo && p.data.seo.title) || (p.data.hero && p.data.hero.heading) || p.fileSlug).split(" | ")[0].replace(/<[^>]+>/g, "");
+        return { url: p.url, title: t, blurb: (p.data.seo && p.data.seo.description) || "" };
+      })
+      .sort((a, b) => a.title.localeCompare(b.title));
+  });
+
   eleventyConfig.addCollection("allArticles", (api) => {
     const skip = /\/(demo|guides|all|sitemap|404|legal|dpa)\.html$/;
     return api.getAll()
