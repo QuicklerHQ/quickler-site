@@ -18,6 +18,11 @@
     <span class="wf-name-block"><h2 class="wf-name site-h">{{ e.title }}</h2></span>
     <span class="wf-activity">{{ e.dateText }}</span>
   </div>
-  <div class="wf-body"><ul class="site-words">{% for i in e.items %}<li>{{ i }}</li>{% endfor %}</ul></div>
+  <div class="wf-body"><ul class="site-words">{% for i in e.items %}<li>{{ i }}</li>{% endfor %}</ul>
+    {%- if e.image %}
+    <figure style="margin:14px 0 0"><img src="{{ e.image }}" alt="{{ e.imageAlt }}" width="1280" height="800" loading="lazy" style="width:100%;height:auto;border-radius:10px;border:1px solid #d6d9e6">
+      <figcaption class="site-words" style="font-size:.85rem;margin-top:6px">Rebuilt from that release's code, with demo data.</figcaption></figure>
+    {%- endif %}
+  </div>
 </div>
 {%- endfor %}

@@ -10,7 +10,9 @@
       "PDFs draw groups of answers in neat boxes, and you can show several Usual answer pictures on a question.",
       "A Fault is never saved cut off with dots, and the walk's own location is not swapped for an old Usual answer."
     ],
-    "dateText": "3 November 2026"
+    "dateText": "3 November 2026",
+    "image": "/assets/new/2026-11-03.webp",
+    "imageAlt": "The Records page for a Check, with a Search titles box above the list of Records."
   },
   {
     "date": "2026-11-02",
@@ -19,7 +21,9 @@
       "The Word file draws photos four to a row, no taller than 3.5 cm, the size they are in your own reports.",
       "The To check box and its links are gone from the Record page."
     ],
-    "dateText": "2 November 2026"
+    "dateText": "2 November 2026",
+    "image": "/assets/new/2026-11-02.webp",
+    "imageAlt": "A Record page with its answers, without a To check box."
   },
   {
     "date": "2026-10-28",
@@ -28,7 +32,9 @@
       "If a Check already has questions, re-reading it from What does this check cover? keeps every question and only adds new ones.",
       "Only you delete questions, on the questions page."
     ],
-    "dateText": "28 October 2026"
+    "dateText": "28 October 2026",
+    "image": "/assets/new/2026-10-28.webp",
+    "imageAlt": "The What does this check cover? screen of a Check, with a box to describe it or add files."
   },
   {
     "date": "2026-10-21",
@@ -41,7 +47,9 @@
       "WhatsApp messages are shorter and end with just how to finish.",
       "Questions with blank sub-questions are now counted properly in the score."
     ],
-    "dateText": "21 October 2026"
+    "dateText": "21 October 2026",
+    "image": "/assets/new/2026-10-21.webp",
+    "imageAlt": "A Record page, with a pencil beside every answer so each can be edited."
   },
   {
     "date": "2026-10-14",
@@ -67,7 +75,9 @@
       "The To do list uses only what the person said on the job.",
       "The More button looks the same on every page."
     ],
-    "dateText": "12 October 2026"
+    "dateText": "12 October 2026",
+    "image": "/assets/new/2026-10-12.webp",
+    "imageAlt": "A Record page with the More button in the top bar and the time of the Record shown in UK time."
   },
   {
     "date": "2026-10-05",
@@ -80,7 +90,9 @@
       "The billing page shows the real due date and every invoice you have paid.",
       "Each question can be in the score or left out, and you can choose how silence counts."
     ],
-    "dateText": "5 October 2026"
+    "dateText": "5 October 2026",
+    "image": "/assets/new/2026-10-05.webp",
+    "imageAlt": "A Record page with Captured answers, a pencil on each row to edit in place, and a panel to drag photos in and out."
   },
   {
     "date": "2026-09-28",
@@ -102,7 +114,9 @@
       "A pencil on the location card lets you set where the work was.",
       "After you say Done, Quickler listens to every voice note again and tells the speakers apart."
     ],
-    "dateText": "24 September 2026"
+    "dateText": "24 September 2026",
+    "image": "/assets/new/2026-09-24.webp",
+    "imageAlt": "A Record page with a pencil on the Location card and a pencil beside each answer."
   },
   {
     "date": "2026-09-17",
@@ -114,7 +128,9 @@
       "The Records page is one list with the newest first.",
       "A failed photo now says so, and does not just vanish."
     ],
-    "dateText": "17 September 2026"
+    "dateText": "17 September 2026",
+    "image": "/assets/new/2026-09-17.webp",
+    "imageAlt": "The Records page for a Check, as one list with the newest first."
   },
   {
     "date": "2026-09-08",
@@ -127,7 +143,9 @@
       "A building's history is one click away.",
       "Downloads now have proper names."
     ],
-    "dateText": "8 September 2026"
+    "dateText": "8 September 2026",
+    "image": "/assets/new/2026-09-08.webp",
+    "imageAlt": "The Records page for a Check, with its downloads and share options."
   },
   {
     "date": "2026-08-25",
@@ -139,7 +157,9 @@
       "Pop-ups no longer have a Cancel button, because the cross already closes them.",
       "A Record is checked once more before it is filed, so Faults match the answers."
     ],
-    "dateText": "25 August 2026"
+    "dateText": "25 August 2026",
+    "image": "/assets/new/2026-08-25.webp",
+    "imageAlt": "The dashboard with All workflows on the left and one People list on the right."
   },
   {
     "date": "2026-08-19",
@@ -228,7 +248,9 @@
       "A powered-by Quickler line on a shared report takes you to quickler.co.",
       "A free demo: a new number gets a ready-made welcome and a demo for its sector."
     ],
-    "dateText": "9 July 2026"
+    "dateText": "9 July 2026",
+    "image": "/assets/new/2026-07-09.webp",
+    "imageAlt": "The one Records page for a Check, with a Share menu on each row."
   },
   {
     "date": "2026-06-19",
@@ -289,7 +311,9 @@
       "Date questions are checked as day, month, year and printed neatly in the PDF.",
       "Friendly error pages appear if the site is being updated."
     ],
-    "dateText": "1 to 14 May 2026"
+    "dateText": "1 to 14 May 2026",
+    "image": "/assets/new/2026-05-14.webp",
+    "imageAlt": "The dashboard in its light mode, showing Checks and people."
   },
   {
     "date": "2026-04-30",
@@ -302,7 +326,9 @@
       "PDFs include the photos taken, and Fault notes show next to the answers.",
       "Voice notes are understood in Checks, and a Help centre was added."
     ],
-    "dateText": "17 to 30 April 2026"
+    "dateText": "17 to 30 April 2026",
+    "image": "/assets/new/2026-04-30.webp",
+    "imageAlt": "The dashboard with its Checks and the people list."
   },
   {
     "date": "2026-04-16",
@@ -315,7 +341,9 @@
       "A pricing page and customer terms on quickler.co, and a Sign in button for customers.",
       "Voice notes are turned into text, and photos can be sent at any time."
     ],
-    "dateText": "3 to 16 April 2026"
+    "dateText": "3 to 16 April 2026",
+    "image": "/assets/new/2026-04-16.webp",
+    "imageAlt": "The first Quickler app dashboard, with a firm, its Checks and its people."
   },
   {
     "date": "2026-04-02",
