@@ -200,3 +200,14 @@
     boxes.forEach(function (box) { if (!box.contains(e.target) && box.classList.contains("aw-active")) { box.classList.remove("aw-active"); box.classList.add("aw-locked"); } });
   }, { passive: true });
 })();
+
+/* The real report windows open at the part being talked about (Philip 5 Nov 2026 15:32). */
+(function () {
+  document.querySelectorAll(".aw-report").forEach(function (box) {
+    var img = box.querySelector("img");
+    function go() { box.scrollTop = (+box.getAttribute("data-aw-y")) * (img.clientWidth / 780) - 12; }
+    if (img.complete) go(); else img.addEventListener("load", go);
+    img.loading = "eager";
+    window.addEventListener("resize", go);
+  });
+})();

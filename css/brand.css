@@ -33,3 +33,5 @@ body.app-home footer, body.app-heypage footer { background: #fdf0f7 !important; 
 /* Real screenshots of the real share page inside the window (Philip 5 Nov 2026 15:18). */
 .aw-real { background: #f4f5fa; padding: clamp(10px, 2.5vw, 28px); }
 .aw-real img { display: block; width: 100%; max-width: 760px; height: auto; margin: 0 auto; border-radius: 14px; }
+.aw-report { height: min(620px, 72vh); padding: 0 !important; background: #fff; }
+.aw-report img { max-width: 780px !important; border-radius: 0 !important; }
