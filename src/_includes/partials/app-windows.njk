@@ -154,20 +154,7 @@
     </div>
   {%- elif kind == 'snap' %}
     {#- Taking a photo on site, three phone screens (Philip 5 Nov 2026 15:53). -#}
-    <div class="aw-snap">
-      <div class="aw-phone"><div class="aw-ph-top"><span class="aw-ph-av"><img src="/assets/icons/apple-touch-icon.png" alt="" width="28" height="28"></span>Quickler</div>
-        <div class="aw-ph-chat"><div class="wa-row wa-bot wa-tail"><div class="wa-bubble"><div class="wa-text"><b>Activities</b> ▸ Current<br><b>Emergency</b> ▸ Exits · First aid<br><b>Height Work</b> ▸ Edge · Harness<br><b>Plant</b> ▸ Defects · Checks</div><span class="wa-time">10:14</span></div></div></div>
-        <div class="aw-ph-bar"><span class="aw-ph-input">Message</span><span class="aw-ph-cam aw-ph-hot"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9 3 7.2 5H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3.2L15 3H9zm3 5a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg></span></div>
-        <div class="aw-ph-cap">1. Tap the camera</div></div>
-      <div class="aw-snap-arrow" aria-hidden="true"><svg width="40" height="24" viewBox="0 0 56 32"><path d="M2 16h44M34 4l14 12-14 12" stroke="url(#awg)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div class="aw-phone aw-phone-dark"><div class="aw-ph-view"><picture><source srcset="/assets/photos/app/digger-site.webp" type="image/webp"><img src="/assets/photos/app/digger-site.jpg" alt="A mini digger on site, seen through the phone camera" loading="lazy"></picture></div>
-        <div class="aw-ph-shoot"><span class="aw-ph-modes"><span>Video</span><b>Photo</b></span><span class="aw-ph-shutter aw-ph-hot"></span></div>
-        <div class="aw-ph-cap">2. Take the photo</div></div>
-      <div class="aw-snap-arrow" aria-hidden="true"><svg width="40" height="24" viewBox="0 0 56 32"><path d="M2 16h44M34 4l14 12-14 12" stroke="url(#awg)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div class="aw-phone aw-phone-dark"><div class="aw-ph-view"><picture><source srcset="/assets/photos/app/digger-site.webp" type="image/webp"><img src="/assets/photos/app/digger-site.jpg" alt="" loading="lazy"></picture></div>
-        <div class="aw-ph-send"><span class="aw-ph-capin">Add a caption…</span><span class="aw-ph-go aw-ph-hot"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M2 21 23 12 2 3v7l15 2-15 2z"/></svg></span></div>
-        <div class="aw-ph-cap">3. Send it</div></div>
-    </div>
+    <div class="aw-snap"><figure class="aw-phone2 aw-portrait"><img src="/assets/photos/app/snap-1-chat.jpg" alt="The Quickler chat in WhatsApp" loading="lazy"><figcaption>1. Tap the camera</figcaption></figure><div class="aw-snap-arrow" aria-hidden="true"><svg width="40" height="24" viewBox="0 0 56 32"><path d="M2 16h44M34 4l14 12-14 12" stroke="url(#awg)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><figure class="aw-phone2 aw-landscape"><img src="/assets/photos/app/snap-2-camera.jpg" alt="The WhatsApp camera pointed at a digger" loading="lazy"><figcaption>2. Take the photo</figcaption></figure><div class="aw-snap-arrow" aria-hidden="true"><svg width="40" height="24" viewBox="0 0 56 32"><path d="M2 16h44M34 4l14 12-14 12" stroke="url(#awg)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><figure class="aw-phone2 aw-landscape"><img src="/assets/photos/app/snap-3-send.jpg" alt="The photo ready to send in WhatsApp" loading="lazy"><figcaption>3. Send it</figcaption></figure></div>
   {%- elif kind == 'done' %}
     {{ waPanel(_dw.chat.slice(_dw.doneFrom), '') }}
   {%- elif kind == 'photos' %}

@@ -106,3 +106,15 @@ body.app-home footer, body.app-heypage footer { background: #fdf0f7 !important; 
 .aw-dl-menu a { padding: 8px 12px; border-radius: 8px; color: #0c1734; text-decoration: none; font-size: .9rem; }
 .aw-dl-menu a:hover { background: #f4f5fa; }
 
+/* Snap: Philip's own phone screenshots (5 Nov 2026 16:03), chat upright, then
+   the phone turned sideways for the photo; no grey behind. */
+.aw:has(.aw-snap), .aw:has(.aw-snap) > * { background: transparent !important; box-shadow: none !important; border: 0 !important; }
+.aw-snap { align-items: center; flex-wrap: nowrap; }
+.aw-phone2 { margin: 0 0 40px; position: relative; flex: none; }
+.aw-phone2 img { display: block; width: 100%; height: auto; border: 8px solid #0c1734; border-radius: 26px; box-shadow: 0 16px 44px rgba(35,28,51,.22); background: #000; }
+.aw-phone2.aw-portrait { width: min(230px, 20vw); }
+.aw-phone2.aw-landscape { width: min(420px, 31vw); }
+.aw-phone2 figcaption { position: absolute; left: 50%; bottom: -34px; transform: translateX(-50%); white-space: nowrap; font-size: .9rem; font-weight: 600; color: #0c1734; }
+@media (max-width: 760px) { .aw-snap { flex-direction: column; } .aw-phone2.aw-portrait { width: 60vw; } .aw-phone2.aw-landscape { width: 86vw; } }
+.aw:has(.aw-snap) { max-width: none !important; width: auto !important; }
+.aw-snap { flex-wrap: nowrap; max-width: 1240px; margin: 0 auto; }
