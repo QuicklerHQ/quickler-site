@@ -244,7 +244,7 @@
         {%- for r in _rows %}{% if r.q %}
         {%- set _plain = r.a | striptags | trim %}
         {%- set _short = r.short or ('Yes' if _plain.startsWith('Yes') else ('No' if _plain.startsWith('No.') or _plain.startsWith('No,') else '')) %}
-        <details class="wf-card site-drop">
+        <details class="wf-card site-drop" id="{{ r.q | striptags | slugify }}">
           <summary class="wf-title-row"><span class="wf-name-block"><h2 class="wf-name site-h">{{ r.q | safe }}</h2></span>{% if _short %}<span class="wf-activity">{{ _short }}</span>{% endif %}<svg class="wf-expand-chevron" width="16" height="10" viewBox="0 0 12 7" fill="none" aria-hidden="true"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></summary>
           <div class="wf-body site-drop-body"><div class="site-words">{{ r.a | priceTokens | safe }}</div></div>
         </details>
@@ -252,7 +252,7 @@
         <div class="site-words hey-panel-intro">{{ r.a | priceTokens | safe }}</div>
         {%- endif %}{% endfor %}
       {%- else %}
-      <details class="wf-card site-drop"{% if b.open %} open{% endif %}>
+      <details class="wf-card site-drop" id="{{ (b.heading or b.videoName or b.eyebrow or 'more') | striptags | slugify }}"{% if b.open %} open{% endif %}>
         <summary class="wf-title-row"><span class="wf-name-block"><h2 class="wf-name site-h">{{ (b.heading or b.videoName or b.eyebrow or 'More') | safe }}</h2></span>{% if b.answer or (b.eyebrow and b.heading) %}<span class="wf-activity">{{ b.answer or b.eyebrow }}</span>{% endif %}<svg class="wf-expand-chevron" width="16" height="10" viewBox="0 0 12 7" fill="none" aria-hidden="true"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></summary>
         <div class="wf-body site-drop-body">{{ blockBody(b, site.domain) }}</div>
       </details>
@@ -263,7 +263,7 @@
     {%- for r in _srows %}{% if r.q %}
       {%- set _plain = r.a | striptags | trim %}
       {%- set _short = r.short or ('Yes' if _plain.startsWith('Yes') else ('No' if _plain.startsWith('No.') or _plain.startsWith('No,') else '')) %}
-      <details class="wf-card site-drop">
+      <details class="wf-card site-drop" id="{{ r.q | striptags | slugify }}">
         <summary class="wf-title-row"><span class="wf-name-block"><h3 class="wf-name site-h">{{ r.q | safe }}</h3></span>{% if _short %}<span class="wf-activity">{{ _short }}</span>{% endif %}<svg class="wf-expand-chevron" width="16" height="10" viewBox="0 0 12 7" fill="none" aria-hidden="true"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></summary>
         <div class="wf-body site-drop-body"><div class="site-words">{{ r.a | priceTokens | safe }}</div></div>
       </details>
@@ -558,5 +558,6 @@
 {{ photoData() }}
 <script src="/js/app-windows.js?v={{ site.version }}" defer></script>
 {%- endif %}
+<script src="/js/open-hash.js?v={{ site.version }}" defer></script>
 </body>
 </html>

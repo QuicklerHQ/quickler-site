@@ -178,3 +178,6 @@ html.aw-ctrl .aw-hover-hint, .aw-live-wrap.is-on .aw-hover-hint, .aw-scroll.aw-a
 .qs-n b { display: block; font-size: 1.5rem; font-weight: 500; color: #0c1734; } .qs-n span { font-size: .85rem; color: #5c6b90; }
 .qs-wait { font-size: .92rem; color: #5c6b90; }
 .qs { margin: 0 !important; gap: 12px; } .qs-part { background: #fff; border: 1px solid #dfe3f0; border-radius: 16px; }
+/* The question a link opened is marked for a moment (Philip 5 Nov 2026 20:42). */
+.hash-lit { box-shadow: 0 0 0 3px #7C3AED, 0 10px 30px rgba(124,58,237,.25) !important; border-radius: 16px; transition: box-shadow .4s ease; }
+[id] { scroll-margin-top: 110px; }
