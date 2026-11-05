@@ -305,3 +305,25 @@ footer a:hover { color: var(--accent); }
 /* The app's logo sits bare in its top bar, no white pill. */
 nav[aria-label="Primary"] .nav-name { background: none !important; box-shadow: none !important; padding: 0 !important; border-radius: 0 !important; height: auto !important; }
 nav[aria-label="Primary"] .nav-name img { height: 38px; width: auto; }
+
+/* READABLE (Philip 5 Nov 2026 09:11: "still terrible, basically unreadable").
+   The app's Record sets its answers small, grey and pushed right, which suits
+   a form you scan, not a page you read. On the site every word is the app's
+   dark ink at a reading size, full width; the chat wallpaper and the red To
+   do text go plain so nothing fights the words. */
+.site-words, .site-words p, .site-words li,
+.site-answer, .site-answer p, .site-answer li,
+.site-q-words, .site-tile-words, .site-rec-ref, .site-raw .story-text,
+.site-todo-body li, .site-transcript .wa-text {
+  color: #213055 !important; font-size: 1rem !important; line-height: 1.65 !important;
+}
+.sm-answer-row td.sm-d1 { padding: 10px 14px !important; }
+.site-answer { width: 100% !important; margin-left: 0 !important; }
+.sm-answer-q .site-q { font-size: 1.02rem; font-weight: 700; color: #0d1a3a; }
+.site-sec-head .sm-group-label { font-size: 1.15rem !important; font-weight: 700 !important; color: #0d1a3a !important; }
+.site-todo-body li { color: #213055 !important; }
+.site-transcript .site-wa { background: #efeae2 !important; }
+.site-tile-words { font-size: 0.95rem !important; }
+.wf-activity, .site-group-label { font-size: 0.85rem !important; }
+.site-rec-top { display: none; }
+.wf-meta.site-note { font-size: 0.9rem; color: #5c6b90; }
