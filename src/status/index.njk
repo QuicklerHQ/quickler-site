@@ -22,21 +22,3 @@
   }
 }
 ---
-<script>
-(function () {
-  document.querySelectorAll(".qs-part").forEach(function (el) {
-    var key = el.getAttribute("data-key"); if (!key) return;
-    var body = new URLSearchParams({ api_key: key, format: "json", custom_uptime_ratios: "1-7-30-90", all_time_uptime_ratio: "1" });
-    fetch("https://api.uptimerobot.com/v2/getMonitors", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: body })
-      .then(function (r) { return r.json(); })
-      .then(function (d) {
-        var m = d && d.monitors && d.monitors[0]; if (!m) throw 0;
-        var up = m.status === 2, now = el.querySelector("[data-now]");
-        now.textContent = up ? "Working" : (m.status === 0 ? "Paused" : "Down"); now.className = "qs-now " + (up ? "is-up" : "is-down");
-        var r = String(m.custom_uptime_ratio || "").split("-"), lab = ["24 hours", "7 days", "30 days", "90 days"];
-        el.querySelector("[data-nums]").innerHTML = lab.map(function (l, i) { return r[i] ? '<div class="qs-n"><b>' + (+r[i]).toFixed(2) + '%</b><span>' + l + '</span></div>' : ""; }).join("");
-      })
-      .catch(function () { el.querySelector("[data-now]").textContent = "Could not load"; });
-  });
-})();
-</script>
