@@ -562,3 +562,13 @@ body.app-home .hey, body.app-heypage .hey { max-width: none; }
   .hey-frame-mock { padding: 14px 14px 0; min-height: 260px; }
   .hey-watch { font-size: 0.95rem; padding: 12px 18px; }
 }
+
+/* The still is a real frame of the walkthrough (Philip 5 Nov 2026 12:52: use the real one). */
+.hey-watch-still { display: block; width: 100%; height: auto; border-radius: 12px 12px 0 0; }
+.hey-frame-mock { min-height: 0; }
+.hey-frame-mock::after { background: linear-gradient(135deg, rgba(90,79,207,0.55), rgba(124,58,237,0.42) 50%, rgba(244,63,140,0.38)); }
+/* A playing video sits whole in a proper rounded box, never cut off by the
+   card's edge (Philip 5 Nov 2026 12:53). */
+.hey-frame.hey-frame-playing { padding: 22px !important; border-radius: 22px !important; margin-bottom: clamp(32px, 5vw, 56px) !important; }
+.hey-frame-playing .hey-watch-video iframe { border-radius: 14px; background: #000; }
+.hey-frame-playing .hey-watch-video.hey-watch-portrait { width: min(100%, 380px, calc((100vh - 120px) * 9 / 16)); }
