@@ -1,5 +1,8 @@
-/* Quickler's own panel colour instead of HEY's beige (Philip 5 Nov 2026 14:04
-   "what is more Quickler?"): the faintest tint of the logo's violet, so the
-   white cards and the blue-purple-pink gradient sit on something that is ours. */
-body.app-home main, body.app-heypage main,
-body.app-home footer, body.app-heypage footer { background: #f5f3ff !important; }
+/* Quickler's own panel colour instead of HEY's beige (Philip 5 Nov 2026 14:04,
+   14:12 "too grey, more fade, more colour but not overpowering"): a soft fade
+   through the logo's blue, violet and pink, very light, so the white cards and
+   the gradient buttons still lead. */
+body.app-home main, body.app-heypage main {
+  background: linear-gradient(170deg, #e9f0ff 0%, #f1ebff 38%, #fbeaf5 75%, #fdf0f7 100%) !important;
+}
+body.app-home footer, body.app-heypage footer { background: #fdf0f7 !important; }
