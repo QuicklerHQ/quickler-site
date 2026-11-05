@@ -249,3 +249,18 @@ document.addEventListener("click", function (e) {
     box.addEventListener("wheel", function (e) { if (e.ctrlKey) tip.classList.remove("is-on"); }, { passive: true });
   });
 })();
+
+/* Live prod windows: Ctrl held lets the mouse into them; a double tap on a
+   phone does the same until you tap outside (Philip 5 Nov 2026 16:47). */
+(function () {
+  var touch = window.matchMedia && window.matchMedia("(hover: none)").matches;
+  document.querySelectorAll(".aw-live-wrap .aw-hover-hint").forEach(function (h) { if (touch) h.textContent = "Double tap to use it"; });
+  addEventListener("keydown", function (e) { if (e.key === "Control") document.documentElement.classList.add("aw-ctrl"); });
+  addEventListener("keyup", function (e) { if (e.key === "Control") document.documentElement.classList.remove("aw-ctrl"); });
+  addEventListener("blur", function () { document.documentElement.classList.remove("aw-ctrl"); });
+  document.querySelectorAll(".aw-live-wrap").forEach(function (w) {
+    var last = 0;
+    w.addEventListener("touchend", function () { var n = Date.now(); if (n - last < 320) w.classList.add("is-on"); last = n; });
+  });
+  document.addEventListener("touchstart", function (e) { document.querySelectorAll(".aw-live-wrap.is-on").forEach(function (w) { if (!w.contains(e.target)) w.classList.remove("is-on"); }); }, { passive: true });
+})();

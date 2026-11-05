@@ -142,7 +142,14 @@
 <div class="aw aw-{{ kind }}" data-aw="{{ kind }}">
   {{ winBar() }}
   <div class="aw-body">
-  {%- if kind == 'chat' %}
+  {#- THE REAL PROD PAGE (Philip 5 Nov 2026 16:43: "just show prod as it is and
+      it becomes when it updates"). Once site.demoBase is set, each window is the
+      dashboard's own /demo page (whichever Record is the website demo), opened
+      at its part. The pictures below are only the stop-gap until then. -#}
+  {%- set _live = {'chat': '#messages', 'done': '#messages', 'photos': '#photo-1', 'todo': '#todo'} %}
+  {%- if site.demoBase and _live[kind] %}
+    <div class="aw-live-wrap"><iframe class="aw-live" src="{{ site.demoBase }}/demo?embed=1{{ _live[kind] }}" title="Quickler's demo report, live" loading="lazy" referrerpolicy="strict-origin"></iframe><div class="aw-hover-hint">Hold Ctrl to scroll</div></div>
+  {%- elif kind == 'chat' %}
     {{ waPanel(_dw.chat, 'aw-wa-tall') }}
   {%- elif kind == 'place' %}
     {#- Before and after: the real WhatsApp list message, then the same message
