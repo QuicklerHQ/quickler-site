@@ -129,3 +129,5 @@ body.app-home footer, body.app-heypage footer { background: #fdf0f7 !important; 
    (dashboard _submission_module_assets.html, Philip 20 Oct 2026). */
 .aw [data-aw-photo] img, .aw .aw-hs-photo { cursor: zoom-in; transition: box-shadow .15s ease, filter .15s ease; }
 .aw [data-aw-photo]:hover img, .aw .aw-hs-photo:hover { box-shadow: 0 0 0 3px #2F6BFF, 0 8px 20px rgba(13,26,58,0.22); filter: brightness(0.97); outline: 0 !important; background: transparent !important; }
+/* Phone: the before/after arrow sits centred between the two (Philip 5 Nov 2026 16:24). */
+@media (max-width: 760px) { .aw-ba2-arrow { justify-self: center !important; align-self: center !important; margin: 0 auto !important; } }
