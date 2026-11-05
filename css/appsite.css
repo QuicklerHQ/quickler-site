@@ -399,7 +399,7 @@ footer { text-align: left; max-width: 960px; margin: 0 auto; padding: 40px 16px 
 body.app-home { background: #f6f4f1 !important; }
 .hey { max-width: 1040px; margin: 0 auto; }
 .hey-hero { background: #fff; border-radius: 28px; padding: clamp(32px, 6vw, 72px) clamp(20px, 5vw, 64px) 0; text-align: center; overflow: hidden; margin-bottom: 64px; }
-.hey-h1 { margin: 0 auto 18px; max-width: 900px; font-size: clamp(2.4rem, 6.4vw, 4.6rem); line-height: 1.02; letter-spacing: -0.04em; font-weight: 800;
+.hey-h1 { margin: 0 auto 18px; max-width: 1120px; font-size: clamp(2.4rem, 6.4vw, 4.6rem); line-height: 1.02; letter-spacing: -0.04em; font-weight: 400;
   background: linear-gradient(90deg, #2F6BFF 0%, #5A4FCF 35%, #7C3AED 65%, #F43F8C 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .hey-sub { margin: 0 auto 14px; max-width: 760px; font-size: clamp(1.25rem, 2.6vw, 1.75rem); font-weight: 700; line-height: 1.25; color: #0c1734; letter-spacing: -0.02em; }
 .hey-lede { margin: 0 auto 26px; max-width: 640px; font-size: 1.1rem; color: #213055; line-height: 1.55; }
@@ -505,3 +505,8 @@ nav[aria-label="Primary"] .nav-new { position: absolute; top: -10px; left: 50%; 
   opacity: 0; transform: translateY(16px); pointer-events: none; transition: opacity .25s ease, transform .25s ease; }
 .hey-float.hey-float-on { opacity: 1; transform: none; pointer-events: auto; }
 @media (max-width: 600px) { .hey-float { right: 12px; bottom: 12px; padding: 12px 18px; font-size: 0.85rem; } }
+
+/* Wider, like HEY (Philip 5 Nov 2026 12:32): the hero card and page run to the
+   top bar's width instead of a narrow column; reading text keeps its measure. */
+body.app-home .shell-wide, body.app-heypage .shell-wide { max-width: min(1240px, calc(100% - 32px)) !important; }
+body.app-home .hey, body.app-heypage .hey { max-width: none; }

@@ -8,7 +8,10 @@ const path = require("path");
 module.exports = () => {
   try {
     const out = execFileSync("bash", [path.join(__dirname, "../../scripts/version_label.sh")], { encoding: "utf8", timeout: 5000 }).trim();
-    return { label: out || "" };
+    // Shown as Philip asked (5 Nov 2026 12:34): "465 (17 of 5/11/2026)".
+    const m = out.match(/^(\d+)\.(\d+)\.(\d+)\.(\d+)\.(\d+)$/);
+    const shown = m ? `${m[1]} (${m[5]} of ${m[2]}/${m[3]}/${m[4]})` : out;
+    return { label: out || "", shown: shown || "" };
   } catch (e) {
     return { label: "" };
   }
