@@ -1,0 +1,70 @@
+---json
+{
+  "layout": "layouts/story.njk",
+  "permalink": "/your-data/",
+  "bodyClass": "page-story",
+  "seo": {
+    "title": "Your data | Quickler",
+    "description": "Which AI and other companies handle what you send to Quickler, what they have published about training and retention, where it lives, and how to take it with you.",
+    "canonical": "https://quickler.co/your-data/",
+    "robots": "noindex, follow",
+    "hasMetaTitle": true,
+    "lang": "en"
+  },
+  "hero": {
+    "eyebrow": "Your data",
+    "heading": "Your Records are not our product.",
+    "lede": "Plainly: who reads what you send us, where it is kept, and how to take it away."
+  },
+  "blocks": [
+    {
+      "type": "raw",
+      "eyebrow": "The short version",
+      "heading": "We do not sell your data.",
+      "html": "<p class=\"site-words\">Quickler is paid for by subscription, GBP 75 per phone number a month. Nobody else pays us to see your Records. There are no adverts inside Quickler, and we do not sell your data to anyone.</p>\n<p class=\"site-words\">We do send your content to a small number of outside companies so the product can work. This page says which ones, what each does with it, and what they have published about it. Where we could not prove something, we left it out.</p>"
+    },
+    {
+      "type": "raw",
+      "eyebrow": "The AI",
+      "heading": "Two AI companies read what you send.",
+      "html": "<p class=\"site-words\">When you walk a site and send messages, photos and voice notes in WhatsApp, Quickler uses AI to understand your replies, describe photos and draft your Record. That work is done by <strong>Anthropic</strong> (the Claude models) and <strong>OpenAI</strong>. Both receive the messages, transcripts, photos and uploaded documents needed for the job. A person on your side checks and approves every Record before it goes out.</p>\n<p class=\"site-words\">Voice notes are turned into text by <strong>ElevenLabs</strong> first. If that fails or comes back empty, <strong>OpenAI</strong> does it instead.</p>\n<p class=\"site-words\"><strong>What they say about your data.</strong></p>\n<p class=\"site-words\"><strong>Anthropic.</strong> On training, Anthropic says: \"By default, we will not use your inputs or outputs from our commercial products\" to train its models. On retention, for its API it says it automatically deletes inputs and outputs from its backend within 30 days, with exceptions such as legal requirements or safety enforcement. Sources: <a href=\"https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training\" rel=\"noopener\">training</a> and <a href=\"https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data\" rel=\"noopener\">retention</a>.</p>\n<p class=\"site-words\"><strong>OpenAI.</strong> OpenAI says data sent to its API is not used to train or improve its models unless you opt in. By default its API abuse-monitoring logs are kept for up to 30 days. Its speech-to-text endpoint is listed as not used for training and with no abuse-monitoring retention. Source: <a href=\"https://developers.openai.com/api/docs/guides/your-data\" rel=\"noopener\">OpenAI, your data</a>.</p>\n<p class=\"site-words\"><strong>ElevenLabs.</strong> It is listed in our <a href=\"/pages/privacy.html\">privacy policy</a> as a speech-to-text provider. We have not yet checked and published its training and retention terms, so we make no claim about them here.</p>\n<p class=\"site-words\">These are the providers' own published statements, as read on 5 November 2026. We cannot audit their systems, only choose providers whose terms say this.</p>"
+    },
+    {
+      "type": "raw",
+      "eyebrow": "Everyone else",
+      "heading": "Who else touches it.",
+      "html": "<p class=\"site-words\">Our <a href=\"/pages/privacy.html\">privacy policy</a> lists every company that handles data for us and why, including: Hetzner (hosting), Twilio and Meta (WhatsApp delivery), Cloudflare (sits in front of the dashboard), Resend (email delivery), Sentry (error monitoring), Backblaze (encrypted off-site backups), GoCardless (billing) and map and weather services that receive a Record's location.</p>\n<p class=\"site-words\">Two of those deserve plain words. Cloudflare can see the pages and Records shown at app.quickler.co, because all traffic passes through its network. Sentry error reports can incidentally include fragments of what a person typed when something goes wrong.</p>"
+    },
+    {
+      "type": "raw",
+      "eyebrow": "Where it lives",
+      "heading": "Servers in Europe.",
+      "html": "<p class=\"site-words\">The product and its databases run on Hetzner servers in Finland (Hetzner Online GmbH is German). A continuous encrypted copy for disaster recovery is held with Backblaze in the United States, and backups are kept for 30 days. Some of the companies above are American, and our privacy policy sets out the legal mechanism for each transfer.</p>\n<p class=\"site-words\">Data is encrypted in transit (HTTPS). We do not claim encryption at rest on our own servers.</p>"
+    },
+    {
+      "type": "raw",
+      "eyebrow": "Tracking",
+      "heading": "What watches you, and what does not.",
+      "html": "<p class=\"site-words\">The emails we checked, the welcome email and the Record-ready email, contain no images and no tracking.</p>\n<p class=\"site-words\">On the marketing site, Google measurement runs without cookies and with IP anonymisation until you choose. Cookie-based Google analytics and Microsoft Clarity (heatmaps and session replay) load only after you accept cookies. Microsoft Clarity is never loaded on Record pages, history pages or shared Record links. We also use Google Ads conversion measurement on the marketing site, so we are not free of advertising tools ourselves. Details are in our <a href=\"/pages/cookies.html\">cookie policy</a>.</p>\n<p class=\"site-words\">We got this wrong once. In August 2026 session replay was switched on for our own test system without asking for consent. It held no real customer data and was fixed within about 53 hours, and we logged it in our breach record. We now block analytics on every page that shows a Record.</p>"
+    },
+    {
+      "type": "raw",
+      "eyebrow": "Taking it with you",
+      "heading": "Your Records are yours to take.",
+      "html": "<p class=\"site-words\">You can download any Record as a PDF, a web page, a spreadsheet (Excel and CSV), and a Word document where the Check has one switched on, with its photos, documents and WhatsApp messages. There is also a Download all data option in the dashboard that gives you everything as a zip.</p>"
+    },
+    {
+      "type": "raw",
+      "eyebrow": "Keeping and deleting",
+      "heading": "How long we keep it.",
+      "html": "<p class=\"site-words\">Messages, photos, voice notes and transcripts are deleted automatically three years after the last activity on a Record. Filed Records and their PDFs are kept three years, then deleted, or sooner if you delete them. Backups are kept for 30 days.</p>\n<p class=\"site-words\">If you remove a person from your Contacts, their filed reports stay, with their name on them, so your compliance history stays whole. Full erasure of one person's conversations, photos, voice notes and transcripts is done on request: email <a href=\"mailto:hello@quickler.co\">hello@quickler.co</a>.</p>\n<p class=\"site-words\">Anyone with a Record's share link can open it, with its photos and downloads, for 365 days, unless the Record is deleted first.</p>"
+    },
+    {
+      "type": "raw",
+      "eyebrow": "Your firm and us",
+      "heading": "You are in charge of the data.",
+      "html": "<p class=\"site-words\">Your firm decides what is recorded and why, and Quickler Ltd processes it on your written instructions under a data processing agreement, <a href=\"/pages/dpa.html\">published in full</a>. We are registered with the ICO, ZC124993. Questions: <a href=\"mailto:hello@quickler.co\">hello@quickler.co</a>.</p>"
+    }
+  ]
+}
+---
