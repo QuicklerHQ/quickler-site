@@ -5,19 +5,48 @@
   "bodyClass": "page-story",
   "hero": {
     "eyebrow": "Support",
-    "heading": "How can we help?",
-    "lede": "Start with a guide below. If you can't find what you need, message us and we reply in person within one business day."
+    "heading": "Friendly people, standing by.",
+    "lede": "Quickler is a small company, and the person who reads your message is a real one. Tell us what is going on and we reply in person within one business day."
   },
   "blocks": [
     {
-      "type": "cta",
-      "eyebrow": "Get in touch",
-      "heading": "Prefer to just email?",
-      "text": "Email us directly and we reply in person within one business day.",
-      "actions": [
-        { "label": "hello@quickler.co", "href": "mailto:hello@quickler.co", "style": "btn-primary" },
-        { "label": "Message us", "href": "#contact-form-section", "style": "btn-secondary" }
-      ]
+      "type": "raw",
+      "html": "<div class=\"contact-clean\" id=\"contact-form-section\"><h2 class=\"story-h2\">What can we help with?</h2><p class=\"story-text story-text-centre\">No ticket queue and no bots. Share as much detail as you can: what you were doing, what you saw, and what you expected. A screenshot link helps if you have one.</p><form class=\"contact-clean-form\" action=\"https://formspree.io/f/mjknoeqd\" method=\"POST\" data-async-form=\"quickler-contact\" data-success-message=\"Thanks. We will reply in person within one business day.\"><label class=\"ccf-label\" for=\"ccf-topic\">What is it about?</label><select id=\"ccf-topic\" name=\"topic\" required><option value=\"\" disabled selected>Choose a topic</option><option>Signing in or account access</option><option>A question before signing up</option><option>Setting up a Check</option><option>Something is not working</option><option>A Record or report</option><option>Billing or Direct Debit</option><option>An idea or feature request</option><option>Something else</option></select><label class=\"ccf-label\" for=\"ccf-message\">Your message</label><textarea id=\"ccf-message\" name=\"message\" rows=\"6\" placeholder=\"Share all the details: what you were doing, what happened, what you expected.\" required></textarea><div class=\"ccf-row\"><div class=\"ccf-col\"><label class=\"ccf-label\" for=\"ccf-name\">Your name</label><input id=\"ccf-name\" type=\"text\" name=\"name\" autocomplete=\"name\" required></div><div class=\"ccf-col\"><label class=\"ccf-label\" for=\"ccf-email\">Your email, for our reply</label><input id=\"ccf-email\" type=\"email\" name=\"email\" autocomplete=\"email\" inputmode=\"email\" required></div></div><label class=\"ccf-label\" for=\"ccf-firm\">Your firm <span class=\"ccf-opt\">(optional)</span></label><input id=\"ccf-firm\" type=\"text\" name=\"firm\" autocomplete=\"organization\"><button type=\"submit\" class=\"btn btn-primary\">Send message</button><p class=\"contact-clean-thanks\" hidden>Thanks. We will reply in person within one business day.</p></form><p class=\"contact-clean-alt\">Prefer email? <a href=\"mailto:hello@quickler.co\">hello@quickler.co</a></p></div>",
+      "heading": "Message us",
+      "eyebrow": "Contact",
+      "open": true
+    },
+    {
+      "type": "cards",
+      "eyebrow": "Quick routes",
+      "heading": "Often the fastest answer",
+      "items": [
+        {
+          "kicker": "FAQ",
+          "title": "Frequently asked questions",
+          "text": "Quick answers to the questions we hear most.",
+          "href": "/pages/help/faq.html"
+        },
+        {
+          "kicker": "Fixes",
+          "title": "Troubleshooting",
+          "text": "Fixes for WhatsApp, reports and account access.",
+          "href": "/pages/help/troubleshooting.html"
+        },
+        {
+          "kicker": "Status",
+          "title": "Is Quickler up?",
+          "text": "Live uptime for the app and for recording.",
+          "href": "/status/"
+        },
+        {
+          "kicker": "News",
+          "title": "What's new",
+          "text": "What changed in Quickler, and when.",
+          "href": "/new/"
+        }
+      ],
+      "open": true
     },
     {
       "type": "video",
@@ -31,9 +60,24 @@
       "eyebrow": "Guides",
       "heading": "Start here",
       "items": [
-        { "kicker": "Getting started", "title": "Signup to first report", "text": "Sign up, configure your first Check, and invite users.", "href": "/pages/help/getting-started.html" },
-        { "kicker": "Checks", "title": "Questions, reports, limits", "text": "How Checks are structured and what limits apply.", "href": "/pages/help/workflows.html" },
-        { "kicker": "Users", "title": "Adding and removing people", "text": "Add people to your firm, see what they get on WhatsApp, remove access.", "href": "/pages/help/engineers.html" }
+        {
+          "kicker": "Getting started",
+          "title": "Signup to first report",
+          "text": "Sign up, configure your first Check, and invite users.",
+          "href": "/pages/help/getting-started.html"
+        },
+        {
+          "kicker": "Checks",
+          "title": "Questions, reports, limits",
+          "text": "How Checks are structured and what limits apply.",
+          "href": "/pages/help/workflows.html"
+        },
+        {
+          "kicker": "Users",
+          "title": "Adding and removing people",
+          "text": "Add people to your firm, see what they get on WhatsApp, remove access.",
+          "href": "/pages/help/engineers.html"
+        }
       ]
     },
     {
@@ -41,28 +85,30 @@
       "eyebrow": "More guides",
       "heading": "Billing, data and team",
       "items": [
-        { "kicker": "Team management", "title": "Admins and invitations", "text": "Manage admin roles, invite members, control access.", "href": "/pages/help/team.html" },
-        { "kicker": "Plans & billing", "title": "Pricing and Direct Debit", "text": "How plans work, Direct Debit, upgrades and cancellation.", "href": "/pages/help/plans.html" },
-        { "kicker": "Data & privacy", "title": "Storage, downloads, GDPR", "text": "Where data is stored, how to download, GDPR obligations.", "href": "/pages/help/privacy.html" }
+        {
+          "kicker": "Team management",
+          "title": "Admins and invitations",
+          "text": "Manage admin roles, invite members, control access.",
+          "href": "/pages/help/team.html"
+        },
+        {
+          "kicker": "Plans & billing",
+          "title": "Pricing and Direct Debit",
+          "text": "How plans work, Direct Debit, upgrades and cancellation.",
+          "href": "/pages/help/plans.html"
+        },
+        {
+          "kicker": "Data & privacy",
+          "title": "Storage, downloads, GDPR",
+          "text": "Where data is stored, how to download, GDPR obligations.",
+          "href": "/pages/help/privacy.html"
+        }
       ]
-    },
-    {
-      "type": "cards",
-      "eyebrow": "Fixes",
-      "heading": "Troubleshooting and FAQ",
-      "items": [
-        { "kicker": "Troubleshooting", "title": "Common issues and fixes", "text": "Fixes for WhatsApp, reports, and account access.", "href": "/pages/help/troubleshooting.html" },
-        { "kicker": "FAQ", "title": "Frequently asked questions", "text": "Quick answers to the questions we hear most.", "href": "/pages/help/faq.html" }
-      ]
-    },
-    {
-      "type": "raw",
-      "html": "<div class=\"contact-clean\" id=\"contact-form-section\"><p class=\"story-eyebrow\">Still stuck?</p><h2 class=\"story-h2\">Message us directly.</h2><p class=\"story-text story-text-centre\">No ticket queue. We read every message and reply in person within one business day.</p><form class=\"contact-clean-form\" action=\"https://formspree.io/f/mjknoeqd\" method=\"POST\" data-async-form=\"quickler-contact\" data-success-message=\"Thanks. We will reply in person within one business day.\"><div class=\"ccf-row\"><input type=\"text\" name=\"name\" placeholder=\"Your name\" autocomplete=\"name\" required aria-label=\"Your name\"><input type=\"email\" name=\"email\" placeholder=\"Your email\" autocomplete=\"email\" inputmode=\"email\" required aria-label=\"Your email\"></div><textarea name=\"message\" rows=\"3\" placeholder=\"What is going wrong, or what are you trying to do?\" required aria-label=\"Your message\"></textarea><button type=\"submit\" class=\"btn btn-primary\">Send message</button><p class=\"contact-clean-thanks\" hidden>Thanks. We will reply in person within one business day.</p></form><p class=\"contact-clean-alt\">Prefer email? <a href=\"mailto:hello@quickler.co\">hello@quickler.co</a></p></div>"
     }
   ],
   "seo": {
     "title": "Support | Quickler",
-    "description": "Quickler support. Guides for signup, Checks, billing, privacy and troubleshooting, plus a way to message us. We reply in person within one business day.",
+    "description": "Quickler support. Message us and a person replies within one business day, or start with the FAQs, guides, status page and What's new.",
     "canonical": "https://quickler.co/pages/help/index.html",
     "hasAuthor": true,
     "hasTwitterDesc": true,
@@ -87,6 +133,11 @@
   "scripts": [
     "/js/contact-form.js",
     "/js/analytics-events.js"
-  ]
+  ],
+  "panelTitle": "All Support",
+  "panelButton": {
+    "label": "Contact",
+    "href": "#contact-form-section"
+  }
 }
 ---

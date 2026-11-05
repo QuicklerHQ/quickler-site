@@ -6070,3 +6070,7 @@ nav {
     /* Steps go horizontal-compact so the 3 cards don't tower. */
     .story-steps { grid-template-columns: repeat(3, 1fr); }
 }
+.contact-clean-form .ccf-label { font-size: 0.9rem; font-weight: 600; margin-bottom: -6px; }
+.contact-clean-form .ccf-opt { font-weight: 400; color: var(--ink-soft); }
+.contact-clean-form .ccf-col { display: flex; flex-direction: column; gap: 12px; }
+.contact-clean-form select { width: 100%; padding: 13px 15px; font: inherit; font-size: 0.95rem; border: 1px solid var(--line-strong); border-radius: 14px; background: var(--surface-card); color: var(--ink); }
