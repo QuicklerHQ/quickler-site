@@ -42,3 +42,8 @@ body.app-home footer, body.app-heypage footer { background: #fdf0f7 !important; 
 .aw-ba2-chat .wa-bubble { flex: 1; width: 100%; box-sizing: border-box; display: flex; flex-direction: column; }
 .aw-ba2-chat .wa-text { flex: 1; }
 .aw-ba2-chat .wa-time { align-self: flex-end; }
+/* The big scroll bar in each window. */
+.aw-sb { position: absolute; right: 8px; width: 14px; border-radius: 999px; background: rgba(12,23,52,.10); z-index: 6; cursor: pointer; }
+.aw-sb-thumb { width: 100%; border-radius: 999px; background: linear-gradient(180deg, #2F6BFF, #7C3AED 55%, #F43F8C); box-shadow: 0 2px 8px rgba(124,58,237,.35); cursor: grab; touch-action: none; }
+.aw-sb-thumb:active { cursor: grabbing; }
+@media (max-width: 600px) { .aw-sb { width: 10px; right: 4px; } }

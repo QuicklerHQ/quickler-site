@@ -211,3 +211,34 @@
     window.addEventListener("resize", go);
   });
 })();
+
+/* A big, always-visible scroll bar on the right of each window (Philip 5 Nov
+   2026 15:47), so it is obvious there is more inside. Drag it or click the
+   track to move; the page itself still scrolls past normally. */
+(function () {
+  document.querySelectorAll(".aw-scroll").forEach(function (box) {
+    var host = box.parentNode;
+    if (getComputedStyle(host).position === "static") host.style.position = "relative";
+    var track = document.createElement("div"); track.className = "aw-sb"; track.setAttribute("aria-hidden", "true");
+    var thumb = document.createElement("div"); thumb.className = "aw-sb-thumb"; track.appendChild(thumb); host.appendChild(track);
+    function place() {
+      var r = box.getBoundingClientRect(), hr = host.getBoundingClientRect();
+      track.style.top = (r.top - hr.top + 8) + "px"; track.style.height = (r.height - 16) + "px";
+      var max = box.scrollHeight - box.clientHeight;
+      track.style.display = max > 4 ? "" : "none";
+      var th = Math.max(48, track.clientHeight * box.clientHeight / box.scrollHeight);
+      thumb.style.height = th + "px";
+      thumb.style.transform = "translateY(" + (max ? (track.clientHeight - th) * box.scrollTop / max : 0) + "px)";
+    }
+    box.addEventListener("scroll", place, { passive: true });
+    window.addEventListener("resize", place);
+    var imgs = box.querySelectorAll("img"); imgs.forEach(function (i) { i.addEventListener("load", place); });
+    setTimeout(place, 50); setTimeout(place, 800); setTimeout(place, 2500);
+    var drag = null;
+    function at(y) { var max = box.scrollHeight - box.clientHeight, th = thumb.offsetHeight; box.scrollTop = Math.max(0, Math.min(max, (y - th / 2) / (track.clientHeight - th) * max)); }
+    thumb.addEventListener("pointerdown", function (e) { e.preventDefault(); e.stopPropagation(); drag = { y: e.clientY, st: box.scrollTop }; thumb.setPointerCapture(e.pointerId); });
+    thumb.addEventListener("pointermove", function (e) { if (!drag) return; var max = box.scrollHeight - box.clientHeight, room = track.clientHeight - thumb.offsetHeight; box.scrollTop = drag.st + (e.clientY - drag.y) * max / room; });
+    thumb.addEventListener("pointerup", function () { drag = null; });
+    track.addEventListener("pointerdown", function (e) { if (e.target === track) at(e.clientY - track.getBoundingClientRect().top); });
+  });
+})();
