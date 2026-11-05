@@ -595,3 +595,23 @@ body.app-home .hey, body.app-heypage .hey { max-width: none; }
 .hey-band-sub { font-weight: 400 !important; color: #213055 !important; }
 .hey-band .hey-note, .hey-band-note { color: #5c6b90 !important; }
 .hey-band .hey-note-light { color: #5c6b90 !important; }
+
+/* HEY's frame at every screen size (Philip 5 Nov 2026 13:21 "adjusting to
+   screen size like hey is way better"): a white page, a warm panel with round
+   top corners that the top bar overlaps, and inside it a white card of at most
+   1280px with HEY's layered shadow and a margin that grows with the screen.
+   Under 1040px the top bar is a short pill, not a full-width bar. */
+body.app-home, body.app-heypage { background: #fff !important; }
+body.app-home main, body.app-heypage main { margin: -46px clamp(0px, 1.7vw, 32px) 0; background: #f9f7f5; border-radius: clamp(0px, 2vw, 38px) clamp(0px, 2vw, 38px) 0 0; padding-top: 86px; }
+body.app-home footer, body.app-heypage footer { max-width: none !important; margin: 0 clamp(0px, 1.7vw, 32px) !important; background: #f9f7f5 !important; padding-left: max(16px, calc((100% - 960px) / 2)) !important; padding-right: max(16px, calc((100% - 960px) / 2)) !important; }
+body.app-home .shell-wide, body.app-heypage .shell-wide { width: min(1280px, calc(100% - 2 * clamp(12px, 3.5vw, 64px))) !important; max-width: none !important; }
+.hey-hero { box-shadow: rgba(35,28,51,0.02) 0 0 0 1px, rgba(35,28,51,0.2) 0 6px 51px -26px, rgba(35,28,51,0.3) 0 13px 77px -32px, rgba(35,28,51,0.4) 0 13px 26px -38px, rgba(35,28,51,0.5) 0 26px 38px -51px; }
+.hey-h1 { max-width: 1100px; font-size: clamp(2.4rem, 6vw, 5.4rem); }
+.hey-sub { max-width: 1100px !important; font-size: clamp(1.2rem, 2.3vw, 2.1rem) !important; line-height: 1.25 !important; }
+nav[aria-label="Primary"] { position: sticky; z-index: 50; }
+@media (max-width: 1040px) {
+  nav[aria-label="Primary"] { width: min(calc(100% - 20px), 420px) !important; }
+}
+.hey-h1 { max-width: 1240px; font-size: clamp(2.4rem, 5.6vw, 4.9rem); }
+.hey-sub-page { font-weight: 400 !important; }
+@media (max-width: 600px) { body.app-home main, body.app-heypage main { margin-left: 0; margin-right: 0; } body.app-home footer, body.app-heypage footer { margin: 0 !important; } }
