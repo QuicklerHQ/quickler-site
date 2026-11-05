@@ -122,7 +122,104 @@
 {%- set _ledePanel = false %}{% set _todo = false %}{% set _faq = false %}
 {%- for ap in articlePanels or [] %}{% if ap.kind == 'lede' %}{% set _ledePanel = ap %}{% elif ap.kind == 'takeaways' %}{% set _todo = ap %}{% elif ap.kind == 'faq' %}{% set _faq = ap %}{% endif %}{% endfor %}
 
-{%- if _mode == 'checks' %}
+{%- if _mode == 'home' %}
+{#- ── THE HOME PAGE, on HEY's and Basecamp's plan (Philip 5 Nov 2026 11:25-11:45:
+    "download hey and make it basically a copy of everything they have worked
+    out but in our ui ux", Basecamp "hard core copy", Q13 HEY's longer page):
+    headline with a short menu beside it (Basecamp), a signed letter (Basecamp,
+    Fizzy), the video, the wall (HEY), five features, "and there's so much
+    more" (HEY), measured numbers, questions, one button. Drawn with the app's
+    own cards, tiles and buttons. -#}
+<div class="site-home">
+  <div class="site-home-top">
+    <div class="site-home-claim">
+      <h1 class="site-home-h1">{{ hero.heading | safe }}</h1>
+      {%- if hero.lede %}<p class="site-home-lede">{{ hero.lede | safe }}</p>{% endif %}
+      <div class="site-home-actions">
+        {%- for a in hero.actions or [] %}<a href="{{ a.href }}" class="btn-round-add{% if loop.first %} btn-round-add-primary{% endif %}"{% if '//' in a.href and site.domain not in a.href %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ a.label }}</a>{% endfor %}
+      </div>
+      {%- if hero.actionNote %}<div class="wf-meta site-note">{{ hero.actionNote }}</div>{% endif %}
+    </div>
+    <div class="card site-home-menu">
+      {%- for m in homeMenu or [] %}
+      <a class="site-home-menu-row" href="{{ m.href }}"><span class="site-home-menu-name">{{ m.label }}</span><span class="site-home-menu-what">{{ m.what }}</span></a>
+      {%- endfor %}
+    </div>
+  </div>
+
+  {%- if letter %}
+  <div class="card site-letter">
+    <div class="site-letter-body">{{ letter.html | safe }}</div>
+    <div class="site-letter-sign"><div class="site-letter-name">{{ letter.name }}</div><div class="wf-meta">{{ letter.role }} · <a href="mailto:{{ letter.email }}">{{ letter.email }}</a></div></div>
+  </div>
+  {%- endif %}
+
+  {%- if homeVideo %}
+  <div class="card site-home-video">
+    <h2 class="site-home-h2">{{ homeVideo.heading }}</h2>
+    {%- if homeVideo.text %}<p class="site-words">{{ homeVideo.text }}</p>{% endif %}
+    {{ blockBody({type: 'video', video: homeVideo.video, portrait: homeVideo.portrait}, site.domain) }}
+  </div>
+  {%- endif %}
+
+  {%- if wall %}
+  <div class="card site-wall">
+    <h2 class="site-home-h2">{{ wall.heading }}</h2>
+    <div class="site-wall-grid">
+    {%- for q in wall.items %}
+      <div class="rec-tile site-wall-item">
+        <span class="row-main">
+          {%- if q.big %}<span class="site-wall-big">{{ q.big }}</span>{% endif %}
+          {%- if q.quote %}<span class="site-wall-quote">“{{ q.quote }}”</span>{% endif %}
+          {%- if q.text %}<span class="site-tile-words">{{ q.text }}</span>{% endif %}
+          <span class="row-meta site-wall-who">{{ q.who }}</span>
+        </span>
+      </div>
+    {%- endfor %}
+    </div>
+  </div>
+  {%- endif %}
+
+  {%- for f in homeFeatures or [] %}
+  <div class="wf-card wf-expanded site-feature">
+    <div class="wf-title-row" aria-expanded="true">
+      <span class="wf-name-block"><h2 class="wf-name site-h">{{ f.title }}</h2></span>
+      {%- if f.label %}<span class="wf-activity">{{ f.label }}</span>{% endif %}
+      <svg class="wf-expand-chevron" width="16" height="10" viewBox="0 0 12 7" fill="none" aria-hidden="true" style="transform:rotate(180deg)"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </div>
+    <div class="wf-body">
+      <p class="site-words">{{ f.text | safe }}</p>
+      {%- if f.href %}<a class="site-more-link" href="{{ f.href }}">{{ f.more or 'More about this' }} →</a>{% endif %}
+    </div>
+  </div>
+  {%- endfor %}
+
+  {%- if homeMore %}
+  <div class="card site-much-more">
+    <h2 class="site-home-h2">{{ homeMore.heading }}</h2>
+    <div class="site-pills">{% for m in homeMore.items %}<a class="btn-round-add" href="{{ m.href }}">{{ m.label }}</a>{% endfor %}</div>
+  </div>
+  {%- endif %}
+
+  {%- if homeFaq %}
+  <div class="card site-faq">
+    <h2 class="site-home-h2">{{ homeFaq.heading }}</h2>
+    {%- for q in homeFaq.items %}
+    <div class="site-faq-row"><h3 class="site-faq-q">{{ q.q }}</h3><p class="site-words">{{ q.a | safe }}</p></div>
+    {%- endfor %}
+  </div>
+  {%- endif %}
+
+  {%- if homeEnd %}
+  <div class="site-home-end">
+    <h2 class="site-home-end-h">{{ homeEnd.heading }}</h2>
+    <a class="btn-round-add btn-round-add-primary site-home-end-btn" href="{{ homeEnd.href }}">{{ homeEnd.label }}</a>
+    {%- if homeEnd.note %}<div class="wf-meta site-note">{{ homeEnd.note }}</div>{% endif %}
+  </div>
+  {%- endif %}
+</div>
+
+{%- elif _mode == 'checks' %}
 {#- ── HOME: the "All Checks" panel (templates/dashboard.html). -#}
 <div class="dash-main"><div>
 <div class="card" id="wf-section-card" style="padding-bottom:24px;">

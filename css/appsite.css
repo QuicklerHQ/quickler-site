@@ -327,3 +327,40 @@ nav[aria-label="Primary"] .nav-name img { height: 38px; width: auto; }
 .wf-activity, .site-group-label { font-size: 0.85rem !important; }
 .site-rec-top { display: none; }
 .wf-meta.site-note { font-size: 0.9rem; color: #5c6b90; }
+
+/* THE HOME PAGE on HEY's and Basecamp's plan (Philip 5 Nov 2026). */
+.site-home { max-width: 960px; margin: 0 auto; }
+.site-home > .card, .site-home > .wf-card { margin-bottom: 18px; }
+.site-home-top { display: grid; grid-template-columns: 1.25fr 1fr; gap: 28px; align-items: center; margin: 18px 0 30px; }
+.site-home-h1 { margin: 0 0 14px; font-size: clamp(2rem, 4.4vw, 3rem); line-height: 1.08; letter-spacing: -0.03em; color: var(--heading); font-weight: 700; }
+.site-home-lede { margin: 0 0 18px; font-size: 1.15rem; line-height: 1.55; color: var(--ink); }
+.site-home-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+.site-home-actions .btn-round-add { font-size: 1rem; padding: 8px 18px; }
+.site-home-menu { padding: 8px 18px !important; margin: 0 !important; }
+.site-home-menu-row { display: flex; flex-direction: column; gap: 1px; padding: 10px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
+.site-home-menu-row:last-child { border-bottom: 0; }
+.site-home-menu-name { font-weight: 700; color: var(--accent); font-size: 1rem; }
+.site-home-menu-what { font-size: 0.88rem; color: var(--ink-soft); }
+.site-home-menu-row:hover .site-home-menu-name { text-decoration: underline; }
+.site-home-h2 { margin: 0 0 12px; font-size: 1.45rem; color: var(--heading); letter-spacing: -0.02em; }
+.site-letter { padding: 34px 40px !important; }
+.site-letter-body p { margin: 0 0 14px; font-size: 1.05rem; line-height: 1.7; color: #213055; }
+.site-letter-name { font-family: "Brush Script MT", "Segoe Script", cursive; font-size: 1.9rem; color: var(--heading); margin-top: 6px; }
+.site-wall-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 12px; }
+.site-wall-item { padding: 18px 20px !important; min-height: 0 !important; align-items: flex-start !important; }
+.site-wall-big { display: block; font-size: 2.2rem; font-weight: 700; color: var(--accent); letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 6px; }
+.site-wall-quote { display: block; font-size: 1.35rem; font-weight: 700; color: var(--heading); line-height: 1.3; margin-bottom: 8px; }
+.site-wall-who { display: block; margin-top: 8px; font-size: 0.85rem; color: var(--ink-soft); }
+.site-feature .wf-name.site-h { font-size: 1.35rem; }
+.site-more-link { font-size: 0.95rem; font-weight: 600; color: var(--accent); text-decoration: none; }
+.site-faq-row { padding: 12px 0; border-bottom: 1px solid var(--line); }
+.site-faq-row:last-child { border-bottom: 0; }
+.site-faq-q { margin: 0 0 4px; font-size: 1.05rem; color: var(--heading); }
+.site-faq-row .site-words { margin: 0; }
+.site-home-end { text-align: center; padding: 34px 0 10px; }
+.site-home-end-h { font-size: clamp(1.6rem, 3.4vw, 2.2rem); color: var(--heading); margin: 0 0 16px; letter-spacing: -0.02em; }
+.site-home-end-btn { font-size: 1.1rem !important; padding: 10px 24px !important; }
+@media (max-width: 760px) {
+  .site-home-top { grid-template-columns: 1fr; }
+  .site-letter { padding: 22px 18px !important; }
+}

@@ -1,32 +1,11 @@
 {
   "links": [
-    {
-      "label": "Features",
-      "href": "/pages/features.html"
-    },
-    {
-      "label": "Pricing",
-      "href": "/pages/pricing.html"
-    },
-    {
-      "label": "Use cases",
-      "href": "/pages/services.html"
-    },
-    {
-      "label": "About",
-      "href": "/pages/about.html"
-    },
-    {
-      "label": "Support",
-      "href": "/pages/help/index.html"
-    }
+    { "label": "Features", "href": "/pages/features.html" },
+    { "label": "Pricing", "href": "/pages/pricing.html" },
+    { "label": "Guides", "href": "/pages/guides.html" },
+    { "label": "FAQs", "href": "/pages/faq.html" },
+    { "label": "About", "href": "/pages/about.html" }
   ],
-  "login": {
-    "label": "Login",
-    "href": "https://app.quickler.co/login"
-  },
-  "cta": {
-    "label": "Try on WhatsApp",
-    "href": "/pages/demo.html"
-  }
+  "login": { "label": "Sign in", "href": "https://app.quickler.co/login" },
+  "cta": { "label": "Try free for 14 days", "href": "https://app.quickler.co/signup" }
 }
