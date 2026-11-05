@@ -235,3 +235,17 @@ document.addEventListener("click", function (e) {
   document.querySelectorAll(".aw-dl-menu").forEach(function (m) { if (!b || m.parentNode !== b.parentNode) { m.hidden = true; } });
   if (b) { e.preventDefault(); var m = b.nextElementSibling; m.hidden = !m.hidden; b.setAttribute("aria-expanded", String(!m.hidden)); }
 });
+
+/* Hovering a scrollable window says how to scroll it (Philip 5 Nov 2026 16:07). */
+(function () {
+  var touch = window.matchMedia && window.matchMedia("(hover: none)").matches;
+  document.querySelectorAll(".aw-scroll").forEach(function (box) {
+    var host = box.parentNode;
+    var tip = document.createElement("div"); tip.className = "aw-hover-hint"; tip.setAttribute("aria-hidden", "true");
+    tip.textContent = touch ? "Double tap to scroll inside" : "Hold Ctrl to scroll";
+    host.appendChild(tip);
+    box.addEventListener("mouseenter", function () { if (!box.classList.contains("aw-active")) tip.classList.add("is-on"); });
+    box.addEventListener("mouseleave", function () { tip.classList.remove("is-on"); });
+    box.addEventListener("wheel", function (e) { if (e.ctrlKey) tip.classList.remove("is-on"); }, { passive: true });
+  });
+})();

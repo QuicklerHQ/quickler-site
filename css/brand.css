@@ -118,3 +118,6 @@ body.app-home footer, body.app-heypage footer { background: #fdf0f7 !important; 
 @media (max-width: 760px) { .aw-snap { flex-direction: column; } .aw-phone2.aw-portrait { width: 60vw; } .aw-phone2.aw-landscape { width: 86vw; } }
 .aw:has(.aw-snap) { max-width: none !important; width: auto !important; }
 .aw-snap { flex-wrap: nowrap; max-width: 1240px; margin: 0 auto; }
+.aw-hover-hint { position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); z-index: 7; pointer-events: none; opacity: 0; transition: opacity .15s; background: rgba(12,23,52,.85); color: #fff; font-size: .9rem; padding: 8px 14px; border-radius: 999px; white-space: nowrap; }
+.aw-hover-hint.is-on { opacity: 1; }
+.aw-hint { display: none !important; }
