@@ -54,7 +54,7 @@ const plans = [
     price: 75,
     priceSuffix: " per phone number / mo",
     quantity: 0,
-    quantityLabel: "£75 a month for each phone number on the account.",
+    quantityLabel: "£75 per month per phone number & unlimited free dashboard accounts.",
     note: "Reports, the dashboard, sharing and downloads are free for everyone else.",
   },
 ];
@@ -100,10 +100,10 @@ const fairUse =
   "conversation about the right plan for how you actually use it.";
 
 // The old "monthly minimum" wording is gone with the per-active-number model;
-// the price is £75 a month for each phone number on the account. These two
+// the price is £75 per month per phone number & unlimited free dashboard accounts. These two
 // keep their names so [[price:minimum]] tokens still resolve, to the price.
-const minimumLine = "£75 a month for each phone number on the account.";
-const minimumShort = "£75 a month for each phone number on the account.";
+const minimumLine = "£75 per month per phone number & unlimited free dashboard accounts.";
+const minimumShort = "£75 per month per phone number & unlimited free dashboard accounts.";
 
 // Overflow line for big teams.
 const overflowLine = "Big team? Talk to us.";
@@ -120,13 +120,13 @@ const trialLine = trial.days
 // A full, dense pricing sentence for prose / SEO bodies / FAQ answers.
 const sentence =
   model === "seat"
-    ? `Start with a 14-day free trial. Everything is unlocked and you need no card to start. Then ${unit.perUnitPrice} a month for each phone number on the account. Reports, the dashboard, sharing and downloads are free for everyone else. Paid accounts have no limits: reports, photos and messages are unlimited. ${billing}`
+    ? `Start with a 14-day free trial. Everything is unlocked and you need no card to start. Then £75 per month per phone number & unlimited free dashboard accounts. Paid accounts have no limits: reports, photos and messages are unlimited. ${billing}`
     : `Plans from ${CURRENCY}${plans[0].price}/mo. ${billing}`;
 
 // A short version for tight spots (meta descriptions, cards).
 const shortSentence =
   model === "seat"
-    ? `14-day free trial, no card needed to start. Then ${unit.perUnitPrice} a month for each phone number on the account.`
+    ? `14-day free trial, no card needed to start. Then £75 per month per phone number & unlimited free dashboard accounts.`
     : `Plans from ${CURRENCY}${plans[0].price}/mo.`;
 
 // A plain description for guide prose, reads naturally mid-paragraph, no
@@ -134,7 +134,7 @@ const shortSentence =
 // "free for everyone else" and "no card" lines, which it used to repeat.
 const bundleList =
   model === "seat"
-    ? `${unit.perUnitPrice} a month for each phone number on the account, after a 14-day free trial`
+    ? `£75 per month per phone number & unlimited free dashboard accounts, after a 14-day free trial`
     : plans.map((p) => `${p.name} at ${CURRENCY}${p.price} a month`).join(", ");
 
 // The pricing headline as a sentence fragment, for prose openers.

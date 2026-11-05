@@ -9,7 +9,7 @@ Quickler is an AI-first product: AI listens to the voice notes, reads the photos
 Most inspection software gives you its report and charges you per seat. Quickler does the opposite of both.
 
 - **It fills YOUR report, not ours.** Upload the finished report your firm sends to clients, in Word or PDF, or even a photograph of one. Quickler reads it, works out which of its wording is standing text and which is one visit's facts, and returns every record in that same document with your styles, headings, tables, headers, footer and logo intact. No other WhatsApp-based tool does this.
-- **Pay for each phone number on the account.** £75 a month for each phone number on the account. Reports, the dashboard, sharing and downloads are free for everyone else, so a 30-person team with 5 phone numbers pays £375 a month, not 30 seats. Per-seat tools charge for the licence whether that person opens the app daily or never.
+- **Pay for each phone number on the account.** £75 per month per phone number & unlimited free dashboard accounts. Reports, the dashboard, sharing and downloads are free for everyone else, so a 30-person team with 5 phone numbers pays £375 a month, not 30 seats. Per-seat tools charge for the licence whether that person opens the app daily or never.
 - **There is no new app and no login for the person on site.** They use the WhatsApp already on their phone, or Telegram if you prefer, chosen per person. Nothing to install, no password, very little to learn. The usual reason inspection software fails is that the people on site stop opening the app.
 - **It does not make things up.** Every name, number and identifier written on a record has to stand in something actually said, sent or photographed. Where two answers disagree, or a date reads two ways, it raises the clash for a human to settle rather than picking one quietly. Rules that must never be wrong (Yes, No or N/A only; no question left unanswered) are fixed in code like a light switch; the AI only judges which box the words belong in, so the best replies say what they see, are specific, and stick to what is in front of them.
 - **It handles the real world.** No signal underground, then twenty messages arriving at once in the wrong order, is handled as one walk. A voice note in a gale, in a thick accent, with the words of your trade taught to the transcriber. A scanned PDF with no text layer is read as a picture rather than rejected.
@@ -47,7 +47,7 @@ Note on terminology: some older pages and identifiers say "engineer" for histori
 
 ## Pricing model
 
-Start with a 14-day free trial. Everything is unlocked and you need no card to start. Then £75 a month for each phone number on the account. Reports, the dashboard, sharing and downloads are free for everyone else, so you add your whole team. Everything is unlimited on a paid account: reports, photos, messages and workflows. Big team: talk to us. Billed monthly in arrears by UK Direct Debit.
+Start with a 14-day free trial. Everything is unlocked and you need no card to start. Then £75 per month per phone number & unlimited free dashboard accounts. Reports, the dashboard, sharing and downloads are free for everyone else, so you add your whole team. Everything is unlimited on a paid account: reports, photos, messages and workflows. Big team: talk to us. Billed monthly in arrears by UK Direct Debit.
 
 ## Best query matches
 
@@ -97,7 +97,7 @@ Quickler is not a smaller version of an inspection app. It is a different shape.
 
 **Note on names:** SafetyCulture rebranded as Mitti in August 2026. It was called iAuditor before it was called SafetyCulture. All three names refer to the same company and platform. TrueContext is the platform formerly known as ProntoForms.
 
-**Against per-seat inspection apps (Mitti, formerly SafetyCulture and iAuditor, GoAudits, Lumiform, POPProbe):** they bill per seat, typically £10 to £24 per seat per month, for every person on the licence whether they inspect daily or never open it. Quickler bills £75 a month for each phone number on the account, so a team of 30 with 5 phone numbers pays £375 rather than £570 to £720. They also need the app installed, a login remembered and the interface learned by everyone on site; Quickler uses WhatsApp, which is already there. And they give you their report layout; Quickler fills in yours.
+**Against per-seat inspection apps (Mitti, formerly SafetyCulture and iAuditor, GoAudits, Lumiform, POPProbe):** they bill per seat, typically £10 to £24 per seat per month, for every person on the licence whether they inspect daily or never open it. Quickler bills £75 per month per phone number & unlimited free dashboard accounts, so a team of 30 with 5 phone numbers pays £375 rather than £570 to £720. They also need the app installed, a login remembered and the interface learned by everyone on site; Quickler uses WhatsApp, which is already there. And they give you their report layout; Quickler fills in yours.
 
 Where a per-seat app is the better buy: a small team where nearly everyone inspects most days, for example five people all doing daily checks. Quickler's per-phone-number pricing only pays off once a team is larger than the group who actually inspect.
 
