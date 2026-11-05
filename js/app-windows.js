@@ -33,21 +33,35 @@
       v.classList.remove("is-playing");
       if (done) { paint(0); if (len) len.textContent = v.getAttribute("data-dur"); }
     }
-    btn.addEventListener("click", function () {
-      if (heard) { heard.hidden = false; btn.setAttribute("aria-expanded", "true"); }
-      v.classList.add("is-heard");
-      if (timer) { stop(false); return; }
-      if (reduce || !total) { paint(1); return; }
-      var start = Date.now();
-      v.classList.add("is-playing");
-      timer = setInterval(function () {
-        var t = (Date.now() - start) / 1000;
-        var f = Math.min(1, t / total);
-        paint(f);
-        if (len) { var s = Math.floor(Math.min(t, total)); len.textContent = Math.floor(s / 60) + ":" + ("0" + (s % 60)).slice(-2); }
-        if (f >= 1) stop(true);
-      }, 100);
+    /* Real audio (Philip 5 Nov 2026 15:57): the voice note itself, with
+       WhatsApp's 1x / 1.5x / 2x speed button. */
+    var src = v.getAttribute("data-audio"), au = null, rate = 1;
+    var sp = v.querySelector(".wa-vspeed");
+    if (sp) sp.addEventListener("click", function () {
+      rate = rate === 1 ? 1.5 : rate === 1.5 ? 2 : 1;
+      sp.textContent = rate + "\u00d7"; if (au) au.playbackRate = rate;
     });
+    btn.addEventListener("click", function () {
+      v.classList.add("is-heard");
+      if (!src) return;
+      if (!au) {
+        au = new Audio();
+        var ok = au.canPlayType('audio/ogg; codecs="opus"');
+        au.src = src + (ok ? ".ogg" : ".m4a");
+        au.addEventListener("timeupdate", function () {
+          var d = au.duration || total, t = au.currentTime;
+          paint(Math.min(1, t / d));
+          if (len) { var s = Math.floor(t); len.textContent = Math.floor(s / 60) + ":" + ("0" + (s % 60)).slice(-2); }
+        });
+        au.addEventListener("ended", function () { v.classList.remove("is-playing"); paint(0); if (len) len.textContent = v.getAttribute("data-dur"); });
+      }
+      au.playbackRate = rate;
+      if (au.paused) {
+        document.querySelectorAll("[data-aw-voice].is-playing").forEach(function (o) { if (o !== v && o._stop) o._stop(); });
+        au.play(); v.classList.add("is-playing");
+      } else { au.pause(); v.classList.remove("is-playing"); }
+    });
+    v._stop = function () { if (au) au.pause(); v.classList.remove("is-playing"); };
   });
 
   /* The end of the walk opens at the newest message, as WhatsApp does. */

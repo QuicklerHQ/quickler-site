@@ -774,4 +774,4 @@ html.aw-lb-on { overflow: hidden; }
    WhatsApp shows its own transcripts, no label; the play button is hidden until
    the real audio files are on the site, so nothing pretends to play. */
 .aw-heard { font-style: italic; color: #3b4a6b; }
-.aw-voice .wa-vplay { visibility: hidden; }
+
