@@ -108,12 +108,12 @@ module.exports = function (eleventyConfig) {
   // carries stable [[price:...]] tokens; this filter fills them at build time.
   // Add a new token by adding a key here that maps to a pricing.js value.
   const _PRICE_TOKENS = {
-    bundles: _pricing.bundleList,        // "£75 per phone number per month with a free tier of 10 reports..."
+    bundles: _pricing.bundleList,        // "£75 a month for each phone number on the account, after a 14-day free trial..."
     sentence: _pricing.sentence,         // full dense pricing sentence
     short: _pricing.shortSentence,       // tight one-liner
     trial: _pricing.trialLine,           // "" (no trial; free tier replaces it)
-    free: _pricing.freeTier.line,        // "Free forever: 10 reports a month, up to 10 photos..."
-    freeShort: _pricing.freeTier.shortLine, // "Free forever: 10 reports a month. No card, no trial clock."
+    free: _pricing.freeTier.line,        // "14-day free trial. Everything is unlocked. No card needed to start."
+    freeShort: _pricing.freeTier.shortLine, // "14-day free trial. No card needed to start."
     fairUse: _pricing.fairUse,           // fair-use clause backing every "unlimited" promise
     minimum: _pricing.minimumLine,       // "There is a £75 minimum each month..."
     minimumShort: _pricing.minimumShort, // "£75 a month minimum, then £75 per phone number above that."

@@ -12,13 +12,12 @@
 //   3. Update `unit`, `perUnitLine`, `included`, `trial` as needed.
 //   4. Rebuild. Every page that renders pricing via the shortcodes follows.
 //
-// CURRENT MODEL: per PHONE NUMBER. £75 per phone number per month. A phone
-// number counts when it did at least one check that month. Numbers that do no
-// checks are free, and so is everyone who only gets the reports by email or
-// uses the dashboard. The first phone number is always charged (£75 minimum). Everything is
-// unlimited on paid (Records, photos, messages, Checks). Free tier: 10
-// Records a month, up to 10 photos per Record, unlimited users, free forever.
-// There is NO trial. Billed monthly in arrears by UK Direct Debit.
+// CURRENT MODEL (Philip 5 Nov 2026 08:18, via the Money chat): a 14-day free
+// trial with everything unlocked and no card to start. Then £75 a month for
+// each phone number on the account. Reports, the dashboard, sharing and
+// downloads are free for everyone else. No free plan, no freemium, nothing
+// priced by who was active that month. Paid accounts have no limits (reports,
+// photos, messages). Billed monthly by UK Direct Debit.
 //
 // Pages that hardcode a custom pricing sentence in prose should instead use
 // {{ pricing.sentence }} / {{ pricing.shortSentence }} so they stay in sync.
@@ -43,49 +42,50 @@ const unit = {
 //   note (optional small print). The cards + sentences read these generically.
 const plans = [
   {
-    name: "Free",
+    name: "Trial",
     price: 0,
-    priceSuffix: "/mo",
-    quantity: 10,
-    quantityLabel: "Records a month",
-    note: "Up to 10 photos per Record. Unlimited users. Free forever.",
+    priceSuffix: " for 14 days",
+    quantity: 0,
+    quantityLabel: "Everything unlocked. No card needed to start.",
+    note: "14-day free trial.",
   },
   {
     name: "Paid",
     price: 75,
     priceSuffix: " per phone number / mo",
     quantity: 0,
-    quantityLabel: "Only pay for the numbers doing checks. Numbers with no checks are free.",
-    note: "Unlimited Records, photos and Checks.",
+    quantityLabel: "£75 a month for each phone number on the account.",
+    note: "Reports, the dashboard, sharing and downloads are free for everyone else.",
   },
 ];
 
 // What's included on every paid account (rendered as the "every plan includes"
 // tags).
 const included = [
-  "Only pay for the phone numbers doing checks",
-  "Numbers with no checks are free",
-  "Unlimited reports and photos",
-  "Unlimited Checks",
+  "14-day free trial, no card needed to start",
+  "Everything unlocked",
+  "Reports, dashboard, sharing and downloads free for everyone else",
+  "Unlimited reports, photos and messages",
   "Human sign-off",
   "Evidence kept with the job",
   "PDF download",
 ];
 
-// The free trial. days: 0 disables all trial wording. The free tier (below) is
-// how people try Quickler now, not a time-limited trial.
+// The free trial: 14 days, everything unlocked, no card needed to start.
 const trial = {
-  days: 0,
+  days: 14,
   noCard: true,
   signupUrl: "https://app.quickler.co/signup",
 };
 
-// The free tier: how people try Quickler. No clock, no card.
+// The old free plan is gone (Philip 5 Nov 2026). Kept as an object so any
+// template that still reads pricing.freeTier gets the trial wording, never a
+// free-forever line.
 const freeTier = {
-  reports: 10,
-  photosPerReport: 10,
-  line: "Free forever: 10 Records a month, up to 10 photos per Record, unlimited users. No card to start.",
-  shortLine: "Free forever: 10 Records a month. No card, no trial clock.",
+  reports: 0,
+  photosPerReport: 0,
+  line: "14-day free trial. Everything is unlocked. No card needed to start.",
+  shortLine: "14-day free trial. No card needed to start.",
 };
 
 // Fair-use clause. Backs the "unlimited" promise on paid accounts: unlimited is
@@ -99,15 +99,11 @@ const fairUse =
   "you off and we will not charge you by surprise. It is just a friendly " +
   "conversation about the right plan for how you actually use it.";
 
-// The monthly minimum. There is always one billable phone number to keep the
-// account live, whether or not anyone files a report that month. So a paid
-// account never costs less than £75 in a month. State this plainly so the first
-// bill is never a surprise.
-const minimumLine =
-  "There is a £75 minimum each month. One phone number is always charged to keep " +
-  "your account live, whether or not anyone files a report that month. Above " +
-  "that minimum you only pay for the people who actually worked.";
-const minimumShort = "£75 a month minimum, then £75 per phone number above that.";
+// The old "monthly minimum" wording is gone with the per-active-number model;
+// the price is £75 a month for each phone number on the account. These two
+// keep their names so [[price:minimum]] tokens still resolve, to the price.
+const minimumLine = "£75 a month for each phone number on the account.";
+const minimumShort = "£75 a month for each phone number on the account.";
 
 // Overflow line for big teams.
 const overflowLine = "Big team? Talk to us.";
@@ -116,7 +112,7 @@ const overflowLine = "Big team? Talk to us.";
 const billing = "Billed monthly in arrears by UK Direct Debit.";
 
 // ---- Generated, reusable wording (so prose never hardcodes numbers) ----
-// Trial is off; trialLine stays empty so any template reading it renders nothing.
+// The trial line, for any template that reads it.
 const trialLine = trial.days
   ? `${trial.days}-day free trial.${trial.noCard ? " No card required." : ""}`
   : "";
@@ -124,20 +120,20 @@ const trialLine = trial.days
 // A full, dense pricing sentence for prose / SEO bodies / FAQ answers.
 const sentence =
   model === "seat"
-    ? `${unit.perUnitLine}. A phone number counts when it did at least one check that month, so you add your whole team and only pay for who actually works. ${minimumLine} Everything is unlimited on a paid account: Records, photos, messages and Checks. ${freeTier.line} ${billing}`
+    ? `Start with a 14-day free trial. Everything is unlocked and you need no card to start. Then ${unit.perUnitPrice} a month for each phone number on the account. Reports, the dashboard, sharing and downloads are free for everyone else. Paid accounts have no limits: reports, photos and messages are unlimited. ${billing}`
     : `Plans from ${CURRENCY}${plans[0].price}/mo. ${billing}`;
 
 // A short version for tight spots (meta descriptions, cards).
 const shortSentence =
   model === "seat"
-    ? `${unit.perUnitPrice} per phone number per month, ${CURRENCY}75 minimum. Only pay for who works. ${freeTier.shortLine}`
+    ? `14-day free trial, no card needed to start. Then ${unit.perUnitPrice} a month for each phone number on the account.`
     : `Plans from ${CURRENCY}${plans[0].price}/mo.`;
 
 // A plain description for guide prose, reads naturally mid-paragraph, no
 // trailing full stop.
 const bundleList =
   model === "seat"
-    ? `${unit.perUnitPrice} per phone number per month with a ${CURRENCY}75 monthly minimum, plus a free tier of ${freeTier.reports} Records a month, and numbers that do no checks are always free`
+    ? `${unit.perUnitPrice} a month for each phone number on the account, after a 14-day free trial with no card needed to start. Reports, the dashboard, sharing and downloads are free for everyone else`
     : plans.map((p) => `${p.name} at ${CURRENCY}${p.price} a month`).join(", ");
 
 // The pricing headline as a sentence fragment, for prose openers.
