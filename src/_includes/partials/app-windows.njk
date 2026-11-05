@@ -1,7 +1,7 @@
 {#- REAL APP WINDOWS (Philip 5 Nov 2026: "use the real one", "make these
     things actually work"). Each home feature is a live window of the app,
     drawn from Philip's own demo walk (2 Nov 2026, Demo Firm, Site Safety
-    Inspection, Bell Street, Dundee). Every word, number and photo comes from
+    Inspection, Bell Street, London). Every word, number and photo comes from
     src/_data/demoWalk.json, built from that walk; nothing is made up.
     Behaviour: /js/app-windows.js. Styles: css/appsite.css ("aw-").
     Macros: appWin(feature), waMsg(m), recCard(c), todoCard(), recHead(). -#}
@@ -56,7 +56,7 @@
     <div class="wa-album">{% for n in m.ns %}<div class="wa-album-cell">{{ photoBtn(n, 'aw-ph-album') }}</div>{% endfor %}</div>
     {{ waTime(m) }}
   {%- elif m.kind == 'location' %}
-    <div class="wa-pin"><div class="wa-pin-map"><svg class="wa-pin-icon" width="26" height="34" viewBox="0 0 26 34" aria-hidden="true"><path d="M13 0C5.8 0 0 5.8 0 13c0 9.8 13 21 13 21s13-11.2 13-21C26 5.8 20.2 0 13 0z" fill="#e53935"/><circle cx="13" cy="13" r="4.6" fill="#fff"/></svg></div>
+    <div class="wa-pin"><div class="wa-pin-map" aria-hidden="true"><img class="wa-pin-tile" src="/assets/photos/demo/map/16-32736-21787.png" alt="" loading="lazy" width="256" height="256" style="left:calc(50% + -349px);top:calc(50% + -242px)"><img class="wa-pin-tile" src="/assets/photos/demo/map/16-32736-21788.png" alt="" loading="lazy" width="256" height="256" style="left:calc(50% + -349px);top:calc(50% + 14px)"><img class="wa-pin-tile" src="/assets/photos/demo/map/16-32737-21787.png" alt="" loading="lazy" width="256" height="256" style="left:calc(50% + -93px);top:calc(50% + -242px)"><img class="wa-pin-tile" src="/assets/photos/demo/map/16-32737-21788.png" alt="" loading="lazy" width="256" height="256" style="left:calc(50% + -93px);top:calc(50% + 14px)"><span class="wa-pin-osm">&copy; OpenStreetMap</span><svg class="wa-pin-icon" width="30" height="30" viewBox="0 0 24 24"><path fill="#e53935" d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg></div>
       <div class="wa-pin-body"><div class="wa-pin-addr">{{ m.address }}</div><div class="wa-pin-coords">{{ m.coords }}</div></div></div>
     {{ waTime(m) }}
   {%- elif m.kind == 'report' %}
@@ -135,7 +135,7 @@
 {%- endmacro %}
 
 {%- macro winBar() -%}
-<div class="aw-bar"><img class="aw-logo" src="/assets/logos/quickler-logo.svg" alt="Quickler" height="26"><span class="aw-pill" aria-hidden="true"><svg width="8" height="12" viewBox="0 0 8 12"><path d="M6.5 1 1.5 6l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>All Checks</span><span class="aw-bar-sp"></span><img class="aw-face" src="/assets/photos/philip-face.jpg" alt="" width="34" height="34"></div>
+<div class="aw-bar"><img class="aw-logo" src="/assets/logos/quickler-logo.svg" alt="Quickler" height="26"><span class="aw-bar-sp"></span><img class="aw-face" src="/assets/photos/philip-face.jpg" alt="" width="34" height="34"></div>
 {%- endmacro %}
 
 {%- macro appWin(kind) -%}

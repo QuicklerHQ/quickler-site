@@ -3,14 +3,14 @@
  "check": "Site Safety Inspection",
  "when": "Monday 2 November 2026, 13:49",
  "who": "Philip Ross",
- "address": "Bell Street, Dundee, DD1 1HG",
+ "address": "Bell Street, London NW1",
  "addressLines": [
   "Bell Street",
-  "Dundee",
-  "DD1 1HG"
+  "London",
+  "NW1"
  ],
- "coords": "56.4636° N, 2.9735° W",
- "plus": "9C8VF27G+CJ Dundee",
+ "coords": "51.5226° N, 0.1683° W",
+ "plus": "9C8VF27G+CJ London",
  "weather": {
   "temp": "9.8",
   "cond": "Clear Sky",
@@ -70,7 +70,7 @@
     {
      "key": "location",
      "label": "Location",
-     "answer": "Bell Street, Dundee, DD1 1HG",
+     "answer": "Bell Street, London NW1",
      "cls": "text",
      "notes": [],
      "photos": []
@@ -972,8 +972,8 @@
    "id": "8461",
    "from": "you",
    "kind": "location",
-   "address": "Bell Street, Dundee, DD1 1HG",
-   "coords": "56.4636° N, 2.9735° W",
+   "address": "Bell Street, London NW1",
+   "coords": "51.5226° N, 0.1683° W",
    "time": "13:44",
    "tail": true
   },
