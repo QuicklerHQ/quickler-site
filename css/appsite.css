@@ -572,3 +572,11 @@ body.app-home .hey, body.app-heypage .hey { max-width: none; }
 .hey-frame.hey-frame-playing { padding: 22px !important; border-radius: 22px !important; margin-bottom: clamp(32px, 5vw, 56px) !important; }
 .hey-frame-playing .hey-watch-video iframe { border-radius: 14px; background: #000; }
 .hey-frame-playing .hey-watch-video.hey-watch-portrait { width: min(100%, 380px, calc((100vh - 120px) * 9 / 16)); }
+
+/* HEY's feature blocks (Philip 5 Nov 2026 13:00), not bold: a light gradient
+   headline, plain words, then a real screen from the app in a white rounded
+   window. */
+.hey-sec .hey-h2 { font-weight: 400 !important; }
+.hey-sec .hey-p b { font-weight: inherit; }
+.hey-shot-phone { max-width: 360px; margin: 26px auto 0; padding: 10px; border-radius: 28px; background: #fff; box-shadow: 0 16px 44px rgba(12,23,52,0.14); }
+.hey-shot-phone img { display: block; width: 100%; height: auto; border-radius: 20px; }
