@@ -15,3 +15,5 @@ body.app-home footer, body.app-heypage footer { background: #fdf0f7 !important; 
 .aw-wa, .aw-rec, .aw-body { position: relative; }
 .aw-hint { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 5; pointer-events: none; opacity: 0; transition: opacity .2s; background: rgba(12,23,52,.82); color: #fff; font-size: .95rem; padding: 10px 16px; border-radius: 999px; white-space: nowrap; }
 .aw-hint.is-on { opacity: 1; }
+/* The coloured feature headings in bold (Philip 5 Nov 2026 14:23). */
+.hey-sec .hey-h2 { font-weight: 700 !important; }
