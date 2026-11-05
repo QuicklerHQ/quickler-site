@@ -20,6 +20,7 @@
     video | pricing ], articlePanels, relatedLinks, seoBody, content.
    ============================================================ -#}
 {%- set appUi = true %}
+{%- from "partials/app-windows.njk" import appWin, photoData with context %}
 {%- set _pl = permalink or '' %}
 {%- if appMode %}{% set _mode = appMode %}
 {%- elif articlePanels %}{% set _mode = 'record' %}
@@ -165,10 +166,11 @@
   {%- endif %}
 
   {%- for f in homeFeatures or [] %}
-  <section class="hey-sec">
+  <section class="hey-sec{% if f.window %} aw-sec{% endif %}">
     <h2 class="hey-h2">{{ f.title }}</h2>
     <p class="hey-p">{{ f.text | safe }}</p>
-    {%- if f.image %}<div class="hey-shot hey-shot-phone"><picture><source srcset="{{ f.image }}.webp" type="image/webp"><img src="{{ f.image }}.jpg" alt="{{ f.title }} in Quickler" loading="lazy"></picture></div>{% endif %}
+    {%- if f.window %}{{ appWin(f.window) }}
+    {%- elif f.image %}<div class="hey-shot hey-shot-phone"><picture><source srcset="{{ f.image }}.webp" type="image/webp"><img src="{{ f.image }}.jpg" alt="{{ f.title }} in Quickler" loading="lazy"></picture></div>{% endif %}
     {%- if f.href %}<p class="hey-p"><a href="{{ f.href }}">{{ f.more or 'More about this' }}</a></p>{% endif %}
   </section>
   {%- endfor %}
@@ -549,6 +551,10 @@
 {%- endfor %}
 {%- if copyForAi %}
 <script src="/js/copy-for-ai.js" defer></script>
+{%- endif %}
+{%- if homeFeatures %}
+{{ photoData() }}
+<script src="/js/app-windows.js?v={{ site.version }}" defer></script>
 {%- endif %}
 </body>
 </html>

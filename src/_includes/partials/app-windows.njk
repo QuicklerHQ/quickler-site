@@ -1,0 +1,177 @@
+{#- REAL APP WINDOWS (Philip 5 Nov 2026: "use the real one", "make these
+    things actually work"). Each home feature is a live window of the app,
+    drawn from Philip's own demo walk (2 Nov 2026, Demo Firm, Site Safety
+    Inspection, Bell Street, Dundee). Every word, number and photo comes from
+    src/_data/demoWalk.json, built from that walk; nothing is made up.
+    Behaviour: /js/app-windows.js. Styles: css/appsite.css ("aw-").
+    Macros: appWin(feature), waMsg(m), recCard(c), todoCard(), recHead(). -#}
+{%- set _dw = demoWalk %}
+{%- set _ph = '/assets/photos/demo/photo-' %}
+
+{%- macro pic(n, cls, eager) -%}
+<picture><source srcset="{{ _ph }}{{ n }}.webp" type="image/webp"><img class="{{ cls }}" src="{{ _ph }}{{ n }}.jpg" alt="{{ _dw.photos[n - 1].caption }}"{% if not eager %} loading="lazy"{% endif %} decoding="async"></picture>
+{%- endmacro %}
+
+{%- macro photoBtn(n, cls) -%}
+<button type="button" class="aw-ph {{ cls }}" data-aw-photo="{{ n }}" aria-label="Open photo: {{ _dw.photos[n - 1].caption }}">{{ pic(n, 'aw-thumb-img' if cls == 'aw-ph-thumb' else 'wa-photo') }}</button>
+{%- endmacro %}
+
+{%- macro ticks() -%}<span class="wa-ticks" aria-hidden="true"><svg width="16" height="11" viewBox="0 0 16 11"><path d="M11.1.6 4.9 7.6 2 4.9l-.9.9 3.8 3.7L12 1.5zM14.9.6 8.7 7.6l-.8-.7-.9.9 1.7 1.7L15.8 1.5z" fill="currentColor"/></svg></span>{%- endmacro %}
+
+{%- macro waTime(m) -%}<span class="wa-time">{{ m.time }}{% if m.from == 'you' %} {{ ticks() }}{% endif %}</span>{%- endmacro %}
+
+{%- macro voice(m, open) -%}
+<div class="wa-voice aw-voice" data-aw-voice data-dur="{{ m.dur }}">
+  <div class="wa-vav" aria-hidden="true"><img src="/assets/photos/philip-face.jpg" alt=""><span class="wa-vmic"><svg width="11" height="14" viewBox="0 0 12 16"><rect x="3.4" y="0.6" width="5.2" height="9.4" rx="2.6" fill="currentColor"/><path d="M1.2 7.4a4.8 4.8 0 0 0 9.6 0M6 12.2v3.2" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg></span></div>
+  <button type="button" class="wa-vplay" aria-expanded="{{ 'true' if open else 'false' }}" aria-label="Play voice note and show what Quickler heard">
+    <svg class="wa-vplay-on" width="20" height="22" viewBox="0 0 20 22" aria-hidden="true"><path fill="currentColor" d="M3 1.6v18.8c0 .9 1 1.4 1.7.9l14-9.4c.6-.4.6-1.4 0-1.8l-14-9.4C4 .2 3 .7 3 1.6z"/></svg>
+    <svg class="wa-vplay-off" width="20" height="22" viewBox="0 0 20 22" aria-hidden="true"><rect x="3" y="1.5" width="4.6" height="19" rx="1.2" fill="currentColor"/><rect x="12.4" y="1.5" width="4.6" height="19" rx="1.2" fill="currentColor"/></svg>
+  </button>
+  <div class="wa-vbody">
+    <div class="wa-vwave" aria-hidden="true">
+      {%- for i in range(0, 34) %}<span class="wa-vbar" style="height:{{ 4 + ((i * 37 + m.dur | length * 11) % 21) }}px"></span>{% endfor -%}
+      <span class="wa-vdot"></span>
+    </div>
+    <div class="wa-vlen">{{ m.dur }}</div>
+  </div>
+</div>
+<div class="aw-heard"{% if not open %} hidden{% endif %}><b>What Quickler heard:</b> {{ m.transcript }}</div>
+{%- endmacro %}
+
+{%- macro waMsg(m, opts) -%}
+{%- set o = opts or {} %}
+<div class="wa-row {{ 'wa-bot' if m.from == 'bot' else 'wa-you' }}{% if m.tail %} wa-tail{% endif %}">
+  <div class="wa-bubble{% if m.kind == 'voice' %} aw-vb{% endif %}">
+  {%- if m.kind == 'text' %}
+    <div class="wa-text{% if m.long and not o.full %} aw-long{% endif %}"{% if m.long and not o.full %} data-aw-long{% endif %}>{{ m.html | safe }}</div>
+    {%- if m.long and not o.full %}<button type="button" class="aw-more" aria-expanded="false">Read more</button>{% endif %}
+    {{ waTime(m) }}
+  {%- elif m.kind == 'voice' %}
+    {{ voice(m, o.open) }}
+    {{ waTime(m) }}
+  {%- elif m.kind == 'photo' %}
+    {{ photoBtn(m.n, '') }}
+    {{ waTime(m) }}
+  {%- elif m.kind == 'album' %}
+    <div class="wa-album">{% for n in m.ns %}<div class="wa-album-cell">{{ photoBtn(n, 'aw-ph-album') }}</div>{% endfor %}</div>
+    {{ waTime(m) }}
+  {%- elif m.kind == 'location' %}
+    <div class="wa-pin"><div class="wa-pin-map"><svg class="wa-pin-icon" width="26" height="34" viewBox="0 0 26 34" aria-hidden="true"><path d="M13 0C5.8 0 0 5.8 0 13c0 9.8 13 21 13 21s13-11.2 13-21C26 5.8 20.2 0 13 0z" fill="#e53935"/><circle cx="13" cy="13" r="4.6" fill="#fff"/></svg></div>
+      <div class="wa-pin-body"><div class="wa-pin-addr">{{ m.address }}</div><div class="wa-pin-coords">{{ m.coords }}</div></div></div>
+    {{ waTime(m) }}
+  {%- elif m.kind == 'report' %}
+    <a class="aw-linkcard" href="/demo-report/"><span class="aw-linkcard-t">{{ _dw.check }} &ndash; {{ _dw.firm }}</span><span class="aw-linkcard-d">quickler.co</span></a>
+    <div class="wa-text">Here is your report:
+<a class="wa-link" href="/demo-report/">https://quickler.co/demo-report/</a></div>
+    {{ waTime(m) }}
+  {%- endif %}
+  </div>
+</div>
+{%- endmacro %}
+
+{%- macro waPanel(msgs, cls) -%}
+<div class="aw-wa {{ cls }}">
+  <div class="wa-topbar"><div class="wa-avatar"><img src="/assets/icons/apple-touch-icon.png" alt="" width="40" height="40"></div><div class="wa-title"><div class="wa-name">Quickler</div></div></div>
+  <div class="wa-scroll aw-scroll" tabindex="0" aria-label="WhatsApp messages">
+    <div class="wa-day">Monday 2 November 2026</div>
+    {%- for m in msgs %}{{ waMsg(m) }}{% endfor %}
+  </div>
+</div>
+{%- endmacro %}
+
+{%- macro answerCls(c) -%}{{ 'aw-yes' if c == 'yes' else ('aw-no' if c == 'no' else ('aw-na' if c == 'na' else 'aw-text')) }}{%- endmacro %}
+
+{%- macro recRow(r) -%}
+<div class="aw-row{% if r.cls == 'na' %} aw-row-na{% endif %}">
+  <div class="aw-q">{{ r.label }}</div>
+  <div class="aw-a {{ answerCls(r.cls) }}">{{ r.answer }}</div>
+  {%- for n in r.notes %}<p class="aw-note">{{ n }}</p>{% endfor %}
+  {%- if r.photos | length %}<div class="aw-thumbs">{% for n in r.photos %}{% set f = _dw.photos[n - 1].fault %}<span class="aw-thumb">{{ photoBtn(n, 'aw-ph-thumb') }}{% if f == 'yes' %}<span class="aw-mark aw-mark-fault" aria-hidden="true">!</span>{% elif f == 'no' %}<span class="aw-mark aw-mark-ok" aria-hidden="true">&#10003;</span>{% endif %}</span>{% endfor %}</div>{% endif %}
+</div>
+{%- endmacro %}
+
+{%- macro recCard(c) -%}
+<section class="aw-card">
+  {%- if c.title %}<div class="aw-card-head"><h3 class="aw-card-t">{{ c.title }}</h3>{% if c.badge %}<span class="aw-badge aw-badge-{{ c.badgeCls }}">{{ c.badge }}</span>{% endif %}</div>{% endif %}
+  {%- for n in c.notes %}<p class="aw-note aw-sec-note">{{ n }}</p>{% endfor %}
+  {%- for r in c.rows %}{{ recRow(r) }}{% endfor %}
+</section>
+{%- endmacro %}
+
+{%- macro todoCard() -%}
+<section class="aw-card aw-todo">
+  <h3 class="aw-todo-h"><svg width="18" height="16" viewBox="0 0 24 22" aria-hidden="true"><path d="M12 1.5 1 20.5h22z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 8v6M12 16.6v1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> To do list</h3>
+  <div class="aw-todo-tiles">
+    <div class="aw-tile aw-tile-score"><span class="aw-tile-n">{{ _dw.score }}%</span><span class="aw-prog"><span style="width:{{ _dw.score }}%"></span></span></div>
+    <div class="aw-tile aw-tile-faults"><span class="aw-tile-n">{{ _dw.todo | length }}</span></div>
+  </div>
+  <ol class="aw-todo-list">{% for t in _dw.todo %}<li>{{ t }}</li>{% endfor %}</ol>
+  <div class="aw-todo-foot"><button type="button" class="aw-copy" data-aw-copy>Copy</button></div>
+</section>
+{%- endmacro %}
+
+{%- macro recHead() -%}
+<section class="aw-card aw-head">
+  <div class="aw-firm">{{ _dw.firm }}</div>
+  <div class="aw-head-t">{{ _dw.check }}</div>
+  <div class="aw-head-m">{{ _dw.when }}<br>{{ _dw.who }}</div>
+</section>
+<section class="aw-card aw-where">
+  <h2 class="aw-where-t">{{ _dw.address }} <span>&middot; Shared view-only link</span></h2>
+  <div class="aw-loc">
+    <div><div class="aw-cap">Location</div><div class="aw-addr">{% for l in _dw.addressLines %}{{ l }}<br>{% endfor %}</div></div>
+    <div class="aw-coords">{{ _dw.coords }}<br>{{ _dw.plus }}</div>
+  </div>
+  <div class="aw-weather">
+    <div class="aw-w-big"><svg width="30" height="22" viewBox="0 0 30 22" aria-hidden="true"><path d="M8 20h15a6 6 0 0 0 .6-12A8 8 0 0 0 8.2 9.6 5.3 5.3 0 0 0 8 20z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span><b>{{ _dw.weather.temp }}&deg;C</b><small>{{ _dw.weather.cond }}</small></span></div>
+    <ul class="aw-w-list">
+      <li>&darr;{{ _dw.weather.min }}&deg; &uarr;{{ _dw.weather.max }}&deg;</li>
+      <li>Wind {{ _dw.weather.wind }}</li>
+      <li>Humidity {{ _dw.weather.hum }}</li>
+      <li>Sunrise {{ _dw.weather.sunrise }} &middot; Sunset {{ _dw.weather.sunset }}</li>
+    </ul>
+  </div>
+</section>
+{%- endmacro %}
+
+{%- macro winBar() -%}
+<div class="aw-bar"><img class="aw-logo" src="/assets/logos/quickler-logo.svg" alt="Quickler" height="26"><span class="aw-pill" aria-hidden="true"><svg width="8" height="12" viewBox="0 0 8 12"><path d="M6.5 1 1.5 6l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>All Checks</span><span class="aw-bar-sp"></span><img class="aw-face" src="/assets/photos/philip-face.jpg" alt="" width="34" height="34"></div>
+{%- endmacro %}
+
+{%- macro appWin(kind) -%}
+<div class="aw aw-{{ kind }}" data-aw="{{ kind }}">
+  {{ winBar() }}
+  <div class="aw-body">
+  {%- if kind == 'chat' %}
+    {{ waPanel(_dw.chat, 'aw-wa-tall') }}
+  {%- elif kind == 'place' %}
+    <div class="aw-wa">
+      <div class="wa-topbar"><div class="wa-avatar"><img src="/assets/icons/apple-touch-icon.png" alt="" width="40" height="40"></div><div class="wa-title"><div class="wa-name">Quickler</div></div>
+        <div class="aw-steps" role="group" aria-label="Step through the walk"><button type="button" class="aw-step" data-aw-step="0" aria-pressed="true">1. Start</button><button type="button" class="aw-step" data-aw-step="1" aria-pressed="false">2. After a voice note</button></div></div>
+      <div class="wa-scroll aw-scroll" tabindex="0" aria-label="WhatsApp messages">
+        <div class="aw-stepview" data-aw-view="0">
+          <div class="wa-row wa-bot wa-tail"><div class="wa-bubble"><div class="wa-text">{{ _dw.steps[0] | safe }}</div><span class="wa-time">13:43</span></div></div>
+        </div>
+        <div class="aw-stepview" data-aw-view="1" hidden>
+          {{ waMsg(_dw.stepVoice, {open: true}) }}
+          <div class="wa-row wa-bot wa-tail"><div class="wa-bubble"><div class="wa-text">Carry on.</div><span class="wa-time">13:44</span></div></div>
+          <div class="wa-row wa-bot"><div class="wa-bubble aw-flash"><div class="wa-text">{{ _dw.steps[1] | safe }}</div><span class="wa-time">13:45</span></div></div>
+        </div>
+      </div>
+    </div>
+  {%- elif kind == 'done' %}
+    {{ waPanel(_dw.chat.slice(_dw.doneFrom), '') }}
+  {%- elif kind == 'photos' %}
+    <div class="aw-rec aw-scroll" tabindex="0" aria-label="Record answers with photos">
+      {%- for c in _dw.cards %}{% if c.hasPhotos %}{{ recCard(c) }}{% endif %}{% endfor %}
+    </div>
+  {%- elif kind == 'todo' %}
+    <div class="aw-rec aw-rec-todo">{{ todoCard() }}</div>
+  {%- endif %}
+  </div>
+</div>
+{%- endmacro %}
+
+{%- macro photoData() -%}
+<script type="application/json" id="aw-photo-data">[{% for p in _dw.photos %}{"base":"{{ _ph }}{{ p.n }}","caption":{{ p.caption | dump | safe }}}{% if not loop.last %},{% endif %}{% endfor %}]</script>
+{%- endmacro %}

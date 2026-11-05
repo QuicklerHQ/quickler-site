@@ -1,0 +1,39 @@
+---json
+{
+  "permalink": "/demo-report/index.html",
+  "eleventyExcludeFromCollections": true,
+  "appUi": true,
+  "seo": {
+    "title": "Site Safety Inspection, Demo Firm | Quickler demo Record",
+    "description": "A lasting copy of the Record from Philip Ross's own demo walk on WhatsApp, 2 November 2026.",
+    "canonical": "https://quickler.co/demo-report/",
+    "robots": "noindex, follow",
+    "hasTwitter": false,
+    "lang": "en"
+  }
+}
+---
+{#- A LASTING COPY OF PHILIP'S DEMO RECORD (Philip 5 Nov 2026). The home
+    page's report link opens this page. App share links expire, so this is a
+    static copy of prod Record 550 (his own demo, Demo Firm), in the app's
+    look, from src/_data/demoWalk.json. The PDF is this page printed:
+    assets/docs/demo-report.pdf (scripts in the build chat's scratchpad). -#}
+{%- from "partials/app-windows.njk" import recHead, todoCard, recCard, photoData with context -%}
+<!DOCTYPE html>
+<html lang="en">
+{% include "partials/head.njk" %}
+<body class="page-app dr-page">
+<div class="aw-bar">
+  <a href="/" aria-label="Quickler home"><img class="aw-logo" src="/assets/logos/quickler-logo.svg" alt="Quickler" height="26"></a>
+  <span class="aw-bar-sp"></span>
+  <a class="dr-dl" href="/assets/docs/demo-report.pdf" download><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v9m0 0L4.5 6.5M8 10l3.5-3.5M2 12v2.5h12V12" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Download PDF</a>
+</div>
+<main class="dr-main">
+  {{ recHead() }}
+  {{ todoCard() }}
+  {%- for c in demoWalk.cards %}{{ recCard(c) }}{% endfor %}
+</main>
+{{ photoData() }}
+<script src="/js/app-windows.js?v={{ site.version }}" defer></script>
+</body>
+</html>

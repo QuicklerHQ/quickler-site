@@ -1,0 +1,1172 @@
+{
+ "firm": "Demo Firm",
+ "check": "Site Safety Inspection",
+ "when": "Monday 2 November 2026, 13:49",
+ "who": "Philip Ross",
+ "address": "Bell Street, Dundee, DD1 1HG",
+ "addressLines": [
+  "Bell Street",
+  "Dundee",
+  "DD1 1HG"
+ ],
+ "coords": "56.4636° N, 2.9735° W",
+ "plus": "9C8VF27G+CJ Dundee",
+ "weather": {
+  "temp": "9.8",
+  "cond": "Clear Sky",
+  "min": "3.7",
+  "max": "10.3",
+  "wind": "6 mph W",
+  "hum": "80%",
+  "sunrise": "07:22",
+  "sunset": "16:27"
+ },
+ "score": 93,
+ "todo": [
+  "Clear the back fire exit of boxes and trolleys immediately.",
+  "Replace the out-of-date eyewash contents.",
+  "Remove the extension lead trailing across the corridor, a trip hazard.",
+  "Apply a unique identification number to the stepladder in the store."
+ ],
+ "cards": [
+  {
+   "key": "audit_name",
+   "title": null,
+   "rows": [
+    {
+     "key": "audit_name",
+     "label": "Audit name",
+     "answer": "Site Safety Inspection",
+     "cls": "text",
+     "notes": [],
+     "photos": []
+    }
+   ],
+   "hasPhotos": false
+  },
+  {
+   "key": "audit_information",
+   "title": "Audit information",
+   "badge": null,
+   "badgeCls": null,
+   "notes": [],
+   "rows": [
+    {
+     "key": "audit_details",
+     "label": "Audit details",
+     "answer": "Site safety inspection.",
+     "cls": "text",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "company_name",
+     "label": "Company Name",
+     "answer": "Demo Firm",
+     "cls": "text",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "location",
+     "label": "Location",
+     "answer": "Bell Street, Dundee, DD1 1HG",
+     "cls": "text",
+     "notes": [],
+     "photos": []
+    }
+   ],
+   "hasPhotos": false
+  },
+  {
+   "key": "audit_results",
+   "title": "Audit results",
+   "badge": null,
+   "badgeCls": null,
+   "notes": [],
+   "rows": [
+    {
+     "key": "audit_notes",
+     "label": "Audit notes",
+     "answer": "Everything else is fine, according to the inspector.",
+     "cls": "text",
+     "notes": [],
+     "photos": []
+    }
+   ],
+   "hasPhotos": false
+  },
+  {
+   "key": "fire_safety_criteria_ok",
+   "title": "Fire Safety Criteria",
+   "badge": "Issue",
+   "badgeCls": "issue",
+   "notes": [
+    "Back fire exit is blocked, so this section has a fault."
+   ],
+   "rows": [
+    {
+     "key": "fire_safety_alarm",
+     "label": "Fire Safety - Alarm: Means of raising alarm available and unobstructed",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "fire_safety_exit_routes",
+     "label": "Are fire exit routes free from obstructions",
+     "answer": "No",
+     "cls": "no",
+     "notes": [
+      "Back fire exit has been blocked with boxes and trolleys and needs clearing immediately.",
+      "Main fire exit is fine."
+     ],
+     "photos": [
+      3
+     ]
+    },
+    {
+     "key": "internal_fire_doors",
+     "label": "Internal fire doors self close and fully latch onto the door catch (if fitted), not propped open, open outward, unobstructed",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [
+      "Door closes and latches."
+     ],
+     "photos": []
+    }
+   ],
+   "hasPhotos": true
+  },
+  {
+   "key": "fire_fighting_equipment_ok",
+   "title": "Fire Safety - Fire Fighting Equipment",
+   "badge": "OK",
+   "badgeCls": "ok",
+   "notes": [],
+   "rows": [
+    {
+     "key": "extinguishers_readily_available",
+     "label": "Appropriate extinguishers readily available",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "extinguishers_in_service",
+     "label": "Extinguishers in service (12 monthly)",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [
+      "Extinguishers are in date."
+     ],
+     "photos": []
+    },
+    {
+     "key": "extinguisher_seal_tag_in_place",
+     "label": "Seal/tag in place",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [
+      "Service tag from gmc on the left extinguisher, with stickers and hanging tags attached to both extinguishers."
+     ],
+     "photos": [
+      2
+     ]
+    },
+    {
+     "key": "extinguishers_unobstructed",
+     "label": "Extinguishers unobstructed",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    }
+   ],
+   "hasPhotos": true
+  },
+  {
+   "key": "fire_log_book_ok",
+   "title": "Fire Safety - Fire Log Book",
+   "badge": "OK",
+   "badgeCls": "ok",
+   "notes": [],
+   "rows": [
+    {
+     "key": "fire_log_book_available",
+     "label": "Fire log book available",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "fire_log_book_weekly_checks_completed",
+     "label": "Weekly checks completed",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "emergency_lighting_checks_carried_out",
+     "label": "Emergency lighting checks carried out",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    }
+   ],
+   "hasPhotos": false
+  },
+  {
+   "key": "fire_safety_signs_ok",
+   "title": "Fire Safety - Signs",
+   "badge": "OK",
+   "badgeCls": "ok",
+   "notes": [],
+   "rows": [
+    {
+     "key": "assembly_points_signs",
+     "label": "Assembly points",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "evacuation_poster",
+     "label": "Evacuation poster",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "exit_doors_keep_clear_signs",
+     "label": "Exit doors “Keep Clear”",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [
+      "Fire exit door with a 'DO NOT BLOCK FIRE EXITS' sign above the push bar.",
+      "Outdoor fire exit door with 'FIRE EXIT / Do Not Block' signs on the wall and the door."
+     ],
+     "photos": [
+      1,
+      8
+     ]
+    },
+    {
+     "key": "fire_extinguisher_signs",
+     "label": "Fire Extinguisher signs",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    }
+   ],
+   "hasPhotos": true
+  },
+  {
+   "key": "first_aid_signs_ok",
+   "title": "First Aid - Signs",
+   "badge": "OK",
+   "badgeCls": "ok",
+   "notes": [],
+   "rows": [
+    {
+     "key": "first_aiders_identified",
+     "label": "1st Aiders identified",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "first_aid_kit_locations_identified",
+     "label": "First aid kit locations clearly identified",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [
+      "First aid kit cabinet marked with a 'First Aid Kit' sticker."
+     ],
+     "photos": []
+    }
+   ],
+   "hasPhotos": false
+  },
+  {
+   "key": "safety_equipment",
+   "title": "Safety equipment",
+   "badge": "Issue",
+   "badgeCls": "issue",
+   "notes": [],
+   "rows": [
+    {
+     "key": "first_aid_kits_available",
+     "label": "First Aid kits available",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [
+      "First aid kit is present and in a green wall-mounted cabinet."
+     ],
+     "photos": [
+      6
+     ]
+    },
+    {
+     "key": "eye_wash_stations",
+     "label": "Eye wash stations available and contents in date",
+     "answer": "No",
+     "cls": "no",
+     "notes": [
+      "Eyewash contents are out of date."
+     ],
+     "photos": []
+    },
+    {
+     "key": "burn_kit_contents",
+     "label": "Burn kit available and contents in date",
+     "answer": "N/A",
+     "cls": "na",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "aed",
+     "label": "AED available? If so, is the serviceable indicator showing it is in a fit condition",
+     "answer": "N/A",
+     "cls": "na",
+     "notes": [],
+     "photos": []
+    }
+   ],
+   "hasPhotos": true
+  },
+  {
+   "key": "first_aid_kits_contents_ok",
+   "title": "First Aid - Kits Contents",
+   "badge": "OK",
+   "badgeCls": "ok",
+   "notes": [
+    "A few bandages are missing from the first aid kit."
+   ],
+   "rows": [
+    {
+     "key": "first_aid_contents_match_list",
+     "label": "Actual contents – Vs – Contents List",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "first_aid_contents_in_date",
+     "label": "First aid contents in date",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [
+      "First aid kit is in date."
+     ],
+     "photos": []
+    }
+   ],
+   "hasPhotos": false
+  },
+  {
+   "key": "lighting_criteria_ok",
+   "title": "Lighting Criteria",
+   "badge": "OK",
+   "badgeCls": "ok",
+   "notes": [],
+   "rows": [
+    {
+     "key": "internal_lighting",
+     "label": "Internal lighting sufficient for normal working, operational, clean and in good condition",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "external_lighting",
+     "label": "External lighting sufficient for normal working, operational, clean and in good condition",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "localised_lighting",
+     "label": "Localised lighting operational where fitted",
+     "answer": "N/A",
+     "cls": "na",
+     "notes": [],
+     "photos": []
+    }
+   ],
+   "hasPhotos": false
+  },
+  {
+   "key": "surface_conditions_criteria_ok",
+   "title": "Surface Conditions Criteria",
+   "badge": "OK",
+   "badgeCls": "ok",
+   "notes": [],
+   "rows": [
+    {
+     "key": "roads",
+     "label": "Roads: adequate marking, good condition",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "outdoor_paths_walking_areas_and_steps",
+     "label": "Outdoor paths, walking areas and steps in good condition",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    }
+   ],
+   "hasPhotos": false
+  },
+  {
+   "key": "walking_routes_and_surfaces",
+   "title": "Walking routes and surfaces",
+   "badge": "Issue",
+   "badgeCls": "issue",
+   "notes": [],
+   "rows": [
+    {
+     "key": "car_park",
+     "label": "Car park: Identified walking routes clear, good condition, speed restrictions",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "pavements",
+     "label": "Pavements in good condition",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "corridors_and_stairs",
+     "label": "Corridors and stairs unobstructed, good condition",
+     "answer": "No",
+     "cls": "no",
+     "notes": [
+      "An extension lead is trailing across the corridor, a trip hazard."
+     ],
+     "photos": []
+    }
+   ],
+   "hasPhotos": false
+  },
+  {
+   "key": "workshops_offices_amenities_and_welfare_ok",
+   "title": "Workshops, Offices, Amenities and Welfare",
+   "badge": "OK",
+   "badgeCls": "ok",
+   "notes": [],
+   "rows": [
+    {
+     "key": "hot_and_cold_water",
+     "label": "Hot and Cold Water available",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "seating_furniture_working_benches",
+     "label": "Seating/Furniture/Working Benches in good condition",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "floors",
+     "label": "Floors in good condition",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "noise",
+     "label": "Acceptable noise levels",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "cleanliness",
+     "label": "Cleanliness good",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "heating_temperature",
+     "label": "Heating/Temperature available and within tolerance",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "ventilation",
+     "label": "Ventilation: Available supply of fresh air",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "smoking_restrictions",
+     "label": "Smoking restrictions applied",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "toilet_facilities",
+     "label": "Toilet facilities clean",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [
+      "Toilets are clean."
+     ],
+     "photos": []
+    }
+   ],
+   "hasPhotos": false
+  },
+  {
+   "key": "electrical_condition",
+   "title": null,
+   "rows": [
+    {
+     "key": "electrical_condition",
+     "label": "Electrical condition: Cables, plugs, sockets, panels, etc. in good condition, not overloaded, HV Panels locked",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": [
+      4
+     ]
+    }
+   ],
+   "hasPhotos": true
+  },
+  {
+   "key": "electrical_criteria_ok",
+   "title": "Electrical Criteria",
+   "badge": "OK",
+   "badgeCls": "ok",
+   "notes": [],
+   "rows": [
+    {
+     "key": "portable_appliance_test_date",
+     "label": "Portable appliances clearly identified with current test date",
+     "answer": "N/A",
+     "cls": "na",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "electrical_signs",
+     "label": "Signs",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    }
+   ],
+   "hasPhotos": false
+  },
+  {
+   "key": "stacking_and_storage_ok",
+   "title": "Stacking and Storage",
+   "badge": "OK",
+   "badgeCls": "ok",
+   "notes": [],
+   "rows": [
+    {
+     "key": "height_and_stability",
+     "label": "Height and Stability",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "racking",
+     "label": "Racking",
+     "answer": "N/A",
+     "cls": "na",
+     "notes": [],
+     "photos": []
+    }
+   ],
+   "hasPhotos": false
+  },
+  {
+   "key": "steps_and_ladders_ok",
+   "title": "Steps and Ladders",
+   "badge": "Issue",
+   "badgeCls": "issue",
+   "notes": [],
+   "rows": [
+    {
+     "key": "unique_identification_number",
+     "label": "Unique identification number",
+     "answer": "No",
+     "cls": "no",
+     "notes": [
+      "Stepladder in the store has no ID number."
+     ],
+     "photos": [
+      7
+     ]
+    },
+    {
+     "key": "steps_and_ladders_condition",
+     "label": "Condition",
+     "answer": "N/A",
+     "cls": "na",
+     "notes": [],
+     "photos": []
+    }
+   ],
+   "hasPhotos": true
+  },
+  {
+   "key": "miscellaneous_ok",
+   "title": "Miscellaneous",
+   "badge": "OK",
+   "badgeCls": "ok",
+   "notes": [],
+   "rows": [
+    {
+     "key": "temporary_safety_notices",
+     "label": "Temporary Safety Notices",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "storage_tanks",
+     "label": "Storage Tanks",
+     "answer": "N/A",
+     "cls": "na",
+     "notes": [],
+     "photos": []
+    }
+   ],
+   "hasPhotos": false
+  },
+  {
+   "key": "hazardous_substances",
+   "title": null,
+   "rows": [
+    {
+     "key": "hazardous_substances",
+     "label": "Hazardous substances clearly labelled and stored as recommended, with SDS and CoSHH assessment available",
+     "answer": "N/A",
+     "cls": "na",
+     "notes": [],
+     "photos": [
+      5
+     ]
+    }
+   ],
+   "hasPhotos": true
+  },
+  {
+   "key": "plant_equipment_ok",
+   "title": "Plant and Equipment",
+   "badge": "N/A",
+   "badgeCls": "na",
+   "notes": [],
+   "rows": [
+    {
+     "key": "plant_equipment_condition",
+     "label": "Plant and equipment free from physical defects",
+     "answer": "N/A",
+     "cls": "na",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "plant_equipment_guards",
+     "label": "Plant and equipment guards available, in good condition, fitted and used",
+     "answer": "N/A",
+     "cls": "na",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "plant_equipment_controls",
+     "label": "Plant and equipment controls in normal operation, with emergency stops and isolation switches clearly identified",
+     "answer": "N/A",
+     "cls": "na",
+     "notes": [],
+     "photos": []
+    }
+   ],
+   "hasPhotos": false
+  },
+  {
+   "key": "movable_plant",
+   "title": null,
+   "rows": [
+    {
+     "key": "movable_plant",
+     "label": "Movable plant (MEWPs, forklifts, pallet trucks, etc.) in good condition, operated safely, and operated by a competent operator",
+     "answer": "N/A",
+     "cls": "na",
+     "notes": [],
+     "photos": []
+    }
+   ],
+   "hasPhotos": false
+  },
+  {
+   "key": "manual_handling_ok",
+   "title": "Manual Handling",
+   "badge": "OK",
+   "badgeCls": "ok",
+   "notes": [],
+   "rows": [
+    {
+     "key": "manual_handling_operations",
+     "label": "Manual Handling Operations: correct posture observed, excessive loads not being carried or handled, repetitive handling considered, and operatives trained",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "manual_handling_loads",
+     "label": "Manual Handling Loads: not too heavy, no sharp edges, and hot/cold considered",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "manual_handling_environment",
+     "label": "Manual Handling Environment: space allows good posture, and floors are even, non-slip, and stable",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "manual_handling_aids",
+     "label": "Manual Handling Aids: equipment in use where applicable, in good condition, and operatives trained",
+     "answer": "N/A",
+     "cls": "na",
+     "notes": [],
+     "photos": []
+    }
+   ],
+   "hasPhotos": false
+  },
+  {
+   "key": "documentation_ok",
+   "title": "Documentation",
+   "badge": "OK",
+   "badgeCls": "ok",
+   "notes": [],
+   "rows": [
+    {
+     "key": "health_and_safety_policy_statement",
+     "label": "Health and Safety Policy Statement posted on the notice board and current",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "safety_committee_minutes",
+     "label": "Safety Committee Minutes posted on the notice board and current",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    }
+   ],
+   "hasPhotos": false
+  },
+  {
+   "key": "health_safety_law_poster",
+   "title": null,
+   "rows": [
+    {
+     "key": "health_safety_law_poster",
+     "label": "Health and Safety Law Poster posted on notice board and completed correctly",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [
+      "Health and safety law poster is present."
+     ],
+     "photos": []
+    }
+   ],
+   "hasPhotos": false
+  },
+  {
+   "key": "third_parties_ok",
+   "title": "Third Parties",
+   "badge": "OK",
+   "badgeCls": "ok",
+   "notes": [],
+   "rows": [
+    {
+     "key": "third_party_rams",
+     "label": "Have any third parties onsite provided suitable RAMS for the works being undertaken",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "third_party_induction",
+     "label": "Have all third parties attended site-specific induction",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "permit_to_work_issued",
+     "label": "Where applicable, has a permit to work been issued",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "permit_completed_correctly",
+     "label": "Has the permit to work been completed correctly",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "third_parties_within_permit",
+     "label": "Are third parties working within the permit",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    },
+    {
+     "key": "third_party_safe_operations",
+     "label": "Are third parties working safely with workers wearing appropriate PPE and suitable segregation",
+     "answer": "Yes",
+     "cls": "yes",
+     "notes": [],
+     "photos": []
+    }
+   ],
+   "hasPhotos": false
+  }
+ ],
+ "photos": [
+  {
+   "n": 1,
+   "caption": "Fire exit door with DO NOT BLOCK FIRE EXITS sign and a monthly exit test log sheet",
+   "field": "exit_doors_keep_clear_signs",
+   "fault": null
+  },
+  {
+   "n": 2,
+   "caption": "Two extinguishers on a wall with service tags and stickers",
+   "field": "extinguisher_seal_tag_in_place",
+   "fault": null
+  },
+  {
+   "n": 3,
+   "caption": "Shop interior with stacked goods and a pallet in front of exit doors",
+   "field": "fire_safety_exit_routes",
+   "fault": "yes"
+  },
+  {
+   "n": 4,
+   "caption": "Window air conditioning unit with a multi-outlet power strip on the floor",
+   "field": "electrical_condition",
+   "fault": null
+  },
+  {
+   "n": 5,
+   "caption": "Two spray bottles on a kitchen counter",
+   "field": "hazardous_substances",
+   "fault": null
+  },
+  {
+   "n": 6,
+   "caption": "Green wall-mounted first aid kit cabinet with a First Aid Kit sticker",
+   "field": "first_aid_kits_available",
+   "fault": null
+  },
+  {
+   "n": 7,
+   "caption": "Aluminium stepladder with four steps",
+   "field": "unique_identification_number",
+   "fault": "no"
+  },
+  {
+   "n": 8,
+   "caption": "Outdoor fire exit door with FIRE EXIT Do Not Block signs",
+   "field": "exit_doors_keep_clear_signs",
+   "fault": null
+  }
+ ],
+ "chat": [
+  {
+   "id": "8458",
+   "from": "you",
+   "kind": "voice",
+   "transcript": "Site safety inspection, please",
+   "dur": "0:03",
+   "time": "13:43",
+   "tail": true
+  },
+  {
+   "id": "8459",
+   "from": "bot",
+   "kind": "text",
+   "html": "Hang on...",
+   "long": false,
+   "time": "13:43",
+   "tail": true
+  },
+  {
+   "id": "8460",
+   "from": "bot",
+   "kind": "text",
+   "html": "<i>Ready for Site Safety Inspection.</i>\n\n<b>Location</b> ⌖ <b>▸</b> Share your pin\nWhat you should cover:\n<b>Audit</b>\n<b>Information ▸</b> Details\n<b>Results ▸</b> Outcome · Notes · Conclusion\n<b>Fire Safety ▸</b> Alarm · Exits · Doors\n<b>Fire ▸</b> Available · Service · Seal · Clear\n<b>Fire Log ▸</b> Available · Weekly · Lighting\n<b>Fire Signs ▸</b> Assembly · Evacuation · Keep Clear · Extinguisher\n<b>Aid Signs ▸</b> Aiders · Kits\n<b>Safety Gear ▸</b> Kits · Eyewash · Burns · AED\n<b>Aid Contents ▸</b> Match · Expiry\n<b>Lighting ▸</b> Internal · External · Local\n<b>Surfaces ▸</b> Marking · Paths\n<b>Walkways ▸</b> Parking · Pavements · Stairs\n<b>Welfare ▸</b> Water · Benches · Floors · Noise · Cleanliness · Heating · Air · Smoking · Toilets\n<b>Wiring</b>\n<b>Electrical ▸</b> Test date · Signs\n<b>Storage ▸</b> Stability · Racking\n<b>Steps ▸</b> Number · Condition\n<b>General ▸</b> Notices · Tanks\n<b>Hazards</b>\n<b>Plant ▸</b> Defects · Guards · Controls\n<b>Mobile Plant</b>\n<b>Manual ▸</b> Posture · Loads · Flooring · Aids\n<b>Documents ▸</b> Policy · Minutes\n<b>Law Poster</b>\n<b>Contractors ▸</b> RAMS · Induction · Permit · Complete · Scope · Segregation\n<b>Other Areas</b>\n\nType <b>done</b> to finish\n\n<i>Say “restart” to start again.</i>",
+   "long": true,
+   "time": "13:43",
+   "tail": false
+  },
+  {
+   "id": "8461",
+   "from": "you",
+   "kind": "location",
+   "address": "Bell Street, Dundee, DD1 1HG",
+   "coords": "56.4636° N, 2.9735° W",
+   "time": "13:44",
+   "tail": true
+  },
+  {
+   "id": "8462",
+   "from": "bot",
+   "kind": "text",
+   "html": "Carry on.",
+   "long": false,
+   "time": "13:44",
+   "tail": true
+  },
+  {
+   "id": "8463",
+   "from": "bot",
+   "kind": "text",
+   "html": "<i>Site Safety Inspection</i>\nLocation ⌖ ✓\n\nWhat still needs covered:\n<b>Audit</b>\n<b>Information ▸</b> Details\n<b>Results ▸</b> Outcome · Notes · Conclusion\n<b>Fire Safety ▸</b> Alarm · Exits · Doors\n<b>Fire ▸</b> Available · Service · Seal · Clear\n<b>Fire Log ▸</b> Available · Weekly · Lighting\n<b>Fire Signs ▸</b> Assembly · Evacuation · Keep Clear · Extinguisher\n<b>Aid Signs ▸</b> Aiders · Kits\n<b>Safety Gear ▸</b> Kits · Eyewash · Burns · AED\n<b>Aid Contents ▸</b> Match · Expiry\n<b>Lighting ▸</b> Internal · External · Local\n<b>Surfaces ▸</b> Marking · Paths\n<b>Walkways ▸</b> Parking · Pavements · Stairs\n<b>Welfare ▸</b> Water · Benches · Floors · Noise · Cleanliness · Heating · Air · Smoking · Toilets\n<b>Wiring</b>\n<b>Electrical ▸</b> Test date · Signs\n<b>Storage ▸</b> Stability · Racking\n<b>Steps ▸</b> Number · Condition\n<b>General ▸</b> Notices · Tanks\n<b>Hazards</b>\n<b>Plant ▸</b> Defects · Guards · Controls\n<b>Mobile Plant</b>\n<b>Manual ▸</b> Posture · Loads · Flooring · Aids\n<b>Documents ▸</b> Policy · Minutes\n<b>Law Poster</b>\n<b>Contractors ▸</b> RAMS · Induction · Permit · Complete · Scope · Segregation\n<b>Other Areas</b>\n\nType <b>done</b> to finish",
+   "long": true,
+   "time": "13:44",
+   "tail": false
+  },
+  {
+   "id": "8465",
+   "from": "you",
+   "kind": "voice",
+   "transcript": "Main fire exit fine. Sign up, door closes, and the door also latches. The extinguishers are also in date",
+   "dur": "0:09",
+   "time": "13:44",
+   "tail": true
+  },
+  {
+   "id": "8466",
+   "from": "bot",
+   "kind": "text",
+   "html": "Carry on.",
+   "long": false,
+   "time": "13:44",
+   "tail": true
+  },
+  {
+   "id": "8467",
+   "from": "bot",
+   "kind": "text",
+   "html": "<i>Site Safety Inspection</i>\n✅ 3 OK\n⌖ ✓\n\nWhat still needs covered:\n<b>Audit</b>\n<b>Information ▸</b> Details\n<b>Results ▸</b> Outcome · Notes · Conclusion\n<b>Fire Safety ▸</b> Alarm\n<b>Fire ▸</b> Available · Seal · Clear\n<b>Fire Log ▸</b> Available · Weekly · Lighting\n<b>Fire Signs ▸</b> Assembly · Evacuation · Keep Clear · Extinguisher\n<b>Aid Signs ▸</b> Aiders · Kits\n<b>Safety Gear ▸</b> Kits · Eyewash · Burns · AED\n<b>Aid Contents ▸</b> Match · Expiry\n<b>Lighting ▸</b> Internal · External · Local\n<b>Surfaces ▸</b> Marking · Paths\n<b>Walkways ▸</b> Parking · Pavements · Stairs\n<b>Welfare ▸</b> Water · Benches · Floors · Noise · Cleanliness · Heating · Air · Smoking · Toilets\n<b>Wiring</b>\n<b>Electrical ▸</b> Test date · Signs\n<b>Storage ▸</b> Stability · Racking\n<b>Steps ▸</b> Number · Condition\n<b>General ▸</b> Notices · Tanks\n<b>Hazards</b>\n<b>Plant ▸</b> Defects · Guards · Controls\n<b>Mobile Plant</b>\n<b>Manual ▸</b> Posture · Loads · Flooring · Aids\n<b>Documents ▸</b> Policy · Minutes\n<b>Law Poster</b>\n<b>Contractors ▸</b> RAMS · Induction · Permit · Complete · Scope · Segregation\n<b>Other Areas</b>\n\nType <b>done</b> to finish",
+   "long": true,
+   "time": "13:45",
+   "tail": false
+  },
+  {
+   "id": "8468",
+   "from": "you",
+   "kind": "photo",
+   "n": 1,
+   "time": "13:45",
+   "tail": true
+  },
+  {
+   "id": "8469",
+   "from": "you",
+   "kind": "photo",
+   "n": 2,
+   "time": "13:45",
+   "tail": false
+  },
+  {
+   "id": "8471",
+   "from": "you",
+   "kind": "voice",
+   "transcript": "Backfire exit has been blocked with boxes and trolleys and it needs cleared immediately",
+   "dur": "0:06",
+   "time": "13:45",
+   "tail": false
+  },
+  {
+   "id": "8472",
+   "from": "you",
+   "kind": "photo",
+   "n": 3,
+   "time": "13:45",
+   "tail": false
+  },
+  {
+   "id": "8474",
+   "from": "you",
+   "kind": "voice",
+   "transcript": "Extension lead is trailing across the corridor. That is a trip hazard",
+   "dur": "0:04",
+   "time": "13:45",
+   "tail": false
+  },
+  {
+   "id": "8475",
+   "from": "you",
+   "kind": "photo",
+   "n": 4,
+   "time": "13:45",
+   "tail": false
+  },
+  {
+   "id": "8476",
+   "from": "bot",
+   "kind": "text",
+   "html": "4 photos received",
+   "long": false,
+   "time": "13:46",
+   "tail": true
+  },
+  {
+   "id": "8478",
+   "from": "you",
+   "kind": "voice",
+   "transcript": "Stepladder in the store has no ID number. The first aid kit is in date, although the eyewash is out of date, and there is actually a few bandages missing. The toilets are clean, and the health and safety law poster is present, and everything else is fine",
+   "dur": "0:18",
+   "time": "13:46",
+   "tail": true
+  },
+  {
+   "id": "8479",
+   "from": "bot",
+   "kind": "text",
+   "html": "Carry on.",
+   "long": false,
+   "time": "13:46",
+   "tail": true
+  },
+  {
+   "id": "8480",
+   "from": "you",
+   "kind": "album",
+   "ns": [
+    5,
+    6,
+    7,
+    8
+   ],
+   "time": "13:46",
+   "tail": true
+  },
+  {
+   "id": "8484",
+   "from": "bot",
+   "kind": "text",
+   "html": "8 photos received",
+   "long": false,
+   "time": "13:47",
+   "tail": true
+  },
+  {
+   "id": "8485",
+   "from": "you",
+   "kind": "text",
+   "html": "Done",
+   "time": "13:47",
+   "tail": true
+  },
+  {
+   "id": "rec-working",
+   "from": "bot",
+   "kind": "text",
+   "html": "Working on your report.",
+   "long": false,
+   "time": "13:47",
+   "tail": true
+  },
+  {
+   "id": "8486",
+   "from": "bot",
+   "kind": "text",
+   "html": "Putting your report together now, the link will arrive soon. When there are lots of questions this can take a few minutes.",
+   "long": false,
+   "time": "13:47",
+   "tail": false
+  },
+  {
+   "id": "8487",
+   "from": "bot",
+   "kind": "report",
+   "time": "13:50",
+   "tail": false
+  }
+ ],
+ "steps": [
+  "<i>Ready for Site Safety Inspection.</i>\n\n<b>Location</b> ⌖ <b>▸</b> Share your pin\nWhat you should cover:\n<b>Audit</b>\n<b>Information ▸</b> Details\n<b>Results ▸</b> Outcome · Notes · Conclusion\n<b>Fire Safety ▸</b> Alarm<span class=\"aw-drop\"> · Exits · Doors</span>\n<b>Fire ▸</b> Available<span class=\"aw-drop\"> · Service</span> · Seal · Clear\n<b>Fire Log ▸</b> Available · Weekly · Lighting\n<b>Fire Signs ▸</b> Assembly · Evacuation · Keep Clear · Extinguisher\n<b>Aid Signs ▸</b> Aiders · Kits\n<b>Safety Gear ▸</b> Kits · Eyewash · Burns · AED\n<b>Aid Contents ▸</b> Match · Expiry\n<b>Lighting ▸</b> Internal · External · Local\n<b>Surfaces ▸</b> Marking · Paths\n<b>Walkways ▸</b> Parking · Pavements · Stairs\n<b>Welfare ▸</b> Water · Benches · Floors · Noise · Cleanliness · Heating · Air · Smoking · Toilets\n<b>Wiring</b>\n<b>Electrical ▸</b> Test date · Signs\n<b>Storage ▸</b> Stability · Racking\n<b>Steps ▸</b> Number · Condition\n<b>General ▸</b> Notices · Tanks\n<b>Hazards</b>\n<b>Plant ▸</b> Defects · Guards · Controls\n<b>Mobile Plant</b>\n<b>Manual ▸</b> Posture · Loads · Flooring · Aids\n<b>Documents ▸</b> Policy · Minutes\n<b>Law Poster</b>\n<b>Contractors ▸</b> RAMS · Induction · Permit · Complete · Scope · Segregation\n<b>Other Areas</b>\n\nType <b>done</b> to finish\n\n<i>Say “restart” to start again.</i>",
+  "<i>Site Safety Inspection</i>\n✅ 3 OK\n⌖ ✓\n\nWhat still needs covered:\n<b>Audit</b>\n<b>Information ▸</b> Details\n<b>Results ▸</b> Outcome · Notes · Conclusion\n<b>Fire Safety ▸</b> Alarm\n<b>Fire ▸</b> Available · Seal · Clear\n<b>Fire Log ▸</b> Available · Weekly · Lighting\n<b>Fire Signs ▸</b> Assembly · Evacuation · Keep Clear · Extinguisher\n<b>Aid Signs ▸</b> Aiders · Kits\n<b>Safety Gear ▸</b> Kits · Eyewash · Burns · AED\n<b>Aid Contents ▸</b> Match · Expiry\n<b>Lighting ▸</b> Internal · External · Local\n<b>Surfaces ▸</b> Marking · Paths\n<b>Walkways ▸</b> Parking · Pavements · Stairs\n<b>Welfare ▸</b> Water · Benches · Floors · Noise · Cleanliness · Heating · Air · Smoking · Toilets\n<b>Wiring</b>\n<b>Electrical ▸</b> Test date · Signs\n<b>Storage ▸</b> Stability · Racking\n<b>Steps ▸</b> Number · Condition\n<b>General ▸</b> Notices · Tanks\n<b>Hazards</b>\n<b>Plant ▸</b> Defects · Guards · Controls\n<b>Mobile Plant</b>\n<b>Manual ▸</b> Posture · Loads · Flooring · Aids\n<b>Documents ▸</b> Policy · Minutes\n<b>Law Poster</b>\n<b>Contractors ▸</b> RAMS · Induction · Permit · Complete · Scope · Segregation\n<b>Other Areas</b>\n\nType <b>done</b> to finish"
+ ],
+ "doneFrom": 18,
+ "stepVoice": {
+  "id": "8465",
+  "from": "you",
+  "kind": "voice",
+  "transcript": "Main fire exit fine. Sign up, door closes, and the door also latches. The extinguishers are also in date",
+  "dur": "0:09",
+  "time": "13:44",
+  "tail": true
+ }
+}
