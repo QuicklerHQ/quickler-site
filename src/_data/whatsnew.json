@@ -153,5 +153,106 @@
       "Safer handling of names and labels you type in."
     ],
     "dateText": "19 August 2026"
+  },
+  {
+    "date": "2026-08-03",
+    "title": "Cleaner voice notes and a firmer opening message",
+    "items": [
+      "The opening message is built the same way every time and lists every section of the Check, using its own wording.",
+      "Voice notes are cleaned of background noise before they are typed up, so windy sites come out better.",
+      "Saying Done is read strictly: only a clear finish files the Record, and anything not mentioned is marked as assumed OK on the message.",
+      "A good observation, such as a repair that went well, is no longer treated as a Fault, and it shows as a good note on the Record.",
+      "A section with no Faults under it no longer says it has an issue.",
+      "Records show a note on a flagged section's own heading, and only one note per sentence.",
+      "On the Records pages, a flagged question you can open in the issues list now scrolls straight to it."
+    ],
+    "dateText": "3 August 2026"
+  },
+  {
+    "date": "2026-07-28",
+    "title": "Done files the Record, nothing else does",
+    "items": [
+      "Saying all clear fills in the answers but never files the Record. You reply Done to file it.",
+      "A Record with a Fault on it is no longer thrown away when a message looks like a switch to another Check.",
+      "Switching Check and then declining keeps your last message.",
+      "Free plan photo limits now hold in the editor too, and the gallery says when you reach the limit.",
+      "A section is only marked OK when there is a clear answer; free text cannot turn a Not applicable into OK.",
+      "Turning a Check off stops its schedule and cancels its reminders.",
+      "The activity log shows UK time.",
+      "Powered by Quickler on a shared report links to the demo."
+    ],
+    "dateText": "28 July 2026"
+  },
+  {
+    "date": "2026-07-22",
+    "title": "Logos on PDFs, and notes appear once",
+    "items": [
+      "A firm's logo shows at the top of PDFs in place of its name, and on every page of the app.",
+      "A note now appears once, on the question it fits best, as plain text rather than in a grey box.",
+      "Only Yes or No questions can be a Fault: an identifier is never red.",
+      "Collapsed sections keep a small strip of their photos, and the photo gallery no longer shows captions.",
+      "Records show UK time, and Download in the activity history becomes a one-tap Share that copies the link.",
+      "Reading a long document into questions shows an honest progress bar, copes with big documents, and a second click cannot start it twice.",
+      "The first screen of a new Check goes straight to What does this check cover?",
+      "A Check that was never checked reads Not checked, not OK, and a question marked Not applicable is not a Fault.",
+      "Over the free limit is one clear message that names the date the quota resets.",
+      "A number that has been retired gets one reply pointing to the main number."
+    ],
+    "dateText": "22 July 2026"
+  },
+  {
+    "date": "2026-07-15",
+    "title": "Done and Go behave",
+    "items": [
+      "Saying Done files the Check you are in, and never asks you to confirm a switch.",
+      "A bare Go starts the Check with all its questions at once, rather than one question at a time.",
+      "A returning user who asks for a Check by name starts a new one rather than hearing it is already filed.",
+      "A bare number is taken as the answer to the question just asked, such as mileage.",
+      "An answer for one section no longer clears every other section, and a later Fault is not lost.",
+      "A bare OK after the demo asks for the trade again rather than stopping."
+    ],
+    "dateText": "15 July 2026"
+  },
+  {
+    "date": "2026-07-09",
+    "title": "One Record view and sharing",
+    "items": [
+      "The Records and the Check results pages are now one page, with a Share menu on every row to copy a link or download a PDF or spreadsheet.",
+      "A shared link shows the live Record, with a change log at the bottom.",
+      "Every field type can be edited on a Record, answer and note.",
+      "Photos open in a gallery with next and previous; clean sections show green and a flagged Check has a Mark as done button.",
+      "A question can sit inside another, two levels deep, and a Check's period can be Today or a rolling window.",
+      "Saving the questions page re-reads the Check every time.",
+      "A reminder now invites any reply, not just Go.",
+      "Deleting a Record really forgets it.",
+      "A powered-by Quickler line on a shared report takes you to quickler.co.",
+      "A free demo: a new number gets a ready-made welcome and a demo for its sector."
+    ],
+    "dateText": "9 July 2026"
+  },
+  {
+    "date": "2026-06-19",
+    "title": "Done files the Check",
+    "items": [
+      "A clear Done files the Check, whatever state it is in.",
+      "A photo sent right after saying all good is kept and not scolded.",
+      "Done is no longer undone by an unanswered Fault.",
+      "A report review page shows the Quickler brand."
+    ],
+    "dateText": "19 June 2026"
+  },
+  {
+    "date": "2026-04-10",
+    "title": "Early days",
+    "items": [
+      "The first app: sign in, set up your firm and the first Check, and pay by card.",
+      "Records, Checks and questions, with WhatsApp conversations and PDF reports with photos.",
+      "Share a Record as a branded link with named PDF and HTML downloads.",
+      "Fault rules: flag a question when the answer is Yes or No, and notes to managers by email.",
+      "Reminders on a schedule, with stages and repeating questions.",
+      "Location sharing and weather, and a download of all your data.",
+      "Free trial, vouchers and billing, and signup guesses your firm name and website from your email address."
+    ],
+    "dateText": "April to June 2026"
   }
 ]
