@@ -71,7 +71,7 @@
 
 {%- macro waPanel(msgs, cls) -%}
 <div class="aw-wa {{ cls }}">
-  <div class="wa-topbar"><div class="wa-avatar"><img src="/assets/icons/apple-touch-icon.png" alt="" width="40" height="40"></div><div class="wa-title"><div class="wa-name">Quickler</div></div></div>
+  <div class="wa-topbar"><div class="wa-title"><div class="wa-name">Quickler</div><div class="wa-status">WhatsApp messages</div></div></div>
   <div class="wa-scroll aw-scroll" tabindex="0" aria-label="WhatsApp messages">
     <div class="wa-day">Monday 2 November 2026</div>
     {%- for m in msgs %}{{ waMsg(m) }}{% endfor %}
@@ -135,7 +135,7 @@
 {%- endmacro %}
 
 {%- macro winBar() -%}
-<div class="aw-bar"><img class="aw-logo" src="/assets/logos/quickler-logo.svg" alt="Quickler" height="26"><span class="aw-bar-sp"></span><img class="aw-face" src="/assets/photos/philip-face.jpg" alt="" width="34" height="34"></div>
+
 {%- endmacro %}
 
 {%- macro appWin(kind) -%}
@@ -146,7 +146,7 @@
     {{ waPanel(_dw.chat, 'aw-wa-tall') }}
   {%- elif kind == 'place' %}
     <div class="aw-wa">
-      <div class="wa-topbar"><div class="wa-avatar"><img src="/assets/icons/apple-touch-icon.png" alt="" width="40" height="40"></div><div class="wa-title"><div class="wa-name">Quickler</div></div></div>
+      <div class="wa-topbar"><div class="wa-title"><div class="wa-name">Quickler</div><div class="wa-status">WhatsApp messages</div></div></div>
       <div class="wa-scroll aw-scroll" tabindex="0" aria-label="WhatsApp messages">
         <div>
           <div class="wa-row wa-bot wa-tail"><div class="wa-bubble"><div class="wa-text">{{ _dw.steps[0] | safe }}</div><span class="wa-time">13:43</span></div></div>
