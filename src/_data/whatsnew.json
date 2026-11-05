@@ -242,17 +242,103 @@
     "dateText": "19 June 2026"
   },
   {
-    "date": "2026-04-10",
-    "title": "Early days",
+    "date": "2026-06-18",
+    "title": "Honest times and a branded review page",
     "items": [
-      "The first app: sign in, set up your firm and the first Check, and pay by card.",
-      "Records, Checks and questions, with WhatsApp conversations and PDF reports with photos.",
-      "Share a Record as a branded link with named PDF and HTML downloads.",
-      "Fault rules: flag a question when the answer is Yes or No, and notes to managers by email.",
-      "Reminders on a schedule, with stages and repeating questions.",
-      "Location sharing and weather, and a download of all your data.",
-      "Free trial, vouchers and billing, and signup guesses your firm name and website from your email address."
+      "Reports show the real time a Record was finished, in UK time, and who last edited it.",
+      "A Record is never described as filed when it was refused, and photos are accepted the moment they arrive.",
+      "The report review page shows the Quickler brand.",
+      "A new pricing page and a tidier menu, with Support merged into one page."
     ],
-    "dateText": "April to June 2026"
+    "dateText": "12 to 18 June 2026"
+  },
+  {
+    "date": "2026-06-11",
+    "title": "Share links, switching Checks and Guides",
+    "items": [
+      "Share a Record with a Copy link button, a banner showing when the link expires, and downloads named after the firm, date and place.",
+      "Site reports have a top bar with the score, a signature block, and a Maps link and weather for the location.",
+      "You can switch to a different Check part way through a chat, and amend a Check you already filed.",
+      "Messages sent in quick succession are read as one, and none are lost if the AI is briefly down.",
+      "Each Check can switch Manager alerts and General notes on or off.",
+      "quickler.co has a Guides section with many new pages."
+    ],
+    "dateText": "29 May to 11 June 2026"
+  },
+  {
+    "date": "2026-05-28",
+    "title": "Site safety reports, location and weather",
+    "items": [
+      "A new kind of report for site safety, which uses your photos and a sample of your own style to write the draft.",
+      "Questions can ask for the location and the weather.",
+      "A mileage that looks wrong is queried before the Record is finished.",
+      "Each Record has a photo gallery that shows the answer and your note beside every picture.",
+      "A Fault can be marked as reviewed once it has been dealt with.",
+      "Adding several people at once no longer lets the same phone number in twice."
+    ],
+    "dateText": "15 to 28 May 2026"
+  },
+  {
+    "date": "2026-05-14",
+    "title": "Light and dark mode, Fault rules and history",
+    "items": [
+      "The dashboard has a proper light mode and dark mode.",
+      "A Yes or No question has a control to flag it when the answer is Yes or No.",
+      "The Records page has a period picker, including All time.",
+      "A Check can follow on from another Check, and can ask about the previous Fault.",
+      "Date questions are checked as day, month, year and printed neatly in the PDF.",
+      "Friendly error pages appear if the site is being updated."
+    ],
+    "dateText": "1 to 14 May 2026"
+  },
+  {
+    "date": "2026-04-30",
+    "title": "Sign in codes, exports and a recycle bin",
+    "items": [
+      "Sign in with a link, or with a 6 digit code if your email blocks the link.",
+      "A billing page lets you cancel your plan, and voucher codes are checked before you upgrade.",
+      "Deleted firms, Checks and people sit in a 30 day recycle bin.",
+      "Download the data for one person or one Check, from a downloads page.",
+      "PDFs include the photos taken, and Fault notes show next to the answers.",
+      "Voice notes are understood in Checks, and a Help centre was added."
+    ],
+    "dateText": "17 to 30 April 2026"
+  },
+  {
+    "date": "2026-04-16",
+    "title": "The first app",
+    "items": [
+      "Sign in, set up your firm, build your first Check and pay by card.",
+      "Add managers and people, pause or delete them, and set a schedule for each Check.",
+      "Sign up guesses your firm name and website from your email, and picks up your colours and logo.",
+      "Download all your data as a ZIP.",
+      "A pricing page and customer terms on quickler.co, and a Sign in button for customers.",
+      "Voice notes are turned into text, and photos can be sent at any time."
+    ],
+    "dateText": "3 to 16 April 2026"
+  },
+  {
+    "date": "2026-04-02",
+    "title": "Try it on WhatsApp",
+    "items": [
+      "A Try it here page and button let you test Quickler on WhatsApp, with a short and a full demo.",
+      "Every demo step takes voice notes, and the report comes back as a branded PDF by email and WhatsApp.",
+      "The first Quickler weekly van check report.",
+      "A walkthrough video sits at the top of the homepage.",
+      "The site is refocused on reports and your own workflows."
+    ],
+    "dateText": "20 March to 2 April 2026"
+  },
+  {
+    "date": "2026-03-19",
+    "title": "quickler.co goes live",
+    "items": [
+      "A new quickler.co with the Quickler logo, icon and look, and a homepage that points you to what you need.",
+      "Report pages show real report screenshots, with a form to describe your own problem.",
+      "Privacy and cookie pages, with a cookie choice.",
+      "Send notes and photos on WhatsApp and get a PDF report back, with a cover page.",
+      "Review the report on a web page before it is sent."
+    ],
+    "dateText": "6 to 19 March 2026"
   }
 ]
