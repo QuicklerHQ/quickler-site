@@ -1,0 +1,412 @@
+{#- Copied as is from quickler-dashboard src/templates/workflow/_wa_voice_assets.html (Philip 5 Nov 2026 16:00: use prod's own code). -#}
+{% raw %}<style>
+/* ONE WIDTH FOR EVERY VOICE NOTE (Philip 30 Oct 2026, 12:28: "The width of
+   the voice note things should always be the same. Make up for the words
+   with new lines."): the bubble is 340px, or the chat's width on a phone,
+   whatever the note's length; the words wrap inside it, and the waveform is
+   stretched or squeezed to fill the room beside play. */
+.wa-bubble:has(> .wa-voice) { width:340px; max-width:100%; box-sizing:border-box; }
+.wa-bubble:has(> .wa-voice) > .wa-transcript { overflow-wrap:anywhere; }
+.wa-voice { display:flex; align-items:center; gap:8px; width:100%;
+  padding:5px 2px 0 0; box-sizing:border-box; font-family:var(--font, 'Space Grotesk', Arial, sans-serif); }
+.wa-vav { position:relative; flex:0 0 auto; width:52px; height:52px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center; background:#dfe5e7; color:#fff;
+  font-weight:700; font-size:17px; letter-spacing:0.01em; }
+.wa-vav > img { width:100%; height:100%; border-radius:50%; object-fit:cover; display:block; background:#fff; }
+.wa-vav-3 { font-size:14px; letter-spacing:-0.02em; }
+/* THE CONTACTS COLOURS EXACTLY (Philip 30 Oct 2026, 12:28: "it should match
+   the same blue as on the normal page"): the very colours of the person's
+   initials on Contacts (static/dashboard/style.css, .eng-row:hover
+   .eng-avatar.avatar-*), laid over white as the Contacts card is, so the
+   bubble's green never tints them. Blue with a phone only, pink with an
+   email only, the purple between them with both; white letters. */
+.wa-vav-phone { background:linear-gradient(rgba(47,107,255,0.35), rgba(47,107,255,0.35)), #fff; color:#fff; }
+.wa-vav-email { background:linear-gradient(rgba(244,63,140,0.9), rgba(244,63,140,0.9)), #fff; color:#fff; }
+.wa-vav-both  { background:linear-gradient(rgba(146,85,198,0.62), rgba(146,85,198,0.62)), #fff; color:#fff; }
+.wa-vav-icon { color:#fff; margin-top:6px; }
+.wa-vmic { position:absolute; right:-4px; bottom:-2px; width:20px; height:20px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center; color:#00a884; background:#fff; }
+.wa-you .wa-vmic { background:#d9fdd3; }
+.wa-voice.is-heard .wa-vmic { color:#53bdeb; }
+/* The speed in the picture's place while a note plays (Philip 30 Oct 2026,
+   11:35): a dark grey rounded pill in the same 52px slot, so nothing moves. */
+.wa-vspeed { display:none; flex:0 0 auto; width:52px; height:52px; padding:0; border:none; background:none;
+  cursor:pointer; align-items:center; justify-content:center; font:inherit; border-radius:13px; }
+.wa-vspeed-pill { display:inline-flex; align-items:center; justify-content:center; min-width:44px; height:26px;
+  padding:0 7px; box-sizing:border-box; border-radius:13px; background:#5e6b72; color:#fff;
+  font-size:13px; font-weight:600; font-variant-numeric:tabular-nums; }
+.wa-vspeed:focus-visible { outline:2px solid #2f6bff; outline-offset:-2px; }
+.wa-voice.is-started .wa-vav { display:none; }
+.wa-voice.is-started .wa-vspeed { display:flex; }
+.wa-vplay { flex:0 0 auto; width:34px; height:44px; padding:0; border:none; background:none;
+  color:#3b4a54; cursor:pointer; display:flex; align-items:center; justify-content:center; border-radius:8px; }
+.wa-vplay:focus-visible, .wa-vwave:focus-visible { outline:2px solid #2f6bff; outline-offset:2px; }
+.wa-vplay-off { display:none; }
+.wa-voice.is-playing .wa-vplay-on { display:none; }
+.wa-voice.is-playing .wa-vplay-off { display:block; }
+/* The waveform sits level with the picture's middle and play, the length
+   under it: room the length's height above it keeps it centred. */
+.wa-vbody { flex:1 1 auto; min-width:0; display:flex; flex-direction:column; padding-top:17px; }
+.wa-vwave { position:relative; height:32px; display:flex; align-items:center;
+  justify-content:space-between; cursor:pointer; touch-action:none; border-radius:4px; }
+.wa-vbar { flex:0 0 3px; width:3px; min-height:3px; border-radius:2px; background:rgba(17,27,33,0.24);
+  transition:background-color .08s linear; }
+.wa-vbar.is-on { background:#3b4a54; }
+.wa-vdot { position:absolute; top:50%; left:0; width:13px; height:13px; border-radius:50%;
+  background:#53bdeb; transform:translate(-50%,-50%); pointer-events:none;
+  box-shadow:0 1px 2px rgba(11,20,26,0.25); }
+.wa-vlen { font-size:11px; line-height:15px; color:#667781; margin-top:2px; min-height:15px;
+  font-variant-numeric:tabular-nums; }
+/* The bubble's own time sits on the length's line, on the right, as on
+   WhatsApp, when no words follow the note. */
+.wa-bubble:has(> .wa-voice + .wa-time) > .wa-time,
+.wa-bubble:has(> .wa-voice + .wa-via) > .wa-via { margin-top:-17px; }
+.wa-voice .wa-audio { display:none; }
+.wa-voice + .wa-transcript { margin-top:6px; }
+</style>
+<script>
+(function () {
+  if (window.QxVoice) return;
+  var BARS = 40;
+  var held = {};          // address -> promise of {url, dur, peaks}
+  var KEEP = 'qx-wave:';  // per-file waveform and length, for this visit
+  // The speed chosen, for the rest of this visit: the next note starts at it.
+  var SPEEDS = [1, 1.5, 2], speed = 1;
+  function speedText(r) { return String(r) + '\u00d7'; }
+  function showSpeed(box) {
+    var b = box.querySelector('.wa-vspeed');
+    if (!b) return;
+    (b.querySelector('.wa-vspeed-pill') || b).textContent = speedText(speed);
+    b.setAttribute('aria-label', 'Playback speed ' + speed + ' times. Press to change.');
+  }
+  // The speed shows in the picture's place while the note plays or is
+  // paused part-way; the picture comes back when it ends or is reset.
+  function started(box) {
+    var a = box.querySelector('audio.wa-audio');
+    var on = a && (!a.paused || (a.currentTime > 0 && !a.ended));
+    box.classList.toggle('is-started', !!on);
+  }
+
+  function fmt(s) {
+    s = Math.max(0, Math.round(s || 0));
+    return Math.floor(s / 60) + ':' + ('0' + (s % 60)).slice(-2);
+  }
+  // A calm, even pattern for a note whose sound could not be read.
+  function neutral() {
+    var out = [];
+    for (var i = 0; i < BARS; i++) out.push(0.3 + 0.35 * Math.abs(Math.sin(i * 0.9)) + 0.15 * Math.abs(Math.sin(i * 2.3)));
+    return out;
+  }
+  function kept(src) {
+    try { var v = JSON.parse(sessionStorage.getItem(KEEP + src) || 'null'); return v && v.peaks ? v : null; }
+    catch (e) { return null; }
+  }
+  function keep(src, v) {
+    try { if (src.indexOf('data:') !== 0) sessionStorage.setItem(KEEP + src, JSON.stringify(v)); } catch (e) {}
+  }
+  function peaksOf(buf) {
+    var ch = buf.getChannelData(0), step = Math.max(1, Math.floor(ch.length / BARS)), out = [], top = 0;
+    for (var b = 0; b < BARS; b++) {
+      var sum = 0, n = 0;
+      for (var i = b * step, end = Math.min(ch.length, i + step); i < end; i += 4) { sum += ch[i] * ch[i]; n++; }
+      var rms = n ? Math.sqrt(sum / n) : 0;
+      out.push(rms); if (rms > top) top = rms;
+    }
+    return out.map(function (v) { return top ? 0.12 + 0.88 * (v / top) : 0.12; });
+  }
+  function decode(bytes) {
+    var C = window.OfflineAudioContext || window.webkitOfflineAudioContext;
+    if (!C) return Promise.reject(new Error('no audio'));
+    var ctx = new C(1, 1, 44100);
+    return new Promise(function (ok, no) {
+      var p = ctx.decodeAudioData(bytes, ok, no);
+      if (p && p.then) p.then(ok, no);
+    });
+  }
+  // Fetch one note whole: a file in the page, its length and its waveform.
+  function load(src) {
+    if (held[src]) return held[src];
+    var was = kept(src);
+    held[src] = fetch(src, { credentials: 'same-origin' }).then(function (r) {
+      if (!r.ok) throw new Error('voice ' + r.status);
+      var type = r.headers.get('Content-Type') || '';
+      return r.arrayBuffer().then(function (bytes) {
+        var url = URL.createObjectURL(new Blob([bytes], type ? { type: type } : {}));
+        if (was) return { url: url, dur: was.dur, peaks: was.peaks, read: true };
+        return decode(bytes.slice(0)).then(function (buf) {
+          var v = { url: url, dur: buf.duration, peaks: peaksOf(buf), read: true };
+          keep(src, { dur: v.dur, peaks: v.peaks });
+          return v;
+        }, function () { return { url: url, dur: 0, peaks: neutral(), read: false }; });
+      });
+    }).catch(function () { return { url: src, dur: 0, peaks: neutral(), read: false }; });
+    return held[src];
+  }
+
+  function parts(box) {
+    return { audio: box.querySelector('audio.wa-audio'), play: box.querySelector('.wa-vplay'),
+             wave: box.querySelector('.wa-vwave'), dot: box.querySelector('.wa-vdot'),
+             len: box.querySelector('.wa-vlen') };
+  }
+  // As many bars as fit the room beside play (a 3px bar, 2px apart): the
+  // note's shape stretched or squeezed to that many, never cut.
+  function fit(peaks, n) {
+    if (!n || n === peaks.length) return peaks.slice();
+    var out = [];
+    for (var i = 0; i < n; i++) {
+      var x = n > 1 ? i * (peaks.length - 1) / (n - 1) : 0, lo = Math.floor(x), hi = Math.min(peaks.length - 1, lo + 1);
+      out.push(peaks[lo] + (peaks[hi] - peaks[lo]) * (x - lo));
+    }
+    return out;
+  }
+  function room(box) {
+    var w = parts(box).wave.clientWidth;
+    return w ? Math.max(12, Math.floor((w + 2) / 5)) : 0;
+  }
+  function bars(box, peaks) {
+    var p = parts(box), old = p.wave.querySelectorAll('.wa-vbar');
+    box._qxPeaks = peaks;
+    Array.prototype.forEach.call(old, function (b) { b.remove(); });
+    fit(peaks, room(box)).forEach(function (h) {
+      var b = document.createElement('span');
+      b.className = 'wa-vbar';
+      b.style.height = Math.round(Math.max(0.1, Math.min(1, h)) * 100) + '%';
+      p.wave.insertBefore(b, p.dot);
+    });
+    draw(box);
+  }
+  function length(box) {
+    var a = parts(box).audio, d = +box.getAttribute('data-dur') || 0;
+    if (!d && a && isFinite(a.duration) && a.duration > 0) d = a.duration;
+    return d;
+  }
+  function draw(box) {
+    var p = parts(box), d = length(box), t = p.audio ? p.audio.currentTime : 0;
+    var frac = d ? Math.min(1, t / d) : 0;
+    var all = p.wave.querySelectorAll('.wa-vbar');
+    for (var i = 0; i < all.length; i++) all[i].classList.toggle('is-on', (i + 0.5) / all.length <= frac);
+    p.dot.style.left = (frac * 100) + '%';
+    var going = p.audio && (!p.audio.paused || (t > 0 && !p.audio.ended));
+    if (d) p.len.textContent = fmt(going ? t : d);
+    p.wave.setAttribute('aria-valuemax', String(Math.round(d)));
+    p.wave.setAttribute('aria-valuenow', String(Math.round(t)));
+    p.wave.setAttribute('aria-valuetext', fmt(t) + ' of ' + fmt(d));
+  }
+  // A length the browser cannot tell at once (some recordings say Infinity)
+  // is found by asking for the end.
+  function findLength(box) {
+    var a = parts(box).audio;
+    if (!a || length(box)) { draw(box); return; }
+    var ask = function () {
+      if (isFinite(a.duration) && a.duration > 0) { box.setAttribute('data-dur', a.duration); a.currentTime = 0; draw(box); return; }
+      if (a.duration === Infinity) {
+        a.addEventListener('timeupdate', function once() {
+          a.removeEventListener('timeupdate', once);
+          if (isFinite(a.duration)) box.setAttribute('data-dur', a.duration);
+          a.currentTime = 0; draw(box);
+        });
+        a.currentTime = 1e7;
+      }
+    };
+    if (a.readyState >= 1) ask(); else a.addEventListener('loadedmetadata', ask, { once: true });
+  }
+  function ready(box) {
+    if (box._qxReady) return box._qxReady;
+    var a = parts(box).audio, src = a.getAttribute('data-src') || '';
+    box._qxReady = load(src).then(function (v) {
+      if (v.dur) box.setAttribute('data-dur', v.dur);
+      if (!a.getAttribute('src')) { a.preload = 'auto'; a.src = v.url; }
+      bars(box, v.peaks);
+      findLength(box);
+      return box;
+    });
+    return box._qxReady;
+  }
+
+  function stopOthers(a) {
+    document.querySelectorAll('[data-wa-voice] audio.wa-audio').forEach(function (o) { if (o !== a && !o.paused) o.pause(); });
+  }
+  function seekTo(box, frac) {
+    ready(box).then(function () {
+      var a = parts(box).audio, d = length(box);
+      if (!d) return;
+      a.currentTime = Math.max(0, Math.min(1, frac)) * d;
+      draw(box);
+    });
+  }
+  // Wired once for the whole page, so a Record drawn again in place (an
+  // edit) keeps working without wiring each note again.
+  function boxOf(el) { return el && el.closest ? el.closest('[data-wa-voice]') : null; }
+  var ticks = new WeakMap();
+  function run(box) {
+    var a = parts(box).audio;
+    draw(box);
+    if (!a.paused) ticks.set(box, requestAnimationFrame(function () { run(box); }));
+  }
+  function label(box, playing) {
+    var b = parts(box).play, base = b.getAttribute('data-label') || b.getAttribute('aria-label') || 'Play voice message';
+    b.setAttribute('data-label', base);
+    b.setAttribute('aria-label', playing ? base.replace(/^Play/, 'Pause') : base);
+  }
+  function media(name, fn) {
+    document.addEventListener(name, function (e) {
+      var box = e.target && e.target.classList && e.target.classList.contains('wa-audio') ? boxOf(e.target) : null;
+      if (box) fn(box, e.target);
+    }, true);
+  }
+  function wireAll() {
+    media('play', function (box, a) {
+      a.playbackRate = speed; showSpeed(box); box.classList.add('is-started');
+      stopOthers(a); box.classList.add('is-playing'); label(box, true);
+      cancelAnimationFrame(ticks.get(box) || 0); run(box);
+    });
+    media('pause', function (box) {
+      started(box); box.classList.remove('is-playing'); label(box, false);
+      cancelAnimationFrame(ticks.get(box) || 0); draw(box);
+    });
+    media('ended', function (box, a) {
+      box.classList.add('is-heard'); a.currentTime = 0; box.classList.remove('is-started'); draw(box);
+    });
+    media('seeked', function (box) { started(box); draw(box); });
+    // A press on the speed goes 1x, 1.5x, 2x, then back to 1x (a button,
+    // so Space and Enter press it too).
+    document.addEventListener('click', function (e) {
+      var pill = e.target.closest && e.target.closest('.wa-vspeed'), box = boxOf(pill);
+      if (!box) return;
+      speed = SPEEDS[(SPEEDS.indexOf(speed) + 1) % SPEEDS.length];
+      var a = parts(box).audio;
+      if (a) a.playbackRate = speed;
+      document.querySelectorAll('[data-wa-voice]').forEach(showSpeed);
+    });
+    document.addEventListener('click', function (e) {
+      var btn = e.target.closest && e.target.closest('.wa-vplay'), box = boxOf(btn);
+      if (!box) return;
+      var a = parts(box).audio;
+      ready(box).then(function () {
+        if (a.paused) { stopOthers(a); var go = a.play(); if (go && go.catch) go.catch(function () {}); }
+        else a.pause();
+      });
+    });
+    function at(wave, e) {
+      var r = wave.getBoundingClientRect();
+      return r.width ? (e.clientX - r.left) / r.width : 0;
+    }
+    var drag = null;
+    document.addEventListener('pointerdown', function (e) {
+      var wave = e.target.closest && e.target.closest('.wa-vwave'), box = boxOf(wave);
+      if (!box) return;
+      drag = { box: box, wave: wave };
+      try { wave.setPointerCapture(e.pointerId); } catch (x) {}
+      seekTo(box, at(wave, e)); e.preventDefault();
+    });
+    document.addEventListener('pointermove', function (e) { if (drag) seekTo(drag.box, at(drag.wave, e)); });
+    ['pointerup', 'pointercancel'].forEach(function (n) { document.addEventListener(n, function () { drag = null; }); });
+    document.addEventListener('keydown', function (e) {
+      var wave = e.target.closest && e.target.closest('.wa-vwave'), box = boxOf(wave);
+      if (!box) return;
+      var a = parts(box).audio, d = length(box);
+      var t = a.currentTime, step = Math.max(1, d / 20);
+      if (e.key === ' ' || e.key === 'Enter') { parts(box).play.click(); e.preventDefault(); return; }
+      if (!d) return;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowUp') t += step;
+      else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') t -= step;
+      else if (e.key === 'Home') t = 0;
+      else if (e.key === 'End') t = d;
+      else return;
+      e.preventDefault(); seekTo(box, t / d);
+    });
+  }
+
+  // THE ORDER (Philip 30 Oct 2026): every voice note first, one after the
+  // other, then the chat's photos.
+  function voices() {
+    var boxes = Array.prototype.slice.call(document.querySelectorAll('[data-wa-voice]'));
+    return boxes.reduce(function (chain, box) {
+      return chain.then(function () { return ready(box); });
+    }, Promise.resolve());
+  }
+  // THE PHOTOS, TOP TO BOTTOM, FULL SIZE (Philip 30 Oct 2026, 11:36: "Once
+  // the voice messages have been loaded, the images can be loaded from top to
+  // bottom in high quality also."). Each chat photo, album photos past the
+  // fourth in their place, fetched at the size the viewer opens and swapped
+  // in as it lands; two at a time. A photo scrolled into view or opened jumps
+  // the queue.
+  var queue = [], busy = 0, AT_ONCE = 2, photosDone = null;
+  function fullOf(im) { return im.getAttribute('data-full') || im.getAttribute('data-sharp') || ''; }
+  function jump(im) {
+    var i = queue.indexOf(im);
+    if (i > 0) { queue.splice(i, 1); queue.unshift(im); }
+  }
+  function pump() {
+    while (busy < AT_ONCE && queue.length) {
+      var im = queue.shift(), url = fullOf(im);
+      if (!url || (im.getAttribute('src') || '') === url) continue;
+      busy++;
+      (function (im, url) {
+        var pre = new Image();
+        pre.onload = function () {
+          if ((im.getAttribute('src') || '').indexOf('data:') !== 0) im.src = url;
+          busy--; pump();
+        };
+        pre.onerror = function () { busy--; pump(); };
+        pre.src = url;
+      })(im, url);
+    }
+    if (!queue.length && !busy && photosDone) { var d = photosDone; photosDone = null; d(); }
+  }
+  function photos() {
+    // the page's order is the conversation's, top to bottom
+    queue = Array.prototype.slice.call(document.querySelectorAll('.wa-modal img.wa-photo, .wa-modal img.wa-album-rest'))
+      .filter(function (im) { return fullOf(im); });
+    if (window.IntersectionObserver) {
+      var seen = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) jump(e.target); });
+      });
+      queue.forEach(function (im) { seen.observe(im); });
+    }
+    return new Promise(function (done) { photosDone = done; pump(); });
+  }
+  // opening a photo puts it first
+  document.addEventListener('click', function (e) {
+    var im = e.target.closest && e.target.closest('.wa-modal img.wa-photo');
+    if (im) jump(im);
+  }, true);
+  var started = null;
+  function preload() {
+    if (!started) started = voices().then(photos);
+    else voices();   // a Record drawn again since: its notes come from what is held
+    return started;
+  }
+  window.QxVoice = { preload: preload, ready: ready, order: ['voices', 'photos'], speed: function () { return speed; } };
+
+  function refit() {
+    document.querySelectorAll('dialog[open] [data-wa-voice]').forEach(function (box) {
+      if (box._qxPeaks && box.querySelectorAll('.wa-vbar').length !== room(box)) bars(box, box._qxPeaks);
+    });
+  }
+  function boot() {
+    wireAll();
+    document.querySelectorAll('[data-wa-voice]').forEach(function (box) { if (!box.querySelector('.wa-vbar')) bars(box, neutral()); });
+    // Opening the Messages window starts it now, if the page has not yet.
+    document.addEventListener('click', function (e) {
+      if (e.target.closest && e.target.closest('.wa-transcript-btn')) {
+        preload();
+        setTimeout(refit, 0);   // once open, the waveforms have their width
+      }
+    }, true);
+    window.addEventListener('resize', function () { clearTimeout(boot._t); boot._t = setTimeout(refit, 120); });
+    // Closing it stops a note that is playing.
+    document.addEventListener('close', function (e) {
+      var d = e.target;
+      if (d && d.classList && d.classList.contains('wa-modal'))
+        d.querySelectorAll('audio.wa-audio').forEach(function (a) { if (!a.paused) a.pause(); });
+    }, true);
+    if (!document.querySelector('.wa-modal')) return;
+    var go = function () { preload(); };
+    if (window.requestIdleCallback) requestIdleCallback(go, { timeout: 2500 });
+    else setTimeout(go, 800);
+  }
+  if (document.readyState === 'complete') boot();
+  else window.addEventListener('load', boot);
+})();
+</script>{% endraw %}

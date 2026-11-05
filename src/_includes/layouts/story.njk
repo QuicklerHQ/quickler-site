@@ -450,6 +450,7 @@
   </div>
 </section>
 </main>
+{% if _mode == 'home' %}{% include "partials/wa-voice-boot.njk" %}{% endif %}
 {% include "partials/footer.njk" %}
 
 {#- Structured data (JSON-LD), generated from content already on the page so it

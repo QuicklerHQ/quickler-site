@@ -1,0 +1,6 @@
+{% include "partials/wa-voice-assets.njk" %}
+<script>
+/* The dashboard starts its voice notes when the Messages window opens; on the
+   website the chat is already open, so start them once the page has loaded. */
+window.addEventListener("load", function () { setTimeout(function () { if (window.QxVoice) window.QxVoice.preload(); }, 300); });
+</script>
