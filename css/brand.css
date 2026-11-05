@@ -27,3 +27,8 @@ body.app-home footer, body.app-heypage footer { background: #fdf0f7 !important; 
 .aw-ba2 .wa-bubble { max-width: 100% !important; }
 .aw-ba2 .wa-text { font-size: .92rem; line-height: 1.5; }
 @media (max-width: 760px) { .aw-ba2 { grid-template-columns: 1fr; } .aw-ba2-col + .aw-ba2-col { border-left: 0; border-top: 1px solid #dfe3f0; } }
+/* "Done" picked out in the chat (Philip 5 Nov 2026 15:17). */
+.aw-done { display: inline-block; font-weight: 700; padding: 1px 10px; border-radius: 999px; background: linear-gradient(90deg, #2F6BFF, #7C3AED 55%, #F43F8C); color: #fff; box-shadow: 0 0 0 4px rgba(124,58,237,.18); }
+/* Real screenshots of the real share page inside the window (Philip 5 Nov 2026 15:18). */
+.aw-real { background: #f4f5fa; padding: clamp(10px, 2.5vw, 28px); }
+.aw-real img { display: block; width: 100%; max-width: 760px; height: auto; margin: 0 auto; border-radius: 14px; }

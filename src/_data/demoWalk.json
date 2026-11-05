@@ -1125,7 +1125,7 @@
    "id": "8485",
    "from": "you",
    "kind": "text",
-   "html": "Done",
+   "html": "<span class=\"aw-done\">Done</span>",
    "time": "13:47",
    "tail": true
   },

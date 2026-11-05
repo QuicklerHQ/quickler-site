@@ -71,7 +71,7 @@
 
 {%- macro waPanel(msgs, cls) -%}
 <div class="aw-wa {{ cls }}">
-  <div class="wa-topbar"><div class="wa-title"><div class="wa-name">Quickler</div><div class="wa-status">WhatsApp messages</div></div></div>
+  <div class="wa-topbar"><div class="wa-avatar"><img src="/assets/icons/apple-touch-icon.png" alt="" width="40" height="40"></div><div class="wa-title"><div class="wa-name">Quickler</div><div class="wa-status">WhatsApp messages</div></div></div>
   <div class="wa-scroll aw-scroll" tabindex="0" aria-label="WhatsApp messages">
     <div class="wa-day">Monday 2 November 2026</div>
     {%- for m in msgs %}{{ waMsg(m) }}{% endfor %}
@@ -154,11 +154,9 @@
   {%- elif kind == 'done' %}
     {{ waPanel(_dw.chat.slice(_dw.doneFrom), '') }}
   {%- elif kind == 'photos' %}
-    <div class="aw-rec aw-scroll" tabindex="0" aria-label="Record answers with photos">
-      {%- for c in _dw.cards %}{% if c.hasPhotos %}{{ recCard(c) }}{% endif %}{% endfor %}
-    </div>
+    <div class="aw-real"><picture><source srcset="/assets/photos/real/photo-q.webp" type="image/webp"><img src="/assets/photos/real/photo-q.png" alt="A question in a real Quickler Record, with its answer and the photo beside it" width="1324" height="988" loading="lazy"></picture></div>
   {%- elif kind == 'todo' %}
-    <div class="aw-rec aw-rec-todo">{{ todoCard() }}</div>
+    <div class="aw-real"><picture><source srcset="/assets/photos/real/todo.webp" type="image/webp"><img src="/assets/photos/real/todo.png" alt="The To do list in a real Quickler Record" width="1440" height="622" loading="lazy"></picture></div>
   {%- endif %}
   </div>
 </div>
