@@ -504,7 +504,8 @@ nav[aria-label="Primary"] .nav-new { position: absolute; top: -10px; left: 50%; 
   color: #fff !important; text-decoration: none; background: linear-gradient(90deg, #5A4FCF, #7C3AED 55%, #F43F8C); box-shadow: 0 10px 28px rgba(124,58,237,0.35);
   opacity: 0; transform: translateY(16px); pointer-events: none; transition: opacity .25s ease, transform .25s ease; }
 .hey-float.hey-float-on { opacity: 1; transform: none; pointer-events: auto; }
-@media (max-width: 600px) { .hey-float { right: 12px; bottom: 12px; padding: 12px 18px; font-size: 0.85rem; } }
+/* Phones: the Try button floats centred at the bottom, as HEY does (Philip 5 Nov 2026 18:18). */
+@media (max-width: 600px) { .hey-float { right: auto; left: 50%; bottom: 16px; padding: 12px 22px; font-size: 0.85rem; white-space: nowrap; transform: translate(-50%, 16px); } .hey-float.hey-float-on { transform: translateX(-50%); } }
 
 /* Wider, like HEY (Philip 5 Nov 2026 12:32): the hero card and page run to the
    top bar's width instead of a narrow column; reading text keeps its measure. */
