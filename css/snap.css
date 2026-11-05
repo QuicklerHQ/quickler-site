@@ -1,0 +1,22 @@
+/* Snap it there and then (Philip 5 Nov 2026 16:08): phone 1 upright on the
+   left, phone 2 directly above phone 3 on the right, round arrow pills
+   between. Nothing behind the section. Markup: app-windows.njk, kind 'snap'. */
+.aw:has(.snap-v2), .aw:has(.snap-v2) > * { background: transparent !important; box-shadow: none !important; border: 0 !important; overflow: visible !important; }
+.aw:has(.snap-v2) { max-width: none !important; width: auto !important; }
+.aw-snap.snap-v2 { display: flex; flex-direction: row; flex-wrap: nowrap; align-items: center; justify-content: center; gap: clamp(14px, 2.2vw, 32px); max-width: 1100px; margin: 0 auto; padding: 8px 0; }
+.snap-v2 .snap-col { display: flex; flex-direction: column; align-items: center; gap: 12px; flex: none; }
+.snap-v2 .snap-ph { margin: 0; flex: none; display: flex; flex-direction: column; align-items: center; }
+.snap-v2 .snap-ph img { display: block; width: 100%; height: auto; box-sizing: border-box; border: 8px solid #0c1734; border-radius: 26px; box-shadow: 0 16px 44px rgba(35,28,51,.22); background: #000; }
+.snap-v2 .snap-portrait { width: clamp(200px, 19vw, 270px); }
+.snap-v2 .snap-landscape { width: clamp(330px, 32vw, 470px); }
+.snap-v2 .snap-ph figcaption { margin-top: 10px; white-space: nowrap; font-size: .9rem; font-weight: 600; color: #0c1734; text-align: center; }
+.snap-v2 .snap-arrow { flex: none; box-sizing: border-box; width: 48px; height: 48px; padding: 0; border-radius: 50%; background: #fff; box-shadow: 0 6px 20px rgba(35,28,51,.12); display: flex; align-items: center; justify-content: center; }
+.snap-v2 .snap-arrow svg { display: block; width: 22px; height: 22px; }
+.snap-v2 .snap-arrow-d svg { transform: rotate(90deg); }
+@media (max-width: 760px) {
+  .aw-snap.snap-v2 { flex-direction: column; gap: 12px; max-width: 100%; }
+  .snap-v2 .snap-arrow-r svg { transform: rotate(90deg); }
+  .snap-v2 .snap-portrait { width: min(240px, 64vw); }
+  .snap-v2 .snap-landscape { width: min(460px, calc(100vw - 48px)); }
+  .snap-v2 .snap-ph img { border-width: 6px; border-radius: 20px; }
+}
