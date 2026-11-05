@@ -145,31 +145,11 @@
   {%- if kind == 'chat' %}
     {{ waPanel(_dw.chat, 'aw-wa-tall') }}
   {%- elif kind == 'place' %}
-    {#- Before and after one voice note (Philip 5 Nov 2026 14:28: "a before
-        after of something being said ... some things N/A, some OK, some bad"). An
-        example walk, not a real Record. -#}
-    <div class="aw-ba">
-      <div class="aw-ba-col">
-        <div class="aw-ba-h">Before</div>
-        <div class="aw-ba-list">
-          <div class="aw-ba-row"><b>Fire</b> Extinguishers · Service tags</div>
-          <div class="aw-ba-row"><b>Exits</b> Main exit · Back exit · Signs</div>
-          <div class="aw-ba-row"><b>First aid</b> Kit · First aid room</div>
-          <div class="aw-ba-row"><b>Electrical</b> Leads · Sockets</div>
-        </div>
-        <div class="aw-ba-said"><span class="aw-ba-mic" aria-hidden="true"><svg width="11" height="14" viewBox="0 0 12 16"><rect x="3.4" y="0.6" width="5.2" height="9.4" rx="2.6" fill="currentColor"/><path d="M1.2 7.4a4.8 4.8 0 0 0 9.6 0M6 12.2v3.2" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg></span> <i>&ldquo;Extinguishers are in date and tagged. Main exit is fine, signs are up. The back exit is blocked with boxes. It&rsquo;s a small office, so there&rsquo;s no first aid room.&rdquo;</i></div>
-      </div>
-      <div class="aw-ba-arrow" aria-hidden="true">&rarr;</div>
-      <div class="aw-ba-col">
-        <div class="aw-ba-h">After</div>
-        <div class="aw-ba-list">
-          <div class="aw-ba-row"><b>Fire</b> <s>Extinguishers</s><em class="ok">OK</em> · <s>Service tags</s><em class="ok">OK</em></div>
-          <div class="aw-ba-row"><b>Exits</b> <s>Main exit</s><em class="ok">OK</em> · <s>Back exit</s><em class="bad">Fault</em> · <s>Signs</s><em class="ok">OK</em></div>
-          <div class="aw-ba-row"><b>First aid</b> Kit · <s>First aid room</s><em class="na">N/A</em></div>
-          <div class="aw-ba-row"><b>Electrical</b> Leads · Sockets</div>
-        </div>
-        <div class="aw-ba-left">Still to cover: <b>First aid kit, Electrical</b></div>
-      </div>
+    {#- Before and after: the real WhatsApp list message, then the same message
+        after some answers (Philip 5 Nov 2026 15:16, his words exactly). -#}
+    <div class="aw-ba2">
+      <div class="aw-ba2-col"><div class="aw-ba2-h">Before</div><div class="aw-ba2-chat"><div class="wa-row wa-bot wa-tail"><div class="wa-bubble"><div class="wa-text"><b>Location ⌖</b> ▸ Share your pin<br>What you should cover:<br><b>Job</b><br><b>Audit</b><br><b>People</b> ▸ Personnel · Supervisor<br><b>Weather</b> ▸ Describe · Minimum · Maximum<br><b>Activities</b> ▸ Current · Describe<br><b>Site Safety</b> ▸ Policy · Prebuild<br><b>General</b> ▸ Policy · F10<br><b>Arrangements</b> ▸ Plan · Poster · RAMS · Induction · Cards · Lone work · Monitoring<br><b>Emergency</b> ▸ Sign-off · Fire notice · Extinguisher · Location · Exits · Evacuation · First aid · Box location · Contacts<br><b>Health</b> ▸ Stock · COSHH · Last review · Incidents<br><b>Welfare</b> ▸ Toilets · Washing · Soap · Clothing · Changing · Drinking · Canteen<br><b>Transport</b> ▸ Routes · Assessment · One-way · Training · Reversing · Segregation · Marshals · Safety gear · Maintenance<br><b>Height Work</b> ▸ Assessment · Edge · Harness · Boards · Netting · Airbags<br><b>Scaffold</b> ▸ Assessment · Handover · Tag · Access · Base plates · Ledgers · Ties · Guardrails<br><b>Ladders</b> ▸ RAMS · Secured · Extension · Steps<br><b>Testing</b> ▸ PAT · Calibration<br><b>Toolbox</b> ▸ Completed · Evidence · 1.1<br><b>Follow-up</b> ▸ Comments · Actions</div><span class="wa-time">10:02</span></div></div></div></div>
+      <div class="aw-ba2-col"><div class="aw-ba2-h">After</div><div class="aw-ba2-chat"><div class="wa-row wa-bot wa-tail"><div class="wa-bubble"><div class="wa-text">✅ 10 OK · 8 N/A · ❌4 to fix<br>⌖ ✓ · Photos 50<br><br>What still needs covered:<br><b>Audit</b><br><b>Weather</b> ▸ Describe · Minimum · Maximum<br><b>Activities</b> ▸ Current<br><b>Site Safety</b> ▸ Policy · Prebuild<br><b>General</b> ▸ Policy · F10<br><b>Arrangements</b> ▸ Plan · Poster · Cards · Lone work · Monitoring<br><b>Emergency</b> ▸ Fire notice · Extinguisher · Location · Exits · Evacuation · First aid · Box location · Contacts<br><b>Health</b> ▸ Last review · Incidents<br><b>Welfare</b> ▸ Toilets · Washing · Soap · Clothing · Changing · Drinking · Canteen<br><b>Transport</b> ▸ Routes · Assessment · One-way · Training · Reversing · Segregation · Marshals · Safety gear · Maintenance<br><b>Height Work</b> ▸ Edge · Harness · Boards · Netting · Airbags<br><b>Ladders</b> ▸ RAMS · Secured · Extension · Steps<br><b>Testing</b> ▸ PAT · Calibration<br><b>Toolbox</b> ▸ Evidence · 1.1<br><b>Follow-up</b> ▸ Actions<br><b>Supervisor</b> ▸ Name · Signatures<br><br>✅ ✓ Job · ✓ People<br><br>⚠️ Details, fix, &amp; photos❌:<br>Health → Stock✗<br>Follow-up → Comments✗</div><span class="wa-time">10:31</span></div></div></div></div>
     </div>
   {%- elif kind == 'done' %}
     {{ waPanel(_dw.chat.slice(_dw.doneFrom), '') }}
