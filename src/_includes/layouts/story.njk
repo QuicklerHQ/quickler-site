@@ -123,100 +123,81 @@
 {%- for ap in articlePanels or [] %}{% if ap.kind == 'lede' %}{% set _ledePanel = ap %}{% elif ap.kind == 'takeaways' %}{% set _todo = ap %}{% elif ap.kind == 'faq' %}{% set _faq = ap %}{% endif %}{% endfor %}
 
 {%- if _mode == 'home' %}
-{#- ── THE HOME PAGE, on HEY's and Basecamp's plan (Philip 5 Nov 2026 11:25-11:45:
-    "download hey and make it basically a copy of everything they have worked
-    out but in our ui ux", Basecamp "hard core copy", Q13 HEY's longer page):
-    headline with a short menu beside it (Basecamp), a signed letter (Basecamp,
-    Fizzy), the video, the wall (HEY), five features, "and there's so much
-    more" (HEY), measured numbers, questions, one button. Drawn with the app's
-    own cards, tiles and buttons. -#}
-<div class="site-home">
-  <div class="site-home-top">
-    <div class="site-home-claim">
-      <h1 class="site-home-h1">{{ hero.heading | safe }}</h1>
-      {%- if hero.lede %}<p class="site-home-lede">{{ hero.lede | safe }}</p>{% endif %}
-      <div class="site-home-actions">
-        {%- for a in hero.actions or [] %}<a href="{{ a.href }}" class="btn-round-add{% if loop.first %} btn-round-add-primary{% endif %}"{% if '//' in a.href and site.domain not in a.href %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ a.label }}</a>{% endfor %}
-      </div>
-      {%- if hero.actionNote %}<div class="wf-meta site-note">{{ hero.actionNote }}</div>{% endif %}
-    </div>
-    <div class="card site-home-menu">
-      {%- for m in homeMenu or [] %}
-      <a class="site-home-menu-row" href="{{ m.href }}"><span class="site-home-menu-name">{{ m.label }}</span><span class="site-home-menu-what">{{ m.what }}</span></a>
-      {%- endfor %}
-    </div>
+{#- ── THE HOME PAGE, HEY's page as it is (Philip 5 Nov 2026 12:09: "lean more
+    towards HEY"; 12:10 "i like that paper like letter format"): a white hero
+    card on a warm grey page with a gradient headline, one gradient button and
+    the video in a gradient frame; speech-bubble quotes; each feature a
+    gradient headline and a few lines; "And there's so much more" with the
+    letter on a stack of paper; a coloured band; a cloud of every page. -#}
+<div class="hey">
+  <div class="hey-hero">
+    <h1 class="hey-h1">{{ hero.heading | safe }}</h1>
+    {%- if hero.sub %}<p class="hey-sub">{{ hero.sub | safe }}</p>{% endif %}
+    {%- if hero.lede %}<p class="hey-lede">{{ hero.lede | safe }}</p>{% endif %}
+    {%- set a0 = (hero.actions or [])[0] %}{% if a0 %}<a class="hey-btn" href="{{ a0.href }}">{{ a0.label }}</a>{% endif %}
+    {%- if hero.actionNote %}<div class="hey-note">{{ hero.actionNote }}</div>{% endif %}
+    {%- if homeVideo %}<div class="hey-frame">{{ blockBody({type: 'video', video: homeVideo.video, portrait: homeVideo.portrait}, site.domain) }}</div>{% endif %}
   </div>
-
-  {%- if letter %}
-  <div class="card site-letter">
-    <div class="site-letter-body">{{ letter.html | safe }}</div>
-    <div class="site-letter-sign">{% if letter.signature %}<img class="site-letter-sig" src="{{ letter.signature }}" alt="{{ letter.name }}" width="238" height="105">{% endif %}<div class="site-letter-who">{% if letter.photo %}<img class="site-letter-face" src="{{ letter.photo }}" alt="{{ letter.name }}" width="56" height="56">{% endif %}<div><div class="site-letter-name{% if letter.signature %} site-letter-name-plain{% endif %}">{{ letter.name }}, <a href="mailto:{{ letter.email }}">{{ letter.email }}</a></div><div class="site-letter-role">{{ letter.role }}</div></div></div></div>
-  </div>
-  {%- endif %}
-
-  {%- if homeVideo %}
-  <div class="card site-home-video">
-    <h2 class="site-home-h2">{{ homeVideo.heading }}</h2>
-    {%- if homeVideo.text %}<p class="site-words">{{ homeVideo.text }}</p>{% endif %}
-    {{ blockBody({type: 'video', video: homeVideo.video, portrait: homeVideo.portrait}, site.domain) }}
-  </div>
-  {%- endif %}
 
   {%- if wall %}
-  <div class="card site-wall">
-    <h2 class="site-home-h2">{{ wall.heading }}</h2>
-    <div class="site-wall-grid">
+  <section class="hey-sec">
+    <h2 class="hey-h2-plain">{{ wall.heading | safe }}</h2>
+    <div class="hey-bubbles">
     {%- for q in wall.items %}
-      <div class="rec-tile site-wall-item">
-        <span class="row-main">
-          {%- if q.big %}<span class="site-wall-big">{{ q.big }}</span>{% endif %}
-          {%- if q.quote %}<span class="site-wall-quote">“{{ q.quote }}”</span>{% endif %}
-          {%- if q.text %}<span class="site-tile-words">{{ q.text }}</span>{% endif %}
-          <span class="row-meta site-wall-who">{{ q.who }}</span>
-        </span>
+      <div class="hey-bubble">
+        <div class="hey-bubble-who">{% if q.face %}<img src="{{ q.face }}" alt="" width="28" height="28">{% endif %}<b>{{ q.who }}</b></div>
+        {%- if q.quote %}<p class="hey-bubble-quote">{{ q.quote }}</p>{% endif %}
+        {%- if q.text %}<p>{% if q.big %}<b>{{ q.big }}.</b> {% endif %}{{ q.text }}</p>{% endif %}
       </div>
     {%- endfor %}
     </div>
-  </div>
+  </section>
   {%- endif %}
 
   {%- for f in homeFeatures or [] %}
-  <div class="wf-card wf-expanded site-feature">
-    <div class="wf-title-row" aria-expanded="true">
-      <span class="wf-name-block"><h2 class="wf-name site-h">{{ f.title }}</h2></span>
-      {%- if f.label %}<span class="wf-activity">{{ f.label }}</span>{% endif %}
-      <svg class="wf-expand-chevron" width="16" height="10" viewBox="0 0 12 7" fill="none" aria-hidden="true" style="transform:rotate(180deg)"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-    </div>
-    <div class="wf-body">
-      <p class="site-words">{{ f.text | safe }}</p>
-      {%- if f.href %}<a class="site-more-link" href="{{ f.href }}">{{ f.more or 'More about this' }} →</a>{% endif %}
-    </div>
-  </div>
+  <section class="hey-sec">
+    <h2 class="hey-h2">{{ f.title }}</h2>
+    <p class="hey-p">{{ f.text | safe }}</p>
+    {%- if f.image %}<div class="hey-shot"><img src="{{ f.image }}" alt="{{ f.title }}" loading="lazy"></div>{% endif %}
+    {%- if f.href %}<p class="hey-p"><a href="{{ f.href }}">{{ f.more or 'More about this' }}</a></p>{% endif %}
+  </section>
   {%- endfor %}
 
-  {%- if homeMore %}
-  <div class="card site-much-more">
-    <h2 class="site-home-h2">{{ homeMore.heading }}</h2>
-    <div class="site-pills">{% for m in homeMore.items %}<a class="btn-round-add" href="{{ m.href }}">{{ m.label }}</a>{% endfor %}</div>
-  </div>
+  <section class="hey-sec">
+    <h2 class="hey-h2-plain">And there's so much more.</h2>
+    {%- if letter %}
+    <div class="hey-paper">
+      <div class="hey-paper-body">{{ letter.html | safe }}</div>
+      {%- if letter.signature %}<img class="hey-sig" src="{{ letter.signature }}" alt="{{ letter.name }}" width="190" height="84">{% endif %}
+      <div class="hey-paper-who">{% if letter.photo %}<img src="{{ letter.photo }}" alt="" width="44" height="44">{% endif %}<div><b>{{ letter.name }}, <a href="mailto:{{ letter.email }}">{{ letter.email }}</a></b><br><i>{{ letter.role }}</i></div></div>
+    </div>
+    {%- endif %}
+  </section>
+
+  {%- if homeEnd %}
+  <section class="hey-band">
+    <h2 class="hey-band-h">{{ homeEnd.heading }}</h2>
+    {%- if homeEnd.sub %}<p class="hey-band-sub">{{ homeEnd.sub }}</p>{% endif %}
+    <a class="hey-btn hey-btn-light" href="{{ homeEnd.href }}">{{ homeEnd.label }}</a>
+    {%- if homeEnd.note %}<div class="hey-note hey-note-light">{{ homeEnd.note }}</div>{% endif %}
+  </section>
   {%- endif %}
 
   {%- if homeFaq %}
-  <div class="card site-faq">
-    <h2 class="site-home-h2">{{ homeFaq.heading }}</h2>
-    {%- for q in homeFaq.items %}
-    <div class="site-faq-row"><h3 class="site-faq-q">{{ q.q }}</h3><p class="site-words">{{ q.a | safe }}</p></div>
-    {%- endfor %}
-  </div>
+  <section class="hey-sec hey-faq">
+    <h2 class="hey-h2-plain">{{ homeFaq.heading }}</h2>
+    {%- for q in homeFaq.items %}<div class="hey-faq-row"><h3>{{ q.q }}</h3><p>{{ q.a | safe }}</p></div>{% endfor %}
+  </section>
   {%- endif %}
 
-  {%- if homeEnd %}
-  <div class="site-home-end">
-    <h2 class="site-home-end-h">{{ homeEnd.heading }}</h2>
-    <a class="btn-round-add btn-round-add-primary site-home-end-btn" href="{{ homeEnd.href }}">{{ homeEnd.label }}</a>
-    {%- if homeEnd.note %}<div class="wf-meta site-note">{{ homeEnd.note }}</div>{% endif %}
-  </div>
-  {%- endif %}
+  <section class="hey-sec hey-end">
+    <h2 class="hey-h2">Have a good walk!</h2>
+    <div class="hey-cloud">
+      {%- for m in homeMenu or [] %}<a href="{{ m.href }}">{{ m.label }}</a>{% endfor %}
+      {%- for m in (homeMore and homeMore.items) or [] %}<a href="{{ m.href }}">{{ m.label }}</a>{% endfor %}
+    </div>
+    <p class="hey-p">Need help? Email <a href="mailto:hello@quickler.co">hello@quickler.co</a> or see <a href="/pages/help/index.html">Support</a>.</p>
+  </section>
 </div>
 
 {%- elif _mode == 'checks' %}
