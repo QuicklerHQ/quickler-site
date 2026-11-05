@@ -150,7 +150,7 @@
   {%- if letter %}
   <div class="card site-letter">
     <div class="site-letter-body">{{ letter.html | safe }}</div>
-    <div class="site-letter-sign"><div class="site-letter-name">{{ letter.name }}</div><div class="wf-meta">{{ letter.role }} · <a href="mailto:{{ letter.email }}">{{ letter.email }}</a></div></div>
+    <div class="site-letter-sign">{% if letter.signature %}<img class="site-letter-sig" src="{{ letter.signature }}" alt="{{ letter.name }}" width="238" height="105">{% endif %}<div class="site-letter-name{% if letter.signature %} site-letter-name-plain{% endif %}">{{ letter.name }}</div><div class="wf-meta">{{ letter.role }} · <a href="mailto:{{ letter.email }}">{{ letter.email }}</a></div></div>
   </div>
   {%- endif %}
 

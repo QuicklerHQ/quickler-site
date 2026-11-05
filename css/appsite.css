@@ -364,3 +364,25 @@ nav[aria-label="Primary"] .nav-name img { height: 38px; width: auto; }
   .site-home-top { grid-template-columns: 1fr; }
   .site-letter { padding: 22px 18px !important; }
 }
+/* Philip's own signature (sent 5 Nov 2026), drawn in the app's ink. */
+.site-letter-sig { display: block; width: 190px; height: auto; margin: 4px 0 2px; }
+.site-letter-name-plain { font-family: inherit !important; font-size: 1rem !important; font-weight: 700; }
+/* A tile that opens and closes like a Check on Home, with no script: the
+   app's tile, title row and chevron on a <details>. */
+details.site-drop { margin-bottom: 12px; }
+details.site-drop > summary { list-style: none; }
+details.site-drop > summary::-webkit-details-marker { display: none; }
+details.site-drop .site-drop-body { display: block; }
+details.site-drop[open] .wf-expand-chevron { transform: rotate(180deg); }
+details.site-drop:not([open]) .site-drop-body { display: none; }
+/* Footer in columns (Philip 5 Nov 2026: "tidy that up"). */
+footer { text-align: left; max-width: 960px; margin: 0 auto; padding: 40px 16px 28px; }
+.site-foot-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding-top: 24px; border-top: 1px solid var(--line); }
+.site-foot-col { display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+.site-foot-head { font-weight: 700; color: var(--heading); font-size: 0.9rem; margin-bottom: 2px; }
+.site-foot-col a { color: var(--ink-soft); font-size: 0.88rem; text-decoration: none; overflow-wrap: anywhere; }
+.site-foot-col a:hover { color: var(--accent); }
+.site-foot-small { margin-top: 26px !important; font-size: 0.78rem; color: var(--ink-soft); text-align: center; }
+.site-foot-small a { color: var(--ink-soft); }
+.site-version { opacity: 0.6; }
+@media (max-width: 640px) { .site-foot-cols { grid-template-columns: 1fr 1fr; } }

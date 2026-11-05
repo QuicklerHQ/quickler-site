@@ -8,9 +8,20 @@
 <div class="card">
   <h1 class="site-home-h2" style="font-size:2rem">What we believe.</h1>
   <p class="site-words">Nine things that shape how Quickler works. Each one is true of the product today.</p>
-  <div class="site-tiles" style="grid-template-columns:1fr">
+  {#- Each belief is a Check tile that opens like one in the app (Philip 5 Nov
+      2026: "make these drop downs like a check's title would be"). The first
+      is open, so a visitor sees what opening one does. -#}
   {%- for b in beliefs %}
-    <a class="rec-tile site-tile" href="/believe/{{ b.n }}/"><span class="row-main"><span class="row-title">{{ b.title }}</span></span><span class="row-when">{{ b.n }}</span></a>
+  <details class="wf-card site-drop"{% if loop.first %} open{% endif %}>
+    <summary class="wf-title-row">
+      <span class="wf-name-block"><span class="wf-name">{{ b.title }}</span></span>
+      <span class="wf-activity">{{ b.n }}</span>
+      <svg class="wf-expand-chevron" width="16" height="10" viewBox="0 0 12 7" fill="none" aria-hidden="true"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </summary>
+    <div class="wf-body site-drop-body">
+      <p class="site-words">{{ b.text }}</p>
+      <a class="site-more-link" href="/believe/{{ b.n }}/">Its own page →</a>
+    </div>
+  </details>
   {%- endfor %}
-  </div>
 </div>
