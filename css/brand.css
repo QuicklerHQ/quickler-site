@@ -121,3 +121,11 @@ body.app-home footer, body.app-heypage footer { background: #fdf0f7 !important; 
 .aw-hover-hint { position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); z-index: 7; pointer-events: none; opacity: 0; transition: opacity .15s; background: rgba(12,23,52,.85); color: #fff; font-size: .9rem; padding: 8px 14px; border-radius: 999px; white-space: nowrap; }
 .aw-hover-hint.is-on { opacity: 1; }
 .aw-hint { display: none !important; }
+/* The chat window shows every message whole, so scrolling runs through the
+   whole walk (Philip 5 Nov 2026 16:13). */
+.aw .aw-long { max-height: none !important; -webkit-mask-image: none !important; mask-image: none !important; }
+.aw .aw-more { display: none !important; }
+/* Photos say they open on hover, as on prod: a blue edge and a magnifier
+   (dashboard _submission_module_assets.html, Philip 20 Oct 2026). */
+.aw [data-aw-photo] img, .aw .aw-hs-photo { cursor: zoom-in; transition: box-shadow .15s ease, filter .15s ease; }
+.aw [data-aw-photo]:hover img, .aw .aw-hs-photo:hover { box-shadow: 0 0 0 3px #2F6BFF, 0 8px 20px rgba(13,26,58,0.22); filter: brightness(0.97); outline: 0 !important; background: transparent !important; }
