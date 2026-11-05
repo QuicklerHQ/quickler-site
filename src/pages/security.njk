@@ -23,62 +23,52 @@
   "blocks": [
     {
       "type": "raw",
-      "eyebrow": "The short version",
-      "heading": "Plain answers.",
-      "html": "<ul class=\"site-words\"><li>Servers in the EU, on Hetzner.</li><li>HTTPS between you and Quickler.</li><li>Backups every minute, off-site, with a locked monthly copy that is restore-tested.</li><li>New code reaches the live product only when the founder says so and confirms with an authenticator code.</li><li>Errors are reported to Sentry; uptime is public on our <a href=\"/status/\">status page</a>.</li><li>Registered with the ICO, ZC124993.</li><li>Not yet: disk encryption on our own servers. See Encryption.</li></ul>"
+      "heading": "The short version.",
+      "html": "<ul class=\"site-words\"><li>Servers in the EU, on Hetzner.</li><li>HTTPS between you and Quickler.</li><li>Backups every minute, off-site, restore-tested every month, with a monthly copy locked for 12 months.</li><li>New code reaches the live product only when the founder says so and confirms with an authenticator code.</li><li>Errors are reported to Sentry; uptime is public on our <a href=\"/status/\">status page</a>.</li><li>Registered with the ICO, ZC124993.</li><li>Not yet: disk encryption on our own servers. More below.</li></ul>"
     },
     {
       "type": "raw",
-      "eyebrow": "Where your data lives",
       "heading": "Hetzner servers in the EU.",
       "html": "<p class=\"site-words\">The product runs on Hetzner servers in the EU. The AI services we use do not train their models on your content. Records, photos and voice notes are deleted three years after the last activity on a Record, or sooner if you delete them. Every change to a Record is kept, with who made it and when. The privacy policy lists every company that handles data for us and why.</p>"
     },
     {
       "type": "raw",
-      "eyebrow": "Encryption",
       "heading": "In transit, yes. At rest, not yet.",
       "html": "<p class=\"site-words\">Everything between you and Quickler uses HTTPS (TLS 1.3 on app.quickler.co). We have not yet turned on disk encryption on our own servers. It was on the action list of our last data protection assessment, on 14 August 2026, and we will not claim it until it is done.</p>"
     },
     {
       "type": "raw",
-      "eyebrow": "Backups",
       "heading": "Every minute, kept somewhere else.",
       "html": "<p class=\"site-words\">The two product databases are copied off-site to Backblaze every 60 seconds, so we can go back to any point in the last 7 days. A nightly copy is also taken on the server and kept for 3 days. Once a month a full copy goes to Backblaze and is locked for 12 months, so nobody, including us, can delete it early. Photos and voice notes are copied off-site every night. Once a month we restore the live database from the off-site copy and run a database integrity check on it. The latest check, on 1 November 2026, passed.</p>"
     },
     {
       "type": "raw",
-      "eyebrow": "Who can reach the live product",
-      "heading": "SSH keys only.",
+      "heading": "Who can reach the live product.",
       "html": "<p class=\"site-words\">The live servers accept sign-in by SSH key only. Passwords are switched off, and repeated failed sign-ins are blocked automatically. Quickler is a one-director company, and the founder holds that access.</p>"
     },
     {
       "type": "raw",
-      "eyebrow": "How new code goes live",
-      "heading": "The promote gate.",
+      "heading": "How new code goes live.",
       "html": "<p class=\"site-words\">Changes are built and tried on a separate test system first. Code reaches the live product only through a step the founder starts with an explicit word, and from anywhere except one chat app, a one-time code from his authenticator app as well. The code is checked in software, each code works once, and five wrong codes in an hour lock it. An automated task or an AI assistant cannot start it. If a check fails after going live, the previous version is put back automatically, and the database is copied first.</p>"
     },
     {
       "type": "raw",
-      "eyebrow": "Watching for problems",
-      "heading": "Errors and uptime.",
+      "heading": "Watching for errors and downtime.",
       "html": "<p class=\"site-words\">Application errors are reported to Sentry. Uptime is watched by UptimeRobot, an outside service, every 5 minutes, and the same figures are published live on our <a href=\"/status/\">status page</a>.</p>"
     },
     {
       "type": "raw",
-      "eyebrow": "Our own reviews",
       "heading": "We check our own work.",
       "html": "<p class=\"site-words\">In October 2026 we audited our own code and servers in three reviews, and we keep a ranked list of what to fix. Each live server checks every week whether an update needs a restart, and restarts itself quietly only when it does.</p>"
     },
     {
       "type": "raw",
-      "eyebrow": "If something goes wrong",
-      "heading": "Breach handling.",
+      "heading": "If something goes wrong.",
       "html": "<p class=\"site-words\">We keep a written breach runbook and a log of every incident and near miss, including ones that are not reportable. Customers are told of a personal data breach within 72 hours, as our customer terms say (clause S1.8), and we report to the ICO where the law requires it.</p>"
     },
     {
       "type": "raw",
-      "eyebrow": "Found a vulnerability?",
-      "heading": "Tell us.",
+      "heading": "Found a security problem? Tell us.",
       "html": "<p class=\"site-words\">Email <a href=\"mailto:hello@quickler.co\">hello@quickler.co</a> with what you found. A person reads it. Please give us a chance to fix it before you share it.</p><p class=\"site-words\">More: <a href=\"/pages/privacy.html\">privacy policy</a>, <a href=\"/pages/dpa.html\">data processing agreement</a>.</p>"
     }
   ],
