@@ -6,7 +6,7 @@ preload are identical on every page -> defined ONCE here. -#}
 <head>
   <script src="/js/cookie-consent.js" defer></script>
   <script src="/js/nav-compact.js" defer></script>
-  <script src="/js/reel-nav.js" defer></script>
+  {%- if not appUi %}<script src="/js/reel-nav.js" defer></script>{% endif %}
   <script src="/js/persist-video.js" defer></script>
 
   <meta charset="UTF-8">
@@ -87,9 +87,22 @@ preload are identical on every page -> defined ONCE here. -#}
       cost on initial paint; the player JS still loads only on click. -#}
   <link rel="dns-prefetch" href="https://i.ytimg.com">
   <link rel="dns-prefetch" href="https://www.youtube-nocookie.com">
+  {%- if appUi %}
+  {#- The web app's own stylesheets, copied as they are from quickler-dashboard
+      (Philip 5 Nov 2026: "copy the dashboard pages ... no new code really, just
+      use what we have"). appsite.css only adds what the app never needed:
+      the cookie banner, the video, the footer links. -#}
+  <link rel="stylesheet" href="/appui/base.css?v={{ site.version }}">
+  <link rel="stylesheet" href="/appui/dashboard.css?v={{ site.version }}">
+  <link rel="stylesheet" href="/appui/groups.css?v={{ site.version }}">
+  <link rel="stylesheet" href="/appui/record_editor.css?v={{ site.version }}">
+  <link rel="stylesheet" href="/appui/pages.css?v={{ site.version }}">
+  <link rel="stylesheet" href="/css/appsite.css?v={{ site.version }}">
+  {%- else %}
   <link rel="stylesheet" href="/css/tokens.css?v={{ site.version }}">
   <link rel="stylesheet" href="/css/styles.v2.css?v={{ site.version }}">
   <link rel="stylesheet" href="/css/app-look.css?v={{ site.version }}">
+  {%- endif %}
   {%- if headStyle %}
   <style>{{ headStyle | safe }}</style>
   {%- endif %}

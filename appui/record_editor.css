@@ -1,0 +1,38 @@
+/* EDIT CONTENTS, IN PLACE (static/workflow/record_editor.js): the Check's
+   questions page in a frame over the Record, built ahead out of sight and
+   shown at once; no animation (Philip 26 Oct 2026, 23:11: "instantly, with
+   no lag"). */
+.qx-editor { position: fixed; top: 44px; left: 0; width: 100vw; height: calc(100vh - 44px); border: 0; z-index: 998;
+  background: #fff; visibility: hidden; pointer-events: none; }
+.qx-editor.on { visibility: visible; pointer-events: auto; }
+body.em-on { overflow: hidden; }
+body.em-on #sm-pt { display: none !important; }
+body.em-on #sm-secnav { z-index: 999; background: #fff; }
+/* The section list starts just under the bar, as the questions do (Philip
+   28 Oct 2026, lab Record 4620: "why the gap?"). The page under the editor
+   is at its top, so the list sat level with the Record's first card, under
+   the hidden logo and title, with white space above "Site Safety
+   Inspection ...". Its script sets top and height inline, so these win. */
+body.em-on #sm-secnav { top: 52px !important; max-height: calc(100vh - 60px) !important; }
+/* Nothing of the Record shows round the editor (Philip 27 Oct 2026: the
+   logo poked out at the left): a plain white page behind it. */
+body.em-on::before { content: ''; position: fixed; inset: 0; background: #fff; z-index: 997; }
+/* The "Editing mode" pop-up: in the middle, never in the way. */
+.em-pop { position: fixed; left: 50%; top: 42%; transform: translate(-50%, -50%); z-index: 1001; pointer-events: none;
+  display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 16px 26px; border-radius: 14px;
+  background: rgba(13, 26, 58, 0.88); color: #fff; box-shadow: 0 12px 36px rgba(13, 26, 58, 0.25); text-align: center;
+  animation: em-pop-in .14s ease-out; }
+.em-pop b { font-size: 1.05rem; font-weight: 700; }
+.em-pop span { font-size: 0.82rem; opacity: 0.85; }
+.em-pop.em-pop-out { opacity: 0; transition: opacity .25s ease; }
+@keyframes em-pop-in { from { opacity: 0; transform: translate(-50%, -46%); } to { opacity: 1; transform: translate(-50%, -50%); } }
+@media (prefers-reduced-motion: reduce) { .em-pop { animation: none; } .em-pop.em-pop-out { transition: none; } }
+/* one slim line: "Editing mode" on the left, Done on the right */
+.em-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center;
+  gap: 12px; flex-wrap: nowrap; padding: 6px max(16px, calc((100vw - 980px) / 2)); height: 44px; box-sizing: border-box;
+  background: #fff7fb; border-bottom: 1px solid rgba(244, 63, 140, 0.35); font-size: 0.86rem; color: var(--ink, #0d1a3a); }
+.em-bar-text { flex: 1 1 auto; font-weight: 700; color: #be185d; }
+.em-bar-saved { font-size: 0.78rem; color: var(--ink-soft, #4b5a7a); }
+.em-done { padding: 5px 18px; border-radius: 999px; border: 0; background: var(--accent, #2f6bff); color: #fff;
+  font: inherit; font-weight: 700; cursor: pointer; }
+@media (max-width: 600px) { .em-bar { padding: 6px 12px; } }

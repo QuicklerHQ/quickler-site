@@ -1,0 +1,2291 @@
+/* from app page dashboard_open.html */
+.qx-stage-in{animation:qxStageIn .22s ease-out both}@keyframes qxStageIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}@media (prefers-reduced-motion: reduce){.qx-stage-in{animation:none}}
+/* from app page dashboard_open.html */
+
+  .fire-send-btn {
+    padding: 9px 28px; border-radius: 999px; border: none; cursor: pointer;
+    font: inherit; font-size: 0.88rem; font-weight: 600;
+    background: #f97316; color: #fff;
+    transition: background 0.15s, transform 0.1s;
+  }
+  .fire-send-btn:hover:not(:disabled) { background: #ea6c0a; }
+  .fire-send-btn:disabled { background: #fcd3b0; color: #fff; cursor: default; }
+  .fire-info-tip {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 18px; height: 18px; border-radius: 50%;
+    background: var(--surface-2, #f4f7fb); border: 1.5px solid var(--line, #dde3f0);
+    color: var(--ink-soft, #6b7280); font-size: 0.72rem; font-style: normal;
+    cursor: default; margin-bottom: 12px; line-height: 1;
+  }
+  @keyframes fire-pop {
+    0%   { transform: scale(1);    background: #f97316; }
+    40%  { transform: scale(1.10); background: #ff4500; }
+    100% { transform: scale(1);    background: #f97316; }
+  }
+  .fire-send-btn.firing { animation: fire-pop 0.35s ease-out forwards; }
+
+/* from app page dashboard_open.html */
+
+  .fire-eng-row {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 10px; border-radius: 8px; cursor: pointer;
+    font-size: 0.85rem; transition: background 0.12s;
+    border: 1.5px solid transparent;
+  }
+  .fire-eng-row:hover { background: #f5f7fb; }
+  .fire-eng-row.selected {
+    background: rgba(34,197,94,0.08);
+    border-color: rgba(34,197,94,0.35);
+  }
+  .fire-eng-name { flex: 1; font-weight: 600; color: var(--ink, #111); }
+  .fire-eng-phone { font-size: 0.78rem; color: var(--ink-soft, #6b7280); }
+
+/* from app page dashboard_open.html */
+
+  
+  .rwf-name-row {
+    display: flex; align-items: center;
+    border-bottom: 1px solid var(--line, #dde3f0);
+    padding: 2px 0 2px 4px; gap: 4px;
+  }
+  .rwf-name-input {
+    flex: 1; border: none; outline: none; background: transparent;
+    font: inherit; font-size: 0.82rem; font-weight: 600;
+    color: var(--ink, #1a202c); padding: 5px 0;
+    min-width: 0;
+  }
+  .rwf-name-input::placeholder { color: var(--ink-soft, #6b7280); font-weight: 400; }
+  .rwf-name-save {
+    flex-shrink: 0; background: transparent; border: none;
+    cursor: pointer; padding: 10px 12px; margin: -6px -8px -6px 0; font-size: 0.9rem;
+    color: var(--ink-soft, #6b7280); line-height: 1;
+    transition: color 0.14s;
+  }
+  .rwf-name-save:hover { color: var(--accent, #2f6bff); }
+  .rwf-btn {
+    display: flex; align-items: center; justify-content: space-between;
+    width: 100%; padding: 7px 4px;
+    background: transparent; border: none; border-bottom: 1px solid var(--line, #dde3f0);
+    font: inherit; font-size: 0.82rem; font-weight: 600;
+    color: var(--ink-soft, #6b7280); cursor: pointer; text-decoration: none;
+    transition: color 0.14s; box-sizing: border-box;
+  }
+  .rwf-btn:last-child { border-bottom: none; }
+  .rwf-btn:hover { color: var(--accent, #2f6bff); }
+  /* The paying firm's Support pop-up: Philip's name over its rows. */
+  .rwf-support-head {
+    display: flex; flex-direction: column; gap: 2px;
+    padding: 2px 4px 8px; border-bottom: 1px solid var(--line, #dde3f0);
+    font-size: 0.82rem; color: var(--ink-soft, #6b7280);
+  }
+  .rwf-support-head strong { color: var(--ink, #1a202c); font-weight: 600; }
+  .rwf-toggle-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 5px 4px; border-bottom: 1px solid var(--line, #dde3f0);
+  }
+  .rwf-toggle-row:last-child { border-bottom: none; }
+  .rwf-toggle-label {
+    font-size: 0.82rem; font-weight: 600; color: var(--ink-soft, #6b7280);
+  }
+  .rwf-info {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 14px; height: 14px; border-radius: 50%;
+    border: 1.5px solid currentColor;
+    font-size: 0.6rem; font-weight: 700; line-height: 1;
+    color: var(--ink-soft, #6b7280); cursor: pointer;
+    vertical-align: middle; margin-left: 4px; opacity: 0.55;
+    font-style: normal; text-decoration: none;
+    font-family: inherit; position: relative;
+  }
+  .rwf-info:hover, .rwf-info.tip-open { opacity: 1; color: var(--accent, #2f6bff); }
+  .info-popover {
+    position: fixed; z-index: 9999;
+    background: var(--ink, #0d1a3a); color: #fff;
+    font-size: 0.78rem; font-weight: 400; line-height: 1.5;
+    padding: 8px 12px; border-radius: 8px;
+    max-width: 220px; pointer-events: none;
+    box-shadow: 0 4px 16px rgba(13,26,58,0.18);
+  }
+  .rwf-split-row {
+    display: flex; align-items: stretch;
+    border-bottom: 1px solid var(--line, #dde3f0);
+  }
+  .rwf-split-row:last-child { border-bottom: none; }
+  .rwf-split-toggle {
+    display: flex; align-items: center; justify-content: space-between;
+    flex: 1; padding: 7px 4px;
+    background: transparent; border: none;
+    font: inherit; font-size: 0.82rem; font-weight: 600;
+    color: var(--ink-soft, #6b7280); cursor: pointer;
+    transition: color 0.14s; text-align: left;
+  }
+  .rwf-split-toggle .rwf-badge { font-size: 0.72rem; font-weight: 700; opacity: 0.8; }
+  .rwf-split-toggle:hover { color: var(--accent, #2f6bff); }
+  .rwf-split-arrow {
+    display: flex; align-items: center; justify-content: center;
+    padding: 7px 6px 7px 8px;
+    border-left: 1px solid var(--line, #dde3f0);
+    color: var(--ink-soft, #6b7280); text-decoration: none;
+    font-size: 1rem; opacity: 0.5; transition: opacity 0.14s, color 0.14s;
+  }
+  .rwf-split-arrow:hover { opacity: 1; color: var(--accent, #2f6bff); }
+
+/* from app page settings.html */
+
+  .rwf-name-row {
+    display: flex; align-items: center;
+    border-bottom: 1px solid var(--line, #dde3f0);
+    padding: 2px 0 2px 4px; gap: 4px;
+  }
+  .rwf-name-input {
+    flex: 1; border: none; outline: none; background: transparent;
+    font: inherit; font-size: 0.82rem; font-weight: 600;
+    color: var(--ink, #1a202c); padding: 5px 0;
+    min-width: 0;
+  }
+  .rwf-name-input::placeholder { color: var(--ink-soft, #6b7280); font-weight: 400; }
+  .rwf-name-save {
+    flex-shrink: 0; background: transparent; border: none;
+    cursor: pointer; padding: 10px 12px; margin: -6px -8px -6px 0; font-size: 0.9rem;
+    color: var(--ink-soft, #6b7280); line-height: 1;
+    transition: color 0.14s;
+  }
+  .rwf-name-save:hover { color: var(--accent, #2f6bff); }
+  .rwf-btn {
+    display: flex; align-items: center; justify-content: space-between;
+    width: 100%; padding: 7px 4px;
+    background: transparent; border: none; border-bottom: 1px solid var(--line, #dde3f0);
+    font: inherit; font-size: 0.82rem; font-weight: 600;
+    color: var(--ink-soft, #6b7280); cursor: pointer; text-decoration: none;
+    transition: color 0.14s; box-sizing: border-box;
+  }
+  .rwf-btn:last-child { border-bottom: none; }
+  .rwf-btn:hover { color: var(--accent, #2f6bff); }
+  /* The paying firm's Support pop-up: Philip's name over its rows. */
+  .rwf-support-head {
+    display: flex; flex-direction: column; gap: 2px;
+    padding: 2px 4px 8px; border-bottom: 1px solid var(--line, #dde3f0);
+    font-size: 0.82rem; color: var(--ink-soft, #6b7280);
+  }
+  .rwf-support-head strong { color: var(--ink, #1a202c); font-weight: 600; }
+/* from app page record.html */
+
+/* The submission BODY (score card, issues, captured answers, photos, edits) is
+   rendered by the shared _submission_module.html — the same body used on the
+   subject / fielder / all-submissions pages, so there is one implementation
+   everywhere. This page adds only the chrome unique to the full editor: the
+   back header, weather card and share buttons in the header. */
+
+/* Mobile back-header (Philip 2026-07-20): on a phone the title + "Record N /
+   date" was stacking awkwardly beside the buttons. Restack so the whole ACTION
+   ROW -- back arrow, download, share, delete -- sits on one line at the TOP, and
+   the workflow name + submission/date sit on their own full-width line below. */
+/* DESKTOP: the classic ONE-LINE header -- back arrow, then the workflow name +
+   "Record N / date" beside it, then the action buttons hard right. */
+.dash-header > .dash-header-left { flex: 1 1 auto; min-width: 0; }
+
+/* MOBILE ONLY: restack into two rows -- back arrow + download/share/delete on
+   the top line, workflow name + submission/date on their own full-width line
+   below. Desktop and mobile are deliberately DIFFERENT layouts; do not hoist
+   these rules out of the media query (Philip 2026-07-20). */
+@media (max-width: 640px) {
+  .dash-header { align-items: center; }
+  .dash-header > .btn-back { order: 0; }
+  .dash-header > .sm-action-btns { order: 1; margin-left: auto; flex-wrap: wrap; }
+  .dash-header > .dash-header-left { order: 2; flex: 1 1 100% !important; margin-left: 0 !important; }
+}
+
+/* from app page record.html */
+.sm-qe-on .sm-answer-v > .sm-note-shown, .sm-qe-on .sm-answer-v > .sm-note-text, .sm-qe-on .sm-answer-v > .sm-findings, .sm-qe-on .sm-answer-v > .sm-prose-answer, .sm-qe-on .sm-answer-v > .sm-notes-block { margin-top: 9px !important; }
+/* from app page record.html */
+
+  html.qx-rip .sh-head, html.qx-rip .sm-submission > .card,
+  html.qx-rip .sm-submission .sm-answer-q,
+  html.qx-rip .sm-submission .sm-answer-v,
+  html.qx-rip .sm-submission .sm-qa,
+  html.qx-rip .sm-submission img,
+  html.qx-rip #sm-pt { opacity: 0; }
+  .qx-rip-in { animation: qxRipIn .24s ease-out both; }
+  /* The heading row and its menus stay above the boxes below it. While a box
+     fades in it is drawn as a layer of its own, and a later box (the weather)
+     was drawn over the heading's download menu (Philip 2026-10-05: "that
+     should be brought to front"). Each box also drops the fade once done. */
+  .sh-head { position: relative; z-index: 20; }
+  @keyframes qxRipIn { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .qx-rip-in { animation: none; } }
+
+/* from app page record.html */
+
+  .sh-head { display: grid; grid-template-columns: minmax(0, 1fr) auto;
+             column-gap: 10px; row-gap: 4px; align-items: center; margin-bottom: 20px;
+             /* A little more room under the top bar (Philip 2026-09-28). */
+             margin-top: 22px; }
+  .sh-title { grid-column: 1; grid-row: 1; min-width: 0; }
+  .sh-meta { grid-column: 1; grid-row: 2; min-width: 0; }
+  .sh-btns { grid-column: 2; grid-row: 1; }
+  /* With a logo the buttons sit level with the MIDDLE of the logo, and
+     the line beneath takes the full width (Philip 2026-09-26: "when a
+     logo is present make the download and shareable buttons cneetered in
+     the middle of the logo"). The logo is capped at 56px high, so it
+     leaves room beside it even on a phone. */
+  .sh-head.sh-has-logo .sh-btns { grid-row: 1; }
+  /* One line lower than the logo's foot (Philip 2026-09-26: "just lower
+     these words by a line"), so the line reads as its own row. */
+  .sh-head.sh-has-logo .sh-meta { grid-column: 1 / -1; margin-top: 1.2em; }
+  /* No logo: the one line IS the top of the page, level with the buttons. */
+  .sh-head:not(.sh-has-logo) .sh-meta,
+  .sh-head:not(.sh-has-logo) .sh-btns { grid-row: 1; }
+  /* The Check on the left, "time | person" on the right: at the right
+     margin under a logo, beside the buttons without one (Philip
+     2026-09-26: "IPC Walk Round (lab replica)  spaces 23:15 24/09/2026 |
+     Philip Testing then right margin here or just beside the sharebale
+     download button"). Wraps rather than squeezing when it cannot fit. */
+  .sh-line { display: flex; flex-wrap: wrap; justify-content: space-between;
+             align-items: baseline; column-gap: 24px; row-gap: 2px; }
+  .sh-line > .sh-l-sep { display: none; }
+  .sh-l-row { white-space: nowrap; }
+  /* NARROW, ONE THING A LINE (Philip 20 Oct 2026: on a phone the line ran
+     under the download and share buttons; "you have test walk, then you
+     have Tuesday 20th of October 2026 17:27 ... and present the person's
+     name there"): the Check, the time and the person each on a line. */
+  @media (max-width: 600px) {
+    .sh-head:not(.sh-has-logo) .sh-line { display: block; }
+    .sh-head:not(.sh-has-logo) .sh-l-row { white-space: normal; }
+    .sh-head:not(.sh-has-logo) .sh-l-name,
+    .sh-head:not(.sh-has-logo) .sh-l-when,
+    .sh-head:not(.sh-has-logo) .sh-l-who { display: block; }
+    .sh-head:not(.sh-has-logo) .sh-l-sep { display: none; }
+  }
+  @media (max-width: 600px) {
+    .sh-has-logo .sh-l-name { display: block; flex-basis: 100%; }
+    .sh-has-logo .sh-l-sep { display: none; }
+    .sh-has-logo .sh-l-row { display: flex; justify-content: space-between; gap: 12px; flex-basis: 100%; }
+  }
+  /* As tall as the white bar, but never taller than that bar on ONE line:
+     on a phone the bar wraps to two lines (88px) and a logo that tall
+     swamped the page (Philip 2026-09-24: "yes" to capping it). */
+  .sh-logo { display: block; height: min(var(--sh-nav-h, 56px), 56px); width: auto;
+             max-width: 100%; object-fit: contain; object-position: left center; }
+  /* THE RECORD PAGE WEARS THE SAME HEADING (Philip 2026-09-26: "on the
+     editing page you shoudl just make it show like it does in the
+     sahrable actually with the addiotn of the delte button wither or
+     wither not it has a lgo"). A back arrow takes a column on the left;
+     everything else sits exactly as the shareable lays it out. */
+  .sh-head.sh-rec { grid-template-columns: auto minmax(0, 1fr) auto; }
+  .sh-rec .sh-back { grid-column: 1; grid-row: 1; }
+  .sh-rec .sh-title { grid-column: 2; }
+  .sh-rec .sh-meta { grid-column: 2; }
+  .sh-rec.sh-has-logo .sh-meta { grid-column: 2 / -1; }
+  .sh-rec .sh-btns { grid-column: 3; }
+  /* The back arrow hangs OUTSIDE the column on a desktop, so the heading's
+     text starts on the same line as every card's edge (Philip 2026-09-26:
+     "why are these left margins differnt"). A phone has no room outside the
+     column, so there it keeps its own place. */
+  .sh-rec .sh-back { width: 44px; height: 44px; }
+  @media (min-width: 760px) {
+    .sh-head.sh-rec { margin-left: -54px; }
+  }
+
+/* from app page record.html */
+
+  /* IF/THEN, THE BLUE BOX (Philip 2026-10-05). The firm's standard paragraphs
+     matched to a Fault, under its answer: italic always, a thin blue line on
+     the left, the answer column's width. Editing it gives a blue outline in
+     the way the answer's own box gets a pink one. */
+  /* THE ANSWER COLUMN, ONE SETTING (Philip 2026-10-06: "i think we should move
+     the answer margins 10% over to the left"). It was 77.25% of the 80% answer
+     box (61.8% of the row); now 89.75% of it, 71.8% of the row, so answers and
+     notes start 10% of the row further left. Every block that lines up with
+     the answers reads these, so they move together. */
+  .sm-submission { --ans-w: 89.75%; --ans-row: 71.8%; }
+  /* Everything blue sits inside the answer column (the 77.25% rule), its line
+     on the column's left edge like everything else there (Philip 2026-10-05:
+     "I am including the blue stuff as thing that should be in the margin"). */
+  .sm-ifthen { width: var(--ans-w, 89.75%); margin: 8px 0 0 auto; padding: 2px 0 2px 10px; box-sizing: border-box;
+    border-left: 2px solid rgba(47,107,255,0.55); font-style: italic; text-align: left;
+    white-space: pre-wrap; font-size: var(--note-size, .82rem); line-height: var(--note-line, 1.5);
+    color: var(--ink-soft, #4b5a7a); }
+  /* The fold on the shared page, and its name above the box on the editing
+     page (click to rename; one name per Check). */
+  .sm-ifthen-fold { width: var(--ans-w, 89.75%); margin: 8px 0 0 auto; text-align: left; }
+  .sm-ifthen-fold > summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
+    font-size: calc(var(--note-size, .82rem) * .92); font-weight: 600; user-select: none;
+    /* No pill, and the words in the pill's faded blue (Philip 2026-10-05: "no
+       pill around it please", "make the font the same faded as the bubble was"),
+       then 10 points fainter (2026-10-06: "make these 10% less opaque"), then
+       too faint to see (2026-10-07: "more detail needs to be more obvious"). */
+    color: rgba(47,107,255,0.7); padding: 3px 0; }
+  .sm-ifthen-fold > summary::-webkit-details-marker { display: none; }
+  /* The arrow starts on the column's left edge, with everything else. */
+  .sm-ifthen-fold > summary::before { content: '\25B8'; transition: transform .15s; }
+  .sm-ifthen-fold[open] > summary::before { transform: rotate(90deg); }
+  .sm-ifthen-fold > .sm-ifthen { width: 100%; }
+  .sm-ifthen-head { width: var(--ans-w, 89.75%); margin: 10px 0 -4px auto; text-align: left;
+    font-size: calc(var(--note-size, .82rem) * .85); font-weight: 600; color: #2F6BFF; cursor: text; }
+  .sm-ifthen-head[contenteditable="true"] { outline: 1.5px solid rgba(47,107,255,0.45); outline-offset: 2px; border-radius: 3px; }
+  .sm-ifthen-none { color: var(--ink-faint, #9aa3b5); font-size: calc(var(--note-size, .82rem) * .92); }
+  /* Room between the pink box, the blue box and the search box when open
+     (Philip 2026-10-09: "can we make this less cramped together"). */
+  /* Open, the blue box is the search too (Philip 20 Oct 2026), so it is a
+     whole box with its own border all round (Philip 20 Oct 2026: "why does
+     the blue look so weird here": its foot was left open for a search box
+     that is no longer under it). */
+  .sm-ifthen[contenteditable="true"] { outline: none; border: 1.5px solid rgba(47,107,255,0.45);
+    border-left: 3px solid rgba(47,107,255,0.75); border-radius: 8px;
+    cursor: text; color: var(--ink, #213055); min-height: 1.5em;
+    margin-top: 16px; padding: 8px 12px; }
+  .sm-ifthen[contenteditable="true"]:empty::before { content: 'Type the paragraph for this Fault'; color: var(--ink-faint, #9aa3b5); }
+  /* A blue box with nothing in it shows only while it is open (2026-10-08). */
+  .sm-ifthen-blank:not([contenteditable="true"]) { display: none; }
+  .sm-ifthen-blank[contenteditable="true"]:empty::before { content: 'Type a sentence: your own sentences that match show as you type'; }
+  /* Under an open blue box: the sentences that match what is being typed, and Remove. */
+  .sm-ifthen-pick { width: var(--ans-w, 89.75%); margin: 0 0 10px auto; text-align: left; font-size: calc(var(--note-size, .82rem) * .92); }
+  .sm-ifthen-pick input { width: 100%; box-sizing: border-box; padding: 7px 12px; border: 1.5px solid rgba(47,107,255,0.45);
+    border-left: 3px solid rgba(47,107,255,0.75); border-top: 1px dashed rgba(47,107,255,0.35);
+    border-radius: 0 0 8px 8px; font: inherit; color: var(--ink, #213055); background: rgba(47,107,255,0.04); outline: none; }
+  .sm-ifthen-pick input:focus { background: #fff; }
+  .sm-ifthen-pick { position: relative; }
+  .sm-ifthen-pick input { padding-right: 84px; }
+  .sm-ifthen-remove[hidden] { display: none; }
+  .sm-ifthen-remove { display: block; margin: 4px 0 0 auto; padding: 3px 10px; border: 1px solid rgba(47,107,255,0.45);
+    border-radius: 999px; background: #fff; color: #2F6BFF; font: inherit; font-size: .9em; cursor: pointer; }
+  .sm-ifthen-remove:hover { background: rgba(47,107,255,0.08); }
+  .sm-ifthen-pick ul { list-style: none; margin: 4px 0 0; padding: 0; max-height: 260px; overflow-y: auto;
+    border: 1px solid var(--line, #e2e6ef); border-radius: 8px; background: #fff; }
+  .sm-ifthen-pick ul:empty { display: none; }
+  .sm-ifthen-pick li { padding: 6px 10px; cursor: pointer; border-bottom: 1px solid var(--line, #e2e6ef); color: var(--ink-soft, #4b5a7a); }
+  .sm-ifthen-pick li:last-child { border-bottom: 0; }
+  .sm-ifthen-pick li:hover, .sm-ifthen-pick li.on { background: rgba(47,107,255,0.08); }
+  .sm-ifthen-pick li b { display: block; color: var(--ink, #213055); font-weight: 600; }
+  .sm-ifthen-pick li small { display: block; color: #2F6BFF; font-size: .85em; }
+  .sm-ifthen-pick li i { display: block; }
+  .sm-ifthen-pick .sm-ifthen-pick-none { cursor: default; font-style: italic; }
+
+  /* Field-row EDIT (pencil) button. The inline 14px icon with 2px padding gave
+     a ~18px tap target -- far too small on touch (Philip 2026-07-14). This makes
+     a comfortable 34px hit area with an 18px icon, still borderless/quiet, with
+     a subtle hover so it reads as tappable. */
+  .sm-edit-btn {
+    background: none; border: none; cursor: pointer;
+    color: var(--accent, #2f6bff);
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; min-width: 34px; padding: 0;
+    border-radius: 8px; line-height: 0; vertical-align: middle;
+    transition: background 0.12s ease;
+  }
+  .sm-edit-btn:hover { background: rgba(47,107,255,0.10); }
+  .sm-edit-btn svg { width: 18px; height: 18px; }
+  /* Issues list (rolled into the score card): each item is a clickable link that
+     jumps to its captured answer. Hover turns it blue like a web link (Philip
+     2026-07-20). */
+  .sm-issues-list { display: flex; flex-direction: column; }
+  /* One To do line: the link to its answer, then its pencil (2026-09-24). */
+  .sm-issue-row { display: flex; align-items: center; gap: 4px; border-bottom: 1px solid rgba(185,28,28,0.12); }
+  .sm-issue-row:last-child { border-bottom: none; }
+  .sm-todo-drag { flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center;
+                  width: 22px; min-height: 36px; color: var(--ink-soft, #6b7280); opacity: 0.55;
+                  cursor: grab; touch-action: none; border-radius: 4px; }
+  .sm-todo-drag:hover, .sm-todo-drag:focus { opacity: 1; outline: none; background: rgba(0,0,0,0.04); }
+  .sm-issue-row.sm-todo-dragging { background: var(--bg-soft, #f3f4f6); box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+                                   position: relative; z-index: 2; }
+  .sm-todo-dim { opacity: 0.9; transition: opacity .15s; }
+  .sm-todo-photos { padding: 8px 0 12px; border-bottom: 1px solid rgba(185,28,28,0.12); }
+  /* Four a row in the To do list only (Philip 2026-09-26: "i would show the
+     photos in 4 per row just in this todo list", then "3 per row"); the rest of the grid rule
+     is the questions' own. Steps down on narrow screens like the others. */
+  .sm-photo-grid.sm-todo-photo-grid { --sm-cols: 3; }
+  @media (max-width: 480px) { .sm-photo-grid.sm-todo-photo-grid { --sm-cols: 2; } }
+  .sm-todo-nophotos { font-size: 0.85rem; color: var(--ink-soft, #6b7280); }
+  #sm-copy-toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 16px);
+                   width: min(440px, calc(100vw - 32px)); box-sizing: border-box;
+                   display: flex; align-items: flex-start; gap: 12px; padding: 14px 14px 14px 18px;
+                   background: var(--ink, #0d1a3a); color: #fff; border-radius: 12px;
+                   box-shadow: 0 8px 28px rgba(0,0,0,0.28); z-index: 9999;
+                   opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; }
+  #sm-copy-toast.show { opacity: 1; pointer-events: auto; transform: translate(-50%, 0); }
+  #sm-copy-toast .sm-ct-body { flex: 1 1 auto; min-width: 0; }
+  #sm-copy-toast .sm-ct-head { font-weight: 700; font-size: 0.95rem; }
+  #sm-copy-toast .sm-ct-peek { font-size: 0.85rem; opacity: 0.85; margin-top: 4px; font-style: italic; overflow-wrap: anywhere; }
+  #sm-copy-toast .sm-ct-tip { font-size: 0.85rem; margin-top: 6px; }
+  #sm-copy-toast .sm-ct-x { flex: 0 0 auto; width: 32px; height: 32px; border-radius: 50%; border: none;
+                            background: rgba(255,255,255,0.14); color: #fff; cursor: pointer; font-size: 0.9rem; line-height: 1; }
+  #sm-todo-back { position: fixed; left: 16px; bottom: 50%; transform: translateY(50%) scale(0.8);
+                  width: 48px; height: 48px; border-radius: 50%; border: none; cursor: pointer;
+                  background: var(--ink, #0d1a3a); color: #fff; box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+                  display: flex; align-items: center; justify-content: center; z-index: 50;
+                  opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; }
+  #sm-todo-back.show { opacity: 1; pointer-events: auto; transform: translateY(50%) scale(1); }
+  /* WITH THE SECTION LIST it is a clear button at the list's top (Philip
+     2026-10-09: "make the todo list button on the side ... obvious and clear
+     and make it say back to todos"). */
+  #sm-todo-back.sm-todo-back-side { width: auto; height: auto; bottom: auto; transform: none; border-radius: 999px;
+    padding: 9px 16px 9px 12px; gap: 8px; font: inherit; font-size: .85rem; font-weight: 600; background: #2F6BFF; z-index: 950; }
+  #sm-todo-back.sm-todo-back-side.show { transform: none; }
+  #sm-todo-back .sm-tb-word { display: none; }
+  #sm-todo-back.sm-tb-down svg { transform: rotate(180deg); }
+  #sm-todo-back.sm-tb-bottom { top: auto; bottom: 24px; left: 50%; transform: translate(-50%, 8px); width: auto; height: auto;
+    border-radius: 999px; padding: 9px 16px 9px 12px; gap: 8px; font: inherit; font-size: .85rem; font-weight: 600;
+    background: #2F6BFF; z-index: 950; }
+  #sm-todo-back.sm-tb-bottom.show { transform: translate(-50%, 0); }
+  #sm-todo-back.sm-tb-bottom .sm-tb-word { display: inline; }
+  #sm-todo-back.sm-todo-back-side .sm-tb-word { display: inline; }
+  .sm-todo-goto-bar { display: flex; justify-content: flex-end; margin-top: 4px; }
+  .sm-todo-goto { display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem;
+                  padding: 7px 14px; min-height: 36px; }
+  .sm-issue-row > .sm-issue-item { flex: 1 1 auto; min-width: 0; border-bottom: none; }
+  .sm-issue-item {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 14px;
+    padding: 7px 4px; text-decoration: none; color: inherit; cursor: pointer;
+    border-bottom: 1px solid rgba(185,28,28,0.12);
+    transition: background 0.12s ease, color 0.12s ease;
+  }
+  .sm-issue-item:last-child { border-bottom: none; }
+  /* The label holds a floor width and wraps whole words; it must never crush to
+     one-letter-per-line when the VALUE is long (a negative free-text
+     recommendation now appears here, not just "No") -- Philip 2026-07-23. */
+  /* The LABEL takes the squeeze, because it is the long half: a whole
+     paragraph of guidance can land here, while the value beside it is a
+     grade of one or two words (Philip 2026-09-11). It may break inside a word
+     only as a last resort, once it is already down to its floor width. */
+  .sm-issue-label { color: #7f1d1d; font-size: 0.88rem; flex: 1 1 auto; min-width: 8em; overflow-wrap: anywhere; }
+  .sm-photo-flash { animation: sm-photo-flash 2.4s ease-out; }
+  @keyframes sm-photo-flash { 0%, 40% { box-shadow: 0 0 0 4px rgba(244, 63, 140, 0.75); } 100% { box-shadow: 0 0 0 4px rgba(244, 63, 140, 0); } }
+  .sm-todo-writing { flex: 0 0 auto; font-size: 0.78rem; font-style: italic; color: var(--ink-soft, #6b7280); margin-left: 8px; }
+  /* The open To do line, bold (Philip 2026-09-26). */
+  .sm-issue-row.sm-todo-open .sm-issue-label { font-weight: 700; }
+  /* THE SAME PINK BOX AS EVERY OTHER EDIT (Philip 2026-10-02: "the way a
+     pink box appears for the other editing boxes ... should be the same as for
+     this thing"): the row box's soft pink line (_record_quick_edit.html
+     .sm-qe-box), at the line's own size, so the list does not jump. */
+  .sm-todo-left { font-size: 0.75rem; color: var(--ink-soft, #64748b); white-space: nowrap; margin-left: 6px; }
+  .sm-todo-left:empty { display: none; }
+  .sm-issue-label.sm-todo-editing { outline: 1.5px solid rgba(244, 63, 140, 0.45); outline-offset: 2px; border-radius: 3px;
+    cursor: text; text-decoration: none !important; }
+  /* A GRADE IS NEVER BROKEN UP (Philip 2026-09-11: "that doesn't work as it is
+     so long words"). "Substantial" rendered as Su/bst/ant/ial down four lines,
+     because the value shared the squeeze with the label and then broke inside
+     the word. A risk grade unreadable on a fire assessment is worse than a
+     wide row, so the value now takes only the width it needs and wraps between
+     words, never inside one. */
+  .sm-issue-val { color: #b91c1c; font-weight: 600; font-size: 0.88rem; flex: 0 0 auto; max-width: 45%; text-align: right; overflow-wrap: normal; word-break: keep-all; }
+  .sm-issue-item:hover { background: #eff6ff; }
+  .sm-issue-item:hover .sm-issue-label,
+  .sm-issue-item:hover .sm-issue-val { color: #2563eb; }
+  .sm-issue-item:hover .sm-issue-label { text-decoration: underline; }
+  /* Brief highlight on the answer row the issue jumps to. */
+  @keyframes sm-row-flash {
+    0% { background: rgba(37,99,235,0.18); }
+    100% { background: transparent; }
+  }
+  .sm-answer-row.sm-row-flash > td { animation: sm-row-flash 1.6s ease-out; }
+  /* Section header layout, at EVERY width (Philip 2026-07-20). The universal rule
+     is: anything too long WRAPS to a new line rather than pushing its neighbours
+     out of place, whatever the page width.
+       - the summary wraps,
+       - the LABEL takes the remaining space (flex 1 1 0 + min-width 0) so a long
+         question wraps over two, three or more lines instead of growing the row,
+       - the STATUS is pinned hard right on the first line and never wraps,
+       - the peek PHOTO is forced onto its own full-width line (order:99).
+     Targeted by explicit classes, not :last-of-type -- the peek photo is the last
+     span when present, so position-based selectors styled the wrong element and
+     left the status unpinned (it appeared on the left). */
+  details.sm-section-group > summary { flex-wrap: wrap; align-items: flex-start; }
+  .sm-group-label {
+    flex: 1 1 0 !important; min-width: 0 !important; max-width: none !important;
+    white-space: normal !important; overflow-wrap: anywhere;
+  }
+  .sm-group-status { flex: 0 0 auto !important; margin-left: auto !important; }
+  .sm-group-status > span:first-child { white-space: nowrap; }
+  /* The summary's right gutter must land the status on the SAME vertical edge as
+     the leaf answers below it. Measured at 390px: with 8px the status ended at
+     320 vs the leaf values' 314, so 14px is the matching gutter (Philip
+     2026-07-20). Verified by the geometry audit, not by eye. */
+  details.sm-section-group > summary { padding-right: 14px !important; }
+
+  /* The section chevron flips to point up when its section is open, matching the
+     dashboard workflow-expand caret (Philip 2026-07-20). */
+  details.sm-section-group[open] > summary .sm-group-chevron { transform: rotate(180deg); }
+  /* EVERY SECTION OPEN, NO ARROWS (Philip 2026-09-24: "removeing the expanding
+     sextions so they are all automatically ... fully expanded also remove the
+     arrows"). A section is always open, so nothing may suggest it folds. */
+  details.sm-section-group > summary .sm-group-chevron { display: none !important; }
+  details.sm-section-group > summary { cursor: default; }
+  details.sm-section-group > summary::-webkit-details-marker { display: none; }
+  details.sm-section-group > summary::marker { content: ''; }
+  /* An expanded section gets a faint tile outline so it reads as one grouped
+     unit, with a little vertical breathing room above and below so it does not
+     crowd its neighbours (Philip 2026-07-20). */
+  /* Outline via box-shadow, not border, so it does NOT inset the section's
+     content -- the child rows keep the same left/right edges as the top-level
+     rows, so Yes/No/status stay aligned across levels (Philip 2026-07-20). */
+  details.sm-section-group[open] { box-shadow: 0 0 0 1.5px rgba(0,0,0,0.10); border-radius: 8px; margin: 10px 0; }
+  /* Accordion focus: when one section is expanded the others dim to 60% so the
+     open one stands out (Philip 2026-07-20). The dimmed <tr> is the whole
+     section row. */
+  tr.sm-section-dim { opacity: 0.6; transition: opacity 0.15s ease; }
+  /* Collapsed-group photo peek: shown in the summary while collapsed, hidden
+     once the group is expanded so each photo renders in exactly one place.
+     The peek and the head's own photos share ONE grid (2026-09-24), so the
+     hiding is per IMAGE now: a head photo stays on show when the group opens,
+     a child's peek copy does not. */
+  details[open] > summary .sm-peek { display: none !important; }
+  details[open] > summary .sm-peek-img { display: none !important; }
+  /* A grid holding nothing but peek copies would keep its margin and leave a
+     gap under the open heading, so the whole grid goes when it has no head
+     photo to show. :has() is supported everywhere we render; without it the
+     rule simply does not apply and the gap is a few pixels. */
+  details[open] > summary .sm-group-photos:not(:has(img:not(.sm-peek-img))) {
+    display: none !important;
+  }
+
+  /* Edit-log CLAMP (base, desktop). The edits table is table-layout:fixed with
+     5 percentage columns; without a clamp a long value grows its cell and shoves
+     the fixed columns out of alignment ("gone funny" -- Philip 2026-08-15). Clamp
+     each value cell to 2 lines with an ellipsis so every row keeps its column
+     grid. The mobile block below resets this to full text (rows restack there, so
+     there is room). Only the base rule was missing; the mobile reset already
+     referenced it. */
+  .sm-log-clamp {
+    /* NO CLAMP (Philip 2026-09-03). This clamped every value to two lines with
+       an ellipsis, so an edit to a multi-place note showed "Room 19 - Toilet
+       floor needs..." and hid what actually changed. A change log exists to
+       show the change; hiding it defeats the point. Cells wrap and the row
+       grows -- an edit is rare and worth the height.
+
+       word-break:break-word split words mid-letter ("En-\nsuite"); overflow-wrap
+       breaks only when a word genuinely cannot fit. */
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+  }
+
+  /* ── MOBILE (<=600px): the question/answer stack (question line, answer
+     line below, both sharing one indent -- Philip 2026-09-11) is now the SAME
+     shape at every width, so there is no separate mobile row layout to
+     override any more. Only what genuinely still differs on a phone stays
+     here: table-layout sizing, the section colspan width, and the score
+     tiles. */
+  /* THE EDITS LIST, A TITLE PER CHANGE (Philip 23 Oct 2026: "make that look
+     a little nicer"): what happened on top with a small coloured mark, the
+     question under it; before struck through and soft, after strong. */
+  .sm-edits-log tbody tr { border-bottom: 1px solid var(--line, #e2e6ef) !important; }
+  .sm-edits-log tbody tr:hover { background: #f8f9fc; }
+  .sm-log-title { font-weight: 700; font-size: 0.86rem; color: var(--ink, #0d1a3a);
+    display: flex; align-items: center; gap: 7px; }
+  .sm-log-title::before { content: ""; width: 8px; height: 8px; border-radius: 50%;
+    background: #5b6b8f; flex: none; }
+  .sm-log-title[data-kind="set-to-n/a"]::before, .sm-log-title[data-kind="cleared"]::before,
+  .sm-log-title[data-kind$="removed"]::before, .sm-log-title[data-kind="to-do-hidden"]::before,
+  .sm-log-title[data-kind="photo-retired"]::before { background: #9aa3b5; }
+  .sm-log-title[data-kind="changed-to-no"]::before, .sm-log-title[data-kind*="fault"]::before { background: #d64545; }
+  .sm-log-title[data-kind="changed-to-yes"]::before, .sm-log-title[data-kind="filled-in"]::before,
+  .sm-log-title[data-kind$="added"]::before, .sm-log-title[data-kind="added-to"]::before { background: #1f9d63; }
+  .sm-log-title[data-kind="question-answered"]::before { background: #7c4dff; }
+  .sm-log-q { font-size: 0.78rem; color: var(--ink-soft); margin-top: 2px; padding-left: 15px; }
+  .sm-log-old { color: var(--ink-soft); }
+  .sm-log-old:not([style*="pre-wrap"]) { text-decoration: line-through; text-decoration-color: rgba(91,107,143,0.45); }
+  .sm-log-new { color: var(--ink, #0d1a3a); font-weight: 600; }
+  .sm-log-new[style*="pre-wrap"] { font-weight: 400; }
+  @media (max-width: 600px) {
+    /* Both the outer answers table AND the nested child table (which carries its
+       own inline table-layout:fixed) must go auto so columns size to content. */
+    .sm-answers, .sm-answers table { table-layout: auto !important; }
+    .sm-answers colgroup { display: none; }  /* neutralise the colgroup widths */
+    /* A section's colspan row must span the FULL table width. Under table-layout
+       auto it was sizing to its content, leaving the section 26px narrower than
+       the top-level rows -- so nested answers ended at 288 while top-level ones
+       ended at 314 and the dividing lines stopped short (Philip 2026-07-20). */
+    .sm-answers > tbody > tr > td[colspan] { width: 100%; }
+    .sm-answers details.sm-section-group,
+    .sm-answers details.sm-section-group > table { width: 100% !important; }
+    /* Group header: the label takes the width it needs; the status ("2 issues")
+       must NOT be starved to a one-letter-per-line column -- that is handled by
+       white-space:nowrap on the status text itself (below), NOT by locking the
+       summary to flex-wrap:nowrap. Locking the container stopped the peek PHOTO
+       from wrapping onto its own line, so it sat beside the label and squeezed
+       "OK" into a vertical "O / K" (Philip 2026-07-20). The summary must wrap. */
+    details.sm-section-group > summary { flex-wrap: wrap !important; align-items: flex-start !important; }
+    /* An open section's outline should not push its content off-screen. */
+    details.sm-section-group[open] { margin: 8px 0; }
+    /* Score tiles: on a phone the fixed padding made "45/55" wrap to "45/5 / 5".
+       Tighten the padding, let the three tiles share the row equally, and stop the
+       number wrapping (Philip 2026-07-20). */
+    .sm-score-tiles { width: 100%; gap: 8px !important; }
+    .sm-score-tile { flex: 1 1 0; min-width: 0; padding: 10px 6px !important; }
+    .sm-score-tile > div { white-space: nowrap; font-size: 1.25rem !important; }
+    .sm-score-pct > div:first-child { font-size: 1.125rem !important; }  /* 10% smaller (Philip 24 Oct 2026) */
+    /* A field photo must sit on its OWN full-width line BELOW the answer (like
+       desktop), not squeezed inline where a 64px thumbnail shoves the "OK" status
+       onto its own vertical line (Philip 2026-07-20). The photo block is the flex
+       row of thumbnails inside the value cell. */
+    .sm-answer-v > div[style*="flex-wrap:wrap"] {
+      display: flex !important; width: 100%; clear: both; margin-top: 8px;
+      justify-content: flex-start;
+    }
+    /* Edit-log table (Edits N): 5 fixed-percent columns crushed to slivers on a
+       phone -- unreadable. Restack each edit as a block: the field label as a
+       heading, then "before -> after" on its own line, then who/when small and
+       muted. table-layout auto + block rows (Philip 2026-07-20). */
+    .sm-edits-log { table-layout: auto !important; }
+    .sm-edits-log colgroup, .sm-edits-log thead { display: none; }
+    .sm-edits-log, .sm-edits-log tbody, .sm-edits-log tr, .sm-edits-log td { display: block; width: auto; }
+    .sm-edits-log tr { padding: 8px 0; border-bottom: 1px solid var(--line); }
+    .sm-edits-log td { padding: 1px 0 !important; }
+    .sm-edits-log td.sm-log-clamp { display: block; }
+    /* Field label heading. */
+    .sm-edits-log td:nth-child(1) { font-size: 0.86rem; }
+    /* Before / After: label them inline so the change reads without headings. */
+    .sm-edits-log td:nth-child(2)::before { content: "From: "; color: var(--ink-soft); font-weight: 600; }
+    .sm-edits-log td:nth-child(3)::before { content: "To: "; color: var(--ink-soft); font-weight: 600; }
+    /* By & When as one muted footer line on a phone. */
+    .sm-edits-log td.sm-log-when { font-size: 0.75rem; color: var(--ink-soft); }
+    .sm-edits-log td.sm-log-when > div { display: inline; margin-right: 8px; }
+  }
+
+  /* Full-screen drop overlay: appears while a file is dragged over the page. */
+  #sm-drop-overlay { position: fixed; inset: 0; z-index: 9999; display: none;
+    align-items: center; justify-content: center; background: rgba(47,107,255,0.12);
+    backdrop-filter: blur(1px); pointer-events: none; }
+  #sm-drop-overlay.show { display: flex; }
+  #sm-drop-overlay .sm-drop-card { border: 2.5px dashed var(--accent,#2f6bff);
+    border-radius: 16px; padding: 40px 56px; background: #fff; color: var(--accent,#2f6bff);
+    font-size: 1.1rem; font-weight: 700; box-shadow: 0 10px 40px rgba(0,0,0,0.15); text-align: center; }
+  /* The weather's Hide button: a quiet pill, bold and pressed in when on. */
+  .sm-wx-hide { position: absolute; top: 8px; right: 8px; z-index: 2;
+    padding: 3px 11px; border-radius: 999px; border: 1px solid var(--line,#c7cede);
+    background: #fff; color: var(--ink-soft,#5c6b90); font: inherit; font-size: 0.76rem;
+    font-weight: 500; cursor: pointer; }
+  .sm-wx-hide:hover { border-color: var(--accent,#2f6bff); color: var(--ink,#0d1a3a); }
+  /* The To do list's Hide sits beside its heading, not over a box; hidden,
+     the list folds away (Philip 2026-10-06). */
+  .sm-wx-hide.sm-todo-hide { position: static; }
+  /* Every Hide at the top right of its title's row (Philip 2026-10-07: "hide
+     buttons should be in top right of their titles/box zones"): the To do
+     list, the Key, About this report; the weather's sits in its box's corner. */
+  .sm-wx-hide.sm-todo-hide { margin-left: auto; }
+  /* The To do list's in the card's own top right corner (Philip 2026-10-07:
+     "the actual top right please"), above the score tiles, which keep their
+     place at the right ("just move that hide button up so the other stuff is
+     in the right place"). */
+  .sm-score-card:has(.sm-todo-hide) { position: relative; padding-top: 40px; }
+  .sm-score-card .sm-wx-hide.sm-todo-hide { position: absolute; top: 10px; right: 10px; margin: 0; }
+  .sm-todo-hidden .sm-todo-body { display: none !important; }
+  /* HIDDEN IS DIMMED (Philip 24 Oct 2026: Hide should dim the card, so it is
+     clearly hidden from the report but still there). Each box keeps what
+     Hide did before (the To do list folds to its heading) and its words go
+     faint, the Hide button and the Key's Expand left at full strength so
+     they can be pressed. A dashed edge says the same without colour. */
+  /* A HIDDEN BOX IS QUIET (Philip 30 Oct 2026: "remove all these silly hashing
+     things ... instead just make the fonts really small and grey entirely and
+     faded a bit"). One rule for the To do box and What the grades mean (and
+     About this report): small grey faded words, the score and count grey too,
+     a dotted outline, less height; the Hide button stays at full strength so
+     it can be found to show the box again. The record page only. */
+  .sm-score-card.sm-todo-hidden, .sm-ownpart.sm-ownpart-hidden {
+    border: 1px dotted var(--line,#c9cfdc) !important; box-shadow: none !important;
+    padding: 6px 12px !important; margin-bottom: 8px;
+  }
+  .sm-score-card .sm-todo-hidden-note, .sm-ownpart .sm-todo-hidden-note { display: none; }
+  .sm-score-card.sm-todo-hidden .sm-todo-hidden-note, .sm-ownpart.sm-ownpart-hidden .sm-todo-hidden-note {
+    display: block; font-size: .72rem; font-weight: 500; color: #8b94a8; opacity: .55; }
+  .sm-score-card.sm-todo-hidden .sm-score-tile { opacity: .55; padding: 2px 8px !important; min-width: 0 !important; border-color: #c9cfdc !important; }
+  .sm-score-card.sm-todo-hidden .sm-score-tile * { font-size: .72rem !important; color: #8b94a8 !important; margin: 0 !important; }
+  .sm-score-card.sm-todo-hidden .sm-score-tile span[style*="background"] { background: #c9cfdc !important; }
+  .sm-score-card.sm-todo-hidden .sm-score-tile .sm-score-ticks { display: none; }
+  .sm-score-card.sm-todo-hidden .sm-score-verdict { display: flex; align-items: center; gap: 8px; }
+  .sm-score-card.sm-todo-hidden .sm-score-verdict > div[style*="flex"] { gap: 8px !important; }
+  .sm-score-card.sm-todo-hidden .sm-wx-hide.sm-todo-hide { position: static; margin: 0 0 0 8px; }
+  .sm-score-card.sm-todo-hidden .sm-score-verdict > :not(.sm-todo-hidden-note):not(.sm-todo-hide) { display: none; }
+  .sm-score-card.sm-todo-hidden .sm-score-verdict h2 { display: none; }
+  .sm-ownpart.sm-ownpart-hidden > div > h2, .sm-ownpart.sm-ownpart-hidden .sm-key-fold, .sm-ownpart.sm-ownpart-hidden .sm-ownpart-body { display: none; }
+  /* The firm's own report on the web: Key and About this report
+     (_own_report_parts.html). Hidden, each stays on the page, dimmed; the
+     Key opens and shuts with its Expand as before. */
+  .sm-todo-gone-row > span { opacity: .6; }
+  .sm-ownpart-body { margin-top: 10px; font-size: 0.86rem; color: var(--ink,#0d1a3a); }
+  .sm-ownpart-sub { font-weight: 700; font-size: 0.84rem; margin: 10px 0 6px; }
+  /* The Key: the pills in one column across every scale, the meanings in
+     the answers' own column (--ans-row), so they start where answers do. The
+     pills are the answer rows' light outlined ones (Philip 2026-10-06: "too
+     heavy and bold ... copy that"). */
+  /* The Key at the Record's own text size (Philip 2026-10-06, 22:55: "the
+     same size as everything else ... so folks can read them easily"): each
+     set of grades a tile with its title inside, each grade a white row tile.
+     A grade is its word in its colour, as on the answers. */
+  .sm-key-tile { border: 1px solid var(--line,#e2e6ef); border-radius: 10px; padding: 8px 10px;
+    margin-bottom: 8px; font-size: var(--note-size, .82rem); }
+  .sm-key-title { font-weight: 700; font-size: 0.85rem; margin: 0 0 6px; color: var(--ink,#0d1a3a); }
+  /* ONE GRID PER SET (Philip 2026-10-07: "line everything up like the
+     scores the words the etc"): grade | meaning, and for an admin grade |
+     score | meaning | x, every row on the same columns (subgrid), the grade
+     column as wide as its longest grade, never wrapping onto a second line. */
+  /* A LONG GRADE WRAPS, THE BOX AS SHORT AS IT CAN BE (Philip 2026-10-14:
+     "automatically ... take new lines where needed with the goal of the
+     overall box being as short vertically as possible"; Mark's "High but can
+     be managed until cost effective to resolve" squeezed every meaning into a
+     sliver). The grade column is at most --key-gw wide; keyFit() below tries
+     widths and keeps the one that makes the box shortest. */
+  .sm-key-tile { display: grid; grid-template-columns: fit-content(var(--key-gw, 40%)) minmax(0, 1fr); column-gap: 14px; }
+  .sm-key-tile.sm-key-ed { grid-template-columns: auto fit-content(var(--key-gw, 40%)) minmax(0, 1fr) auto; }
+  .sm-key-tile > .sm-key-title, .sm-key-tile > .sm-key-add, .sm-key-tile > .sm-key-new { grid-column: 1 / -1; justify-self: start; }
+  /* Drag to order; the line below the scored grades (Philip 2026-10-19). */
+  .sm-key-drag { align-self: center; display: inline-flex; color: var(--ink-faint,#9aa3b5); cursor: grab;
+    touch-action: none; padding: 2px 2px 2px 0; user-select: none; }
+  .sm-key-drag:hover { color: var(--accent,#2f6bff); }
+  .sm-key-row.sm-key-moving { opacity: .92; box-shadow: 0 6px 18px rgba(13,26,58,.16); position: relative; z-index: 5;
+    cursor: grabbing; border-color: var(--accent,#2f6bff); }
+  .sm-key-line { grid-column: 1 / -1; display: flex; align-items: center; gap: 10px; margin: 10px 0 2px;
+    font-size: .72rem; color: var(--ink-soft,#6b7280); }
+  .sm-key-line::before, .sm-key-line::after { content: ''; flex: 1; border-top: 1.5px dashed var(--line,#c7cede); }
+  .sm-key-row:has(> .q-def-ed) .q-def-seg { display: none; }
+  .sm-key-row { grid-column: 1 / -1; display: grid; grid-template-columns: subgrid;
+    align-items: baseline; background: #fff; border: 1px solid var(--line,#e2e6ef);
+    border-radius: 8px; padding: 6px 10px; margin-top: 6px; }
+  .sm-key-chip { font-weight: 600; font-size: 0.82rem; white-space: normal; text-wrap: balance; overflow-wrap: break-word; }
+  .sm-key-score { white-space: nowrap; font-size: 0.76rem; color: var(--ink-soft,#6b7280);
+    font-variant-numeric: tabular-nums; }
+  .sm-key-score:not(.sm-key-out)::after { content: '%'; }
+  .sm-key-out { font-size: 0.76rem; color: var(--ink-faint,#9aa3b5); }
+  .sm-key-meaning { line-height: 1.45; border-radius: 6px; padding: 0 6px; }
+  [data-key-url] .sm-key-meaning, [data-key-url] .sm-key-chip, [data-key-url] .sm-key-score,
+  [data-key-url] .sm-key-title { cursor: text; border-radius: 4px; }
+  [data-key-url] .sm-key-meaning:hover, [data-key-url] .sm-key-chip:hover, [data-key-url] .sm-key-score:hover,
+  [data-key-url] .sm-key-title:hover { background: var(--bg-soft,#f3f4f6); }
+  /* The shared page's Key at an N/A answer's size (Philip 2026-10-07: "in the
+     sharables the key should appear in same font size as an n/a only in
+     sharables not in the editors"). */
+  .sm-key-small { font-size: calc(var(--note-size, .82rem) * .8); }
+  .sm-key-small .sm-key-chip { font-size: 0.656rem; }
+  .sm-key-small .sm-key-title { font-size: 0.72rem; }
+  .sm-key-tile [contenteditable="true"]:focus { outline: 2px solid var(--accent,#2f6bff); background: #fff; }
+  .sm-key-tile .sm-saved { background: #ecfdf5; transition: background 1.2s; }
+  [data-cover-url] { cursor: text; border-radius: 4px; padding: 0 2px; }
+  [data-cover-url]:hover { background: var(--bg-soft,#f3f4f6); }
+  [data-cover-url]:focus { outline: 2px solid var(--accent,#2f6bff); background: #fff; }
+  [data-cover-url]:empty::before { content: 'add'; color: var(--ink-faint,#9aa3b5); }
+  [data-cover-url].sm-saved { background: #ecfdf5; transition: background 1.2s; }
+  .sm-cover-pen { background: none; border: none; padding: 2px; margin-left: 4px; cursor: pointer;
+    color: var(--accent,#2f6bff); line-height: 0; vertical-align: -2px; }
+  /* The questions page's grade editor opens across its row. */
+  .sm-key-row > .q-def-ed { grid-column: 1 / -1; margin: 0; border: 0; box-shadow: none; padding: 2px 0; }
+  .sm-key-slot[hidden] { display: none; }
+  /* Delete as on the questions page, a little smaller: click once and it
+     says Delete?, click again and the grade goes (Philip 2026-10-07: "change
+     those x to delete word with the same double click thing"). */
+  .sm-key-del { justify-self: end; align-self: center; background: transparent; cursor: pointer;
+    border: 1px solid rgba(180,35,24,0.2); color: var(--danger,#b42318); border-radius: 6px;
+    padding: 0; width: 4.8em; height: 22px; box-sizing: border-box; text-align: center;
+    font: inherit; font-size: 0.72rem; white-space: nowrap; }
+  .sm-key-del:hover { background: var(--danger-soft,#fdecea); }
+  /* Armed, it says Delete? in place: the same size, so nothing moves
+     (Philip 2026-10-07: "this makes everything move in an odd way"). */
+  .sm-key-del.delete-armed { border: 1px solid var(--danger,#b42318) !important; background: var(--danger-soft,#fdecea) !important;
+    transform: none !important; box-shadow: none !important; padding: 0 !important; font-weight: 600 !important;
+    width: 4.8em !important; font-size: 0.72rem !important; }
+  /* The editor IS the row while it is open (Philip 2026-10-07: "it is weird
+     how you have to click moderate in a different place to edit it"). */
+  .sm-key-row:has(> .q-def-ed) > :not(.q-def-ed) { display: none !important; }
+  .q-def-ed-head b[contenteditable="true"]:focus { border-color: var(--accent,#2f6bff); box-shadow: 0 0 0 3px rgba(47,107,255,.15); }
+  .q-def-ed-head b[contenteditable="true"]:empty::before { content: attr(data-ph); color: var(--ink-faint,#9aa3b5); font-weight: 500; }
+  /* The grade's word is a plain text box, the first thing in the editor. */
+  .q-def-ed-head b[contenteditable="true"] { min-width: 6em; display: inline-block; background: #fff;
+    border: 1.5px solid var(--line,#c7cede); border-radius: 6px; padding: 2px 8px !important; outline: none !important;
+    font-weight: 600; cursor: text; }
+  .sm-key-add, .sm-key-new { margin-top: 8px; font: inherit; font-size: 0.78rem; }
+  .sm-key-add { border: 1px dashed var(--line,#c7cede); background: #fff; color: var(--ink-soft,#5c6b90);
+    border-radius: 999px; padding: 3px 12px; cursor: pointer; }
+  .sm-key-new, .sm-key-new-pct { border: 1.5px solid rgba(244,63,140,.45); border-radius: 6px; padding: 4px 8px; width: 16em; font: inherit; font-size: 0.78rem; }
+  .sm-key-new-pct { width: 5em; margin-left: 6px; }
+  .sm-key-newrow { grid-column: 1 / -1; justify-self: start; margin-top: 8px; color: var(--ink-soft,#6b7280); font-size: 0.78rem; }
+  /* Room to read (Philip 2026-10-07: "white space is poor"): a clear gap
+     above each part's title, a small one under it, even gaps between its
+     paragraphs. */
+  .sm-ownpart-fold { border-top: 1px solid var(--line,#e2e6ef); padding: 14px 0 12px; }
+  .sm-ownpart-fold summary { cursor: pointer; font-weight: 600; }
+  .sm-ownpart-fold[open] summary { margin-bottom: 8px; }
+  .sm-ownpart-fold .sm-ownpart-words p { margin: 0 0 8px; }
+  .sm-ownpart-fold .sm-ownpart-words p:last-child { margin-bottom: 0; }
+  /* No overflow on the box itself: it cut off a paragraph's edit highlight
+     (Philip 2026-10-06); a wide table scrolls on its own. */
+  .sm-ownpart-words { line-height: 1.45; }
+  .sm-ownpart-words p { margin: 6px 0; }
+  .sm-ownpart-tip { font-size: 0.78rem; color: var(--ink-soft,#6b7280); margin-bottom: 4px; }
+  [data-words-url] p[data-part] { border-radius: 6px; padding: 2px 6px; cursor: text; }
+  /* an empty cell of a standing table can be clicked and filled (20 Oct 2026) */
+  [data-words-url] td p[data-part] { min-height: 1.5em; margin: 0; }
+  [data-words-url] p[data-part]:hover { background: var(--bg-soft,#f3f4f6); }
+  [data-words-url] p[data-part]:focus { outline: 2px solid var(--accent,#2f6bff); background: #fff; }
+  [data-words-url] p.sm-saved { background: #ecfdf5; transition: background 1.2s; }
+  .sm-ownpart-fold[open] [data-title-url] { cursor: text; border-radius: 4px; padding: 0 4px; }
+  .sm-ownpart-fold[open] [data-title-url]:hover { background: var(--bg-soft,#f3f4f6); }
+  [data-title-url]:focus { outline: 2px solid var(--accent,#2f6bff); background: #fff; }
+  [data-title-url].sm-saved { background: #ecfdf5; transition: background 1.2s; }
+  .sm-ownpart-words table { border-collapse: collapse; margin: 8px 0; max-width: 100%;
+    display: block; overflow-x: auto; }
+  .sm-ownpart-words td { border: 1px solid var(--line,#e2e6ef); padding: 4px 8px; vertical-align: top; }
+  .sm-ownpart-words td p { margin: 0; }
+  .sm-wx-hide.on { font-weight: 800; color: var(--ink,#0d1a3a); background: #e6e9f1;
+    border-color: #aeb6ca; box-shadow: inset 0 1px 3px rgba(13,26,58,0.25); }
+
+  /* ── Photos: a grid, not a flow ────────────────────────────────────────── */
+  /* Philip 2026-09-21: "why is the aranglemnt of these photos so asymatric? i
+     think photos in these aprts shoudl just be from left margin in 1:1 squares
+     untill they need a new line. they shoudl be 4 per row."
+
+     Two things made it look wrong. The row was a flex FLOW right-aligned to
+     match the answer column, so with 16 photos the last row held two and
+     floated in from the right with a ragged gap beside it -- every field
+     wrapped at a different place and no two rows lined up. And the thumbnails
+     were 64x48, so a portrait photo and a landscape one sat at different
+     heights on the same line.
+
+     A fixed grid from the LEFT margin fixes both: the columns line up down the
+     page whatever each field holds, and a part-full last row simply stops
+     rather than drifting. 1:1 with object-fit:cover crops each photo to the
+     same square, so the grid stays a grid.
+
+     Widened from 4 to 5 columns on 2026-09-22 ("5 per row"). EVERY place a
+     question shows photos uses this one class -- the answer row, a collapsed
+     section's peek, a section head, and a record row -- so the size and layout
+     are the same wherever photos appear, which is what he asked for. */
+  .sm-photo-grid {
+    /* FROM THE RIGHT EDGE OF THE QUESTION'S OWN BOX (Philip 2026-09-24: "photos
+       to start from the right side of their box sorry said left earlier
+       muddled up. so from right side. of their particular questions box").
+       A grid always fills from the left, so three photos left two empty
+       columns on the right. A wrapping row pushed to the right keeps reading
+       order left to right, the tiles the same fifth-of-a-row size, and a
+       part-full row ends flush with the answer text above it. */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    --sm-cols: 5;
+    /* Room to breathe between the squares, and the same room above and below
+       the block, so a question's photos read as a set rather than as a wall
+       (Philip 2026-09-24: "give them space veritically and horisonally for
+       white space between photos"). */
+    gap: 12px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .sm-photo-grid > * {
+    flex: 0 0 calc((100% - (var(--sm-cols) - 1) * 12px) / var(--sm-cols));
+    min-width: 0;
+  }
+  /* A USUAL ANSWER'S PICTURES are half a photo tile's width, the
+     height following, in a row of their own at the TOP RIGHT above the
+     question's other photos (Philip 30 Oct 2026: "usual answer photos appear
+     in the output page at 0.25 size"; 31 Oct 21:44: "double in size from this", so a half; 15:55: "always appears top right of any
+     other photos"). The grid already fills from the right. The question's own
+     photos keep their size. */
+  /* Not inside an item tile's line, where the picture is already small: a
+     a quarter there drew it about 12 px wide (lab Record 4897, 30 Oct 2026). */
+  .sm-photo-grid:not(.sm-ir-grid) > img[data-usual],
+  .sm-photo-grid:not(.sm-ir-grid) > :has(> img[data-usual]) {
+    flex-basis: calc((100% - (var(--sm-cols) - 1) * 12px) / var(--sm-cols) / 2);
+    order: -2;
+  }
+  /* On an N/A question the Usual picture is grey and faded like the N/A words (Philip 31 Oct 2026, 21:47). */
+  img[data-usual][data-usual-na] { filter: grayscale(1); opacity: .55; }
+  .sm-photo-grid:not(.sm-ir-grid):has(> img[data-usual], > :has(> img[data-usual]))::after {
+    content: ""; order: -1; flex: 0 0 100%; height: 0; margin-top: -12px;
+  }
+  /* PHOTOS AS ON PROD (Philip 27 Oct 2026, 14:56: "just make gallery and
+     display of photos on the HTML-based things as they are on prod"). The
+     one photo size of 26 Oct (119 px squares, 80 on a phone) is gone: every
+     photo row on the Record page is drawn as prod draws it, the fifth-of-a-
+     row share above with its 4 and 3 column steps, the site's 80 x 60 phone
+     thumbnails (dashboard style.css) and the Photos card's seven across.
+     Photos in the words take their question's foot size (_record_photo_in_
+     text.html), so a question's photos are still one size. */
+  .sm-photo-grid img,
+  .sm-gallery-grid img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid var(--line);
+    cursor: zoom-in;
+    display: block;
+  }
+  .sm-photo-grid.sm-sig img { object-fit: contain; background: #fff; }
+  /* THE RED AND GREEN MARKS (Philip 28 Oct 2026), on the photos of a
+     question the Record shows as a Fault; in each pile the Fault photos come
+     first (lib/photo_issue.py). Each photo carries two marks: a tick top left (fine, no
+     Fault shown), a cross top right (shows the Fault). The chosen one is
+     filled in its colour; the other is a white disc with a coloured ring and
+     a coloured tick or cross, plainly something to press, not a greyed-out
+     blob (Philip 28 Oct 2026: "make these somehow easier to use and
+     intuitively understand what it does"). Hover or press and hold says what
+     it does ("Mark as fine", "Mark as showing the Fault"). A 22 px disc in a
+     32 px button, 44 px on a phone or touch screen, so it is easy to hit and
+     never mistaken for the photo ("Make it hard to mess up but still make
+     sure you can select a photo"). Where it cannot be changed (the Link, a
+     signed-off Record) only the chosen mark shows, always top left. */
+  .sm-issue-cell { position: relative; }
+  .sm-issue-cell.sm-issue-moving { transition: transform .32s cubic-bezier(.2,.8,.2,1); z-index: 4; }
+  @media (prefers-reduced-motion: reduce) { .sm-issue-cell.sm-issue-moving { transition: none; } }
+  .sm-issue-mark { position: absolute; top: -8px; z-index: 3; width: 32px; height: 32px; margin: 0; padding: 0; border: 0;
+    background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer;
+    -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+  span.sm-issue-mark { cursor: default; pointer-events: none; }
+  .sm-issue-mark-good, .sm-issue-mark-shown { left: -8px; }
+  .sm-issue-mark-bad:not(.sm-issue-mark-shown) { right: -8px; }
+  .sm-issue-mark > span { width: 22px; height: 22px; border-radius: 50%; box-sizing: border-box;
+    background: #fff no-repeat center / 14px; border: 1px solid currentColor;
+    /* a fine ring and a soft shadow, readable on light and dark photos alike
+       (Philip 29 Oct 2026: "make the white or green ring a little more
+       delicate please") */
+    box-shadow: 0 0 0 0.5px rgba(13,26,58,0.18), 0 1px 2px rgba(13,26,58,0.25);
+    transition: background-color .15s ease, transform .15s ease, box-shadow .15s ease; }
+  .sm-issue-mark-good { color: #047857; }
+  .sm-issue-mark-bad { color: #b91c1c; }
+  .sm-issue-mark-good > span { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23047857' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E"); }
+  .sm-issue-mark-bad > span { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b91c1c' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 7l10 10M17 7L7 17'/%3E%3C/svg%3E"); }
+  .sm-issue-mark-good[aria-pressed="true"] > span, .sm-issue-mark-good[data-on] > span { background-color: #047857; border-color: rgba(255,255,255,0.9); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E"); }
+  .sm-issue-mark-bad[aria-pressed="true"] > span, .sm-issue-mark-bad[data-on] > span { background-color: #b91c1c; border-color: rgba(255,255,255,0.9); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 7l10 10M17 7L7 17'/%3E%3C/svg%3E"); }
+  button.sm-issue-mark[aria-pressed="false"]:hover > span, button.sm-issue-mark[aria-pressed="false"]:focus-visible > span {
+    transform: scale(1.15); box-shadow: 0 2px 8px rgba(13,26,58,0.35); }
+  button.sm-issue-mark[aria-pressed="false"]:active > span { transform: scale(.92); }
+  button.sm-issue-mark[aria-pressed="true"] { cursor: default; }
+  button.sm-issue-mark:focus-visible { outline: 2px solid var(--accent, #2f6bff); outline-offset: -2px; border-radius: 50%; }
+  @media (pointer: coarse), (max-width: 480px) {
+    button.sm-issue-mark { width: 44px; height: 44px; top: -12px; }
+    button.sm-issue-mark > span { width: 24px; height: 24px; background-size: 15px; }
+    button.sm-issue-mark-good { left: -12px; } button.sm-issue-mark-bad { right: -12px; } }
+  /* A PHOTO SAYS IT OPENS (Philip 2026-10-09: "it needs to be more obvious
+     when you hover on a photo that you can click on it"): on hover it lifts,
+     takes a blue edge and shows a magnifier in its middle. */
+  .sm-photo-grid img, .sm-gallery-grid img { transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease; }
+  .sm-photo-grid img:hover, .sm-gallery-grid img:hover {
+    transform: translateY(-2px) scale(1.03); border-color: #2F6BFF;
+    box-shadow: 0 8px 20px rgba(13,26,58,0.22); }
+  .sm-photo-grid > div, .sm-gallery-grid > div { position: relative; }
+  .sm-photo-grid > div:not(.sm-sig-pad):has(> img[data-gallery]):hover::after,
+  .sm-gallery-grid > div:has(> img[data-gallery]):hover::after {
+    content: ''; position: absolute; left: 50%; top: 50%; width: 38px; height: 38px; margin: -21px 0 0 -19px;
+    border-radius: 50%; pointer-events: none; background: rgba(13,26,58,0.62) no-repeat center / 20px
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='6.5'/%3E%3Cpath d='M16 16l4.5 4.5M11 8.5v5M8.5 11h5'/%3E%3C/svg%3E"); }
+  /* A signature: who and when on the left, as plain note text; the ink on
+     the right on a 15 x 5 signing line, a third of the width; the whole
+     thing inside the notes column's margins (Philip 2026-10-02). The name
+     is pink only while it is being edited. */
+  /* 61.8%: the notes' own edge (77.25% of the 80% answer column), so the
+     name starts where "In date and on its bracket." starts (Philip
+     2026-10-02: "should match the margins of the notes sections"). */
+  .sm-sig-list { display: flex; flex-direction: column; gap: 10px; margin: 6px 0 0 auto; width: var(--ans-row, 71.8%); }
+  .sm-sig-item { display: flex; align-items: center; gap: 16px; }
+  .sm-sig-who { flex: 1 1 auto; min-width: 0; font-size: inherit; /* as the notes beside it (dc: 14.2 px against 14.7) */ line-height: var(--note-line);
+    color: var(--ink-soft, #5b6478); text-align: left; }
+  .sm-sig-who strong { font-weight: 700; color: var(--ink, #213055); }
+  .sm-sig-when { padding-left: 14px; font-weight: 400; }
+  .sm-sig-pad { flex: 0 0 33%; aspect-ratio: 15 / 5; background: #fff;
+    border-bottom: 1.5px solid var(--ink, #213055); padding: 2px 4px 0; box-sizing: border-box; }
+  /* On the line, not floating above it (Philip 2026-10-02). */
+  /* Its white lets the line through (dc's click test, 2 Oct 2026: a wide
+     signature's white background broke the line under it). */
+  .sm-sig-pad img { width: 100%; height: 100%; object-fit: contain; object-position: center bottom;
+    display: block; cursor: zoom-in; mix-blend-mode: multiply; }
+  @media (max-width: 560px) {
+    .sm-sig-list { width: 100%; }
+    .sm-sig-pad { flex-basis: 45%; }
+  }
+  /* The flat gallery is the whole card's width, so it takes more per row
+     (Philip 2026-09-22: "7 per orw and 5 per row" -- 7 here, 5 in the
+     question grid above). Same square rule as above -- they are the same
+     photos seen twice. */
+  /* The section list on the left of a long Record (Philip 2026-10-09). */
+  #sm-secnav { position: fixed; top: 16px; z-index: 900; width: 200px; max-height: calc(100vh - 32px);
+    overflow-y: auto; font-size: .8rem; line-height: 1.3; padding: 4px 0;
+    scrollbar-width: none;                                  /* no scroll bar (Philip 2026-10-09) */
+    overscroll-behavior: contain;                           /* a wheel at the list's end never scrolls the page under it (Philip 27 Oct 2026) */
+    padding-bottom: 50vh;                                   /* room for a low name to come up to the middle */
+    display: block !important; flex-direction: column; background: none !important; border: 0 !important;
+    border-radius: 0 !important; box-shadow: none !important; }
+  #sm-secnav a { width: auto !important; flex: none !important; border-top: 0 !important; border-right: 0 !important;
+    border-bottom: 0 !important; border-radius: 0 !important; background: none !important; text-align: left !important; }
+  #sm-secnav[hidden] { display: none; }
+  /* the part a name was clicked for is lit for a moment, nothing moves */
+  @keyframes sm-secnav-lit { from { box-shadow: 0 0 0 3px rgba(47,107,255,.45); } to { box-shadow: 0 0 0 3px rgba(47,107,255,0); } }
+  .sm-secnav-lit { animation: sm-secnav-lit 1.2s ease-out; border-radius: 6px; }
+  /* Faint until hovered, so the eye stays on the Record (Philip 2026-10-09:
+     "this should be way dimmer only make it clearer when someone hovers on
+     it ... to make it easier to focus on the text"). */
+  /* Much fainter, and back to faint the moment the mouse leaves, even after a
+     click (Philip 2026-10-09: "as soon as mouse goes elsewhere it should go
+     back to being dim, really much more dim"). */
+  #sm-secnav { opacity: .14; transition: opacity .2s ease, width .2s ease; }   /* a touch more than .07: "slightly too faint" */
+  #sm-secnav:hover { opacity: 1; }
+  /* ON THE PAGE'S BACKGROUND THE LIST COMES UP as it does under the mouse,
+     never bold (Philip 21 Oct 2026: "just make it appear the way it does when
+     you are actually using it, never actually meant bold"). */
+  body.sm-on-bg #sm-secnav { opacity: 1; width: var(--sn-w, 200px); }
+  /* Half as wide while faint, against the page; its full width on a hover
+     (Philip 2026-10-09: "when faded the side bar should occupy half the width
+     it does"). The script sets --sn-w and --sn-l (place()). */
+  /* Held at its left edge, so on a hover it grows to the right, over the gap
+     beside the page (Philip 2026-10-09: "keep it snapped to the left side so
+     it grows right"). */
+  #sm-secnav { width: calc(var(--sn-w, 200px) / 2); left: var(--sn-l, 12px); }
+  #sm-secnav:hover, #sm-secnav:focus-within { width: var(--sn-w, 200px); }
+  #sm-secnav::-webkit-scrollbar { display: none; }
+  /* Never on a phone or a touch screen (Philip 2026-10-14: "on mobile screens
+     can you make the side list menu thing on the shareables not appear"). It
+     is a hover tool, and a page wider than the screen fooled the room check. */
+  @media (max-width: 900px), (hover: none) {
+    html #sm-secnav { display: none !important; }
+  }
+  #sm-secnav a { display: block; padding: 5px 10px; border-left: 2px solid var(--line, #e2e6ef);
+    color: var(--ink-soft, #6b7280); text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #sm-secnav a:hover { color: var(--ink, #0d1a3a); border-left-color: rgba(47,107,255,0.45); }
+  #sm-secnav a.on { color: var(--ink, #0d1a3a); font-weight: 600; border-left-color: #2F6BFF; }
+  #sm-secnav a.sm-secnav-top { font-weight: 600; margin-bottom: 6px; }
+  /* To do: hide, add, and the hidden lines (Philip 2026-10-09). */
+  .sm-todo-hide-btn svg { width: 13px; height: 13px; }
+  .sm-todo-tools { margin-top: 10px; display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+  /* Add a to do in the Record's own pink-box style (Philip 28 Oct 2026:
+     "this is a bit crap"): the two boxes are the soft pink line, the
+     matches show the question with its section in small text under it, and
+     the question picked is a chip with the To do list's own cross. */
+  .sm-todo-add { width: 100%; display: flex; flex-direction: column; gap: 10px; padding: 12px 14px;
+    border: 1px solid var(--line, #e2e6ef); border-radius: 10px; box-sizing: border-box; }
+  .sm-todo-add[hidden] { display: none; }
+  .sm-todo-add .sm-todo-add-text, .sm-todo-add .sm-todo-add-find { width: 100%; box-sizing: border-box;
+    font: inherit; font-size: .88rem; line-height: 1.5; color: var(--ink, #213055);
+    padding: 4px 6px !important; margin: 0; border: none !important; background: transparent !important;
+    box-shadow: none !important; border-radius: 3px !important; height: auto; resize: vertical;
+    outline: 1.5px solid rgba(244, 63, 140, 0.30) !important; outline-offset: 2px; }
+  .sm-todo-add .sm-todo-add-text:focus, .sm-todo-add .sm-todo-add-find:focus { outline-color: rgba(244, 63, 140, 0.55) !important; }
+  .sm-todo-add-find::-webkit-search-cancel-button { display: none; }
+  .sm-todo-add-pick { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .sm-todo-add-pick .sm-todo-add-find { flex: 1 1 200px; width: auto; }
+  .sm-todo-add-chip { display: inline-flex; align-items: center; gap: 6px; max-width: 100%; box-sizing: border-box;
+    padding: 3px 4px 3px 10px; border-radius: 999px; background: var(--accent-soft, #eef3ff);
+    border: 1px solid rgba(47,107,255,.35); font-size: .85rem; color: var(--ink, #0d1a3a); }
+  .sm-todo-add-chip[hidden] { display: none; }
+  .sm-todo-add-chip-name { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+  .sm-todo-add-chip-sec { font-size: .75rem; color: var(--ink-soft, #6b7280); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+  .sm-todo-add-chip-sec:empty { display: none; }
+  .sm-todo-add-clear { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px;
+    padding: 0; border: none; border-radius: 50%; background: none; color: var(--accent, #2f6bff); cursor: pointer; }
+  .sm-todo-add-clear:hover { background: rgba(47,107,255,.12); }
+  .sm-todo-add-clear svg { width: 13px; height: 13px; }
+  .sm-todo-add-qs { display: flex; flex-direction: column; gap: 1px; margin-top: -4px; }
+  .sm-todo-add-qs:not(:has(.sm-todo-add-q:not([hidden]))):not(:has(.sm-todo-add-none:not([hidden]))) { display: none; }
+  .sm-todo-add-q { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; text-align: left;
+    background: none; border: 1px solid transparent; border-radius: 8px;
+    padding: 5px 8px; font: inherit; font-size: .86rem; color: var(--ink, #0d1a3a); cursor: pointer; }
+  .sm-todo-add-q[hidden] { display: none; }
+  .sm-todo-add-q-sec { font-size: .74rem; color: var(--ink-soft, #6b7280); }
+  .sm-todo-add-q:hover, .sm-todo-add-q.hot { background: var(--accent-soft, #eef3ff); }
+  .sm-todo-add-q.hot { border-color: rgba(47,107,255,.35); }
+  .sm-todo-add-none { margin: 2px 8px; font-size: .84rem; color: var(--ink-soft, #6b7280); }
+  .sm-todo-add-none[hidden] { display: none; }
+  .sm-todo-add-foot { display: flex; align-items: center; justify-content: flex-end; gap: 10px; }
+  .sm-todo-add-say { font-size: .82rem; color: #b91c1c; }
+  .sm-todo-gone summary { cursor: pointer; font-size: .82rem; color: var(--ink-soft, #6b7280); }
+  .sm-todo-gone-row { display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    padding: 4px 0; font-size: .85rem; color: var(--ink-soft, #6b7280); }
+  #sm-placed { position: fixed; right: 16px; bottom: 16px; z-index: 1000; width: min(420px, calc(100vw - 32px));
+    max-height: 60vh; display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line, #e2e6ef);
+    border-radius: 12px; box-shadow: 0 10px 30px rgba(13,26,58,0.18); font-size: .86rem; color: var(--ink, #0d1a3a); }
+  #sm-placed .sm-placed-head { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px;
+    border-bottom: 1px solid var(--line, #e2e6ef); font-weight: 600; }
+  #sm-placed .sm-placed-x { border: 0; background: none; font-size: 1.3rem; line-height: 1; cursor: pointer; color: var(--ink-soft, #6b7280); padding: 0 4px; }
+  #sm-placed ul { list-style: none; margin: 0; padding: 6px 14px 10px; overflow-y: auto; }
+  #sm-placed li { display: flex; gap: 12px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--line, #e2e6ef); }
+  #sm-placed li:last-child { border-bottom: 0; }
+  #sm-placed li img { flex-shrink: 0; object-fit: cover; border-radius: 5px; }
+  #sm-placed .sm-placed-none { color: var(--ink-soft, #6b7280); }
+  #sm-placed .sm-placed-cap { font-weight: 600; margin-bottom: 2px; }
+  #sm-placed .sm-placed-dup { margin-top: 4px; color: #b45309; font-size: .8rem; }
+  .sm-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 12px;
+  }
+  /* Deleted photos: below a line, each under a red X (Philip 2026-09-30).
+     Their grid and tiles are the gallery's, written out again so the
+     gallery's own rules stay as they are. */
+  .sm-gallery-deleted-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; }
+  .sm-gallery-deleted-grid img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 5px;
+    border: 1px solid var(--line); cursor: zoom-in; display: block; }
+  .sm-gallery-deleted { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--line, #c7cede); }
+  .sm-gallery-deleted-h { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ink-soft, #6b7280); margin-bottom: 10px; }
+  .sm-deleted-photo { position: relative; }
+  .sm-deleted-photo img { opacity: 0.55; filter: grayscale(0.4); }
+  .sm-deleted-photo::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none; border-radius: 5px;
+    background:
+      linear-gradient(to top right, transparent calc(50% - 2.5px), #dc2626 calc(50% - 2.5px), #dc2626 calc(50% + 2.5px), transparent calc(50% + 2.5px)),
+      linear-gradient(to bottom right, transparent calc(50% - 2.5px), #dc2626 calc(50% - 2.5px), #dc2626 calc(50% + 2.5px), transparent calc(50% + 2.5px));
+  }
+  @media (max-width: 700px) { .sm-gallery-deleted-grid { grid-template-columns: repeat(4, 1fr); } }
+  /* A square that is 1/7th of a narrow screen is a postage stamp, so both
+     grids step down rather than shrink to nothing. */
+  @media (max-width: 700px) {
+    .sm-photo-grid { --sm-cols: 4; }
+    .sm-gallery-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .sm-photo-grid { --sm-cols: 3; }
+    .sm-gallery-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+
+
+/* Own report menu (Output 3, 2026-10-05): opens upwards from the foot pill. */
+.sm-ownreport-menu { position:absolute; right:0; bottom:calc(100% + 6px); background:#fff; border:1.5px solid var(--line,#e2e6ef); border-radius:12px; box-shadow:0 8px 24px rgba(13,26,58,0.12); padding:6px; min-width:200px; z-index:60; display:flex; flex-direction:column; }
+.sm-ownreport-menu a { padding:8px 12px; border-radius:8px; font-size:0.86rem; font-weight:600; color:var(--ink,#0d1a3a); text-decoration:none; }
+.sm-ownreport-menu a:hover { background:var(--accent-soft, rgba(47,107,255,0.08)); }
+/* the downloads left this menu (21 Oct 2026): its two edits are plain rows, no dividers for a hover to cross */
+.sm-ownreport-menu { gap:2px; }
+.sm-ownreport-menu .sm-ownreport-edit { color:var(--ink,#0d1a3a); font-weight:500; }
+.sm-foot-ownreport summary::-webkit-details-marker { display:none; }
+.sm-ownreport-busy { padding:8px 12px; font-size:0.84rem; color:var(--accent,#2f6bff); font-weight:600; }
+.sm-ownreport-menu.busy a, .sm-ownreport-menu.busy summary { opacity:.45; pointer-events:none; }
+/* If -> then opens the same way, with Edit and Run now (Philip 2026-10-14). */
+.sm-foot-menu summary::-webkit-details-marker { display:none; }
+.sm-ifthen-menu button { padding:8px 12px; border-radius:8px; border:0; background:none; font:inherit; font-size:0.86rem; font-weight:600; color:var(--ink,#0d1a3a); text-align:left; cursor:pointer; }
+.sm-ifthen-menu button:hover { background:var(--accent-soft, rgba(47,107,255,0.08)); }
+/* Greyed out until something is edited (Philip 2026-10-14), the reason under it. */
+.sm-ifthen-menu button:disabled { color:var(--ink-soft,#6b7280); opacity:.55; cursor:not-allowed; background:none; }
+.sm-ifthen-why { padding:0 12px 8px; font-size:0.8rem; color:var(--ink-soft,#6b7280); max-width:240px; }
+.sm-ifthen-result { margin-top:10px; padding:10px 14px; border-radius:12px; border:1.5px solid var(--line,#e2e6ef); background:#fff; font-size:0.86rem; color:var(--ink,#0d1a3a); }
+
+
+/* from app page record.html */
+
+.sm-submission .sm-edits > summary::-webkit-details-marker { display:none; }
+.sm-submission .sm-edits[open] .sm-edits-chevron { transform:rotate(180deg); }
+/* THE FOOT, A GRID OF EQUAL BUTTONS (Philip 20 Oct 2026: "even a 2x3
+   layout is better"): three across, two on a phone, every button the same
+   width. What you do with the Record first, then Edits and Transcript, and
+   Delete last. A button the Check does not use (Your sentences, Written
+   report) leaves no gap: the rest move up. Edits drops its list below. */
+.sm-submission .sm-foot-row { position:relative; display:grid; grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:10px; margin-top:16px; }
+.sm-submission .sm-foot-do, .sm-submission .sm-foot-keep { display:contents; }
+.sm-submission .sm-foot-gap { display:block; min-height:1px; }
+.sm-submission .sm-foot-row > * > * , .sm-submission .sm-foot-row details > summary { width:100%; }
+.sm-submission .sm-foot-row details > summary, .sm-submission .sm-foot-row > * > a,
+.sm-submission .sm-foot-row > * > button { justify-content:center; box-sizing:border-box; white-space:nowrap; }
+@media (max-width: 600px) {
+  .sm-submission .sm-foot-row { grid-template-columns:repeat(2, minmax(0, 1fr)); }
+}
+.sm-submission .sm-foot-row .sm-edits > .card { position:absolute; left:0; right:0; top:calc(100% + 8px);
+  z-index:30; margin-top:0 !important; }
+.sm-submission details[open] > summary .parent-photo-peek { display:none !important; }
+.photo-low-confidence { outline:3px solid #2f6fed; outline-offset:2px; }
+.photo-low-confidence-note { color:#2f6fed; font-size:0.72rem; margin-top:2px; line-height:1.3; }
+.photo-low-confidence-legend { color:#2f6fed; font-size:0.72rem; margin:4px 0 0; font-weight:600; }
+/* Check skin (per-submission tile)
+   THE COLOURED RAIL IS GONE (Philip 2026-09-04: "this weird red strip on the
+   side of things - remove it", then "dude" with a screenshot of it still
+   there -- an earlier pass had removed a DIFFERENT 4px rail on the score card
+   and missed this 6px one, which runs the full height of the whole submission
+   block). The page already carries the verdict in the heading, the status
+   pill and the score, so a full-height red bar only made a record look like
+   an alarm. The class stays (the padding keeps the tile aligned, and
+   .sd-green/.sd-amber/.sd-red still colour the pill). */
+/* AN N/A ROW IS A SHADE LIGHTER AGAIN (Philip 2026-09-22: "Make them 10%
+   lighter"). The question, the answer and an N/A section heading all carry
+   .sm-na-row and so move together -- the whole point is that the three read
+   as one quiet line.
+
+   #7b87a5 is --ink-soft (#5c6b90) lightened 10% toward white twice: once for
+   "Make them 10% lighter", again for "i would make the n/a 10% lighter
+   still". It is set here rather than by editing --ink-soft, because that
+   token is the normal colour for every secondary line on the page and this
+   must only touch the rows that are out of scope. !important because the
+   colour is written as an inline style on each element.
+
+   The class sits on the row's CELL, so the descendant selector catches the
+   note as well. The note renders from its own element well below the answer
+   and was the one part of a Fire row still at full-strength grey when Philip
+   asked "are these all the same grey?". */
+.sm-na-row, .sm-na-row * { color: #7b87a5 !important; }
+/* N/A A FURTHER 5% DOWN, AND SMALLER PHOTOS (Philip 2026-09-28: "make n/a
+   boxes, questions and content another 5% smaeller when n/a ... for n/a with
+   photos make the photos 1 extra photo per row"). Its question and answer
+   step to 85% in the row itself; the written answer and note follow here, and
+   its photos sit one more to a row at every width. */
+/* Smaller on the shareable only (Philip 2026-10-02); the editing page greys
+   N/A out and keeps its size, so the page does not jump. */
+.sm-share td.sm-na-row .sm-longval, .sm-share td.sm-na-row .sm-notes-block { font-size: calc(var(--note-size) * 0.80) !important; }
+.sm-share td.sm-na-row .sm-photo-grid, .sm-share .sm-na-row .sm-group-photos { --sm-cols: 6; }
+/* 10% less space above and below (Philip 2026-09-29: "10% less white space
+   vertically on the n/a ones"). The row and heading padding step 8px -> 7.2px
+   in the markup; the gaps inside the row follow here. */
+.sm-share td.sm-na-row .sm-answer-v, .sm-share td.sm-na-row .sm-answer-text { margin-top: 1.8px !important; }
+.sm-share td.sm-na-row .sm-longval, .sm-share td.sm-na-row .sm-notes-block { margin-top: 3.6px !important; }
+@media (max-width: 700px) { .sm-share td.sm-na-row .sm-photo-grid, .sm-share .sm-na-row .sm-group-photos { --sm-cols: 5; } }
+@media (max-width: 480px) { .sm-share td.sm-na-row .sm-photo-grid, .sm-share .sm-na-row .sm-group-photos { --sm-cols: 4; } }
+
+/* ONE LEFT LINE (Philip 2026-09-26: "why are these left margins differnt
+   everywhere for the stuff in out the box and edge of box"). This 18px made
+   room for a coloured stripe down the left that was removed on 4 Sep; left
+   behind, it set every card 18px in from the heading above it on a desktop
+   (a phone already had it at 0). Now the heading and every card's edge share
+   one line, and the text inside a card sits at the card's own padding. */
+.sd-skin { padding-left: 0; border-radius: 4px; }
+.sd-status-pill { display:inline-flex;align-items:center;gap:6px;font-size:0.74rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;padding:4px 12px;border-radius:999px; }
+.sd-status-pill.sd-green { background:#ecfdf5;color:#047857; }
+
+/* ── WhatsApp transcript modal (Philip 2026-08-15) ────────────────────────── */
+/* AS WHATSAPP WEB DRAWS IT (Philip 27 Oct 2026, 08:00: "can you make this
+   look more realistic please and make it wider like on WhatsApp web"): wide,
+   a pale grey bar with dark words, the beige doodle ground, bubbles 65% wide
+   with a tail on the first of a run, the time tucked in the bubble's corner
+   with ticks on the person's own messages. No foot bar (Philip, 09:16:
+   "probably don't need this"). */
+.wa-modal { padding:0; border:none; border-radius:10px; width:min(1040px,94vw);
+  height:min(900px,92vh); background:transparent; overflow:hidden; }
+.wa-modal::backdrop { background:rgba(0,0,0,0.55); }
+.wa-shell { display:flex; flex-direction:row; height:100%;
+  background:#efeae2;
+  border-radius:10px; overflow:hidden; font-family:var(--font, 'Space Grotesk', Arial, sans-serif); }
+.wa-main { flex:1 1 auto; min-width:0; display:flex; flex-direction:column; }
+.wa-topbar { flex:0 0 auto; display:flex; align-items:center; gap:13px;
+  background:#f0f2f5; color:#111b21; padding:10px 16px; min-height:59px; box-sizing:border-box;
+  border-bottom:1px solid #e9edef; }
+.wa-back { background:none; border:none; color:#54656f; font-size:1.7rem; line-height:1;
+  cursor:pointer; padding:0 2px; }
+.wa-avatar { width:40px; height:40px; border-radius:50%; background:#dfe5e7;
+  display:flex; align-items:center; justify-content:center; flex:0 0 auto; overflow:hidden; }
+.wa-avatar img { width:40px; height:40px; display:block; object-fit:cover; }
+.wa-title { min-width:0; flex:1 1 auto; }
+.wa-name { font-weight:400; font-size:16px; line-height:21px; color:#111b21;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.wa-status { font-size:13px; line-height:20px; color:#667781; }
+.wa-tool { background:none; border:none; color:#54656f; cursor:pointer; padding:8px; border-radius:50%; display:flex; }
+.wa-tool:hover { background:rgba(11,20,26,0.06); }
+.wa-tool.wa-on { background:rgba(11,20,26,0.1); }
+.wa-search { flex:0 0 340px; display:flex; flex-direction:column; background:#fff; border-left:1px solid #e9edef; min-width:0; }
+.wa-search[hidden] { display:none; }
+.wa-search-head { display:flex; align-items:center; gap:14px; min-height:59px; padding:0 16px; box-sizing:border-box;
+  background:#f0f2f5; color:#111b21; font-size:16px; }
+.wa-search-box { display:flex; align-items:center; gap:10px; margin:10px 12px; padding:7px 14px; border-radius:20px;
+  background:#f0f2f5; color:#54656f; }
+.wa-search-box input { flex:1 1 auto; border:none; background:transparent; outline:none; font:inherit; font-size:15px; color:#111b21; min-width:0; }
+.wa-search-list { flex:1 1 auto; overflow-y:auto; }
+.wa-search-none { padding:40px 28px; text-align:center; color:#667781; font-size:14px; line-height:20px; }
+.wa-search-hit { display:block; width:100%; text-align:left; border:none; background:#fff; cursor:pointer;
+  padding:12px 20px; border-bottom:1px solid #f0f2f5; font:inherit; }
+.wa-search-hit:hover { background:#f5f6f6; }
+.wa-search-hit-when { font-size:13px; color:#667781; }
+.wa-search-hit-text { font-size:14.2px; color:#3b4a54; margin-top:2px; overflow:hidden; text-overflow:ellipsis;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; }
+.wa-search-hit mark, mark.wa-found { background:none; color:#00a884; font-weight:700; }
+.wa-row.wa-flash .wa-bubble { animation:wa-flash 1.6s ease; }
+@keyframes wa-flash { 0%,40% { box-shadow:0 0 0 3px rgba(0,168,132,0.45); } 100% { box-shadow:0 1px 0.5px rgba(11,20,26,0.13); } }
+/* QUICKLER'S OWN GROUND (Philip 27 Oct 2026, 09:09: "make the background the
+   Quickler Telegram background thing I added at 50% opacity"): the Quickler
+   wallpaper, half see-through over white, staying put while the messages scroll. */
+.wa-scroll { flex:1 1 auto; overflow-y:auto; padding:18px max(16px, 7%);
+  background-color:#fff;
+  background-image:linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("/appui/quickler-chat-bg.jpg");
+  background-size:cover; background-position:center; background-attachment:scroll; }
+/* THE CHAT'S SCROLL BAR, AS WHATSAPP WEB'S (Philip 30 Oct 2026, 11:52: "my
+   scroll thing on the side of the WhatsApp messages panel is too small"): a
+   rounded grey thumb on a clear track, easy to see and grab, a little wider
+   and darker under the pointer and while dragged. Phones keep their own. */
+@media (hover: hover) and (pointer: fine) and (min-width: 641px) {
+  /* Firefox. Not given to Chrome, Edge or Safari: there these two would
+     switch off the rounded thumb below. */
+  @supports not selector(::-webkit-scrollbar) {
+    .wa-scroll, .wa-search-list { scrollbar-width:thin; scrollbar-color:rgba(0,0,0,0.2) transparent; }
+    .wa-scroll:hover, .wa-search-list:hover { scrollbar-color:rgba(0,0,0,0.32) transparent; }
+  }
+  .wa-scroll::-webkit-scrollbar, .wa-search-list::-webkit-scrollbar { width:10px; background:transparent; }
+  .wa-scroll::-webkit-scrollbar-track, .wa-search-list::-webkit-scrollbar-track { background:transparent; }
+  .wa-scroll::-webkit-scrollbar-thumb, .wa-search-list::-webkit-scrollbar-thumb {
+    background-color:rgba(0,0,0,0.2); border-radius:10px; border:2px solid transparent; background-clip:padding-box; min-height:40px; }
+  .wa-scroll:hover::-webkit-scrollbar-thumb, .wa-search-list:hover::-webkit-scrollbar-thumb {
+    background-color:rgba(0,0,0,0.32); border-width:1px; }
+  .wa-scroll::-webkit-scrollbar-thumb:active, .wa-search-list::-webkit-scrollbar-thumb:active { background-color:rgba(0,0,0,0.45); }
+}
+.wa-row { display:flex; margin:2px 0; }
+.wa-row.wa-tail { margin-top:12px; }
+.wa-bot { justify-content:flex-start; }
+.wa-you { justify-content:flex-end; }
+.wa-bubble { max-width:65%; padding:6px 7px 8px 9px; border-radius:7.5px;
+  box-shadow:0 1px 0.5px rgba(11,20,26,0.13); position:relative;
+  font-size:14.2px; line-height:19px; color:#111b21; word-wrap:break-word; }
+.wa-bot .wa-bubble { background:#fff; }
+.wa-you .wa-bubble { background:#d9fdd3; }
+.wa-tail.wa-bot .wa-bubble { border-top-left-radius:0; }
+.wa-tail.wa-you .wa-bubble { border-top-right-radius:0; }
+.wa-tail .wa-bubble::before { content:''; position:absolute; top:0; width:8px; height:13px; }
+.wa-tail.wa-bot .wa-bubble::before { left:-8px; background:#fff;
+  clip-path:polygon(0 0, 100% 0, 100% 100%); }
+.wa-tail.wa-you .wa-bubble::before { right:-8px; background:#d9fdd3;
+  clip-path:polygon(0 0, 100% 0, 0 100%); }
+@media (max-width: 640px) {
+  .wa-modal { width:100vw; height:100dvh; max-width:100vw; max-height:100dvh; border-radius:0; }
+  .wa-shell { border-radius:0; }
+  .wa-bubble { max-width:85%; }
+  .wa-search { position:absolute; inset:0; flex:none; z-index:2; }
+  .wa-shell { position:relative; }
+}
+.wa-text { white-space:pre-wrap; }
+/* THE CAPTION GETS OUT OF THE WAY (Philip 20 Oct 2026: "when you hover on
+   caption let it nearly vanish so i can see under it"), and stays faint
+   while the photo is zoomed in. */
+#sm-photo-modal-cap-text, #sm-photo-stamp { transition: opacity .15s ease; }
+/* the date and time fade the same way (Philip 20 Oct 2026) */
+#sm-photo-stamp { pointer-events: auto !important; }
+#sm-photo-modal-cap-text:hover, #sm-photo-stamp:hover,
+#sm-photo-modal.sm-zoomed #sm-photo-modal-cap-text, #sm-photo-modal.sm-zoomed #sm-photo-stamp { opacity: .12; }
+/* EVERY PHOTO THAT OPENS SAYS SO ON HOVER (Philip 20 Oct 2026: "make it
+   obvious you can click on it when hovering", a photo in the Messages): a
+   magnifier pointer and a blue edge, as the Record's own photos have. */
+img[data-gallery="1"], img.wa-photo { cursor: zoom-in; transition: box-shadow .15s ease, filter .15s ease; }
+img[data-gallery="1"]:hover, img.wa-photo:hover {
+  box-shadow: 0 0 0 3px #2F6BFF, 0 8px 20px rgba(13,26,58,0.22); filter: brightness(0.97); }
+/* A SEE-THROUGH PHOTO SITS ON WHITE (prod Record 521, Philip 16 Oct 2026, "ok"):
+   Word's picture of pasted text is black letters on a clear ground, and the
+   clear ground showed the dark behind it, so the words vanished. Every Record
+   photo (thumbnails, chat bubbles, the viewer and its strip) gets a white
+   ground; a solid photo covers it and looks the same. */
+img[data-gallery], img[data-full], img.wa-photo, img[src*="/photo/"],
+.sm-photo-grid img, .sm-gallery-grid img, #sm-placed img,
+#gallery-img, #gallery-thumbs img { background-color:#fff; }
+/* Room between the lines of written words (Philip 2026-10-09: "there's just
+   a lack of white space"): each line is its own paragraph (the paras filter). */
+.sm-para + .sm-para { margin-top: 0.5em; }
+.wa-photo-caption { margin-top:6px; }
+/* Half their old size in the transcript (Philip 20 Oct 2026: "images in
+   the transcript ... half the size they are now"), as a fixed size so the
+   bubble closes round the photo ("that looks weird": a half-width photo
+   left half the bubble empty). A click opens it big, as before. */
+/* A PHOTO'S BUBBLE CLOSES ROUND IT (Philip 27 Oct 2026, 09:09, a wide bubble
+   with a small photo: "fix that"): a fixed photo width, never a share of the
+   bubble, so the bubble takes the photo's width, as WhatsApp's does. */
+.wa-bubble:has(> .wa-photo), .wa-bubble:has(> .wa-album) { padding:3px 3px 6px; width:min-content; }
+.wa-bubble:has(> .wa-album) .wa-photo-caption { padding:0 5px; }
+.wa-bubble:has(> .wa-album) .wa-time { margin-right:5px; }
+.wa-album { display:grid; grid-template-columns:repeat(2, min(162px, 30vw)); gap:3px; margin-bottom:2px; }
+.wa-album-cell { position:relative; }
+.wa-album .wa-photo.wa-album-photo { width:100% !important; aspect-ratio:1 / 1; height:auto; max-height:none;
+  object-fit:cover; margin:0; border-radius:6px; }
+.wa-album-more { position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  background:rgba(11,20,26,0.4); color:#fff; font-size:30px; border-radius:6px; pointer-events:none; }
+.wa-album-rest { display:none !important; }
+.wa-bubble:has(> .wa-photo) .wa-photo-caption { padding:0 5px; }
+.wa-bubble:has(> .wa-photo) .wa-time { margin-right:5px; }
+.wa-photo { display:block; width:min(330px, 60vw) !important; height:auto; max-width:none; max-height:360px; object-fit:cover;
+  border-radius:6px; margin-bottom:2px; cursor:zoom-in; }
+.wa-voice-missing { font-size:0.86rem; color:#555; padding:4px 0; }
+.wa-transcript { font-size:0.8rem; color:#3b4a54; margin-top:3px;
+  border-top:1px dashed rgba(0,0,0,0.12); padding-top:3px; font-style:italic; }
+/* A web address in a message is a link, in WhatsApp's link colour (Philip
+   30 Oct 2026, 11:37: "that link should actually work please"). */
+.wa-text a.wa-link { color:#027eb5; text-decoration:none; word-break:break-all; }
+.wa-text a.wa-link:hover { text-decoration:underline; }
+.wa-text code.wa-mono { font-family:var(--font, 'Space Grotesk', Arial, sans-serif); font-variant-numeric:tabular-nums;
+  font-size:0.84rem; }
+.wa-pin { display:block; width:240px; max-width:100%; color:inherit;
+  text-decoration:none; margin:0 0 2px; }
+.wa-pin-map { height:92px; border-radius:6px; display:flex; align-items:center;
+  justify-content:center; background:#dfe8d8;
+  background-image:linear-gradient(90deg,rgba(255,255,255,0.7) 2px,transparent 2px),
+    linear-gradient(0deg,rgba(255,255,255,0.7) 2px,transparent 2px);
+  background-size:34px 34px; position:relative; overflow:hidden; }
+.wa-pin-tile { position:absolute; max-width:none; }
+.wa-pin-icon { position:relative; z-index:1; transform:translateY(-11px); }
+.wa-pin-osm { position:absolute; right:3px; bottom:1px; z-index:1; font-size:0.6rem; color:#333;
+  background:rgba(255,255,255,0.7); padding:0 3px; border-radius:2px; }
+.wa-pin-body { padding:5px 2px 0; }
+.wa-pin-name { font-weight:600; font-size:0.88rem; }
+.wa-pin-addr { font-size:0.82rem; color:#3b4a54; }
+.wa-pin-coords { font-size:0.74rem; color:#667781; margin-top:1px; }
+a.wa-pin:hover .wa-pin-name, a.wa-pin:hover .wa-pin-addr { text-decoration:underline; }
+/* A file the person sent (Philip 15 Oct 2026): a document card. */
+.wa-file { display:flex; align-items:center; gap:10px; width:250px; max-width:100%;
+  padding:8px 10px; margin:0 0 2px; border-radius:6px; background:rgba(0,0,0,0.05);
+  color:inherit; text-decoration:none; }
+.wa-file-icon { flex:0 0 auto; display:flex; }
+.wa-file-body { min-width:0; display:flex; flex-direction:column; }
+.wa-file-name { font-weight:600; font-size:0.88rem; overflow-wrap:anywhere; }
+.wa-file-meta { font-size:0.74rem; color:#667781; }
+a.wa-file:hover .wa-file-name { text-decoration:underline; }
+.wa-day { margin:12px auto 10px; padding:5px 12px 6px; border-radius:7.5px; background:#fff;
+  box-shadow:0 1px 0.5px rgba(11,20,26,0.13);
+  font-size:12.5px; color:#54656f; text-align:center; width:max-content; max-width:90%; }
+/* the time sits in the bubble's bottom right corner, the words flowing round it */
+.wa-time { float:right; position:relative; top:5px; margin:0 0 0 10px; font-size:11px; line-height:15px;
+  color:#667781; white-space:nowrap; display:inline-flex; align-items:center; gap:3px; }
+.wa-time-end { clear:both; }
+.wa-ticks { color:#53bdeb; display:inline-block; }
+.wa-empty { text-align:center; color:#54656f; font-size:0.9rem;
+  background:#fff; border-radius:8px; padding:18px; margin:30px 12px; }
+
+/* from app page record.html */
+
+  /* ── Answer buttons in the row (Philip 2026-09-30) ─────────────────────
+     Small, the size of the answer word they replace; grey until picked, then
+     their colour. Without the page's script the word shows and they do not. */
+  .sm-qa { display: none; }
+  .sm-qe-on .sm-qa { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 6px; margin-top: 3px; }
+  .sm-qe-on .sm-qa.sm-qa-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px;
+    width: min(100%, 480px); margin-left: auto; }
+  .sm-qa-grid > button { width: 100%; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  /* The pills keep to the answer's margins (Philip 2026-10-06: "these pills
+     should obey the margins"): the answer column's width, starting where the
+     answer and its meaning start. A heading's lone N/A stays in its line.
+     They start from the right margin (Philip 2026-10-07: "these sorts of
+     buttons should always start on the right margin"); a long set wraps
+     inside the column. */
+  .sm-qe-on .sm-qa:not(.sm-qa-head) { width: var(--ans-row, 71.8%); margin-left: auto; box-sizing: border-box; justify-content: flex-end; }
+  .sm-qe-on .sm-qa-word { display: none; }
+  /* NOTHING DISOBEYS THE MARGINS (Philip 2026-10-12: "margins - nothing can
+     disobey the margins how dare these?"). A rating's grades, its meaning and
+     where it came from sit in the answer column like every other answer,
+     raters too; a long grade wraps inside its pill, the words read from the
+     column's left edge. */
+  .sm-qa-grid > button { white-space: normal; overflow: visible; text-overflow: clip; line-height: 1.25; padding: 4px 10px;
+    /* A wrapped grade keeps inside its pill: a full round end on three lines
+       made a circle the words spilled out of (Philip 14 Oct 2026: "leaking
+       out the bubble"). One line still reads as a pill. */
+    border-radius: 12px; }
+  .sm-grade-meaning, .sm-grade-src { width: var(--ans-row, 71.8%); margin-left: auto; box-sizing: border-box;
+    text-align: left !important; }
+  @media (max-width: 420px) { .sm-qe-on .sm-qa.sm-qa-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  /* THE SAME PILL AS SEARCH, FOLDER AND ADD (Philip 2026-10-02: "make all
+     the buttons match the same stylised shape of the search add folder
+     buttons"): fully round ends, a 1.5px line, the words at 600. Their size
+     stays the answer word's, so a row does not grow. See .btn-round-add in
+     static/dashboard/style.css. */
+  .sm-qa-b {
+    font: inherit; font-size: 0.8rem; font-weight: 600; line-height: normal; padding: 1px 10px; min-width: 34px;
+    border-radius: 999px; border: 1.5px solid var(--line, #c7cede); background: transparent; color: #9aa3b8;
+    cursor: pointer; transition: color .1s ease, border-color .1s ease, background .1s ease;
+  }
+  .sm-qa-b:hover { color: var(--accent, #2f6bff); border-color: rgba(47,107,255,0.35); background: var(--accent-soft, #eef3ff); }
+  .sm-qa-b.on { --sm-qa: var(--accent, #2f6bff); color: var(--sm-qa); border-color: var(--sm-qa); font-weight: 700;
+    background: color-mix(in srgb, var(--sm-qa) 9%, #fff); }
+  .sm-qa-b.on[data-v="Yes"], .sm-qa-b.on[data-v="none"] { --sm-qa: var(--sm-yes, #047857); }
+  .sm-qa-b.on[data-v="No"], .sm-qa-b.on[data-v="issue"], .sm-qa-b.on[data-v="issues"] { --sm-qa: var(--sm-no, #b91c1c); }
+  .sm-qa-b.on[data-v="n/a"] { --sm-qa: var(--sm-na, #374151); }
+  .sm-qa-err { margin-top: 4px; font-size: .78rem; color: #b91c1c; text-align: left; }
+  /* None beside N/A only says "not N/A": quiet, not a verdict's green. */
+  .sm-qa-b.on[data-na-set="off"] { --sm-qa: #64748b; }
+  .sm-qa-head { gap: 6px; }
+  /* An N/A section says so once: its lit N/A button, not the word as well. */
+  .sm-qe-on summary.sm-na-row .sm-group-status > span[style*="font-weight:600"] { display: none; }
+  .sm-qe-on .sm-qa.sm-qa-head { display: inline-flex; margin: 0 10px 0 0; }
+  /* The row's own text box (Philip 2026-10-01): the words at their own size
+     and place, a pink line round them fading in, no padding, so nothing
+     moves. Empty, it is two lines tall. */
+  .sm-qe-box { width: var(--ans-w, 89.75%); font-size: var(--note-size, .82rem); line-height: var(--note-line, 1.5);
+    margin-left: auto; text-align: left; white-space: pre-wrap; color: var(--ink, #213055);
+    outline: 1.5px solid transparent; outline-offset: 2px; border-radius: 3px; cursor: text;
+    animation: smQeIn .12s ease-out forwards; min-height: 1.5em; }
+  /* Room between the line and the Yes / No / N/A above (Philip 2026-10-01:
+     "the pink line is clashing with the yes no n/a"). */
+  .sm-qe-box[contenteditable="true"] { margin-top: 9px !important; }
+  /* A softer pink (Philip 2026-10-01: "make the pink less aggressive"). */
+  .sm-qe-box[contenteditable="true"]:focus { outline-color: rgba(244, 63, 140, 0.45); }
+  /* Normal weight, whatever it sits in (Philip 2026-10-02, a box on an empty
+     answer came up bold: "how is that in bold?"). Only words made bold are. */
+  .sm-qe-box { font-weight: 400; }
+  .sm-qe-box b { font-weight: 700; }
+  /* Lines a paragraph apart, as the page draws them (Philip 26 Oct 2026, 23:03). */
+  .sm-qe-box > div:not(.sm-qe-photos) + div:not(.sm-qe-photos) { margin-top: 0.5em; }
+  /* A score's number in its own pink box, the top fixed beside it (Philip
+     2026-10-02: "a pink box around the 6 ... where we can only edit the 6"). */
+  /* !important: the site's own input style made it a full-width white box. */
+  .sm-rating-in { display: inline-block !important; width: 4.2em !important; min-width: 0 !important;
+    height: auto !important; font: inherit !important; color: var(--ink, #213055) !important;
+    text-align: right; border: 0 !important; box-shadow: none !important;
+    outline: 1.5px solid rgba(244, 63, 140, 0.45) !important; outline-offset: 2px;
+    border-radius: 3px !important; background: transparent !important;
+    padding: 0 2px !important; margin: 0 4px 0 0 !important; vertical-align: baseline;
+    -moz-appearance: textfield; appearance: textfield; }
+  .sm-val-line { text-align: right; margin-top: 2px; }
+  /* IN THE WORDS COLUMN (Philip 27 Oct 2026: "All answers for all sections
+     should be in a pink box like normal"): a number, date, time, place or the
+     weather opens where its words are, at their size, left-aligned. */
+  .sm-val-line.sm-val-words { text-align: left; width: var(--ans-w, 89.75%); margin: 4px 0 0 auto !important;
+    font-size: var(--note-size, .82rem); line-height: var(--note-line, 1.5); color: var(--ink-soft); }
+  .sm-val-words .sm-val-in { font-size: var(--note-size, .82rem) !important; text-align: left; }
+  .sm-val-words .sm-val-in.sm-val-text { width: 100% !important; box-sizing: border-box; }
+  /* A number in its pink box keeps clear of the N/A under it (Philip
+     2026-10-09: "overlap on the n/a"). */
+  .sm-val-line:has(.sm-val-in) { margin-bottom: 10px; }
+  /* ...and one under the N/A keeps clear of it too ("overlap", a date). */
+  .sm-qa ~ .sm-val-line:has(.sm-val-in) { margin-top: 10px; }
+  /* A score below the buttons keeps clear of the pink text box under it
+     (Philip 2026-10-02: "no clashing of the pink outlines"). */
+  .sm-val-below { margin-bottom: 6px; }
+  .sm-qe-typing .sm-val-below + .sm-qe-box, .sm-qe-typing .sm-val-below ~ .sm-qe-box { margin-top: 12px !important; }
+  .sm-val-in { display: inline-block !important; width: 7em !important; min-width: 0 !important;
+    height: auto !important; font: inherit !important; font-size: .82rem !important; color: var(--ink, #213055) !important;
+    text-align: right; border: 0 !important; box-shadow: none !important;
+    outline: 1.5px solid rgba(244, 63, 140, 0.45) !important; outline-offset: 2px;
+    border-radius: 3px !important; background: transparent !important; padding: 0 3px !important; margin: 0 !important;
+    -moz-appearance: textfield; appearance: textfield; }
+  .sm-val-in::-webkit-inner-spin-button, .sm-val-in::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+  .sm-val-in.sm-val-date { width: 10.5em !important; font-family: inherit !important; }
+  .sm-val-in[type=number], .sm-rating-in[type=number] { -moz-appearance: textfield !important; appearance: textfield !important; }   /* Firefox: no arrows */
+  .sm-rating-in::-webkit-inner-spin-button, .sm-rating-in::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+  @keyframes smQeIn { from { outline-color: transparent; } to { outline-color: rgba(244, 63, 140, 0.45); } }
+  /* Indent and Bold, on the left of the box while it is open, one above
+     the other (Philip 2026-10-02: "bold and indent should be stacked
+     vertically and put the whole word bold"), in the same pill as Search,
+     Folder and Add. */
+  .sm-qe-tools { position: absolute; display: flex; flex-direction: column; align-items: stretch; gap: 6px; z-index: 3; }
+  .sm-qe-tools.sm-qe-tools-row { flex-direction: row; }
+  .sm-qe-tools button { font: inherit; font-size: .8rem; font-weight: 600; line-height: normal; padding: 1px 12px;
+    border-radius: 999px; border: 1.5px solid var(--line, #c7cede); background: #fff; color: var(--ink-soft, #5c6b90);
+    cursor: pointer; transition: color .1s ease, border-color .1s ease, background .1s ease; }
+  .sm-qe-tools button:hover { color: var(--accent, #2f6bff); border-color: rgba(47,107,255,0.35); background: var(--accent-soft, #eef3ff); }
+  /* Lit while the cursor's line is indented: press again to undo it. */
+  /* A TO DO LINE AND ITS PENCIL ARE ONE CLICK (Philip 2026-10-02: "make
+     these part of the same click"). The whole line lights, pencil included,
+     and a click anywhere on it edits the words. The drag handle keeps its own
+     job. Only where the line can be edited, so a shareable is unchanged. */
+  .sm-issue-row:has(.sm-todo-edit-btn) { cursor: pointer; border-radius: 6px; transition: background .12s ease; }
+  .sm-issue-row:has(.sm-todo-edit-btn):hover { background: #eff6ff; }
+  .sm-issue-row:has(.sm-todo-edit-btn) .sm-issue-item:hover { background: transparent; }
+  .sm-issue-row:has(.sm-todo-edit-btn):hover .sm-issue-label,
+  .sm-issue-row:has(.sm-todo-edit-btn):hover .sm-issue-val { color: #2563eb; }
+  .sm-issue-row:has(.sm-todo-edit-btn) .sm-issue-item:hover .sm-issue-label { text-decoration: none; }
+  .sm-zone { cursor: pointer; border-radius: 8px; transition: background .12s ease; }
+  .sm-zone:hover { background: var(--accent-soft, #eef3ff); }
+  /* Only the part under the pointer lights (Philip 2026-10-02: "the actual
+     bit i can edit is the bit that should go blue"): the title block holds the
+     reference line, so the title lights its own line and the reference its
+     own. */
+  /* EVERY BOX YOU TYPE IN IS THE SAME PINK BOX (Philip 2026-10-02: "anywhere
+     where i can edit the text should have the pink box, so that applies to
+     those top title and reference boxes"): the row box's soft pink line, the
+     words at their own size, no grey border or padding. */
+  /* !important: the site's own text-input style (border, padding, blue
+     focus ring) otherwise wins over a class. */
+  input.sm-pink-input[type="text"], input.sm-pink-input[type="text"]:focus {
+    font-family: inherit; padding: 0 !important; margin: 0; border: none !important; background: transparent !important;
+    box-shadow: none !important; outline: 1.5px solid rgba(244, 63, 140, 0.45) !important; outline-offset: 2px;
+    border-radius: 3px !important; box-sizing: border-box; height: auto; }
+  .sm-rt-wrap.sm-zone:hover { background: transparent; }
+  /* No hover tint behind a box being typed in. */
+  .sm-zone:has(input:focus):hover, .sm-rt-wrap.sm-zone .sm-rt-view:has(~ .sm-rt-editor input:focus) { background: transparent; }
+  .sm-rt-wrap.sm-zone .sm-rt-view { border-radius: 8px; transition: background .12s ease; }
+  .sm-rt-wrap.sm-zone .sm-rt-view:hover { background: var(--accent-soft, #eef3ff); }
+  .sm-qe-tools button.on { color: var(--accent, #2f6bff); border-color: var(--accent, #2f6bff); background: var(--accent-soft, #eef3ff); }
+  /* A HEADING'S BUTTONS, WORD AND PENCIL END AT ITS RIGHT MARGIN (Philip
+     2026-09-30: "move the parents pencil and words and button all the way
+     over to the right margin"). The empty slot after the pencil stood in for
+     the answer pencils below it; the answers' buttons now run to the margin,
+     so the slot and the pencil's own gap left the heading short of it. */
+  .sm-qe-on .sm-group-status > span[style*="0 0 34px"] { display: none; }
+  .sm-qe-on .sm-group-status > .sm-head-note-edit { margin-right: 0 !important; }
+  /* The words say they can be edited. So does the pencil (Philip 2026-09-30:
+     "pencil = this can be changed ... what we want less of is the pop ups"):
+     it stays, and opens the same pink box as the words do. */
+  .sm-qe-on tr.sm-answer-row > td,
+  .sm-qe-on summary[id^="row-"] { cursor: pointer; transition: background .12s ease; }
+  .sm-qe-on tr.sm-answer-row > td:hover,
+  .sm-qe-on summary[id^="row-"]:hover { background: rgba(47, 107, 255, 0.05); }
+
+/* from app page record.html */
+
+  .sm-qe-in { outline: none; cursor: text; }
+  .sm-qe-ring { position: absolute; pointer-events: none; z-index: 2; border-radius: 3px;
+    box-shadow: 0 0 0 1.5px rgba(244, 63, 140, 0.45); animation: smQeRing .12s ease-out; }
+  @keyframes smQeRing { from { opacity: 0; } to { opacity: 1; } }
+  .sm-qe-in .sm-pit, .sm-qe-in .sm-pit * { user-select: none; -webkit-user-select: none; }
+
+/* from app page record.html */
+
+  #sm-pt.sm-pt-quiet { opacity: .5; transition: opacity .2s ease; }   /* "slightly less dim" (Philip 2026-10-09) */
+  #sm-pt.sm-pt-quiet:hover, #sm-pt.sm-pt-quiet.sm-pt-over { opacity: 1; }
+  #sm-pt {
+    position: fixed; z-index: 30; box-sizing: border-box; display: flex; flex-direction: column;
+    background: #fff; border: 1px solid var(--line, #c7cede); border-radius: 12px;
+    box-shadow: 0 6px 22px rgba(13, 26, 58, 0.08); padding: 12px; gap: 10px;
+  }
+  #sm-pt[hidden] { display: none; }
+  #sm-pt h2 { margin: 0; font-size: 0.9rem; font-weight: 700; color: var(--ink, #0d1a3a); }
+  #sm-pt .sm-pt-grid {
+    display: grid; gap: 12px; overflow-y: auto; overflow-x: hidden; align-content: start; min-height: 60px;   /* no side scroll bar (Philip 27 Oct 2026, 09:16) */
+    border-radius: 8px; padding: 2px; transition: background .12s ease, box-shadow .12s ease;
+  }
+  #sm-pt .sm-pt-grid img {
+    width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; cursor: grab;
+    border-radius: 5px; border: 1px solid var(--line, #c7cede); background: #fff;
+  }
+  #sm-pt .sm-pt-empty { grid-column: 1 / -1; color: var(--ink-soft, #6b7280); font-size: 0.8rem; line-height: 1.4; padding: 8px 2px; }
+  #sm-pt.sm-pt-over .sm-pt-grid { background: rgba(47, 107, 255, 0.07); box-shadow: inset 0 0 0 2px var(--accent, #2f6bff); }
+  #sm-pt .sm-pt-up {
+    align-self: stretch; padding: 8px 10px; border-radius: 999px; cursor: pointer;
+    border: 1px solid var(--line, #c7cede); background: #fff; color: var(--accent, #2f6bff);
+    font: inherit; font-size: 0.84rem; font-weight: 600;
+  }
+  #sm-pt .sm-pt-up:hover { border-color: var(--accent, #2f6bff); }
+  #sm-pt .sm-pt-tip { font-size: 0.74rem; color: var(--ink-soft, #6b7280); line-height: 1.35; text-align: center; }
+  #sm-pt .sm-pt-status { font-size: 0.74rem; color: var(--ink-soft, #6b7280); min-height: 1em; text-align: center; }
+  tr.sm-answer-row.sm-pt-target > td,
+  summary.sm-pt-target { background: rgba(47, 107, 255, 0.07); box-shadow: inset 0 0 0 2px var(--accent, #2f6bff); }
+  img[data-fig].sm-pt-moving { opacity: 0.35; }
+  .sm-sig-name[contenteditable="true"] { cursor: text; border-radius: 3px; outline: none; display: inline-block; min-width: 3em; }
+  .sm-sig-name[contenteditable="true"]:empty::before { content: 'name'; color: var(--ink-soft, #9aa3b5); font-weight: 400; }
+  /* The same pink box as every other edit, only while editing. */
+  .sm-sig-name[contenteditable="true"]:focus { outline: 1.5px solid rgba(244, 63, 140, 0.45); outline-offset: 2px; }
+  .sm-field-photos img.sm-paste-wait { opacity: 0.55; animation: sm-pt-pulse 1.1s ease-in-out infinite; }
+  .sm-field-photos img.sm-sig-wait { opacity: 0.35; filter: grayscale(1); animation: sm-pt-pulse 1.1s ease-in-out infinite; }
+  #sm-pt .sm-pt-grid img.sm-pt-pending { opacity: 0.5; cursor: progress; animation: sm-pt-pulse 1.1s ease-in-out infinite; }
+  @keyframes sm-pt-pulse { 50% { opacity: 0.8; } }
+  /* Copied words that came with a picture of themselves (Philip 16 Oct 2026). */
+  .sm-paste-choice { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 6px;
+    margin: 6px 0 2px auto; font-size: 0.78rem; color: var(--ink-soft, #6b7280); }
+  .sm-paste-choice button {
+    font: inherit; font-size: 0.78rem; font-weight: 600; padding: 2px 10px; border-radius: 999px; cursor: pointer;
+    border: 1.5px solid var(--line, #c7cede); background: #fff; color: var(--accent, #2f6bff);
+  }
+  .sm-paste-choice button:hover { border-color: var(--accent, #2f6bff); }
+
+/* from app page record.html */
+
+/* ONE WIDTH FOR EVERY VOICE NOTE (Philip 30 Oct 2026, 12:28: "The width of
+   the voice note things should always be the same. Make up for the words
+   with new lines."): the bubble is 340px, or the chat's width on a phone,
+   whatever the note's length; the words wrap inside it, and the waveform is
+   stretched or squeezed to fill the room beside play. */
+.wa-bubble:has(> .wa-voice) { width:340px; max-width:100%; box-sizing:border-box; }
+.wa-bubble:has(> .wa-voice) > .wa-transcript { overflow-wrap:anywhere; }
+.wa-voice { display:flex; align-items:center; gap:8px; width:100%;
+  padding:5px 2px 0 0; box-sizing:border-box; font-family:var(--font, 'Space Grotesk', Arial, sans-serif); }
+.wa-vav { position:relative; flex:0 0 auto; width:52px; height:52px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center; background:#dfe5e7; color:#fff;
+  font-weight:700; font-size:17px; letter-spacing:0.01em; }
+.wa-vav > img { width:100%; height:100%; border-radius:50%; object-fit:cover; display:block; background:#fff; }
+.wa-vav-3 { font-size:14px; letter-spacing:-0.02em; }
+/* THE CONTACTS COLOURS EXACTLY (Philip 30 Oct 2026, 12:28: "it should match
+   the same blue as on the normal page"): the very colours of the person's
+   initials on Contacts (static/dashboard/style.css, .eng-row:hover
+   .eng-avatar.avatar-*), laid over white as the Contacts card is, so the
+   bubble's green never tints them. Blue with a phone only, pink with an
+   email only, the purple between them with both; white letters. */
+.wa-vav-phone { background:linear-gradient(rgba(47,107,255,0.35), rgba(47,107,255,0.35)), #fff; color:#fff; }
+.wa-vav-email { background:linear-gradient(rgba(244,63,140,0.9), rgba(244,63,140,0.9)), #fff; color:#fff; }
+.wa-vav-both  { background:linear-gradient(rgba(146,85,198,0.62), rgba(146,85,198,0.62)), #fff; color:#fff; }
+.wa-vav-icon { color:#fff; margin-top:6px; }
+.wa-vmic { position:absolute; right:-4px; bottom:-2px; width:20px; height:20px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center; color:#00a884; background:#fff; }
+.wa-you .wa-vmic { background:#d9fdd3; }
+.wa-voice.is-heard .wa-vmic { color:#53bdeb; }
+/* The speed in the picture's place while a note plays (Philip 30 Oct 2026,
+   11:35): a dark grey rounded pill in the same 52px slot, so nothing moves. */
+.wa-vspeed { display:none; flex:0 0 auto; width:52px; height:52px; padding:0; border:none; background:none;
+  cursor:pointer; align-items:center; justify-content:center; font:inherit; border-radius:13px; }
+.wa-vspeed-pill { display:inline-flex; align-items:center; justify-content:center; min-width:44px; height:26px;
+  padding:0 7px; box-sizing:border-box; border-radius:13px; background:#5e6b72; color:#fff;
+  font-size:13px; font-weight:600; font-variant-numeric:tabular-nums; }
+.wa-vspeed:focus-visible { outline:2px solid #2f6bff; outline-offset:-2px; }
+.wa-voice.is-started .wa-vav { display:none; }
+.wa-voice.is-started .wa-vspeed { display:flex; }
+.wa-vplay { flex:0 0 auto; width:34px; height:44px; padding:0; border:none; background:none;
+  color:#3b4a54; cursor:pointer; display:flex; align-items:center; justify-content:center; border-radius:8px; }
+.wa-vplay:focus-visible, .wa-vwave:focus-visible { outline:2px solid #2f6bff; outline-offset:2px; }
+.wa-vplay-off { display:none; }
+.wa-voice.is-playing .wa-vplay-on { display:none; }
+.wa-voice.is-playing .wa-vplay-off { display:block; }
+/* The waveform sits level with the picture's middle and play, the length
+   under it: room the length's height above it keeps it centred. */
+.wa-vbody { flex:1 1 auto; min-width:0; display:flex; flex-direction:column; padding-top:17px; }
+.wa-vwave { position:relative; height:32px; display:flex; align-items:center;
+  justify-content:space-between; cursor:pointer; touch-action:none; border-radius:4px; }
+.wa-vbar { flex:0 0 3px; width:3px; min-height:3px; border-radius:2px; background:rgba(17,27,33,0.24);
+  transition:background-color .08s linear; }
+.wa-vbar.is-on { background:#3b4a54; }
+.wa-vdot { position:absolute; top:50%; left:0; width:13px; height:13px; border-radius:50%;
+  background:#53bdeb; transform:translate(-50%,-50%); pointer-events:none;
+  box-shadow:0 1px 2px rgba(11,20,26,0.25); }
+.wa-vlen { font-size:11px; line-height:15px; color:#667781; margin-top:2px; min-height:15px;
+  font-variant-numeric:tabular-nums; }
+/* The bubble's own time sits on the length's line, on the right, as on
+   WhatsApp, when no words follow the note. */
+.wa-bubble:has(> .wa-voice + .wa-time) > .wa-time,
+.wa-bubble:has(> .wa-voice + .wa-via) > .wa-via { margin-top:-17px; }
+.wa-voice .wa-audio { display:none; }
+.wa-voice + .wa-transcript { margin-top:6px; }
+
+/* from app page record.html */
+
+  /* A photo in the words snaps to the right like every other photo row
+     (Philip 26 Oct 2026: "photos should still follow the snap to right hand
+     side set up"): the row ends flush with the words' right edge, and each
+     square is its question's foot size (--sm-pit-cell, below). */
+  .sm-pit { margin: 8px 0 12px; white-space: normal; }
+  /* A PHOTO IN THE WORDS IS ITS QUESTION'S FOOT SIZE (prod's fifth of the
+     question's row, Philip 27 Oct 2026: photos "as they are on prod"; 26 Oct,
+     15:45: "these should be the same"). The words are narrower than the foot,
+     so a share of their own width would draw smaller photos: sizeRow() below
+     sets --sm-pit-cell on the row to the foot's share. */
+  .sm-photo-grid.sm-pit > * { flex: 0 0 var(--sm-pit-cell, calc((100% - (var(--sm-cols) - 1) * 12px) / var(--sm-cols))); }
+  .sm-answer-v > .sm-pit { width: var(--ans-w, 89.75%); margin-left: auto; }
+  li > .sm-pit { margin-left: -1.1em; }
+  /* THE PLACES TAKE NO ROOM (Philip 26 Oct 2026, 14:41: "the way everything
+     jumps and expands when you do this isn't helpful ... make the blue bits
+     fit in whatever space is available there"). Each place is drawn on a
+     layer over the page, in the gap between two paragraphs or photo rows:
+     nothing on the page moves or changes size. Its hit area is the gap and a
+     little either side, so it is easy to hit with a finger; the line under
+     the pointer turns solid blue and says "Put it here". */
+  .sm-pit-layer { position: absolute; left: 0; top: 0; width: 0; height: 0; z-index: 60; pointer-events: none; }
+  .sm-pit-slot {
+    position: absolute; display: block; margin: 0; padding: 0; border: 0; background: transparent; max-width: none;
+    pointer-events: auto; cursor: copy; font: inherit; -webkit-tap-highlight-color: transparent;
+  }
+  .sm-pit-slot::before {
+    content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 2px; margin-top: -1px; border-radius: 2px;
+    background: rgba(47, 107, 255, 0.35); transition: background .1s ease, transform .1s ease;
+  }
+  .sm-pit-slot.sm-pit-over::before {
+    background: var(--accent, #2f6bff); transform: scaleY(1.6);
+  }
+  .sm-pit-lab {
+    position: absolute; right: 0; top: 50%; transform: translateY(-50%); padding: 1px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 600; line-height: 1.5; white-space: nowrap; pointer-events: none;
+    color: #fff; background: var(--accent, #2f6bff); box-shadow: 0 2px 6px rgba(13, 26, 58, 0.25);
+  }
+  .sm-pit-slot .sm-pit-lab { opacity: 0; transition: opacity .1s ease; }
+  .sm-pit-slot.sm-pit-over .sm-pit-lab { opacity: 1; }
+  .sm-pit-slot { pointer-events: none; }        /* found by where it is drawn */
+  /* WHILE DRAGGING ONLY THE NEAREST PLACE SHOWS (Philip 26 Oct 2026, 16:22:
+     "why does it stay there?", of a faint line under every paragraph): the
+     others are drawn but not seen. */
+  .sm-pit-slot:not(.sm-pit-over)::before { background: transparent; }
+  .sm-pit-slot.sm-pit-sq:not(.sm-pit-over) { border-color: transparent; background: transparent; }
+  .sm-pit-sq { border-radius: 5px; border: 1.5px dashed rgba(47, 107, 255, 0.55); background: rgba(47, 107, 255, 0.04); box-sizing: border-box; }
+  .sm-pit-sq::before { display: none; }
+  .sm-pit-sq .sm-pit-lab { right: 50%; transform: translate(50%, -50%); }
+  .sm-pit-slot.sm-pit-sq.sm-pit-over { border-style: solid; border-color: var(--accent, #2f6bff); background: rgba(47, 107, 255, 0.14); }
+  /* The pink box's photos (editing around the photos, 26 Oct 2026): fixed
+     blocks among the words, the size the page draws them, snapped right. */
+  .sm-qe-photos { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 12px; margin: 8px 0 12px;
+    user-select: none; -webkit-user-select: none; }
+  .sm-qe-photos.sm-qe-foot:empty { display: none; }
+  .sm-qe-ph { flex: 0 0 var(--sm-pit-cell, 110px); width: var(--sm-pit-cell, 110px); cursor: grab; touch-action: none; }
+  .sm-qe-ph img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block;
+    border-radius: 5px; border: 1px solid var(--line, #c7cede); background: #fff; pointer-events: none; }
+  /* the site's phone thumbnails, as the page draws them (dashboard style.css) */
+  @media (pointer: coarse), (max-width: 820px) { .sm-qe-ph img { width: 80px; height: 60px; aspect-ratio: auto; } }
+  .sm-qe-ph.sm-qe-moving { opacity: .35; }
+  .sm-qe-ghost { position: fixed; z-index: 59; pointer-events: none; object-fit: cover; border-radius: 5px; opacity: .6;
+    box-shadow: 0 6px 18px rgba(13, 26, 58, 0.25); }
+  .sm-qe-photos-in .sm-field-photos, .sm-qe-photos-in .sm-pit { display: none !important; }
+
+/* from app page record.html */
+
+  .sm-tiles { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .sm-tile { min-width: 0; display: grid; gap: 10px; padding: 12px 14px; background: var(--surface-card, #fff);
+    border: 1.5px solid var(--line, #e2e6ef); border-radius: var(--radius-sm, 14px);
+    box-shadow: var(--shadow-card, 0 2px 10px rgba(13,26,58,.06)); }
+  .sm-tile-top { display: flex; align-items: baseline; gap: 10px; min-width: 0; }
+  .sm-tile-name { flex: 1; min-width: 0; margin: 0; font-size: 1rem; font-weight: 700; line-height: 1.35;
+    color: var(--heading, #0c1734); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+  .sm-tile-tag { flex: none; align-self: center; font-size: .72rem; font-weight: 700; line-height: 1.3; padding: 1px 8px;
+    border-radius: 999px; color: var(--ink-soft, #5c6b90); background: var(--surface, #f6f9ff);
+    border: 1px solid var(--line, #e2e6ef); font-variant-numeric: tabular-nums; white-space: nowrap; max-width: 40%;
+    overflow: hidden; text-overflow: ellipsis; }
+  @media (max-width: 600px) {
+    .sm-tiles { gap: 10px; }
+    .sm-tile { padding: 12px; }
+  }
+
+/* from app page record.html */
+
+  .sm-ir { margin: 4px 0 12px; }
+  .sm-ir[data-view="normal"] .sm-ir-tiles, .sm-ir[data-view="normal"] .sm-ir-loose,
+  .sm-ir[data-view="normal"] .sm-ir-note { display: none; }
+  .sm-ir[data-view="normal"] { margin: 0; }
+  tr.sm-ir-row:has(> td > .sm-ir[data-view="normal"]) > td { padding: 0 !important; }
+  tr.sm-ir-hide { display: none; }
+  /* THE TILES (Philip 26 Oct 2026: "Itemised design was like a table but
+     nice"; lib/record_tiles.py), for item rows and lists of things alike:
+     one per item, the full width of the Record (13:17: "I think the tiles
+     should be full width") */
+  .sm-tile-name > .sm-ir-cell, .sm-tile-name > .sm-it-cell { display: inline-block; min-width: 2ch; font-weight: 700; color: inherit; }
+  /* one filled line: the answer itself is the tile's text */
+  .sm-tile-text { flex: 1; min-width: 0; }
+  .sm-tile-text > .sm-ir-cell { font-size: .92rem; }
+  .sm-tile-one > .sm-tile-tag { align-self: baseline; }
+  /* the number or code beside the name: a small tag */
+  .sm-tile-tag .sm-it-cell { display: inline-block; min-height: 0; line-height: inherit; color: inherit; font-weight: inherit; }
+  .sm-tile-head .sm-it-cell { display: inline; color: inherit; font-weight: inherit; }
+  .sm-tile-head2 { font-weight: 500; color: var(--ink-soft, #5c6b90); }
+  .sm-tile-head2 .sm-it-cell { display: inline; color: inherit; font-weight: inherit; }
+  .sm-tile-badge { flex: none; max-width: 45%; font-size: .76rem; font-weight: 600; line-height: 1.4; padding: 1px 10px;
+    border: 1.5px solid currentColor; border-radius: 999px; color: var(--accent, #1a52d0); }
+  .sm-tile-badge .sm-it-cell { color: inherit; min-height: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  /* ONE LINE PER QUESTION, label then answer, across the page (13:17: "each
+     line just says the information about that particular thing"); short
+     ones two or three to a line where they fit, a long one a line of its
+     own (lib/record_tiles WIDE). No panels. */
+  .sm-lines { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr)); gap: 4px 20px; }
+  .sm-line { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; min-width: 0;
+    padding: 3px 0; border-bottom: 1px solid var(--line, #eceef3); }
+  .sm-line-wide { grid-column: 1 / -1; }
+  /* a short answer stays beside its label, whatever the label's length: the
+     label wraps in its own space (Philip 30 Oct 2026, 16:00) */
+  .sm-line:not(.sm-line-wide) { flex-wrap: nowrap; }
+  .sm-line:not(.sm-line-wide) > .sm-line-k { min-width: 0; }
+  /* a line with pills reads as the rows view does: its question, then the pills below at the right */
+  .sm-line:has(> .sm-qa-tile) { flex-wrap: wrap; }
+  .sm-line:has(> .sm-qa-tile) > .sm-line-k { flex: 0 0 100%; }
+  .sm-line:not(.sm-line-wide) > .sm-ir-cell { flex: 1 1 3rem; }
+  .sm-line:has(> .sm-line-photos), .sm-line:has(> .sm-line-note) { flex-wrap: wrap; }
+  /* the Yes / No / N/A pills in a tile line: the rows view's own, compact, at the line's right */
+  .sm-line > .sm-qa-tile { display: inline-flex; gap: 4px; margin-left: auto; flex: 0 0 auto; }
+  .sm-qa-tile .sm-qa-b { font-size: .72rem; padding: 0 8px; min-width: 30px; }
+  /* Yes, No and N/A keep the colours of the rows' answer pills
+     (_record_quick_edit.html .sm-qa-b.on) */
+  :root { --sm-yes: #047857; --sm-no: #b91c1c; --sm-na: #374151; }
+  .sm-ir-cell[data-yn] { font-weight: 700; }
+  .sm-ir-cell[data-yn="Yes"] { color: var(--sm-yes); }
+  .sm-ir-cell[data-yn="No"] { color: var(--sm-no); }
+  .sm-ir-cell[data-yn="n/a"] { color: var(--sm-na); }
+  /* a question's own pictures sit in its line, on a line of their own */
+  .sm-line-photos { flex: 0 0 100%; width: 100%; margin: 4px 0 2px; }
+  /* A PICTURE IS THE LINE'S HEIGHT, at the line's right (Philip 30 Oct 2026,
+     16:45: "the images are now way too small in table mode. allow them to be
+     full height of the box or line thing they are in"). A short line with no
+     note keeps one row: label, answer, then its pictures as tall as the line.
+     Where the line wraps (a note), the pictures keep that same height. */
+  .sm-line { --pic-h: 2.75rem; }
+  .sm-line-photos.sm-photo-grid { display: flex; justify-content: flex-end; gap: 4px; }
+  .sm-line-photos.sm-photo-grid > * { flex: 0 0 auto; width: auto; }
+  .sm-line-photos.sm-photo-grid img { height: var(--pic-h); width: auto; max-width: none; aspect-ratio: auto; object-fit: contain; }
+  .sm-line:not(.sm-line-wide):has(> .sm-line-photos):not(:has(> .sm-line-note)) { flex-wrap: nowrap; align-items: center; }
+  .sm-line:not(.sm-line-wide):has(> .sm-line-photos):not(:has(> .sm-line-note)) > .sm-line-photos { flex: 0 0 auto; width: auto; margin: 0 0 0 auto; }
+  /* a line with pills keeps its question on a row of its own, then the pills and the picture at the right */
+  .sm-line:not(.sm-line-wide):has(> .sm-qa-tile):has(> .sm-line-photos):not(:has(> .sm-line-note)) { flex-wrap: wrap; }
+  .sm-line:not(.sm-line-wide):has(> .sm-qa-tile):has(> .sm-line-photos):not(:has(> .sm-line-note)) > .sm-line-photos { margin: 0; }
+  .sm-line-k { flex: 0 1 auto; max-width: 100%; font-size: .78rem; color: var(--ink-soft, #5c6b90); }
+  .sm-line-wide > .sm-line-k { flex-basis: 9.5rem; }
+  .sm-line-k::after { content: ':'; }
+  /* a long question keeps its words on as few lines as it can */
+  .sm-line-wide.sm-line-longk > .sm-line-k { flex-basis: auto; max-width: 65%; }
+  .sm-line > .sm-ir-cell, .sm-line > .sm-it-cell { flex: 1 1 8rem; min-width: 4rem; font-size: .9rem; }
+  .sm-line-ways { flex: 1 1 14rem; display: flex; flex-wrap: wrap; gap: 2px 16px; min-width: 0; }
+  .sm-line-way { display: inline-flex; align-items: baseline; gap: 5px; }
+  .sm-line-way > i { font-style: normal; font-size: .72rem; color: var(--ink-soft, #5c6b90); }
+  .sm-line-way .sm-ir-cell, .sm-line-way .sm-it-cell { min-width: 2.5em; font-size: .9rem; }
+  .sm-ir-cell, .sm-it-cell { white-space: pre-wrap; overflow-wrap: anywhere; color: var(--ink, #213055); line-height: 1.5;
+    min-height: 1.5em; border-radius: 3px; outline: 1.5px solid transparent; outline-offset: 2px; }
+  .sm-ir-cell[contenteditable="true"], .sm-it-cell[contenteditable="true"] { cursor: text; }
+  .sm-ir-cell[contenteditable="true"]:hover, .sm-it-cell[contenteditable="true"]:hover { outline-color: var(--highlight-soft, rgba(244, 63, 140, 0.25)); }
+  .sm-ir-cell[contenteditable="true"]:focus, .sm-it-cell[contenteditable="true"]:focus { outline-color: rgba(244, 63, 140, 0.45); }
+  /* a blank place to type in: a faint dotted line */
+  .sm-ir-cell[contenteditable="true"]:empty, .sm-it-cell[contenteditable="true"]:empty {
+    background: linear-gradient(to right, var(--line-strong, #c7cede) 40%, transparent 0) left calc(100% - 2px) / 6px 1px repeat-x; }
+  /* AN ITEM'S PHOTOS: the size and place of every question's photos, five
+     to a row from the right (.sm-photo-grid), not a third of the tile
+     (Philip 26 Oct 2026, 15:39: "why are these photos so big?") */
+  .sm-tile .sm-ir-grid { margin: 0; }
+  .sm-ir-loose { margin-top: 10px; }
+  .sm-ir-note { margin: 6px 0 0; font-size: .8rem; color: var(--ink-soft, #5c6b90); white-space: pre-wrap; }
+  .sm-ir-note > span { font-weight: 600; }
+  @media (max-width: 600px) {
+    /* a phone: the question photos' 80 px */
+    .sm-ir-grid { --sm-cols: 3; }
+    .sm-ir-grid > * { flex: 0 0 min(80px, calc((100% - 24px) / 3)); }
+  }
+  /* THE ITEMS BLEND INTO THEIR SECTION (Philip 30 Oct 2026, 16:56: "it doesn't
+     really sit very well with the stuff around it. blend the styling a
+     little"): no card, border or shadow; the same indent each side as the
+     rows around it (8 + 24 a level, --sm-ir-in), the same label size and
+     colour, line padding and divider as a question row (field_row). */
+  .sm-ir { padding: 0 var(--sm-ir-in, 8px); }
+  .sm-ir .sm-tiles { gap: 0; }
+  .sm-ir .sm-tile { padding: 0; gap: 0; background: transparent; border: 0; border-radius: 0; box-shadow: none; }
+  .sm-ir .sm-tile + .sm-tile { border-top: 1px solid rgba(0, 0, 0, 0.06); margin-top: 8px; padding-top: 8px; }
+  .sm-ir .sm-tile-top { padding: 8px 0 0; }
+  .sm-ir .sm-lines { gap: 0 20px; }
+  .sm-ir .sm-line { padding: 8px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.06); }
+  .sm-ir .sm-line-k { font-size: .85rem; font-weight: 500; color: var(--ink, #0d1a3a); }
+  .sm-ir .sm-line > .sm-ir-cell { font-size: .85rem; }
+  /* An N/A item: the rows view's own N/A look (.sm-na-row, grey), smaller
+     writing, and the SAME box as any other: one height for every box, name
+     and answer at the top, a picture slot kept where any box of the tile
+     has a picture (Philip 31 Oct 2026). */
+  .sm-ir .sm-line { min-height: 3.1rem; align-items: flex-start; box-sizing: border-box; }
+  .sm-ir .sm-line-na .sm-line-k, .sm-ir .sm-line-na .sm-ir-cell { font-size: .72rem; }
+  .sm-ir .sm-tile:has(.sm-line-photos) .sm-line:not(:has(> .sm-line-photos))::after { content: ''; flex: 0 0 var(--pic-h, 2.75rem); order: 9; }
+  /* A Yes / No / N/A WORD SNAPS TO A RIGHT EDGE (Philip 4 Nov 2026, 13:33:
+     "can these answers yes no n/a snap to be in line with each other on the
+     right side but left of the photo"). A line whose answer is one of those
+     words (the shared page, where no pills are drawn): the question takes
+     the room it needs and wraps in its own space, the word has one fixed
+     slot, right aligned, so every word in a column ends on the same edge;
+     the picture's slot is one fixed width too (a line with none keeps it
+     empty), so the words stop short of the picture whether it is there or
+     not. Pills (the editing page) already sit on one right edge. */
+  .sm-ir { --pic-w: 3.75rem; --yn-w: 3.2rem; }
+  .sm-ir .sm-line:not(.sm-line-wide):has(> .sm-ir-cell[data-yn]) > .sm-line-k { flex: 1 1 0; min-width: 0; }
+  .sm-ir .sm-line:not(.sm-line-wide) > .sm-ir-cell[data-yn] { flex: 0 0 var(--yn-w); min-width: 0; text-align: right; white-space: nowrap; }
+  .sm-ir .sm-line:not(.sm-line-wide):has(> .sm-ir-cell[data-yn]) > .sm-line-photos { min-width: var(--pic-w); }
+  .sm-ir .sm-line:not(.sm-line-wide):has(> .sm-ir-cell[data-yn]) > .sm-line-photos.sm-photo-grid img { max-width: var(--pic-w); }
+  .sm-ir .sm-tile:has(.sm-line-photos) .sm-line:not(:has(> .sm-line-photos)):has(> .sm-ir-cell[data-yn])::after { flex-basis: var(--pic-w); }
+  /* the sub-heading of an items table, drawn as the table's title at the heading's own indent */
+  tr.sm-ir-title > td { padding: 0; border-bottom: 0; }
+  .sm-ir-title-h { margin: 0; padding-top: 10px; padding-bottom: 2px; font-size: .92rem; font-weight: 600; color: var(--ink, #0d1a3a); }
+
+/* from app page record.html */
+
+  .sm-rc-open { font: inherit; font-size: .76rem; font-weight: 600; color: var(--ink-soft, #6b7280);
+    display: inline-flex; align-items: center; gap: 5px; background: transparent; cursor: pointer;
+    border: 1.5px solid var(--line, #e5e7eb); border-radius: 999px; padding: 3px 10px; margin-right: 6px; white-space: nowrap; }
+  .sm-rc-open:hover, .sm-rc-open[aria-expanded="true"] { background: var(--tile, #f1f3f7); color: var(--ink, #0d1a3a); }
+  .sm-rc { margin: 10px 0 4px; padding: 12px 14px; border: 1.5px solid var(--line, #e2e6ef); border-radius: 12px;
+    background: var(--card, #fff); }
+  .sm-rc[hidden] { display: none; }
+  .sm-rc-hint { margin: 0 0 8px; font-size: .8rem; color: var(--ink-soft, #6b7280); }
+  .sm-rc-group { border: 0; margin: 0 0 8px; padding: 0; min-width: 0; }
+  .sm-rc-group legend { padding: 0; margin-bottom: 2px; font-size: .82rem; font-weight: 600; color: var(--ink, #0d1a3a); }
+  .sm-rc-group legend label { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; padding: 4px 2px; }
+  .sm-rc-qs { display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: 2px 12px; }
+  .sm-rc-q { display: flex; align-items: flex-start; gap: 8px; padding: 6px 8px; border-radius: 8px;
+    font-size: .86rem; color: var(--ink, #213055); cursor: pointer; line-height: 1.35; }
+  .sm-rc-q:hover { background: var(--tile, #f1f3f7); }
+  .sm-rc input[type="checkbox"] { width: 16px; height: 16px; margin: 1px 0 0; flex: none; accent-color: var(--accent, #2f6bff); }
+  .sm-rc-btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+  .sm-rc-save { font: inherit; font-size: .84rem; font-weight: 600; color: #fff; background: var(--accent, #2f6bff);
+    border: 0; border-radius: 999px; padding: 6px 16px; cursor: pointer; }
+  .sm-rc-save[disabled] { opacity: .6; cursor: default; }
+  .sm-rc-auto { font: inherit; font-size: .84rem; font-weight: 600; color: var(--ink-soft, #6b7280); background: transparent;
+    border: 1.5px solid var(--line, #e5e7eb); border-radius: 999px; padding: 5px 14px; cursor: pointer; }
+  @media (max-width: 600px) {
+    .sm-rc { padding: 10px; }
+    .sm-rc-qs { grid-template-columns: 1fr; }
+    .sm-rc-q { padding: 8px 6px; }
+    .sm-rc-save, .sm-rc-auto { flex: 1 1 auto; padding: 9px 14px; }
+  }
+
+/* from app page record.html */
+
+  .sm-ir-item.sm-pt-target, .sm-line.sm-pt-target { box-shadow: inset 0 0 0 2px var(--accent, #2f6bff); background: rgba(47, 107, 255, 0.05); }
+  .sm-line.sm-pt-target { border-radius: 6px; }
+
+/* from app page record.html */
+
+  .sm-et { margin-top: 18px; scroll-margin-top: 16px; }
+  .sm-et-h { margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; color: var(--ink, #0d1a3a); }
+  .sm-et-none { margin: 4px 0 8px; font-size: .85rem; color: var(--ink-soft, #5c6b90); }
+  /* a combined Record: its source Records' times (Philip 28 Oct 2026) */
+  .sm-et-line { margin: 4px 0 10px; font-size: .85rem; color: var(--ink-soft, #5c6b90); }
+  .sm-et-line strong { color: var(--ink, #0d1a3a); font-variant-numeric: tabular-nums; }
+  .sm-et-src { margin: 0 0 4px; }
+  .sm-et-src-h { margin: 12px 0 0; font-size: .9rem; font-weight: 600; color: var(--ink, #0d1a3a); overflow-wrap: anywhere; }
+  .sm-et-src-who { margin: 0 0 6px; font-size: .78rem; color: var(--ink-soft, #5c6b90); }
+  .sm-et-src-h + .sm-et-figs { margin-top: 6px; }
+  .sm-et-total { margin-top: 12px; }
+  .sm-et-figs { display: flex; flex-wrap: wrap; margin-bottom: 10px;
+    background: var(--surface-card, #fff); border: 1px solid var(--line, #e2e6ef); border-radius: 12px; overflow: hidden; }
+  /* one panel, the figures parted by hairlines (Philip 26 Oct 2026, 14:50:
+     "make these look more together"); two main figures on top, the minor
+     ones below (14:40). ONLY THE FIGURES THERE ARE (Philip 29 Oct 2026, "what
+     is the 3rd box"): no empty places; each row is shared out among the
+     figures on it, so 2 fill one row, 4 lie 3 and 1, all 6 lie 2 and 4.
+     The hairlines are each figure's own right and bottom edge; the panel's
+     edge hides those on its outside. A figure has no background of its
+     own, which would paint over the line of the one before it. */
+  .sm-et-fig { flex: 1 1 22%; display: grid; gap: 1px; padding: 8px 12px; min-width: 0;
+    box-shadow: 1px 0 0 var(--line, #e2e6ef), 0 1px 0 var(--line, #e2e6ef); }
+  .sm-et-fig[data-key="walk"], .sm-et-fig[data-key="edit"] { flex-basis: 45%; order: -1; }
+  .sm-et-fig[data-key="walk"] > strong, .sm-et-fig[data-key="edit"] > strong { font-size: 1.6rem; }
+  @media (max-width: 560px) { .sm-et-fig { flex-basis: 45%; } }
+  .sm-et-fig > span { font-size: .72rem; color: var(--ink-soft, #5c6b90); }
+  .sm-et-fig > strong { font-size: 1.15rem; font-variant-numeric: tabular-nums; color: var(--ink, #0d1a3a); }
+  .sm-et-cmp { font-style: normal; font-size: .78rem; margin-left: 4px; color: var(--ink-soft, #5c6b90); }
+  .sm-et-cmp[data-dir="down"] { color: #1f8a57; font-weight: 600; }
+  .sm-et-cmp[data-dir="up"] { color: #b42318; font-weight: 600; }
+  .sm-et-trend { display: grid; gap: 2px; margin: 6px 0; font-size: .78rem; color: var(--ink-soft, #5c6b90); }
+  .sm-et-trend-who { font-weight: 600; }
+  .sm-et-trend-row { display: flex; align-items: center; gap: 10px; min-width: 0; }
+  .sm-et-trend-row > span { flex: none; width: 52px; }
+  .sm-et-trend-row > svg { flex: none; color: var(--accent, #2f6bff); }
+  .sm-et-trend-row ol { display: flex; flex-wrap: wrap; gap: 2px 8px; margin: 0; padding: 0; list-style: none; font-variant-numeric: tabular-nums; min-width: 0; }
+  .sm-et-trend-row li.sm-et-this { font-weight: 700; color: var(--ink, #0d1a3a); }
+  .sm-et-rules { margin: 6px 0 14px; padding-left: 18px; font-size: .74rem; line-height: 1.45; color: var(--ink-soft, #5c6b90); }
+  .sm-et-tiles { margin-top: 4px; }
+  .sm-et-tile { scroll-margin-top: 16px; align-content: start; }
+  .sm-et-tile .sm-tile-name a { color: inherit; text-decoration: none; }
+  .sm-et-tile .sm-tile-name a:hover { text-decoration: underline; }
+  /* tiles within the tile (14:01): each change a small card of its own,
+     its one sentence first (14:04), the words only when they add something */
+  .sm-et-changes { display: grid; gap: 8px; min-width: 0; }
+  .sm-et-change { display: grid; gap: 6px; padding: 9px 12px; min-width: 0; scroll-margin-top: 16px;
+    border: 1px solid var(--line, #e2e6ef); border-radius: 10px; background: var(--surface-soft, #f8f9fc); }
+  .sm-et-change.sm-et-soon { margin-bottom: -5px; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; }
+  /* THE MOVE, SHOWN (14:26): the part, then the old and new as the
+     Record's own answer pills (_record_quick_edit.html .sm-qa-b.on colours) */
+  .sm-et-what { display: grid; gap: 4px; min-width: 0;
+    color: var(--ink, #0d1a3a); text-decoration: none; font-size: .88rem; line-height: 1.5; }
+  a.sm-et-what:hover .sm-et-part { color: var(--accent, #2f6bff); border-color: var(--accent, #2f6bff); }
+  .sm-et-part { flex: none; font-size: .68rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+    color: var(--ink-soft, #5c6b90); border: 1px solid var(--line, #e2e6ef); border-radius: 5px; padding: 0 6px;
+    background: var(--surface-card, #fff); }
+  .sm-et-pill { --sm-p: var(--accent, #2f6bff); display: inline-block; max-width: 100%; overflow-wrap: anywhere;
+    padding: 0 10px; border: 1.5px solid var(--sm-p); border-radius: 999px; color: var(--sm-p);
+    font-size: .8rem; font-weight: 700; line-height: 1.6; background: #fff; }
+  .sm-et-pill[data-k="yes"], .sm-et-pill[data-k="notfault"] { --sm-p: #047857; }
+  .sm-et-pill[data-k="no"], .sm-et-pill[data-k="fault"] { --sm-p: #b91c1c; }
+  .sm-et-pill[data-k="na"] { --sm-p: #374151; }
+  .sm-et-pill[data-k="unsure"] { --sm-p: #b45309; border-style: dashed; }
+  .sm-et-pill[data-k="text"] { font-weight: 600; }
+  /* top to bottom (14:57): the kind, then what it was, then what it became
+     on its own line at the right */
+  .sm-et-kindline { display: flex; align-items: center; gap: 8px; }
+  .sm-et-was, .sm-et-now { display: block; min-width: 0; overflow-wrap: anywhere; }
+  .sm-et-was { color: var(--ink-soft, #5c6b90); }
+  .sm-et-was .sm-et-place { color: var(--ink-soft, #5c6b90); }
+  .sm-et-now { text-align: right; justify-self: stretch; }
+  .sm-et-spot { display: grid; gap: 3px; justify-items: start; width: 100%; }
+  .sm-et-now .sm-et-spot { justify-items: end; }
+  .sm-et-now .sm-et-place + .sm-et-spot { margin-top: 3px; }
+  .sm-et-snip { font-size: .8rem; font-style: italic; color: var(--ink-soft, #5c6b90); }
+  /* the Record's photo tile, its size a fifth of the card as in a section */
+  .sm-et-photo { display: flex; justify-content: flex-end; margin: 2px 0; --sm-cols: 5; }
+  .sm-et-spot .sm-et-photo { width: 100%; justify-self: stretch; }
+  /* a place in a change is a link to it (15:41): plain words, an underline
+     only on hover */
+  .sm-et-link { cursor: pointer; }
+  .sm-et-link:hover, .sm-et-link:focus-visible { text-decoration: underline; text-underline-offset: 2px; outline: none; }
+  /* many edits made one change (16:18): its steps on asking */
+  .sm-et-steps { justify-self: end; text-align: right; font-size: .74rem; }
+  .sm-et-steps > summary { display: inline-block; cursor: pointer; list-style: none; font-weight: 700; color: var(--ink-soft, #5c6b90);
+    border: 1px solid var(--line, #e2e6ef); border-radius: 999px; padding: 0 8px; background: #fff; }
+  .sm-et-steps > summary::-webkit-details-marker { display: none; }
+  .sm-et-steps[open] > summary { color: var(--accent, #2f6bff); border-color: var(--accent, #2f6bff); }
+  .sm-et-steps ol { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 3px; }
+  .sm-et-steps li { color: var(--ink, #213055); }
+  .sm-et-steps li time { color: var(--ink-soft, #5c6b90); opacity: .8; font-variant-numeric: tabular-nums; margin-left: 6px; }
+  .sm-et-change[data-tone="grey"] .sm-et-plain { font-weight: 400; color: var(--ink-soft, #5c6b90); }
+  .sm-et-boxname { font-size: .8rem; font-weight: 700; color: var(--ink, #213055); overflow-wrap: anywhere; }
+  .sm-et-ctx { font-style: italic; }
+  .sm-et-place { font-size: .86rem; color: var(--ink, #213055); overflow-wrap: anywhere; }
+  .sm-et-arrow { color: var(--ink-soft, #5c6b90); }
+  .sm-et-conf { font-size: .78rem; color: var(--ink-soft, #5c6b90); }
+  .sm-et-sign { font-weight: 800; font-size: 1rem; line-height: 1; color: var(--ink-soft, #5c6b90); }
+  .sm-et-sign[data-s="+"] { color: #047857; }
+  .sm-et-sign[data-s="-"] { color: #b91c1c; }
+  .sm-et-item { overflow-wrap: anywhere; color: var(--ink, #213055); }
+  .sm-et-plain { font-weight: 600; overflow-wrap: anywhere; }
+  .sm-et-doubt { margin: 0; font-size: .78rem; font-style: italic; color: var(--ink-soft, #5c6b90); overflow-wrap: anywhere; }
+  /* what Quickler did as a result: inside the change, marked automatic */
+  .sm-et-auto { display: grid; gap: 3px; margin-left: 4px; padding: 4px 0 2px 10px; border-left: 2px dashed #c4b5fd; font-size: .84rem; }
+  .sm-et-auto-line { color: var(--ink, #213055); }
+  .sm-et-auto-tag { font-size: .66rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #6d28d9;
+    background: #f3efff; border-radius: 5px; padding: 0 6px; margin-right: 4px; }
+  .sm-et-auto .sm-et-text, .sm-et-auto .sm-et-diff, .sm-et-auto .sm-et-when { padding-left: 0; }
+  /* only what changed (14:43): one line per place, the whole text on asking */
+  .sm-et-hunks { display: grid; gap: 4px; min-width: 0; }
+  .sm-et-hunk { font-size: .88rem; line-height: 1.55; overflow-wrap: anywhere; color: var(--ink-soft, #5c6b90); }
+  .sm-et-hunk del, .sm-et-words del { background: #fde3e3; color: #8a1c1c; text-decoration: line-through; text-decoration-color: rgba(138,28,28,.5); border-radius: 3px; padding: 0 2px; }
+  .sm-et-hunk ins, .sm-et-words ins { background: #dcf3e6; color: #0f5c37; text-decoration: none; border-radius: 3px; padding: 0 2px; }
+  .sm-et-cut { color: var(--ink-soft, #5c6b90); }
+  .sm-et-whole > summary { cursor: pointer; font-size: .74rem; color: var(--accent, #2f6bff); list-style: none; width: max-content; }
+  .sm-et-whole > summary::-webkit-details-marker { display: none; }
+  .sm-et-whole[open] > summary { margin-bottom: 4px; }
+  .sm-et-text { font-size: .88rem; white-space: pre-wrap; overflow-wrap: anywhere; color: var(--ink, #213055); }
+  .sm-et-diff { align-items: start; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 6px 14px; }
+  .sm-et-diff > div { display: grid; gap: 2px; min-width: 0; align-content: start; }
+  .sm-et-diff .sm-line-k { font-size: .72rem; color: var(--ink-soft, #5c6b90); }
+  .sm-et-words { font-size: .88rem; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; color: var(--ink, #213055); }
+  .sm-et-soon-tag { font-weight: 600; color: var(--ink-soft, #5c6b90); margin-right: 4px; }
+  .sm-et[hidden] { display: none !important; }
+  [data-et-toggle][aria-expanded="true"] .sm-edits-chevron { transform: rotate(180deg); }
+  /* who and when against the right margin (15:02) */
+  .sm-et-when { text-align: right; font-size: .7rem; color: var(--ink-soft, #5c6b90); opacity: .8; font-variant-numeric: tabular-nums; }
+  .sm-et-when > span { font-weight: 600; margin-right: 4px; }
+  .sm-et-when time { font-weight: 400; }
+  /* the light on what a click lands on */
+  .sm-et-lit { animation: sm-et-lit 2.4s ease-out; }
+  @keyframes sm-et-lit { 0%, 40% { background: #fff4c2; box-shadow: 0 0 0 3px #f5d565; } 100% { background: transparent; box-shadow: 0 0 0 0 transparent; } }
+
+/* from app page record.html */
+
+  .sm-items-layer[data-view="normal"] > .sm-items { display: none; }
+  .sm-items-layer { margin: 10px 0 14px; padding: 12px 14px 14px; border: 1.5px solid var(--line, #e2e6ef); border-radius: 14px; background: var(--surface-alt, #edf2ff); }
+  .sm-items-layer[data-view="normal"] { padding-bottom: 12px; }
+  .sm-items-layer-head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .sm-items-layer[data-view="normal"] .sm-items-layer-head { margin-bottom: 0; }
+  .sm-items-layer-head h3 { margin: 0 auto 0 0; font-size: 1rem; font-weight: 600; color: var(--ink, #0d1a3a); }
+  .sm-items-layer-head h3 span { font-size: .8rem; font-weight: 500; color: var(--ink-soft, #6b7280); margin-left: 6px; }
+  /* the tiles: the item rows' own (_record_item_rows_assets.html) */
+  .sm-items-general { margin-top: 10px; }
+  .sm-items-general p { margin: 0 0 4px; font-size: .9rem; color: var(--ink, #0d1a3a); }
+  .sm-items-general span { color: var(--ink-soft, #6b7280); }
+  /* THE MAP: every thing's pin on one satellite map, named */
+  .sm-items-map { margin: 0 0 10px; padding: 0; height: 320px; border-radius: 10px; overflow: hidden; }
+  .sm-items-livemap, .sm-items-map-big { position: relative; z-index: 0; height: 100%; }
+  .sm-items-livemap.leaflet-container, .sm-items-map-big .leaflet-container { background: #1f2a22; }
+  .sm-items-livemap img.leaflet-tile, .sm-items-map-big img.leaflet-tile { width: 513px !important; height: 513px !important; mix-blend-mode: normal !important; }
+  .sm-items-livemap .leaflet-control-attribution { font-size: 8px; line-height: 1.3; padding: 0 4px; background: rgba(255,255,255,.55); }
+  .sm-items-livemap .leaflet-bar, .sm-items-map-big .leaflet-bar { border: 0 !important; border-radius: 999px !important; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.28) !important; }
+  .sm-items-livemap .leaflet-bar a, .sm-items-map-big .leaflet-bar a { width: 32px !important; height: 32px !important; line-height: 32px !important; border: 0 !important; color: #0d1a3a !important; font-weight: 500; }
+  .sm-map-expand { width: 30px; height: 30px; display: grid !important; place-items: center; background: #fff; color: #0d1a3a; border-radius: 999px !important; }
+  .sm-map-pin { background: none; border: 0; cursor: grab; }
+  .sm-map-pin svg { filter: drop-shadow(0 2px 3px rgba(0,0,0,.45)); }
+  /* a phone's "every box at most its parent's width" would shrink a pin to nothing */
+  .sm-map-pin, .sm-map-pin svg, .sm-map-pin b { max-width: none !important; }
+  .sm-map-pin b { position: absolute; left: 30px; top: 4px; white-space: nowrap; font: 600 11px/1 var(--font, 'Space Grotesk', Arial, sans-serif); color: #fff; background: rgba(13,26,58,.78); padding: 4px 8px; border-radius: 999px; box-shadow: 0 1px 4px rgba(0,0,0,.3); }
+  /* As written: one row of grades for each thing (record_enrich item_answers) */
+  .sm-qi { display: grid; gap: 6px; margin-top: 4px; }
+  /* the grade rows each thing has say what the sentence under them says
+     (Philip 22 Oct 2026: "great, just say the same thing twice"); the
+     sentence stays in the row's own box and the written report */
+  :has(> .sm-qi) > .sm-note-shown, :has(> .sm-qi) > .sm-note-text,
+  .sm-answer-v:has(.sm-qi) .sm-note-shown, .sm-answer-v:has(.sm-qi) .sm-note-text { display: none; }
+  .sm-qi-row { display: grid; grid-template-columns: 3.2em minmax(0, 1fr); align-items: center; gap: 8px; }
+  .sm-qi-name { font-size: .8rem; font-weight: 700; color: var(--ink, #0d1a3a); text-align: right; }
+  .sm-qi-qa { display: flex; flex-wrap: wrap; gap: 4px; }
+  /* more than five grades: the 3-across grid every graded answer uses (Philip 22 Oct 2026) */
+  .sm-qi-qa.sm-qa-grid { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; width: auto !important; margin-left: 0 !important; }
+  .sm-qi-qa.sm-qa-grid .sm-qi-b { width: 100%; }
+  .sm-qi-b { font: inherit; font-size: .78rem; font-weight: 600; padding: 1px 10px; border-radius: 999px; border: 1.5px solid var(--line, #c7cede); background: transparent; color: #9aa3b8; cursor: pointer; }
+  .sm-qi-b:hover { color: var(--accent, #2f6bff); border-color: rgba(47,107,255,.35); background: var(--accent-soft, #eef3ff); }
+  /* the Link: the picked word alone, in its colour, right of its thing's name */
+  .sm-qi-pick { font-size: .82rem; font-weight: 600; }
+  .sm-qi-b.on { --sm-qa: var(--accent, #2f6bff); color: var(--sm-qa); border-color: var(--sm-qa); font-weight: 700; background: color-mix(in srgb, var(--sm-qa) 9%, #fff); }
+
+/* from app page record.html */
+
+  .sm-rs { position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 950;
+    display: flex; align-items: center; gap: 18px; }
+  .sm-rs[hidden], .sm-rs-bar[hidden] { display: none; }
+  .sm-rs-wrap { position: relative; display: block; }
+  /* COPY CSV (Philip 3 Nov 2026, 14:54): beside the round switch, only while the section in view shows its items */
+  .sm-rs-csv { font: inherit; font-size: .84rem; font-weight: 600; cursor: pointer; color: var(--ink, #0d1a3a);
+    background: var(--card, #fff); border: 1.5px solid var(--line, #d7dce6); border-radius: 999px; padding: 9px 16px;
+    box-shadow: 0 2px 8px rgba(13, 26, 58, .14); white-space: nowrap; }
+  .sm-rs-csv[hidden] { display: none; }
+  .sm-rs-csv:focus-visible { outline: 3px solid var(--accent, #2f6bff); outline-offset: 2px; }
+  .sm-rs-go { width: 52px; height: 52px; border-radius: 50%; border: 0; cursor: pointer; display: grid; place-items: center;
+    background: var(--ink, #0d1a3a); color: #fff; box-shadow: 0 4px 14px rgba(13, 26, 58, .28); position: relative; }
+  .sm-rs-go:focus-visible, .sm-rs-pen:focus-visible, .sm-rs-bar button:focus-visible {
+    outline: 3px solid var(--accent, #2f6bff); outline-offset: 2px; }
+  .sm-rs-go svg { transition: transform .3s ease; }
+  .sm-rs-go.sm-rs-spun svg { transform: rotate(180deg); }
+  .sm-rs-pen { position: absolute; left: -10px; top: -10px; width: 30px; height: 30px; border-radius: 50%; cursor: pointer;
+    display: grid; place-items: center; padding: 0; background: var(--card, #fff); color: var(--accent, #2f6bff);
+    border: 1.5px solid var(--line, #d7dce6); box-shadow: 0 2px 6px rgba(13, 26, 58, .2); }
+  body.sm-rs-room { padding-bottom: 84px; }
+  /* BETA (Philip 30 Oct 2026: "label this as beta please"): a small tag on
+     the round button's lower edge; the pointer passes through it. */
+  .sm-rs-beta { position: absolute; left: 50%; bottom: -7px; transform: translateX(-50%); pointer-events: none;
+    font-size: .6rem; font-weight: 700; letter-spacing: .04em; line-height: 1; padding: 2px 6px; border-radius: 999px;
+    color: var(--accent, #2f6bff); background: var(--card, #fff); border: 1px solid rgba(47, 107, 255, .35); white-space: nowrap; }
+  /* a change fades its section out and back in, the page held still */
+  .sm-rs-fade { transition: opacity .16s ease; }
+  .sm-rs-fading { opacity: .2; }
+  @media (prefers-reduced-motion: reduce) { .sm-rs-fade { transition: none; } }
+  /* THE PENCIL: a tick by every question, the rows shown as written so each
+     question is there to tick */
+  body.sm-rs-editing .sm-rs { display: none; }
+  body.sm-rs-editing tr.sm-ir-hide { display: table-row !important; }
+  body.sm-rs-editing tr.sm-ir-row { display: none !important; }
+  .sm-rs-tick { flex: none; display: inline-flex; align-items: center; justify-content: center; margin: -6px 0 -6px -4px;
+    width: 32px; height: 32px; cursor: pointer; align-self: center; }
+  .sm-rs-tick input { width: 18px; height: 18px; margin: 0; accent-color: var(--accent, #2f6bff); cursor: pointer; }
+  .sm-rs-hint { box-shadow: inset 4px 0 0 var(--accent, #2f6bff); background: rgba(47, 107, 255, .06) !important; }
+  .sm-rs-chip { flex: none; margin-left: 8px; font-size: .7rem; font-weight: 700; letter-spacing: .02em; font-style: normal;
+    color: var(--accent, #2f6bff); background: var(--card, #fff); border: 1px solid rgba(47, 107, 255, .35);
+    border-radius: 999px; padding: 1px 8px; white-space: nowrap; }
+  .sm-rs-here { animation: sm-rs-flash 1.2s ease; }
+  /* THE SECTION THE BUTTON ACTS ON, named beside it: a small card to the
+     left of the round button, level with its middle and clear of the pencil
+     above-left of it (Philip 26 Oct 2026, 18:42: "this overlaps, make it a
+     rectangular box that doesn't interfere"). Two lines at most, the rest
+     cut with an ellipsis; the pointer passes through it to the page. */
+  .sm-rs-name { box-sizing: border-box; max-width: min(240px, calc(100vw - 112px)); padding: 5px 9px; border-radius: 6px;
+    font-size: .76rem; font-weight: 600; line-height: 1.3; text-align: right; color: var(--ink, #0d1a3a);
+    background: var(--surface-card, #fff); border: 1px solid var(--line, #d7dce6); box-shadow: 0 2px 8px rgba(13, 26, 58, .14);
+    pointer-events: none; overflow-wrap: anywhere; }
+  /* the section's name on one line, cut with an ellipsis; Rows or As
+     written under it, always whole */
+  .sm-rs-name > span { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .sm-rs-name > b { display: block; font-weight: 500; color: var(--ink-soft, #5c6b90); }
+  .sm-rs-name:not(.sm-rs-said) { display: none; }
+  .sm-rs-name.sm-rs-brief { opacity: 0; transition: opacity .25s ease; }
+  .sm-rs-name.sm-rs-brief.sm-rs-show { opacity: 1; }
+  .sm-rs-lit { animation: sm-rs-lit 1.2s ease; }
+  @keyframes sm-rs-lit { 0%, 35% { box-shadow: 0 0 0 3px var(--accent, #2f6bff); } 100% { box-shadow: 0 0 0 3px transparent; } }
+  @media (prefers-reduced-motion: reduce) { .sm-rs-lit { animation: none; box-shadow: 0 0 0 3px var(--accent, #2f6bff); } }
+  @keyframes sm-rs-flash { 0%, 40% { background: rgba(47, 107, 255, .18); } 100% { background: rgba(47, 107, 255, .06); } }
+  .sm-rs-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 960; background: var(--card, #fff);
+    border-top: 1.5px solid var(--line, #e2e6ef); box-shadow: 0 -6px 20px rgba(13, 26, 58, .12);
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); }
+  .sm-rs-bar-in { max-width: 980px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+  .sm-rs-say { flex: 1 1 260px; min-width: 0; margin: 0; font-size: .84rem; color: var(--ink, #0d1a3a); line-height: 1.35; }
+  .sm-rs-say span { display: block; font-size: .78rem; color: var(--ink-soft, #6b7280); }
+  .sm-rs-jump { display: inline-flex; align-items: center; gap: 4px; min-width: 0; }
+  .sm-rs-jump[hidden] { display: none; }
+  .sm-rs-where { font: inherit; font-size: .8rem; font-weight: 600; color: var(--accent, #2f6bff); background: transparent;
+    border: 0; cursor: pointer; max-width: 16rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 6px 4px; }
+  .sm-rs-bar button { font: inherit; cursor: pointer; }
+  .sm-rs-step { width: 34px; height: 34px; border-radius: 50%; border: 1.5px solid var(--line, #e5e7eb); background: transparent;
+    color: var(--ink, #0d1a3a); display: grid; place-items: center; padding: 0; }
+  .sm-rs-cancel { font-size: .86rem; font-weight: 600; color: var(--ink-soft, #6b7280); background: transparent;
+    border: 1.5px solid var(--line, #e5e7eb); border-radius: 999px; padding: 7px 16px; }
+  .sm-rs-done { font-size: .86rem; font-weight: 600; color: #fff; background: var(--accent, #2f6bff); border: 0;
+    border-radius: 999px; padding: 8px 20px; }
+  .sm-rs-done[disabled] { opacity: .6; cursor: default; }
+  @media (max-width: 600px) {
+    .sm-rs { right: 8px; bottom: calc(10px + env(safe-area-inset-bottom, 0px)); }
+    .sm-rs-go { width: 44px; height: 44px; }
+    /* More room under the Record on a phone, so its last controls scroll
+       clear of the round button (click-through 1 Nov 2026). */
+    body.sm-rs-room { padding-bottom: 140px; }
+    /* a phone: the chip on its own line under the section's name, and the
+       bar kept short */
+    summary.sm-rs-hint::before { content: ''; flex-basis: 100%; order: 98; }
+    summary.sm-rs-hint > .sm-rs-chip { order: 99; margin: 2px 0 0; }
+    .sm-rs-say span { display: none; }
+    .sm-rs-say { flex-basis: 100%; }
+    .sm-rs-jump { flex: 1 1 auto; }
+    .sm-rs-where { max-width: none; flex: 1 1 auto; text-align: left; }
+  }
+
+/* from app page record.html */
+
+  body.sm-rs-editing .sm-rs-pick, body.sm-rs-editing .sm-rs-pick * { cursor: pointer; }
+  body.sm-rs-editing summary.sm-rs-pick:hover, body.sm-rs-editing summary.sm-rs-pick:focus-within,
+  body.sm-rs-editing tr.sm-rs-pick:hover > td, body.sm-rs-editing tr.sm-rs-pick:focus-within > td {
+    outline: 2px solid rgba(47, 107, 255, .35); outline-offset: -2px; background: rgba(47, 107, 255, .04); }
+
+/* from app page record.html */
+
+  .sm-unit[tabindex] { cursor: pointer; border-bottom: 1px dashed currentColor; }
+  .sm-unit select { font: inherit; font-size: .85rem; }
+
+/* from app page record.html */
+
+  .sm-card-box { width: 100%; margin: 0; outline-color: transparent; }
+  .sm-card-box:hover { outline-color: rgba(244, 63, 140, 0.25); }
+  .sm-card-box[contenteditable="true"] { margin-top: 0 !important; outline-color: rgba(244, 63, 140, 0.45); }
+  .sm-card-box-err { font-size: 0.78rem; color: #b91c1c; margin-top: 4px; }
+
+/* from app page record.html */
+
+  html.sm-key-closed .sm-ownpart[data-box="key"] .sm-ownpart-body { display: none; }
+  .sm-key-fold .sm-key-fold-x { display: none; }
+  html.sm-key-closed .sm-key-fold .sm-key-fold-x { display: inline; }
+  html.sm-key-closed .sm-key-fold .sm-key-fold-c { display: none; }
+
+/* from app page record.html */
+
+    .sm-loc-dialog { width: min(960px, 94vw); max-width: min(960px, 94vw) !important; max-height: 94vh; overflow: hidden; }
+    .sm-loc-dialog .modal-box { display: flex; flex-direction: column; gap: 10px;
+      height: min(820px, 90vh); box-sizing: border-box; padding: 22px 26px 20px; }
+    .sm-loc-dialog .modal-header { margin: 0; }
+    .sm-loc-map-wrap { position: relative; flex: 1 1 auto; min-height: 220px;
+      border: 1px solid var(--line,#e2e6ef); border-radius: 10px; overflow: hidden; }
+    .sm-loc-bottom { display: flex; gap: 10px; align-items: flex-end; flex-wrap: wrap; }
+    .sm-loc-bottom .sm-loc-plot { flex: 1 1 260px; min-width: 0; }
+  

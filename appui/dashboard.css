@@ -1,0 +1,1526 @@
+  :root {
+    --surface-2:    #f0f2f8;
+    --surface-card: #ffffff;
+    --line:         rgba(24,52,132,0.25);
+    --ink-soft:     #5c6b90;
+    --ink:          #213055;
+    --heading:      #0c1734;
+    --accent:       #1a52d0;
+    --accent-soft:  rgba(47,107,255,0.1);
+    --danger:       #c0392b;
+    --danger-soft:  rgba(192,57,43,0.08);
+    --success:      #16a34a;
+    --warning:      #b45309;
+  }
+
+  .dash-header {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; flex-wrap: wrap; margin-bottom: 20px;
+  }
+  .dash-header-left { flex: 1 1 auto; min-width: 0; }
+  .dash-header-left .meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; width: 100%; }
+  /* Semantic brand badges — intentional hardcoded colours, do not invert */
+  .badge-tier     { background: rgba(244,63,140,0.06); color: #b04060; font-weight: 700; }
+  .badge-paused   { background: rgba(240,165,0,0.12);  color: #a06a00; font-weight: 700; }
+  .badge-inactive { background: rgba(156,163,175,0.18); color: #4b5563; font-weight: 700; }
+  .badge-unsubscribed { background: rgba(156,163,175,0.18); color: #4b5563; font-weight: 700; }
+  .badge-free     { background: rgba(16,185,129,0.12);  color: #065f46; font-weight: 700; }
+  .badge-runs     { background: rgba(47,107,255,0.08);  color: #1a4bcc; font-weight: 600; }
+  .badge-voucher  { background: rgba(168,85,247,0.12);  color: #6d28d9; font-weight: 700; }
+  .badge-paid     { background: rgba(16,185,129,0.12);  color: #065f46; font-weight: 700; }
+  /* A voucher in use is green, as Paid is (Philip 2026-10-02). */
+  .badge-voucher-on { background: rgba(16,185,129,0.12); color: #065f46; font-weight: 700; }
+  .mgr-identity-badge { font-size: 0.82rem; color: var(--ink-soft); display: flex; align-items: center; gap: 5px; }
+  .mgr-role-chip { font-size: 0.72rem; font-weight: 700; padding: 1px 7px; border-radius: 8px; text-transform: lowercase; }
+  .mgr-role-admin { background: rgba(47,107,255,0.1); color: #1a4bcc; }
+  .mgr-role-user  { background: rgba(156,163,175,0.18); color: #4b5563; }
+  .dash-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+
+  /* ── WhatsApp banner ──────────────────────────────────────────────────── */
+  .status-banner {
+    display: flex; align-items: center; gap: 14px; padding: 16px 20px;
+    border-radius: 18px; border: 1px solid rgba(37,211,102,0.22);
+    background: rgba(37,211,102,0.06); margin-bottom: 24px;
+  }
+  .status-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--line); flex-shrink: 0; }
+  .status-dot.pending { background: #f59e0b; box-shadow: 0 0 0 3px rgba(245,158,11,0.18); }
+  .status-text { font-size: 0.93rem; color: var(--ink-soft); flex: 1; }
+  .status-text strong { color: var(--heading); }
+
+  /* ── Main grid ────────────────────────────────────────────────────────── */
+  /* Home is the Checks alone, full width (Philip 2 Nov 2026: Contacts moved
+     to the Settings page). */
+  .dash-main { display: grid; grid-template-columns: 1fr; gap: 20px; align-items: start; }
+  /* A column is never wider than the screen (lab 29 Oct 2026, 390 px wide:
+     the Checks column was held wider than a phone by a long line). A grid
+     item's min-width is its content's by default; 0 lets it fit the column. */
+  .dash-main > * { min-width: 0; }
+
+  /* ── Settings page ────────────────────────────────────────────────────── */
+  /* One column of full-width tiles, one per row (Philip 2 Nov 2026). A tile is
+     a .card; a link or button tile is the whole card, so it needs the card's
+     look without a link's underline or a button's own font and border. */
+  .settings-col { display: flex; flex-direction: column; min-width: 0; }
+  .settings-col > .wfo-group { margin-bottom: 14px; }
+  /* Two half-width tiles on one row (Billing | History, Support | Download
+     data), each its own card with a gap between; side by side on a phone, the
+     words wrapping if they must (Philip 2 Nov 2026). */
+  /* Contacts: from two contacts the rows sit in two columns, left then right;
+     an open contact stays in its own column (Philip 2 Nov 2026: "make these
+     stay in columns when expanded"). One column on a phone. */
+  .eng-list-2col { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 5px 10px; align-items: start; }
+  .eng-list-2col > .eng-row { margin-bottom: 0; }
+  @media (max-width: 600px) { .eng-list-2col { grid-template-columns: minmax(0, 1fr); } }
+  .settings-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; margin-bottom: 14px; }
+  .settings-row .settings-tile { margin-bottom: 0; }
+  /* An opened drop-down in a pair stays in its own column and the tile beside
+     it keeps its height (Philip 2 Nov 2026: "company and download should now
+     stay in two columns when clicked"). */
+  .settings-row { align-items: start; }
+  @media (max-width: 420px) { .settings-row { gap: 10px; } .settings-row .settings-tile { padding: 18px 12px; } }
+  /* The firm tile's head (Philip 2 Nov 2026: "when you click to open just show
+     the lab testing and pencil remove the edit lab testing when open"): closed it
+     reads "Edit <name>"; open, "Edit " goes and the pencil shows. A blank name is
+     "Company name": closed it reads "Edit company name", open it is grey. */
+  .settings-firm-title { overflow-wrap: anywhere; }
+  .settings-firm-name[data-blank="1"] { text-transform: lowercase; }
+  .wfo-group-head[aria-expanded="true"] .settings-firm-edit { display: none; }
+  .wfo-group-head[aria-expanded="true"] .settings-firm-name[data-blank="1"] { text-transform: none; color: var(--ink-soft); font-weight: 400; }
+  .settings-firm-name .wf-title-pen { display: none; }
+  .wfo-group-head[aria-expanded="true"] .settings-firm-name .wf-title-pen { display: inline-block; }
+  .settings-firm-title input.wf-name-input { width: min(100%, 320px); }
+  /* Sign out: a normal button at the bottom right, not a full-width card. */
+  .settings-signout { display: flex; justify-content: flex-end; margin: 28px 0 0; }   /* lower down (Philip 2 Nov 2026: "move this lower down") */
+  .settings-signout .btn-round-add { padding: 6px 16px; }
+  .settings-signout .btn-round-add.signout-armed { color: #1d4ed8; background: rgba(29,78,216,0.10); border-color: rgba(29,78,216,0.35); }
+  .settings-tile { padding: 18px 22px; margin-bottom: 14px; box-sizing: border-box; width: 100%; }
+  .settings-tile-label { font-size: 1rem; font-weight: 700; color: var(--heading); margin: 0 0 8px; }
+  .settings-tile-link {
+    display: block; text-align: left; font: inherit; font-size: 1rem; font-weight: 700;
+    color: var(--heading); text-decoration: none; cursor: pointer; transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .settings-tile-link:hover { border-color: var(--accent, #2f6bff); color: var(--heading); }
+  /* History and Support look like the drop-down tiles beside them: the same
+     title size, height and corners (Philip 2 Nov 2026: "why are they all
+     different font sizes?"); values from groups.css .wfo-group / -head / -title. */
+  .card.settings-tile.settings-tile-link {
+    display: flex; align-items: center; min-height: 87px; padding: 20px 22px;
+    border-radius: 18px; font-size: 1.2rem; font-weight: 700; line-height: 1.3;
+  }
+  @media (max-width: 600px) { .card.settings-tile.settings-tile-link { min-height: 79px; padding: 16px 14px; font-size: 1.05rem; } }
+  .settings-tile-link.signout-armed { color: #1d4ed8; background: rgba(29,78,216,0.10); }
+
+  /* ── Workflow cards ───────────────────────────────────────────────────── */
+  /* A Records row and a combined card's Record are the same tile as a Home Check
+     (Philip 2 Nov 2026: "make these as wide and basically very similar to the home
+     page one"): one box rule for both, so they cannot drift. */
+  .wf-card, .rec-tile, .rc-cb-card {
+    border: 1px solid var(--line); border-radius: 18px; padding: 20px 22px;
+    margin-bottom: 14px; background: var(--surface-card);
+    box-shadow: 0 2px 8px rgba(18,41,111,0.06);
+    transition: box-shadow 0.15s;
+    box-sizing: border-box; max-width: 100%;
+  }
+  .wf-card:last-child { margin-bottom: 0; }
+  .wf-card:hover, .rec-tile:hover, .rc-cb-card:hover { box-shadow: 0 4px 18px rgba(13,26,58,0.08); }
+  /* The row: number in the logo's slot, name in the tile's title font, the
+     when-word small and grey at the right, all on one line, the tile's height. */
+  .rec-tile { display: flex; align-items: center; gap: 10px; margin: 0; min-height: 87px; cursor: pointer; text-decoration: none; color: inherit; }
+  .rec-tile .row-main { flex: 1 1 auto; min-width: 0; }
+  .rec-tile .row-title { font-weight: 700; font-size: 1.2rem; color: var(--heading); line-height: 1.3; }
+  .rec-tile .row-meta { font-size: 0.78rem; }
+  .rec-tile .row-when, .rec-tile .rc-cb-day { flex: 0 0 auto; white-space: nowrap; text-align: right;
+    font-size: 0.78rem; font-weight: 500; color: var(--ink-soft, #5c6b90); }
+  /* The number sits where the Check logo sits on Home, the logo's size. */
+  .rec-tile .row-count { width: auto; min-width: 36px; height: 30px; padding: 0 8px; font-size: 0.82rem; }
+  .wf-title-row { display: flex; align-items: center; gap: 10px; cursor: pointer; user-select: none; }
+  /* The name exactly as the firm typed it (Philip 29 Oct 2026: "Fire Risk
+     Assessment test" showed "...Test", "(copy)" showed "(Copy)"). */
+  .wf-name { font-weight: 700; font-size: 1.2rem; color: var(--heading); flex: 1; }
+  /* The name is typed over in place (Philip 28 Oct 2026): the title and a
+     little round it take the click, lit as the Record's editable parts are;
+     the rest of the row still opens the tile. The box is the Record title's
+     pink box (_record_quick_edit.html .sm-pink-input). */
+  .wf-name[data-rename-url] { align-self: flex-start; padding: 2px 6px; margin: -2px -6px;
+    border-radius: 6px; transition: background .12s ease; }
+  /* Only an open tile's title is the rename box (Philip 29 Oct 2026: "only
+     when larger"); a closed tile's title opens the tile like the rest of
+     the row. The pencil after the last word is the questions page's
+     (record_look.css .rl-pen), shown on an open tile only. */
+  .wf-card.wf-expanded .wf-name[data-rename-url] { cursor: text; }
+  .wf-card.wf-expanded .wf-name[data-rename-url]:hover { background: rgba(47, 107, 255, 0.05); }
+  .wf-title-pen { display: none; border: 0; background: none; padding: 2px; margin: 0 0 0 4px; line-height: 0;
+    vertical-align: middle; cursor: pointer; color: var(--accent, #2f6bff); opacity: 0.55; }
+  .wf-card.wf-expanded .wf-title-pen { display: inline-block; }
+  .wf-title-pen:hover, .wf-title-pen:focus { opacity: 1; }
+  .wf-title-row:focus { outline: none; }
+  .wf-title-row:focus-visible { outline: 2px solid var(--accent, #2f6bff); outline-offset: 2px; border-radius: 6px; }
+  input.wf-name-input[type="text"], input.wf-name-input[type="text"]:focus {
+    font: inherit; font-weight: 700; font-size: 1.2rem; color: var(--heading);
+    width: 100%; min-width: 0; box-sizing: border-box; height: auto; margin: 0; user-select: text;
+    padding: 0 !important; border: none !important; background: transparent !important; box-shadow: none !important;
+    outline: 1.5px solid rgba(244, 63, 140, 0.45) !important; outline-offset: 2px; border-radius: 3px !important; }
+  /* The name and its activity line stack, and together take the space the
+     name alone used to (Philip 2026-09-24). */
+  .wf-name-block { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+  .wf-name-co { font-weight: 700; }
+  .wf-name-kind { font-weight: 500; }
+  /* Small and faded, in its own proportions (lab 29 Oct 2026: it showed as
+     a squashed blue bar). Both sides auto under a max box keep the image's
+     own shape in every browser, without leaning on object-fit; it never
+     stretches to the row or shrinks out of shape. */
+  .wf-tile-logo { display: block; flex: 0 0 auto; align-self: center; height: auto; width: auto;
+    max-height: 30px; max-width: 90px; min-width: 0; object-fit: contain; opacity: 0.85; border: 0; }
+  /* The logo's slot at the start of the line, only on a Check that has a
+     logo; a Check with none starts its name at the edge as normal (Philip
+     31 Oct 2026: "surely if there is no logo then it should just go
+     normal?"). */
+  .wf-tile-logo-slot { display: none; }
+  .wf-tile-logo-slot:has(.wf-tile-logo) { display: flex; align-items: center; flex: 0 0 auto; align-self: center; }
+  /* WHEN, LEFT OF THE CHEVRON (Philip 31 Oct 23:03): Today / Yesterday /
+     weekday / date on the title's line, just before the chevron, level with
+     both, small and soft grey. In the row's flow, so a long title gives way
+     (the name block shrinks) and never runs under it; the row keeps its
+     height, so nothing moves when the tile opens. */
+  .wf-activity { flex: 0 0 auto; white-space: nowrap; text-align: right;
+    font-size: 0.78rem; font-weight: 500; color: var(--ink-soft, #5c6b90); }
+  /* The title at its own size (Philip 31 Oct 22:08: "make these the font
+     size they were before but centred vertically in the tiles"), centred in
+     the 45px the name + line under it used to take (42px on a phone), so the
+     closed tile keeps its height and the freed space splits above and below. */
+  .wf-name-block { justify-content: center; min-height: 45px; }
+  .wf-name-block .wf-name { flex: 0 0 auto; }
+  .wf-activity-faults { color: #b91c1c; font-weight: 600; }
+  .wf-expand-chevron { opacity: 0.45; transition: transform 0.2s; flex-shrink: 0; }
+  .wf-card.wf-expanded .wf-expand-chevron { transform: rotate(180deg); }
+  .wf-body { display: none; margin-top: 14px; padding-top: 14px; }
+  .wf-card.wf-expanded .wf-body { display: block; }
+  /* Phone access left the tile (2 Nov 2026), so the bottom bar is the body's
+     first row: no second gap above it. */
+  .wf-body > .wf-bottom-bar:first-child { margin-top: 0; padding-top: 0; }
+  .wf-meta { font-size: 0.82rem; color: var(--ink-soft); font-weight: 400; }
+  .wf-chevron-btn { background: none; border: none; padding: 6px 8px; margin: -6px -8px; cursor: pointer; display: flex; align-items: center; flex-shrink: 0; border-radius: 6px; }
+  .wf-chevron-btn:hover { background: var(--line); }
+  .wf-chevron { opacity: 0.5; transition: transform 0.2s; }
+  .wf-card.open .wf-chevron { transform: rotate(180deg); }
+  .chip {
+    display: inline-flex; align-items: center; gap: 4px; padding: 3px 9px;
+    border-radius: 999px; border: 1px solid var(--line);
+    background: var(--surface-card); font-size: 0.78rem; color: var(--ink-soft); font-weight: 500;
+  }
+  .wf-questions {
+    display: none; margin-top: 17px; padding-top: 17px;
+    border-top: 1px solid var(--line);
+  }
+  .wf-card.open .wf-questions { display: block; }
+  .wf-questions-split { display: none; gap: 10px; }
+  .wf-card.open .wf-questions-split { display: flex; }
+  .wf-q-tile {
+    flex: 1; border: 1px solid var(--line); border-radius: 8px; overflow: hidden;
+    transition: flex 0.2s;
+  }
+  .wf-q-tile.wf-q-tile-solo { flex: 1 1 100%; }
+  .wf-q-tile-header {
+    display: flex; align-items: center; gap: 6px; width: 100%;
+    padding: 9px 12px; background: var(--surface-card);
+    border: none; cursor: pointer; text-align: left;
+    font-family: inherit;
+  }
+  .wf-q-tile-header:hover { background: var(--surface-2); }
+  .wf-q-tile-label { font-size: 0.8rem; font-weight: 700; color: var(--heading); }
+  .wf-q-tile-count { flex: 1; font-size: 0.72rem; color: var(--ink-soft); text-align: right; }
+  .wf-q-tile-chevron { opacity: 0.45; transition: transform 0.18s; flex-shrink: 0; }
+  .wf-q-tile.open .wf-q-tile-chevron { transform: rotate(180deg); }
+  .wf-q-tile-body {
+    display: none; padding: 0 12px;
+    border-top: 1px solid var(--line);
+  }
+  .wf-q-tile.open .wf-q-tile-body { display: block; }
+  .q-row {
+    display: flex; align-items: baseline; gap: 8px;
+    padding: 7px 0; border-bottom: 1px solid var(--line); font-size: 0.87rem;
+  }
+  .q-row:last-child { border-bottom: none; }
+  .q-label { flex: 1; color: var(--heading); font-weight: 500; }
+  .q-type { font-size: 0.72rem; font-weight: 700; color: var(--ink-soft); }
+  /* People and Office side by side while both switches fit, one above the
+     other when the card is too narrow (Philip 2026-10-19: "Liv e / Schedul e"). */
+  .wf-settings-row {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 10px;
+  }
+  .wf-settings-col {
+    display: flex; flex-direction: column; gap: 4px;
+    align-items: center; text-align: center;
+    background: transparent; border: none; border-radius: 12px; padding: 7px 12px;
+  }
+  .wf-settings-label {
+    font-size: 1rem; font-weight: 400; color: var(--ink-soft);
+  }
+  .wf-tag-hint {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 14px; height: 14px; border-radius: 50%;
+    border: 1.5px solid currentColor;
+    font-size: 0.6rem; font-weight: 700; line-height: 1;
+    color: var(--ink-soft); cursor: pointer; opacity: 0.55;
+    vertical-align: middle; margin-left: 4px;
+    font-family: inherit;
+  }
+  .wf-tag-hint:hover { opacity: 1; color: var(--accent, #2f6bff); }
+  .wf-settings-value { font-size: 0.82rem; color: var(--ink-soft); }
+  .wf-bottom-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 14px; padding-top: 10px;
+  }
+
+  /* ── Question edit rows ───────────────────────────────────────────────── */
+  .people-search {
+    width: 100%; box-sizing: border-box; margin: 0 0 12px;
+    padding: 8px 12px; font-size: 0.88rem;
+    border: 1.5px solid var(--line); border-radius: 10px;
+    background: #fff; color: inherit;
+  }
+  .people-search::placeholder { color: var(--ink-soft); }
+  .people-search:focus { outline: none; border-color: var(--accent); }
+
+  /* ── Unified pill group ───────────────────────────────────────────────── */
+  /* Used for: WhatsApp schedule, Email dispatch, and any future segmented control */
+  .ql-pills,
+  .wf-sched-pills,
+  .dispatch-toggle {
+    display: inline-flex; align-items: center; gap: 2px; flex-shrink: 0;
+    background: var(--surface-2, #f4f7fb);
+    border-radius: 999px; padding: 2px;
+    box-shadow: inset 0 0 0 1px var(--line);
+  }
+  .ql-pill,
+  .wf-sched-pill,
+  .dispatch-icon-btn {
+    background: transparent; border: none; cursor: pointer;
+    padding: 3px 10px; border-radius: 999px;
+    font: inherit; font-size: 0.75rem; font-weight: 600;
+    color: var(--ink-soft);
+    transition: background 0.15s, color 0.15s;
+    /* A label is never broken mid-word (base.css lets any span break anywhere). */
+    white-space: nowrap; overflow-wrap: normal;
+  }
+  .ql-pill:hover,
+  .wf-sched-pill:hover,
+  .dispatch-icon-btn:hover { color: var(--accent); }
+
+  /* Active pill — accent for on/instant/live */
+  .ql-pill-active,
+  .wf-sched-pill-active,
+  .dispatch-icon-btn.dispatch-icon-active {
+    background: var(--surface-card); color: var(--accent);
+    box-shadow: 0 1px 3px rgba(13,26,58,0.08);
+  }
+  /* Active pill — red for off state */
+  .ql-pill-off,
+  .wf-sched-pill-off-active,
+  .dispatch-off-btn.dispatch-icon-active {
+    background: var(--surface-card); color: #e05555;
+    box-shadow: 0 1px 3px rgba(13,26,58,0.08);
+  }
+  .ql-pill:disabled,
+  .wf-sched-pill:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  /* Fire pill — warning colour, no container */
+  .wf-fire-pill { color: var(--warning); }
+  .wf-fire-pill:hover { color: var(--warning); background: var(--warning-soft); }
+
+  /* ── Right panel ──────────────────────────────────────────────────────── */
+  /* Each contact is a small Check tile, closed and open (Philip 31 Oct 2026:
+     "contacts should have their own mini tiles like Checks"): the tile's
+     border, radius, background, shadow and hover, tighter for the narrow card. */
+  /* Closed: a quiet tile, fainter border, no shadow, tight; open: the fuller Check-tile look
+     (Philip 31 Oct 2026, 22:26: "too dominating", "so much better for editing"). */
+  .eng-row { display: flex; align-items: flex-start; gap: 10px; padding: 6px 12px; margin-bottom: 5px;
+    border: 1px solid rgba(13,26,58,0.09); border-radius: 12px; background: var(--surface-card);
+    transition: box-shadow 0.15s, border-color 0.15s; cursor: pointer;
+    box-sizing: border-box; max-width: 100%; }
+  .eng-row:last-child { margin-bottom: 0; }
+  /* base.css drops the last row's bottom border (a plain list's last line);
+     a Contacts tile is a box, so the last one keeps its own. */
+  .eng-row:last-child { border-bottom: 1px solid rgba(13,26,58,0.09); }
+  .eng-row:hover, .eng-row:last-child:hover, .eng-row.eng-expanded:last-child { border-color: var(--line); }
+  .eng-row .eng-name { font-weight: 500; }
+  .eng-row.eng-expanded { padding: 9px 12px; border-color: var(--line); box-shadow: 0 2px 8px rgba(18,41,111,0.06); }
+  .eng-row.eng-expanded .eng-name { font-weight: 600; }
+  /* Phone left and email right on one line; the role on the name line, right,
+     only while open (Philip 2 Nov 2026). */
+  .eng-contact-line { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 12px; }
+  .eng-contact-line .eng-email { min-width: 0; margin-left: auto; text-align: right; }
+  .eng-role { display: none; margin-left: auto; padding-left: 10px; color: var(--ink-soft); font-size: 0.78rem; font-weight: 400; white-space: nowrap; }
+  .eng-row.eng-expanded .eng-role { display: inline; }
+  /* While one contact is open the others dim a little, back to full on hover
+     (Philip 2 Nov 2026: "dim the other ones a little"). */
+  .eng-list:has(> .eng-row.eng-expanded) > .eng-row:not(.eng-expanded) { opacity: 0.55; transition: opacity 0.15s; }
+  .eng-list:has(> .eng-row.eng-expanded) > .eng-row:not(.eng-expanded):hover { opacity: 1; }
+  /* Your own contact: the tile gets a very faint pink tint (house pink, 244,63,140),
+     no left edge (Philip 31 Oct 2026, 22:20). A see-through tint, so dark mode keeps it. */
+  .eng-row.eng-you { background: linear-gradient(rgba(244,63,140,0.05), rgba(244,63,140,0.05)), var(--surface-card); }
+  .eng-row:hover .eng-avatar { background: rgba(47,107,255,0.35); color: #fff; }
+  /* Active-this-month indicator (Philip 2026-07-10): a fielder who ran a
+     workflow more than once this month -- or a manager who logged in -- shows a
+     PINK avatar on hover instead of the default blue. For fielders this is the
+     billable-seat signal; for managers it is purely "who has been on". Rest
+     state is unchanged (the plain circle); the colour only reveals on hover so
+     the list stays calm until you look. */
+  .eng-row:hover .eng-avatar.is-active { background: rgba(244,63,140,0.9); color: #fff; }
+  /* Avatar colour encodes what contact(s) a person has (Philip 2026-08-25):
+     phone only -> blue, email only -> pink, both -> the exact midpoint of the
+     two (#2f6bff + #f43f8c averaged = #9255c6). Colour reveals on HOVER only;
+     the rest state stays the plain circle so the list reads calm. */
+  .eng-row:hover .eng-avatar.avatar-phone { background: rgba(47,107,255,0.35); color: #fff; }
+  .eng-row:hover .eng-avatar.avatar-email { background: rgba(244,63,140,0.9); color: #fff; }
+  .eng-row:hover .eng-avatar.avatar-both  { background: rgba(146,85,198,0.62); color: #fff; }
+  /* Group chips sit to the LEFT of the Groups button. The wrapper gap is 0 so
+     an EMPTY chips span adds no width -- that kept the Search/Groups/Add gaps
+     uneven (an extra 8px on Groups' left). Only when chips are actually present
+     do they take the 8px separation from the button (Philip 2026-07-10). */
+  #wf-groups-chips:not(:empty) { margin-right: 8px; }
+  .eng-body { flex: 1; min-width: 0; }
+  .eng-detail { display: none; margin-top: 4px; }
+  .eng-row.eng-expanded .eng-detail { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+  /* WhatsApp / Telegram switch under the details (Philip 2026-10-12). */
+  /* The Contacts column can be narrow: the switch fills the row in two equal
+     halves and never runs past the card; very narrow, it keeps the logos only. */
+  .eng-channel { flex-basis: 100%; min-width: 0; cursor: default; font-size: 0.8rem; container-type: inline-size; }
+  .eng-channel-row { display: flex; flex-direction: column; align-items: stretch; gap: 4px; }
+  .eng-channel .ql-pills { display: flex; width: 100%; box-sizing: border-box; }
+  .eng-channel-pill { flex: 1 1 0; min-width: 0; display: inline-flex; align-items: center; justify-content: center; gap: 5px; padding: 3px 6px; white-space: nowrap; overflow: hidden; }
+  .eng-channel-pill svg { flex-shrink: 0; }
+  @container (max-width: 190px) { .eng-channel-word { display: none; } }
+  .eng-channel-help { margin-top: 8px; padding: 10px 12px; border-radius: 10px; background: var(--surface-2, #f4f7fb); }
+  .eng-channel-help p { margin: 0 0 4px; }
+  .eng-channel-help ol { margin: 4px 0; padding-left: 18px; }
+  .eng-channel-help li { margin: 2px 0; }
+  .eng-channel-help a { word-break: break-all; }
+  .eng-channel-copy { margin-left: 4px; font: inherit; font-size: 0.75rem; font-weight: 600; color: var(--accent); background: none; border: 1px solid var(--line); border-radius: 999px; padding: 1px 8px; cursor: pointer; }
+  .eng-channel-note { color: var(--ink-soft); }
+  .eng-channel-status { font-weight: 600; margin-bottom: 6px; }
+  .eng-channel-status[data-state="connected"] { color: #15803d; }
+  .eng-channel-status[data-state="waiting"] { color: #92400e; }
+  .eng-channel-status[data-state="connected"] + .eng-channel-steps { display: none; }
+  .eng-channel-error { margin-top: 6px; color: #e05555; }
+  /* The details take at least the width of a long date ("Friday 30 October
+     2026"); a narrower card puts Edit / History / Delete under them instead
+     of over them (Philip 31 Oct 2026: "bit of an overlap there"). */
+  .eng-detail-info { min-width: 0; flex: 1 1 100%; overflow: hidden; }
+  /* Edit / History (/ Make owner) on one line, one bar the width of the card,
+     the Check tile's Edit / Records look scaled down; the WhatsApp / Telegram
+     switch under it is the quieter control (Philip 31 Oct 2026). */
+  .eng-detail .eng-actions { flex: 1 1 100%; display: flex; flex-wrap: nowrap; padding: 3px; gap: 3px; min-width: 0; }
+  .eng-detail .eng-actions .wf-action-btn { flex: 1 1 0; justify-content: center; min-width: 0; font-size: 0.85rem; font-weight: 700; padding: 6px 8px; color: var(--ink); white-space: nowrap; }
+  .eng-detail .eng-actions .wf-action-btn:hover { color: var(--accent); }
+  .eng-channel .ql-pills { padding: 2px; }
+  .eng-channel-pill { font-size: 0.68rem; padding: 2px 6px; }
+  .eng-channel-pill svg { width: 12px; height: 12px; }
+  /* phone / email / last Record: three looks */
+  /* Quickler pink for the phone, Quickler blue for the email, whichever app
+     the phone uses (Philip 2 Nov 2026: "rather than green and blue use the
+     quickler pink and blue"). */
+  .eng-phone.eng-phone-num { color: var(--brand-pink, #F43F8C); }   /* beats .eng-phone grey below */
+  .eng-phone.eng-email { color: var(--accent); font-family: inherit; }
+  .eng-lastrec { color: var(--ink-soft); font-size: 0.75rem; margin-top: 2px; opacity: 0.9; }
+  .eng-nb { white-space: nowrap; }
+  .eng-expand-chevron { opacity: 0.4; transition: transform 0.2s; flex-shrink: 0; margin-top: 5px; }
+  .eng-row.eng-expanded .eng-expand-chevron { transform: rotate(180deg); }
+  /* A squircle, not a circle (Philip 2026-10-06). */
+  .eng-avatar {
+    width: 30px; height: 30px; border-radius: 10px;
+    background: transparent; color: var(--ink-soft);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.72rem; font-weight: 700; flex-shrink: 0; transition: background 0.14s, color 0.14s;
+  }
+  /* A Telegram profile photo in place of the initials (30 Oct 2026). */
+  .eng-avatar-photo { width: 100%; height: 100%; border-radius: inherit; object-fit: cover; display: block; }
+  .eng-name  { font-weight: 600; font-size: 0.9rem; color: var(--heading); flex: 1; overflow: hidden; white-space: nowrap; }
+  /* Contact names are shortened to fit by contact_names.js, never an ellipsis (Philip 31 Oct 2026); an open contact shows the full name, wrapping. */
+  .eng-row.eng-expanded .eng-name { white-space: normal; overflow: visible; overflow-wrap: anywhere; }
+  .mgr-you-badge { font-size: inherit; font-weight: 600; color: var(--ink-soft); }
+  .eng-phone { font-size: 0.8rem; color: var(--ink-soft); font-family: 'Space Grotesk', monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  /* Semantic role badge colours — intentional, do not invert */
+  .badge-admin  { background: rgba(47,107,255,0.1);  color: #1a52d0; }
+  .badge-member { background: var(--surface-alt);    color: var(--ink-soft); }
+  .badge-owner  { background: rgba(16,185,129,0.1);  color: #065f46; }
+  .badge-role { background: transparent; color: var(--ink-soft); font-weight: 500; font-size: 0.68rem; border: 1px solid var(--line); opacity: 0.75; }
+
+  /* ── Action group — pill tray with chip buttons ─────────────────────── */
+  .ql-action-group,
+  .wf-action-group {
+    display: inline-flex; align-items: center; gap: 2px; flex-shrink: 0;
+    background: var(--surface-2); border: none;
+    border-radius: 999px; padding: 2px;
+  }
+  .ql-action-btn,
+  .wf-action-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 3px 10px; border: none; border-radius: 999px;
+    background: transparent; color: var(--ink-soft);
+    font: inherit; font-size: 0.75rem; font-weight: 600; cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+  }
+  .ql-action-btn:hover,
+  .wf-action-btn:hover {
+    color: var(--accent); background: var(--surface-card);
+    box-shadow: 0 1px 3px rgba(13,26,58,0.08);
+  }
+  .ql-action-btn:active,
+  .wf-action-btn:active:not(.wf-action-danger) {
+    background: var(--accent); color: #fff; box-shadow: none;
+  }
+  .ql-action-btn.danger,
+  .wf-action-btn.wf-action-danger { color: var(--ink-soft); }
+  .ql-action-btn.danger:hover,
+  .wf-action-btn.wf-action-danger:hover {
+    color: var(--danger); background: var(--danger-soft);
+    box-shadow: 0 1px 3px rgba(13,26,58,0.08);
+  }
+
+  /* ── Ghost pill — add / tertiary standalone chip ─────────────────────── */
+  .ql-ghost-btn,
+  .btn-round-add {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 0 10px; border-radius: 999px;
+    border: 1.5px solid var(--line);
+    background: transparent; color: var(--ink-soft);
+    /* Share the breadcrumb's line-height (normal) so the pill words sit on the
+       SAME baseline as "All workflows > ..." -- the bubble hugs the word in
+       place instead of floating above the line (Philip 2026-08-18). Vertical
+       padding is 0 so the pill height is the text line-box; the row's
+       align-items:center then lines every word up. */
+    font: inherit; font-size: 1rem; font-weight: 600; line-height: normal;
+    cursor: pointer; text-decoration: none;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+  }
+  .ql-ghost-btn:hover,
+  .btn-round-add:hover { color: var(--accent); border-color: rgba(47,107,255,0.35); background: var(--accent-soft); text-decoration: none; }
+  /* ADD IS THE ONE THAT MATTERS (Philip 2026-09-24). Search, Folder and Add were
+     three identical faint pills, so the main action on the page was the
+     palest thing on it. Add is filled; the other two stay quiet. */
+  .btn-round-add.btn-round-add-primary {
+    background: var(--accent, #2f6bff); border-color: var(--accent, #2f6bff); color: #fff;
+  }
+  .btn-round-add.btn-round-add-primary:hover {
+    background: var(--accent-strong, #1d4fd8); border-color: var(--accent-strong, #1d4fd8); color: #fff;
+  }
+  /* While the mouse is on Search or New folder, Add steps back to the quiet
+     look they have, so only the one under the mouse is coloured (Philip
+     31 Oct 2026: "when folder or search is selected make add appear the same
+     as search or folder would normally ... just hovers"). */
+  .wf-section-actions:has(.btn-round-add:not(.btn-round-add-primary):hover) .btn-round-add.btn-round-add-primary {
+    background: transparent; border-color: var(--line); color: var(--ink-soft);
+  }
+
+  /* ── Action group layout variants ───────────────────────────────────── */
+  .eng-top .wf-action-group {
+    flex-direction: column; border-radius: 10px; gap: 1px;
+  }
+  .row-actions {
+    flex-direction: column; gap: 1px; border-radius: 10px;
+    background: transparent; padding: 1px; width: 76px; align-items: stretch;
+  }
+  .row-actions:hover { background: var(--surface-2); }
+  /* ── Vertical stack pill group — use for stacked action buttons (Edit/Delete etc.)
+        Square with rounded edges (border-radius: 10px), not a circle pill.
+        Container: .ql-stack-group   Buttons: .ql-stack-btn   Danger: .ql-stack-danger ── */
+  .ql-stack-group {
+    display: inline-flex; flex-direction: column; align-items: stretch;
+    gap: 1px; padding: 2px; border-radius: 10px;
+    background: var(--surface-2);
+  }
+  .ql-stack-btn {
+    padding: 4px 12px; border: none; border-radius: 7px;
+    background: transparent; color: var(--ink-soft);
+    font: inherit; font-size: 0.75rem; font-weight: 600; cursor: pointer;
+    text-align: center; text-decoration: none;
+    transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+  }
+  .ql-stack-btn:hover {
+    color: var(--accent); background: var(--surface-card);
+    box-shadow: 0 1px 3px rgba(13,26,58,0.08);
+  }
+  .ql-stack-btn.ql-stack-danger { color: var(--ink-soft); }
+  .ql-stack-btn.ql-stack-danger:hover {
+    color: var(--danger); background: var(--danger-soft); box-shadow: none;
+  }
+
+  /* ── Delete safety: armed state ─────────────────────────────────────── */
+  .delete-armed {
+    color: var(--danger) !important;
+    font-weight: 700 !important;
+    border: 2px solid var(--danger) !important;
+    background: var(--danger-soft) !important;
+    box-shadow: 0 0 0 3px rgba(192,57,43,0.18) !important;
+    transform: scale(1.10);
+  }
+  .delete-armed:hover {
+    color: var(--danger) !important;
+    background: var(--danger-soft) !important;
+  }
+  body.delete-armed-mode .wf-action-btn.wf-action-danger:not(.delete-armed),
+  body.delete-armed-mode .ql-stack-btn.ql-stack-danger:not(.delete-armed) {
+    color: var(--ink-soft);
+    opacity: 0.55;
+  }
+
+  /* Save button */
+  .wf-save-btn {
+    color: var(--accent);
+    border-color: rgba(47,107,255,0.22);
+  }
+  .wf-save-btn:hover {
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-color: rgba(47,107,255,0.35);
+    box-shadow: 0 1px 3px rgba(13,26,58,0.06);
+  }
+  .wf-save-btn:active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+    box-shadow: none;
+  }
+
+  .chase-field-row {
+    display: flex; align-items: center; gap: 10px;
+    margin-top: 8px;
+  }
+  .chase-field-row:first-of-type { margin-top: 0; }
+  .chase-num-input {
+    width: 84px; flex: 0 0 84px;
+    padding: 6px 8px;
+    border: 1.5px solid var(--line); border-radius: 8px;
+    font-size: 0.92rem; text-align: center;
+  }
+  .chase-time-input {
+    flex: 0 0 auto;
+    padding: 6px 8px; border: 1.5px solid var(--line);
+    border-radius: 8px; font-size: 0.92rem;
+  }
+  .chase-unit-label { color: var(--ink-soft); font-size: 0.88rem; }
+
+  /* ── Icon-only buttons ───────────────────────────────────────────────── */
+  .btn.btn-icon {
+    width: 40px; height: 40px; min-width: 40px; padding: 0; display: inline-flex;
+    align-items: center; justify-content: center; border-radius: 50%;
+    flex-shrink: 0; aspect-ratio: 1 / 1; line-height: 1;
+    background: none !important; border: none !important; box-shadow: none !important;
+    color: var(--ink-soft);
+  }
+  .btn.btn-icon:hover { background: var(--surface-2) !important; color: var(--ink); }
+  .btn.btn-icon svg { display: block; color: inherit; width: 22px; height: 22px; stroke-width: 2.2; }
+
+  /* ── Modals ───────────────────────────────────────────────────────────── */
+  /* A MODAL STOPS WHERE THE CONTENT DOES (Philip 2026-09-10: "i'd make them
+     just to the end of that smoking box but not the content box behind, and
+     then similar gap from top of page"). The submission shell is 720px, so a
+     wider modal overhangs the very card it is editing. `inset` + auto margins
+     centred it vertically, which put it hard against the top on a short
+     viewport; an explicit top offset gives the same breathing room as the
+     sides. */
+  .modal-dialog {
+    border: none; border-radius: 20px; padding: 0; max-width: 660px; width: 94vw;
+    box-shadow: 0 8px 48px rgba(13,26,58,0.2);
+    position: fixed; inset: 0; margin: auto;
+    max-height: calc(100vh - 96px);
+    height: fit-content; background: var(--surface-card);
+  }
+  .modal-dialog::backdrop { background: rgba(0,0,0,0.36); }
+  .modal-dialog select, .modal-dialog input[type="time"], .modal-dialog input[type="number"] {
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem;
+  }
+  /* ROOM TO BREATHE (Philip 2026-09-10: "can you make them all 20% bigger
+     please to give them more space"). Width is set per modal; the inner
+     padding scales with it so a wider box does not just stretch the same
+     cramped contents. */
+  .modal-box { padding: 34px 34px 29px; background: var(--surface-card); }
+  .modal-header {
+    display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;
+  }
+  .modal-header h3 { margin: 0; font-size: 1.1rem; color: var(--heading); }
+  .modal-close {
+    background: none; border: none; font-size: 1.5rem; line-height: 1;
+    color: var(--ink-soft); cursor: pointer; padding: 0 2px;
+  }
+  .modal-close:hover { color: var(--heading); }
+  .modal-close svg { display: block; }
+  /* THE SCHEDULE WINDOW FITS THE SCREEN (click-through 3 Nov 2026, 1440 x 900:
+     Save was half cut off). It scrolls inside itself and Save stays in view
+     at the foot of the window. */
+  #sched-modal { max-height: calc(100vh - 32px); overflow-y: auto; }
+  #sched-modal .modal-box { padding-bottom: 0; }
+  #sched-modal .modal-btn-row {
+    position: sticky; bottom: 0; z-index: 2; margin-top: 12px; padding: 12px 0 20px;
+    background: var(--surface-card);
+  }
+  .toggle-track {
+    position: absolute; inset: 0; border-radius: 13px;
+    background: var(--line); cursor: pointer; transition: background 0.2s;
+  }
+  .toggle-track::before {
+    content: ''; position: absolute; width: 20px; height: 20px; left: 3px; bottom: 3px;
+    border-radius: 50%; background: var(--surface-card);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2); transition: transform 0.2s;
+  }
+  .day-chips { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+  .day-chip input[type=checkbox] { display: none; }
+  .day-chip span {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 38px; height: 38px; border-radius: 10px; border: 1.5px solid var(--line);
+    font-size: 0.8rem; font-weight: 700; color: var(--ink-soft);
+    cursor: pointer; transition: border-color 0.15s, background 0.15s, color 0.15s;
+    user-select: none;
+  }
+  .day-chip input:checked + span {
+    border-color: var(--accent); background: var(--accent); color: #fff;
+  }
+  .sched-field-label {
+    font-size: 0.9rem; font-weight: 600; color: var(--ink-soft); margin-bottom: 4px;
+  }
+
+  /* ── Schedule cadence controls (Philip 2026-08-31) ─────────────────────── */
+  /* Ten named cadences collapsed to four shapes: Quarterly, Termly, Twice a
+     year and Yearly are all "every N months" with a different number, so the
+     number does the work and the list stays short. */
+  .modal-box select.sched-cadence-select {
+    width: 100%; margin: 0;
+  }
+  /* The familiar name echoed back beside the number ("Quarterly"), so nobody
+     has to translate "every 3 months" in their head. */
+  .sched-sentence-hint {
+    font-size: 0.8rem; font-weight: 600; color: var(--accent);
+    margin-left: auto; white-space: nowrap;
+  }
+  /* The sentence must stay on ONE line -- "Every 2 weeks" reads as a sentence,
+     but wrapped onto three lines it reads as three unrelated controls. The
+     modal is only 440px, so nowrap plus a sized select rather than flex-wrap,
+     and the inputs must resist the modal's full-width input styling. */
+  .sched-sentence {
+    display: flex; align-items: center; gap: 8px; flex-wrap: nowrap;
+    background: var(--accent-soft); border-radius: 10px;
+    padding: 12px 13px; margin-bottom: 16px;
+  }
+  .sched-sentence-word {
+    font-size: 0.88rem; font-weight: 500; color: var(--ink-soft);
+    flex: 0 0 auto; white-space: nowrap;
+  }
+  /* Target by element, not by id: the same sentence serves both the workflow
+     schedule (#sched-interval) and the manager email (#dispatch-interval). */
+  .modal-box .sched-sentence input[type=number] {
+    flex: 0 0 auto; width: 62px; min-width: 0; margin: 0;
+    text-align: center; font-variant-numeric: tabular-nums;
+  }
+  .modal-box .sched-sentence select {
+    flex: 0 1 auto; width: auto; min-width: 0; margin: 0;
+  }
+
+  .sched-datelist { display: flex; flex-direction: column; gap: 6px; }
+  .sched-dateline { display: flex; align-items: center; gap: 8px; }
+  .sched-dateline input[type=date] { flex: 1; }
+  .sched-date-rm {
+    background: none; border: none; color: var(--ink-soft);
+    cursor: pointer; font-size: 1.1rem; padding: 0 4px; line-height: 1;
+  }
+  .sched-date-rm:hover { color: var(--danger); }
+  .sched-adddate {
+    font-family: inherit; font-size: 0.8rem; font-weight: 600; color: var(--accent);
+    background: none; border: none; cursor: pointer; padding: 4px 0;
+  }
+
+  /* Mini calendar preview */
+  .sched-cals { display: flex; gap: 18px; }
+  .sched-cal { flex: 1; min-width: 0; }
+  .sched-cal-mon {
+    font-size: 0.74rem; font-weight: 700; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--ink-soft);
+    margin-bottom: 7px; text-align: center;
+  }
+  .sched-cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+  .sched-cal-dow {
+    font-size: 0.6rem; font-weight: 700; color: var(--ink-soft); opacity: 0.65;
+    text-align: center; padding-bottom: 3px;
+  }
+  .sched-cal-day {
+    aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
+    font-size: 0.72rem; font-variant-numeric: tabular-nums;
+    color: var(--ink-soft); border-radius: 6px; line-height: 1;
+  }
+  .sched-cal-day.is-pad { color: transparent; }
+  .sched-cal-day.is-fire { background: var(--accent); color: #fff; font-weight: 700; }
+  .sched-cal-day.is-today {
+    box-shadow: inset 0 0 0 1.5px var(--ink-soft); font-weight: 700; color: var(--ink);
+  }
+  .sched-cal-day.is-today.is-fire { box-shadow: inset 0 0 0 1.5px #15803d; color: #fff; }
+
+  /* ── Modal headings ────────────────────────────────────────────────────── */
+  .modal-header h3 {
+    margin: 0; font-size: 0.82rem; font-weight: 400;
+    color: var(--ink-soft); letter-spacing: 0;
+  }
+
+  /* Add contact: email box and Add button on one line (Philip 30 Oct 2026). */
+  .add-eng-email-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
+  .add-eng-email-row .field { flex: 1 1 200px; max-width: 320px; margin-bottom: 0; }
+  .add-eng-email-row .btn { flex: none; margin-bottom: 1px; }
+  /* Edit contact (Philip 31 Oct 2026): email on the full line, Delete bottom
+     left, Save bottom right. Delete is neutral until _armDelete arms it. */
+  .add-eng-footer { display: none; }
+  .add-eng-editing .add-eng-email-row .field { max-width: none; }
+  .add-eng-editing .add-eng-email-row .btn { display: none; }
+  .add-eng-editing .add-eng-footer {
+    display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-top: 20px;
+  }
+  .add-eng-footer .btn[hidden] { display: none; }
+  /* base.css .btn sets colours with !important, so the armed red is said again here. */
+  #add-eng-delete.delete-armed,
+  #add-eng-delete.delete-armed:hover {
+    color: var(--danger, #b42318) !important; border-color: var(--danger, #b42318) !important;
+    background: var(--danger-soft, #fdecea) !important;
+  }
+  .add-eng-footer #add-eng-save { margin-left: auto; }
+  /* Edit in the contact's own tile (Philip 2 Nov 2026: "make the edit button make
+     the tile for contact into the editing things"). The form moves into the open
+     tile and the tile's details step aside; the tile grows to hold it. */
+  .eng-edit-form { display: none; cursor: default; margin-top: 6px; min-width: 0; }
+  .eng-row.eng-expanded .eng-edit-form { display: block; }
+  /* Add takes over the whole Contacts tile (Philip 2 Nov 2026: "just take over
+     the whole contact thing"): the form (look of .eng-edit-form) and the
+     Previously deleted list show, the contact list, search and pending
+     invitations step aside. */
+  .eng-add-host.eng-edit-form { display: block; margin-top: 0; }
+  #people-card.eng-adding .wfo-group-body > :not(.eng-add-host) { display: none; }
+  .eng-add-host .add-eng-deleted { margin-top: 18px; padding-top: 12px; }
+  .eng-add-host .add-eng-deleted-list { max-height: none; }
+  .eng-row.eng-editing.eng-expanded .eng-detail { display: none; }
+  /* The WhatsApp | Telegram switch shows only inside the edit form. */
+  .eng-detail .eng-channel { display: none; }
+  .eng-edit-form .eng-channel { display: block; margin: 2px 0 14px; }
+  .eng-edit-form .field { margin-bottom: 12px; }
+  .eng-edit-form .btn { font-size: 0.82rem; padding: 7px 16px; }
+  .eng-edit-form .add-eng-footer { margin-top: 12px; }
+  /* Tidy the form in the tile (Philip 2 Nov 2026: "just tidy up and make the ui
+     on this boxes more quickler"): the open tile gets room round the form, the
+     labels and boxes take the Settings look (.settings-name-row, .people-search:
+     0.88rem, 1.5px line border, 10px corners, white), nothing sits against the
+     tile's edge. Add contact keeps its own look. */
+  .eng-row.eng-editing.eng-expanded { padding: 14px 16px; }
+  .eng-edit-form { margin-top: 10px; }
+  .eng-edit-form .field label { margin-bottom: 4px; font-size: 0.82rem; font-weight: 600; color: var(--ink-soft); }
+  .eng-edit-form .field label span { font-size: 0.78rem; }
+  .eng-edit-form input[type="text"], .eng-edit-form input[type="email"], .eng-edit-form input[type="tel"] {
+    height: 40px; padding: 0 12px; font-size: 0.88rem;
+    border: 1.5px solid var(--line); border-radius: 10px; background: #fff;
+  }
+  .eng-edit-form .pp-row { gap: 8px; }
+  .eng-edit-form .pp-combo { height: 40px; border-radius: 10px; background: #fff; width: 118px; }
+  /* Switch above Delete and Save, bigger to tap (Philip 2 Nov 2026: "swap the
+     order height of these and make the whatsapp telegram bigger while delete
+     done smaller"). */
+  /* Smaller again (Philip 2 Nov 2026: "these are too big now"): about the height
+     of the input boxes (40px) or a little less, text 0.85rem, icons 14px. */
+  .eng-edit-form .eng-channel { font-size: 0.85rem; }
+  .eng-edit-form .eng-channel .ql-pills { padding: 2px; gap: 2px; }
+  .eng-edit-form .eng-channel-pill { font-size: 0.85rem; padding: 4px 10px; gap: 6px; min-height: 34px; }
+  .eng-edit-form .eng-channel-pill svg { width: 14px; height: 14px; }
+  /* Two columns (Philip 2 Nov 2026: "have the whatsapp and telegram and save on
+     the right. then on the left have the input boxes"): inputs left; the switch
+     with Delete and Save or Add under it, right. Narrow, one column: inputs,
+     switch, buttons. Delete sits left of Save in the right column's button row.
+     Add only (Philip 2 Nov 2026: "put that back to how it was, was only add
+     that was meant to be like that"): editing in a contact's tile stays one
+     column, the switch then Delete and Save under the inputs. */
+  .eng-edit-form .eng-form-cols { display: block; }
+  .eng-edit-form .eng-form-right { margin-top: 14px; }
+  #people-card.eng-adding .eng-edit-form .eng-form-cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(190px, 240px); column-gap: 24px; align-items: start; }
+  #people-card.eng-adding .eng-edit-form .eng-form-right { margin-top: 0; }
+  /* Add: the right column runs the height of the inputs, the switch at its top
+     and the button row at its bottom, so Add sits bottom right, level with the
+     bottom of the Email box (Philip 2 Nov 2026: "for some reason on add you
+     remove whatsapp telegram and move add up to top right it should be bottom
+     right"). The switch shows in Add only; Edit moves its own into the form. */
+  #people-card.eng-adding .eng-edit-form .eng-form-cols { align-items: stretch; }
+  #people-card.eng-adding .eng-edit-form .eng-form-right { display: flex; flex-direction: column; }
+  #people-card.eng-adding .eng-edit-form .eng-form-right .add-eng-footer { margin-top: auto; }
+  #people-card.eng-adding .eng-edit-form .eng-form-left .add-eng-email-row .field { margin-bottom: 0; }
+  .eng-edit-form .eng-channel-add, .modal-box .eng-channel-add { display: none; }
+  #people-card.eng-adding .eng-edit-form .eng-channel-add { display: block; }
+  /* Add: WhatsApp, Telegram and Add stacked in one column, each level with an
+     input box on the left (Name, Phone, Email) (Philip 2 Nov 2026: "make
+     whatsapp and telegram vertical ... then add in a line please
+     vertically"). The 22px top is the label line; the 34px gap is a field's
+     label and spacing, so the 40px boxes line up (measured on lab). */
+  #people-card.eng-adding .eng-edit-form .eng-form-right { justify-content: space-between; padding-top: 22px; box-sizing: border-box; }
+  #people-card.eng-adding .eng-edit-form .eng-form-right .eng-channel { margin: 0; }
+  #people-card.eng-adding .eng-edit-form .eng-channel-add .ql-pills { flex-direction: column; gap: 34px; padding: 0; background: none; border: none; box-shadow: none; }
+  #people-card.eng-adding .eng-edit-form .eng-channel-add .eng-channel-pill { flex: 0 0 auto; height: 40px; min-height: 40px; width: 100%; box-sizing: border-box; border: 1.5px solid var(--line, #d7deeb); border-radius: 10px; background: #fff; }
+  #people-card.eng-adding .eng-edit-form .eng-channel-add .eng-channel-pill.ql-pill-active { border-color: var(--accent, #2f6bff); background: var(--accent-soft, #eef3ff); }
+  #people-card.eng-adding .eng-edit-form .eng-form-right .add-eng-footer { margin-top: 0; }
+  #people-card.eng-adding .eng-edit-form .eng-form-right .add-eng-footer .btn.btn-primary { width: 100%; height: 40px; }
+  .eng-edit-form .eng-form-left, .eng-edit-form .eng-form-right { min-width: 0; }
+  .eng-edit-form .eng-form-right .eng-channel { margin: 0 0 12px; }
+  .eng-edit-form .eng-form-right .add-eng-footer { margin-top: 0; }
+  .eng-edit-form .eng-form-left > :last-child { margin-bottom: 0; }
+  @media (max-width: 600px) {
+    .eng-edit-form .eng-form-cols { display: block; }
+    .eng-edit-form .eng-form-right { margin-top: 14px; }
+    #people-card.eng-adding .eng-edit-form .eng-form-cols { display: block; }
+    #people-card.eng-adding .eng-edit-form .eng-form-right { margin-top: 14px; }
+    #people-card.eng-adding .eng-edit-form .eng-form-right { padding-top: 0; }
+    #people-card.eng-adding .eng-edit-form .eng-channel-add .ql-pills { gap: 8px; }
+    #people-card.eng-adding .eng-edit-form .eng-form-right .add-eng-footer { margin-top: 12px; }
+  }
+  .eng-edit-form .add-eng-footer { margin-top: 4px; }
+  .eng-edit-form .add-eng-footer .btn { font-size: 0.78rem !important; padding: 4px 12px !important; }
+  .eng-edit-form .add-eng-footer .btn.btn-primary { padding: 5px 16px !important; font-size: 0.82rem !important; }
+  .eng-edit-error { margin: 8px 0 0; color: #e05555; font-size: 0.82rem; line-height: 1.4; }
+
+  /* ── Modal buttons ───────────────────────────────────────────────────────── */
+  .modal-btn-row { display: flex; gap: 8px; justify-content: flex-end; margin-top: 20px; }
+  .modal-box .btn { font-size: 0.82rem; padding: 7px 16px; }
+  .modal-box .btn:active { background: var(--accent-soft) !important; }
+  /* ── Modal field spacing + time input ───────────────────────────────────── */
+  .modal-box .field { margin-bottom: 14px; }
+  .modal-box .field:last-of-type { margin-bottom: 0; }
+  .modal-dialog input[type="time"] {
+    padding: 10px 12px; border: 1.5px solid var(--line); border-radius: var(--radius-input, 14px);
+    font-family: var(--font); font-size: 0.9rem; box-sizing: border-box;
+    background: var(--surface-card); color: var(--ink);
+  }
+  .modal-dialog input[type="number"].chase-num-input { width: 64px; }
+  /* ── Previously deleted, in the New contact pop-up (Philip 30 Oct 2026) ── */
+  .add-eng-deleted { margin-top: 22px; padding-top: 16px; border-top: 1px solid var(--line); }
+  .add-eng-deleted-title { font-size: 0.82rem; font-weight: 600; color: var(--ink-soft); margin: 0 0 8px; }
+  .add-eng-deleted-list { max-height: 220px; overflow-y: auto; }
+  .add-eng-deleted-row {
+    display: flex; width: 100%; align-items: baseline; justify-content: space-between; gap: 12px;
+    padding: 9px 10px; border: none; border-radius: 10px; background: none; cursor: pointer;
+    font-family: var(--font); font-size: 0.9rem; color: var(--ink); text-align: left;
+  }
+  .add-eng-deleted-row:hover, .add-eng-deleted-row:focus-visible { background: var(--accent-soft); }
+  .add-eng-deleted-name { min-width: 0; overflow-wrap: anywhere; }
+  .add-eng-deleted-phone { flex: 0 0 auto; color: var(--ink-soft); font-size: 0.82rem; }
+  /* ── Billing page ────────────────────────────────────────────────────────── */
+  .card h3 { margin: 0 0 6px; font-size: 0.96rem; font-weight: 700; color: var(--heading); }
+  .card hr { border: none; border-top: 1px solid var(--line); margin: 18px 0; }
+  .billing-dl { display: grid; grid-template-columns: max-content 1fr; gap: 8px 18px; margin: 0 0 18px; font-size: 0.95rem; }
+  .billing-dl dt { color: var(--ink-soft); }
+  .billing-dl dd { margin: 0; font-weight: 600; }
+  .status-ok { color: var(--success); }
+  .status-warn { color: var(--warning); }
+
+  /* ── Progress bar (shared) ───────────────────────────────────────────── */
+  .progress-track {
+    width: 280px; height: 6px; background: var(--accent-soft);
+    border-radius: 999px; overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%; background: var(--accent);
+    border-radius: 999px; width: 0%; transition: width 0.4s ease;
+  }
+  .overlay-msg {
+    font-size: 0.95rem; font-weight: 600; color: var(--heading);
+    margin-bottom: 16px;
+  }
+
+  /* ── Intro message modal ─────────────────────────────────────────────── */
+  #intro-text {
+    width: 100%; min-height: 160px; resize: vertical;
+    font-size: 0.9rem; line-height: 1.6; font-family: inherit;
+    border: 1.5px solid var(--line); border-radius: 10px; padding: 12px 14px;
+    color: var(--heading); background: var(--surface-2);
+    box-sizing: border-box;
+  }
+
+  /* ── Engineer tags inline ────────────────────────────────────────────── */
+  .eng-name-row {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px;
+  }
+  .eng-tag-pill {
+    display: inline-flex; align-items: center;
+    border: none; color: var(--accent);
+    border-radius: 999px; padding: 0px 7px;
+    font-size: 0.74rem; font-weight: 400; white-space: nowrap;
+    text-transform: capitalize;
+    cursor: pointer; transition: background 0.1s, color 0.1s;
+  }
+  .eng-tag-pill:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+  /* ── Tag filter ──────────────────────────────────────────────────────────── */
+  .tag-filter-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 3px 10px; border-radius: 8px; border: 1.5px solid var(--line);
+    background: transparent; color: var(--ink-soft); cursor: pointer;
+    font: inherit; font-size: 0.75rem; font-weight: 600; line-height: 1; opacity: 0.6;
+    transition: opacity 0.15s;
+  }
+  .tag-filter-btn:hover { opacity: 1; }
+  .tag-filter-pill {
+    display: inline-flex; align-items: center;
+    border: 1px solid var(--line); border-radius: 999px;
+    background: transparent; color: var(--ink-soft);
+    padding: 2px 10px; font-size: 0.8rem; font-weight: 500; cursor: pointer;
+    transition: border-color 0.12s, color 0.12s, background 0.12s;
+    text-transform: capitalize;
+  }
+  /* An email address shows exactly as stored, never title-cased
+     (Philip 30 Oct 2026: "Labtesting@Outlook.Com"). */
+  .tag-filter-pill.tag-filter-pill-as-typed { text-transform: none; }
+  .tag-filter-pill:hover { border-color: var(--accent); color: var(--accent); }
+  .tag-filter-pill.active {
+    border-color: var(--accent); color: var(--accent);
+    background: var(--accent-soft);
+  }
+  /* Card border reflects active tab */
+  .people-card-eng { border-color: rgba(47,107,255,0.35) !important; border-width: 2px !important; }
+  .people-card-mgr { border-color: rgba(244,63,140,0.45) !important; border-width: 2px !important; }
+
+  /* ── Page sub-headings ────────────────────────────────────────────────── */
+  .dash-header h1 {
+    font-size: 1.15rem; font-weight: 700; color: var(--heading);
+    margin: 0;
+  }
+
+  /* ── Download button ─────────────────────────────────────────────────── */
+  .btn-dl {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 8px 18px; border-radius: 999px;
+    font-size: 0.84rem; font-weight: 500; cursor: pointer;
+    border: 1.5px solid var(--line);
+    background: var(--surface-2); color: var(--ink);
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .btn-dl:hover { background: var(--surface-alt); border-color: rgba(47,107,255,0.2); text-decoration: none; color: var(--ink); }
+  .btn-dl.btn-dl-done { background: var(--success-soft) !important; border-color: var(--success) !important; color: var(--success) !important; }
+  .btn-dl.btn-dl-done:hover { background: var(--success-soft) !important; }
+
+  /* ── Back button ─────────────────────────────────────────────────────── */
+  .btn-back {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 47px; height: 47px; border-radius: 50%; flex-shrink: 0;
+    border: none; background: none; color: var(--ink-soft);
+    text-decoration: none; cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  .btn-back:hover { background: var(--surface-2); color: var(--ink); text-decoration: none; }
+  .btn-back svg { flex-shrink: 0; display: block; }
+
+  @media (max-width: 720px) {
+    .dash-main      { grid-template-columns: 1fr; }
+    /* Keep the header identity/plan/quota badges on ONE line on mobile (Philip
+       2026-07-17): the "X of Y per month" bubble was wrapping to its own row.
+       Tighten the gap and let the long username badge truncate so the small
+       Freemium + quota badges stay inline beside it. */
+    .dash-header-left .meta { flex-wrap: nowrap; gap: 6px; overflow: hidden; }
+    .dash-header-left .meta .mgr-identity-badge { min-width: 0; overflow: hidden;
+      text-overflow: ellipsis; white-space: nowrap; }
+    .dash-header-left .meta .badge { flex: 0 0 auto; white-space: nowrap; }
+    /* Push the wrapped video/help action group to the right (was defaulting to
+       the left when it wrapped to row 2). */
+    .dash-actions { margin-left: auto; }
+  }
+
+  @media (max-width: 600px) {
+    /* Workflow card — stack settings columns and wrap bottom bar */
+    .wf-card, .rec-tile, .rc-cb-card { padding: 16px 14px; }
+    .rec-tile { min-height: 79px; }
+    .rec-tile .row-title { font-size: 1.05rem; }
+    .wf-settings-row { grid-template-columns: 1fr; gap: 6px; }
+    .wf-settings-col { align-items: flex-start; text-align: left; padding: 6px 0; }
+    .wf-bottom-bar { flex-wrap: wrap; gap: 8px; }
+    .wf-title-row { flex-wrap: wrap; gap: 6px; }
+    .wf-name, input.wf-name-input[type="text"], input.wf-name-input[type="text"]:focus { font-size: 1.05rem; }
+    /* Phone width: the title may take two lines, the 42px the name and the
+       line under it used to share. */
+    .wf-name-block { min-height: 42px; }
+    .wf-name-block .wf-name { flex: 0 0 auto; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+    .wf-action-group { flex-wrap: wrap; }
+    /* Dashboard sidebar stacks below main content (already handled at 720px but reinforce) */
+    .dash-main { grid-template-columns: 1fr; }
+    /* Workflow mode/schedule pills sizing/layout handled in the touch layer
+       below (one row, full width). Nothing pill-specific needed here. */
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     TOUCH / GLOVE-FRIENDLY LAYER (Philip 2026-07-14)
+     Goal: mouse-driven screens keep the compact desktop layout; anything a
+     FINGER points at gets 50% bigger tap targets. Any asset that would distort
+     is dropped onto its own line and re-flowed rather than squashed.
+
+     Trigger is by POINTER TYPE, not screen width — because width lies now:
+       - a big iPad or unfolded foldable in landscape is 1300px+ but still a
+         finger device;
+       - a foldable changes width mid-use as it opens;
+       - a touch laptop in tablet mode has a mouse-sized screen but no mouse.
+     So we gate on `pointer: coarse` (the primary pointer is imprecise = a
+     finger/stylus). That fires on phones, tablets, foldables and touch-tablet
+     mode at ANY width, and never on a plain mouse laptop even in a small
+     window. We keep a narrow-width fallback (<=820px) too, so a resized mouse
+     window that genuinely has no room still gets the roomier stacked layout. */
+  @media (pointer: coarse), (max-width: 820px) {
+
+    /* ═══ ONE blanket rule scales EVERY control +25% ═══════════════════════════
+       Sized by CLASS, not by location, so no button is missed. Every clickable
+       chip/pill/button class used anywhere on the dashboard or outputs pages is
+       listed here. font-size uses em (1.25 = +25% of whatever the class'
+       inherited size is) so it scales relative to each button's own base rather
+       than flattening them all to one size. Padding gets a proportional bump.
+       Later, more specific rules in this block can still fine-tune individual
+       controls (e.g. the workflow-header thirds), but the DEFAULT for anything
+       button-shaped is handled here. */
+    .btn,
+    .btn-sm,
+    .btn-round-add,
+    .btn-dl, .btn-back, .btn-ghost-sm,
+    .ql-action-btn, .wf-action-btn,
+    .ql-stack-btn,
+    .ql-ghost-btn,
+    .rwf-btn,
+    .wf-sched-pill, .dispatch-icon-btn, .wf-fire-pill,
+    .eng-tag-pill,
+    .tag-filter-btn,
+    .people-seg-btn,
+    .sl-add-block-btn, .sl-del-btn,
+    .fire-send-btn,
+    .wf-save-btn,
+    .wf-q-tile-chevron-btn {
+      /* Base label sizes across the app sit around 0.75-0.82rem. +25% -> ~0.95rem.
+         Uniform so every control reaches a comfortable, consistent tap size.
+         Padding proportional (em), so it tracks the label. Fluid clamp keeps it
+         scaling gently with the viewport rather than a hard jump. */
+      font-size: clamp(0.9rem, 0.82rem + 0.4vw, 1.05rem) !important;
+      padding-block: 0.55em !important;
+      padding-inline: 0.95em !important;
+      white-space: nowrap;          /* a button label never wraps mid-word */
+      line-height: 1.15;
+    }
+
+    /* ── Workflows header: "Workflows" top-LEFT and "18 of 20 per month"
+          top-RIGHT on the SAME line; the Search/Groups/Add thirds sit on a full
+          width row BENEATH (Philip 2026-07-14).
+
+          The count is nested inside .wf-section-actions in the DOM, which is why
+          earlier attempts couldn't pin it to the title's line. Fix: dissolve
+          .wf-section-actions with display:contents so its children (count +
+          thirds) flow up into .wf-section-head's own flex row. Then title and
+          count share line 1; the thirds are forced to line 2 by flex-basis. */
+    .wf-section-head { flex-wrap: wrap; align-items: center; gap: 8px 10px; }
+    .wf-section-actions { display: contents !important; }
+    .wf-section-head .dash-section-title {
+      flex: 1 1 auto; min-width: 0;      /* takes the left, pushes count right */
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    .wf-runs-count {
+      order: 1;                          /* line 1, right of the title */
+      flex: 0 0 auto;
+      white-space: nowrap;
+      font-size: 0.85rem !important;
+    }
+    /* Break the display:contents wrapper into a real 3-up grid on its own full
+       width row. CRITICAL: tracks are minmax(0, 1fr) NOT 1fr — plain 1fr is
+       minmax(auto,1fr) which refuses to shrink below each button's content
+       width, so the third button (Add) was pushed ~15px past the tile edge.
+       minmax(0,...) lets the tracks shrink to share the row exactly. */
+    .wf-action-thirds {
+      order: 2;                          /* forced onto line 2 */
+      flex: 0 0 100%;                    /* own full-width row, no grow/shrink games */
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+    }
+    /* When an Upgrade button is also present (freemium), there are 4 actions
+       (Search / Groups / Upgrade / Add) — lay them out 2x2 rather than an
+       awkward 3-then-1 (Philip 2026-07-16). Detected by two .btn-round-add
+       direct children (Upgrade + Add); normally there is just one (Add). */
+    .wf-action-thirds:has(> .btn-round-add ~ .btn-round-add) {
+      grid-template-columns: 1fr 1fr;
+    }
+    /* Each third stretches its button full-width and may shrink inside its cell. */
+    .wf-action-thirds > .wf-search,
+    .wf-action-thirds > #wf-groups-btn-wrap,
+    .wf-action-thirds > .btn-round-add {
+      width: 100%; min-width: 0; max-width: 100%; box-sizing: border-box;
+    }
+    #wf-groups-btn-wrap { justify-content: stretch; }
+    /* Sizing handled by the blanket rule above; here only layout (full-cell,
+       centred, rounded). */
+    .wf-action-thirds .btn-round-add,
+    .wf-action-thirds #wf-search-btn,
+    .wf-action-thirds #wf-groups-btn {
+      width: 100%;
+      justify-content: center;
+      border-radius: 10px;
+    }
+    /* Groups chips column shouldn't shove the grid; let it wrap under. */
+    #wf-groups-btn-wrap { flex-wrap: wrap; }
+    /* Search must NOT blow out the header when it opens — keep the expanding
+       input inside its own cell; let the row wrap if it needs more width. */
+    .wf-action-thirds .wf-search { position: relative; }
+    .wf-action-thirds #wf-search-field { position: static !important; width: 100%; }
+    .wf-action-thirds #wf-search-input {
+      width: 100% !important; max-width: 100% !important;
+      font-size: 1rem !important; padding: 12px 34px 12px 14px !important;
+    }
+    .wf-action-thirds .wf-search:has(#wf-search-field[style*="flex"]) {
+      grid-column: 1 / -1;      /* opened search takes the full row, no overflow */
+    }
+    /* (1) The clear (×) is a tiny tap target — make it finger-sized on mobile. */
+    #wf-search-clear {
+      font-size: 1.5rem !important;
+      padding: 8px !important;
+      right: 4px !important;
+      line-height: 1 !important;
+    }
+    #wf-search-input { padding-right: 44px !important; }  /* room for the bigger × */
+
+    /* (2) While the search box is OPEN, hide Groups + Add/Upgrade/Subscribe so
+       the search has the whole row to itself. They come back when the × closes
+       the search. */
+    .wf-action-thirds:has(#wf-search-field[style*="flex"]) > #wf-groups-btn-wrap,
+    .wf-action-thirds:has(#wf-search-field[style*="flex"]) > .btn-round-add {
+      display: none !important;
+    }
+
+    /* (3) When a group filter is active, its chip(s) drop to a NEW full-width row
+       BELOW the whole Search/Groups/Add row. The chips live inside
+       #wf-groups-btn-wrap (one grid cell). To let the chip row span the FULL
+       width beneath the row, dissolve the wrap (display:contents) when it holds
+       chips, so the Groups button and the chip block become direct grid items:
+       the button keeps its cell, the chips span all columns on a new line. */
+    .wf-action-thirds:has(#wf-groups-chips:not(:empty)) > #wf-groups-btn-wrap {
+      display: contents;
+    }
+    /* Keep Search / Groups / Add on grid row 1; the chip block is pinned to
+       row 2 spanning every column, so a selected group always reads as its own
+       line BELOW the row rather than a bubble above the Groups word (Philip
+       2026-07-16). Explicit rows because DOM order puts chips before the button. */
+    .wf-action-thirds:has(#wf-groups-chips:not(:empty)) > .wf-search,
+    .wf-action-thirds:has(#wf-groups-chips:not(:empty)) > #wf-groups-btn,
+    .wf-action-thirds:has(#wf-groups-chips:not(:empty)) > .btn-round-add {
+      grid-row: 1;
+    }
+    #wf-groups-chips:not(:empty) {
+      grid-row: 2;
+      grid-column: 1 / -1;      /* full-width row across the whole thirds grid */
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    /* ── Edit / Outputs / Delete: fill the FULL column width, on their own row
+          above the down-arrow. The group spans 100%; the three buttons split it
+          equally (Philip 2026-07-14). ─────────────────────────────────────────── */
+    .wf-bottom-bar { flex-direction: column; align-items: stretch; gap: 12px; }
+    .wf-bottom-bar > div:last-child { order: 1; width: 100%; }
+    .wf-bottom-bar .wf-chevron-btn { order: 2; align-self: center; padding: 10px 18px; }
+    .wf-bottom-bar .wf-chevron { width: 20px; height: 12px; }
+    .wf-action-group { display: flex !important; width: 100%; flex-wrap: nowrap; }
+    .wf-action-group .wf-action-btn { flex: 1 1 0; justify-content: center; min-width: 0; }
+
+    /* ── Tagged field / Tagged office columns fill the full width; their
+          Any time / Timed / Send now pills sit on ONE line, splitting the width.
+          SCOPED to the workflow card (.wf-settings-col) so it does NOT hit the
+          logs-page filter row or modal role pills, which also use .wf-sched-pills
+          and were being crushed into one nowrap line. ─────────────────────────── */
+    .wf-settings-row { grid-template-columns: 1fr !important; gap: 14px; }
+    .wf-settings-col { width: 100%; align-items: stretch; }
+    /* Tagged field / Tagged office pills lay out as a 2-COLUMN GRID (so they
+       flow into 2 rows) — full words stay visible instead of being crushed onto
+       one line and truncated (Philip 2026-07-14). Any time / Timed / Send now ->
+       2 then 1. */
+    .wf-settings-col .wf-sched-pills,
+    .wf-settings-col .dispatch-toggle {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr;
+      width: 100%; gap: 6px;
+      /* Grey container is a rounded SQUARE, not a pill — a pill container around
+         a grid of pill options made an ugly pill-on-pill overlay (Philip
+         2026-07-14). */
+      border-radius: 12px;
+    }
+    .wf-settings-col .wf-sched-pills .wf-sched-pill,
+    .wf-settings-col .dispatch-toggle .dispatch-icon-btn {
+      min-width: 0; justify-content: center; text-align: center;
+      white-space: normal;               /* let a long label wrap rather than clip */
+      border-radius: 8px;                /* rounded square option, matches container */
+    }
+    /* Any pill row NOT inside a workflow settings column (logs-page filters,
+       etc.) simply WRAPS on mobile so a long row never crushes into one line.
+       .wf-settings-col rules above win there via higher specificity. */
+    .wf-sched-pills { flex-wrap: wrap !important; }
+    /* On mobile, ALL these multi-option pill groups (logs filters, etc.) take the
+       square-with-rounded-edges look, matching the Any time / Timed / Send now
+       treatment — a pill container with pill options reads badly on a phone
+       (Philip 2026-07-16). */
+    .wf-sched-pills, .dispatch-toggle { border-radius: 12px !important; }
+    .wf-sched-pill, .dispatch-icon-btn { border-radius: 8px !important; }
+
+    /* ── Activity history (logs) table: stack each row into a labelled card on
+          mobile instead of a 4-column table that overflows. Uses CSS-generated
+          labels from the column header via the cell order. ──────────────────── */
+    /* Stacked cards — no horizontal scroll at all (it was side-scrolling and
+       bleeding off the page). Everything wraps within the card. */
+    .logs-table-scroll { overflow-x: hidden !important; max-width: 100%; }
+    .logs-table thead { display: none; }
+    .logs-table, .logs-table tbody, .logs-table tr, .logs-table td {
+      display: block; width: 100%; max-width: 100%; box-sizing: border-box;
+    }
+    .logs-table tr {
+      border: 1px solid var(--line, #dde3f0) !important;
+      border-radius: 12px; margin-bottom: 12px; padding: 8px 12px;
+      background: var(--surface-card, #fff);
+    }
+    .logs-table td {
+      padding: 5px 0 !important; border: none !important;
+      display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap;
+      min-width: 0; overflow-wrap: anywhere;
+    }
+    /* Prefix each stacked cell with its column name so the data still reads. */
+    .logs-table td::before {
+      content: attr(data-col);
+      flex: 0 0 76px; color: var(--ink-soft); font-size: 0.76rem; font-weight: 600;
+    }
+    /* Drop the 'Action' label — the Download/Details buttons are self-evident. */
+    .logs-table td[data-col="Action"]::before { content: none; }
+    /* Omit any empty line (no recipient / no subject / no action) entirely. */
+    .logs-table td[data-empty="1"] { display: none !important; }
+    /* Action buttons match the dashboard Outputs edit-button look. */
+    .logs-action-btns .wf-action-btn { text-decoration: none; }
+
+    /* ── Outputs / records page ───────────────────────────────────────────── */
+    /* Settings gear (inline-styled 30px base, no class) — 25% bigger. */
+    button[aria-label="Period settings"] {
+      width: 38px !important; height: 38px !important;
+    }
+    button[aria-label="Period settings"] svg { width: 20px; height: 20px; }
+    /* Record-page trash buttons (share/bin 25% bigger). */
+    button[data-del-kind] { transform: scale(1.25); transform-origin: center; }
+    /* Report photos / thumbnails 25% bigger. Inline width/height are overridden
+       proportionally; object-fit keeps them from distorting. */
+    img[data-gallery="1"] {
+      width: 80px !important; height: 60px !important; object-fit: cover;
+    }
+    .sm-gallery-grid img[data-gallery="1"] {
+      max-width: 200px !important; max-height: 150px !important;
+      width: auto !important; height: auto !important;
+    }
+    .sm-peek img { transform: scale(1.25); transform-origin: left center; }
+
+    /* ── Score tile: verdict on its own line; Score / Points / Actions on ONE
+          row beneath, each splitting the width. No redundant "Result" label
+          (removed) and no "Issues" line here — the issues heading lives in the
+          next tile (Philip 2026-07-14). ─────────────────────────────────────── */
+    .sm-score-card { flex-direction: column; align-items: stretch; gap: 10px; }
+    .sm-score-verdict { flex: 1 1 auto; width: 100%; }
+    .sm-score-tiles { display: flex; width: 100%; gap: 8px; }
+    .sm-score-tiles .sm-score-tile {
+      flex: 1 1 0; min-width: 0; padding: 10px 8px;
+    }
+
+    /* ── Captured answers: each row becomes a block — the QUESTION sits top-left,
+          the VALUE and the EDIT PENCIL sit bottom-right (Philip 2026-07-14). ─── */
+    .sm-answers thead { display: none; }
+    .sm-answers, .sm-answers tbody { display: block; width: 100%; }
+    /* SECTION-GROUP rows must survive the blockified table (Philip 2026-07-22:
+       collapsed "Is it dry" showed its OK mid-row and its underline stopped at
+       ~40%; expanded children were confined to a sliver). The section <tr> is a
+       plain row (not .sm-answer-row), so inside a display:block tbody it kept
+       display:table-row with no table context and shrank to its content. Every
+       plain row, its colspan cell, the <details> and the nested child table all
+       go block/full-width; the colgroups are neutralised since no table layout
+       is running here; child rows already carry .sm-answer-row and get the same
+       question-top grid as top-level rows. */
+    .sm-answers tr:not(.sm-answer-row),
+    .sm-answers tr:not(.sm-answer-row) > td { display: block; width: 100% !important; box-sizing: border-box; }
+    .sm-answers colgroup { display: none; }
+    .sm-answers details.sm-section-group,
+    .sm-answers details.sm-section-group > table,
+    .sm-answers details.sm-section-group > table > tbody { display: block; width: 100% !important; }
+    .sm-answer-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        "question question"
+        "value    edit";
+      align-items: end;
+      gap: 4px 10px;
+      padding: 12px 4px;
+      border-bottom: 1px solid rgba(0,0,0,0.08) !important;
+    }
+    /* No font-size here (Philip 2026-09-29: "on mobile children questions
+       are weidly massive on sharabels"). It forced 0.95rem on every question,
+       so a grandchild printed at 16.5px against 12.8px on a computer. The
+       row's own size, stepped down by depth and for N/A, now holds. */
+    /* Only a cell of the row's grid is placed by these. An answer laid out
+       inside its question's cell (the one-cell rows) is an ordinary box, and
+       Chrome now honours justify-self there too: it shrank the answer to its
+       longest word, so on a phone or tablet a job number broke as "C240 / 13"
+       (lab, Record 3057, 2026-10-03). */
+    .sm-answer-row > .sm-answer-q {
+      grid-area: question;
+      padding: 0 !important;
+      font-weight: 600;
+      color: var(--ink, #0d1a3a) !important;
+    }
+    .sm-answer-row > .sm-answer-v {
+      grid-area: value;
+      padding: 0 !important;
+      justify-self: end;
+      text-align: right;
+    }
+    .sm-answer-row > .sm-answer-edit {
+      grid-area: edit;
+      padding: 0 !important;
+      justify-self: end; align-self: end;
+    }
+    /* Edit pencil 50%+ bigger. Base icon 14px -> 22px; roomy tap target. */
+    .sm-answer-edit-btn { padding: 8px !important; }
+    .sm-answer-edit-btn svg { width: 22px !important; height: 22px !important; }
+
+    /* ── Expand chevron ("arrow that goes bigger down") 50%+ bigger. ────────── */
+    .wf-expand-chevron, .wf-chevron, .wf-q-tile-chevron, .eng-expand-chevron {
+      width: 24px !important; height: 15px !important;
+    }
+    .wf-chevron-btn { padding: 12px 16px !important; }
+
+    /* People-search input full width so it never blows out its header. */
+    .people-search { font-size: 0.95rem; padding: 9px 13px; width: 100%; box-sizing: border-box; }
+
+    /* Field-edit pencil triggers (icon buttons, sized by transform). */
+    .sm-edit-btn { transform: scale(1.25); transform-origin: center; }
+
+    /* ── Field-edit popup: dock to the UPPER part of the screen so the on-screen
+          keyboard (which rises from the bottom) does not cover it. The base
+          rule centres it (inset:0;margin:auto) — override to top-align. ────── */
+    #field-edit-modal.modal-dialog,
+    #edit-mgr-modal.modal-dialog,
+    #add-eng-modal.modal-dialog,
+    #invite-mgr-modal.modal-dialog,
+    #edit-firm-modal.modal-dialog {
+      /* Sit in the UPPER THIRD of the screen so the on-screen keyboard (which
+         rises from the bottom) never covers the popup or its inputs. Top offset
+         ~8vh puts the dialog comfortably in the top third rather than jammed to
+         the very edge. */
+      inset: 8vh 0 auto 0;
+      margin: max(8vh, env(safe-area-inset-top, 0px)) auto 0;
+      max-height: 78vh;
+      overflow-y: auto;
+    }
+
+    /* Long strings wrap BETWEEN words and never force a tile wider. Targeted at
+       the text elements that actually hold user content — NOT a universal
+       .card * selector (that quietly broke flex sizing last round). */
+    .q-label, .wf-name, .eng-name, .dash-section-title, .eng-phone {
+      overflow-wrap: anywhere;
+      word-break: normal;
+      hyphens: none;
+      min-width: 0;
+    }
+
+    /* ═══ NO BUTTON BLEEDS OUT OF ITS TILE — hard backstop ════════════════════
+       A button overflows its tile only when something in the chain refuses to
+       shrink. Three layers guarantee it cannot happen, whatever the label
+       length or button count:
+
+       1) TILES clip horizontal overflow. Even if a child miscomputed, nothing
+          can visibly cross the tile edge.
+       2) BUTTON ROWS can shrink and wrap. Every container that holds buttons
+          gets min-width:0 (so flex children may shrink below content size) and
+          flex-wrap:wrap (so an over-long row drops to the next line instead of
+          pushing past the edge).
+       3) EACH BUTTON is capped at its container width and truncates its own
+          label rather than overflow. Because buttons above are white-space:
+          nowrap, an over-long single button would otherwise push out — max-width
+          + overflow:hidden + ellipsis contains it as the last resort. */
+
+    /* (1) tiles clip */
+    .card, .wf-card, .eng-row, .wf-q-tile,
+    #wf-section-card {
+      overflow-x: clip;                 /* clip, not scroll — no rogue scrollbars */
+      max-width: 100%;
+    }
+
+    /* (2) button rows shrink + wrap */
+    .wf-action-group, .ql-action-group, .ql-stack-group,
+    .wf-sched-pills, .dispatch-toggle,
+    .wf-bottom-bar, .eng-actions, .dash-actions,
+    .wf-action-thirds, .wf-section-head, .eng-name-row,
+    .modal-btn-row, .sl-save-row {
+      min-width: 0;
+      flex-wrap: wrap;
+      max-width: 100%;
+    }
+    /* The engineer/office row lays its info + action stack in a horizontal flex.
+       Both sides must be shrinkable, and the row must wrap, or the vertical
+       action stack (a column of nowrap buttons) pushes past the tile edge.
+       This was the real bleed the guard first missed. */
+    .eng-detail, .eng-detail-info, .eng-body {
+      min-width: 0;
+      max-width: 100%;
+      flex-wrap: wrap;
+    }
+    .ql-stack-group, .eng-actions {
+      max-width: 100%;
+      flex-shrink: 1;
+    }
+    /* The Edit/Outputs/Delete group splits evenly and must NOT wrap — its
+       children carry flex:1 1 0 + min-width:0 so they shrink to fit instead.
+       (The sched/dispatch pills are a 2-col GRID now, handled above.) */
+    .wf-bottom-bar > div:last-child .wf-action-group { flex-wrap: nowrap; }
+
+    /* (3) each button capped to its container, truncates rather than overflows */
+    .btn, .btn-sm, .btn-round-add, .btn-dl, .btn-back, .btn-ghost-sm,
+    .ql-action-btn, .wf-action-btn, .ql-stack-btn, .ql-ghost-btn, .rwf-btn,
+    .wf-sched-pill, .dispatch-icon-btn, .wf-fire-pill, .eng-tag-pill,
+    .tag-filter-btn, .people-seg-btn, .sl-add-block-btn, .sl-del-btn,
+    .fire-send-btn, .wf-save-btn {
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+/* Row icon buttons (edit / delete) on the records list. Were bare 14px SVGs
+   with 2px padding sitting beside a 40px share circle, so they read as
+   shrunken rather than quiet (Philip 2026-09-01). Real 32px tap target,
+   17px glyph, hover to confirm they are buttons. */
+.row-icon-btn { transition: background 0.12s ease, color 0.12s ease; }
+.row-icon-btn:hover { background: var(--surface-2); }
+[data-theme="dark"] .row-icon-btn:hover { background: rgba(255,255,255,0.08); }
+
+/* THE CHECK TILE: PHONE ACCESS QUIET, EDIT AND OUTPUTS MAIN (Philip 29 Oct
+   2026: "make that smaller for phone access and make the Edit and Outputs
+   bigger relative to that. Be sensible, but no one actually clicks the phone
+   access that much"). Scoped to the tile; the phone rules (coarse pointer or
+   820px and under) use !important, so these do too where they must win. */
+.wf-card .wf-settings-label { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.02em; opacity: 0.85; }
+.wf-card .wf-settings-col .wf-sched-pill { font-size: 0.68rem; padding: 2px 8px; }
+.wf-card .wf-bottom-bar .wf-action-group, .rc-cb-card .wf-bottom-bar .wf-action-group { padding: 3px; gap: 3px; }
+.wf-card .wf-bottom-bar .wf-action-btn, .rc-cb-card .wf-bottom-bar .wf-action-btn { font-size: 0.92rem; font-weight: 700; padding: 7px 18px; color: var(--ink); }
+.wf-card .wf-bottom-bar .wf-action-btn:hover, .rc-cb-card .wf-bottom-bar .wf-action-btn:hover { color: var(--accent); }
+@media (pointer: coarse), (max-width: 820px) {
+  .wf-card .wf-settings-row { gap: 6px !important; }
+  .wf-card .wf-settings-col { gap: 3px; padding: 2px 0; }
+  .wf-card .wf-settings-col .wf-sched-pills { grid-template-columns: repeat(3, 1fr); gap: 2px; padding: 2px; }
+  .wf-card .wf-settings-col .wf-sched-pills .wf-sched-pill {
+    font-size: 0.78rem !important; padding-block: 0.3em !important; padding-inline: 0.4em !important; }
+  .wf-card .wf-bottom-bar .wf-action-group .wf-action-btn {
+    font-size: 1.05rem !important; padding-block: 0.8em !important; }
+}
+
+/* Inside the Settings Billing tile the Billing page's cards take the tile's
+   full width, not the page's 640px (lab look, 2 Nov 2026). */
+#billing-body .wf-card { max-width: none !important; }

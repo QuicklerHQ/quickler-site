@@ -1,0 +1,977 @@
+/* ════════════════════════════════════════════════════════════════════════════
+   APP BASE STYLING — self-contained. The app must NOT depend on the marketing
+   site (quickler.co). It used to load quickler.co/css/styles.css for the font
+   and these design tokens; that file was deleted when the marketing site was
+   rebuilt (2026-06-25), breaking every app page (serif fonts). Everything the
+   app needs now lives here. base.css loads on every page, so this is the single
+   shared source of truth. Values recovered from the old styles.css.
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* Space Grotesk, SELF-HOSTED (2026-08-21, GDPR audit). Previously loaded from
+   fonts.googleapis.com / fonts.gstatic.com, which leaked every viewer's IP and
+   User-Agent to Google on each page view - including public report pages seen by
+   people who never agreed to it. Now served from our own /static/fonts. Space
+   Grotesk is a variable font, so one file per unicode subset covers weights
+   400-700. Do not re-add a Google Fonts <link>. */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(fonts/space-grotesk-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(fonts/space-grotesk-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(fonts/space-grotesk-vietnamese.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+:root {
+  /* ink / text */
+  --ink-strong:   #0c1734;
+  --ink:          #213055;
+  --ink-soft:     #5c6b90;
+  --heading:      #0c1734;
+  /* ONE SIZE FOR A NOTE, WHEREVER IT LANDS (Philip 2026-09-10: "why are
+     somethings big notes and others small notes"). The same sentence renders
+     through three paths here -- beneath its own row, as a bulleted loose note,
+     and on a record row -- and each had grown its own size (0.72 / 0.8 /
+     0.82rem). Matches --note-size in the engine's house renderer, so a note
+     reads the same in the report and on the review page. */
+  --note-size:    0.82rem;
+  --note-line:    1.5;
+  /* surfaces */
+  --surface:      #f6f9ff;
+  --surface-alt:  #edf2ff;
+  --surface-2:    #f0f2f8;
+  --surface-card: #ffffff;
+  --surface-card-strong: rgba(255,255,255,0.86);
+  /* lines */
+  --line:         rgba(24,52,132,0.25);
+  --line-strong:  rgba(24,52,132,0.35);
+  /* accent + brand */
+  --accent:       #1a52d0;
+  --accent-soft:  rgba(47,107,255,0.1);
+  --accent-mid:   #6070d8;
+  --highlight:    #F43F8C;
+  --highlight-soft: rgba(244,63,140,0.12);
+  --brand-blue:   #2F6BFF;
+  --brand-indigo: #5A4FCF;
+  --brand-violet: #7C3AED;
+  --brand-pink:   #F43F8C;
+  --brand-gradient: linear-gradient(90deg, #2F6BFF 0%, #5A4FCF 35%, #7C3AED 65%, #F43F8C 100%);
+  --brand-gradient-soft: linear-gradient(90deg, rgba(47,107,255,0.14) 0%, rgba(90,79,207,0.12) 35%, rgba(124,58,237,0.12) 65%, rgba(244,63,140,0.12) 100%);
+  /* status */
+  --danger:       #c0392b;  --danger-soft:  rgba(192,57,43,0.08);
+  --success:      #16a34a;  --success-soft: rgba(22,163,74,0.08);
+  --warning:      #b45309;  --warning-soft: rgba(180,83,9,0.08);
+  /* shadows + radii + spacing */
+  --shadow-soft:  0 8px 32px rgba(18,41,111,0.07);
+  --shadow-card:  0 4px 24px rgba(18,41,111,0.07);
+  --shadow-hover: 0 8px 32px rgba(18,41,111,0.11);
+  --radius-lg:    18px;
+  --radius-md:    22px;
+  --radius-sm:    14px;
+  --card-padding: clamp(20px, 2.5vw, 28px);
+  /* font */
+  --font: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+/* Question-state colour tokens — needed on both /inputs and /questions pages. */
+:root {
+  --q-gate:        #16a34a;   --q-gate-soft:   rgba(22,163,74,0.08);
+  --q-parent:      #2563eb;   --q-parent-soft: rgba(37,99,235,0.07);
+  --q-exit:        #16a34a;   --q-exit-soft:   rgba(22,163,74,0.08);
+  --q-detail:      #1565C0;   --q-detail-soft: rgba(21,101,192,0.08);
+}
+
+    /* Brand font applied directly here (not via the external marketing
+       stylesheet) so the app is self-sufficient. Headings included so they
+       don't fall back to the browser serif default. */
+    body {
+      min-height: 100vh;
+      background: #fff !important;
+      font-family: var(--font);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    /* Global horizontal-overflow guard (Philip 2026-07-06, hardened 2026-07-20):
+       nothing should run off the side of the page on a narrow phone. The page
+       itself never scrolls sideways; long unbroken strings (addresses, emails,
+       tokens) wrap instead of pushing the layout wide. Wide-by-nature blocks
+       (tables, code) opt back IN to their own horizontal scroll via .scroll-x. */
+    /* box-sizing: border-box EVERYWHERE. Without it, an element with width:100%
+       plus padding is WIDER than its parent, and nested that overflow compounds
+       and bleeds off the right edge -- the recurring "it doesn't know its edges"
+       bug. This is the single systemic fix (Philip 2026-07-20). */
+    *, *::before, *::after { box-sizing: border-box; }
+    /* ROOT FONT SIZE (Philip 2026-08-18: "increase all font sizes by 1pt").
+       Almost every font in the app is set in rem, which derives from this root
+       size. The browser default is 16px; 16px + 1pt (1pt = 4/3 px) = 17.333px,
+       so one line here grows every rem-based font by exactly 1pt uniformly --
+       far safer than editing 260+ scattered rem values. Absolute px/pt sizes (a
+       small minority: some icons/borders) are unaffected by design; print.css
+       keeps its own 11pt page base. */
+    html { font-size: 17.333px; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+    img, svg, video, canvas { max-width: 100%; height: auto; }
+    p, li, td, th, dd, dt, span, a, div, h1, h2, h3, h4, h5, h6 { overflow-wrap: anywhere; }
+    .scroll-x { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+    /* ── The page has EDGES. Enforce them structurally, not case by case. ──
+       box-sizing above fixes padding maths, but it does nothing for a flex ROW
+       that simply refuses to wrap: a button cluster (download / share / edit /
+       delete) stays on one line and walks straight off the right edge. Every
+       previous fix here was per-element, so the NEXT element bled and Philip
+       had to report the same class of bug again (2026-07-21).
+
+       On a phone, any flex row wraps by default. Something that genuinely must
+       stay on one line opts out with .nowrap-row, which then owns its own
+       horizontal scroll rather than overflowing the page.
+
+       Note overflow-x:hidden on the body HIDES a bleed, it does not prevent
+       one -- an off-screen button is still unreachable. These rules stop the
+       overflow happening. */
+    @media (max-width: 640px) {
+      [style*="display:flex"]:not(.nowrap-row),
+      [style*="display: flex"]:not(.nowrap-row),
+      .row, .btn-row, .actions, .sm-action-btns, .dash-header {
+        flex-wrap: wrap;
+      }
+      /* A flex/grid child will not shrink below its content unless told to,
+         which is what pushes long titles and wide cells past the edge. */
+      [style*="display:flex"] > *, [style*="display: flex"] > * { min-width: 0; }
+      /* Nothing may be wider than the viewport, whatever inline width it
+         carries. Wide-by-nature blocks still opt in to .scroll-x. */
+      body * { max-width: 100%; }
+      .nowrap-row { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font);
+      color: var(--heading);
+      letter-spacing: -0.015em;
+    }
+    p, li, input, textarea, button { font: inherit; }
+    /* The company font everywhere (Philip 30 Oct 2026: "Everywhere we can we
+       should use the right company font"): code and pre would otherwise
+       fall back to the browser's typewriter font, select to the system one,
+       and a map to Leaflet's Helvetica. Figures keep lining up. */
+    code, pre, kbd, samp { font-family: inherit; font-variant-numeric: tabular-nums; }
+    select, optgroup { font-family: inherit; }
+    body .leaflet-container,
+    body .leaflet-container .leaflet-control-zoom-in,
+    body .leaflet-container .leaflet-control-zoom-out,
+    body .leaflet-container a.leaflet-popup-close-button { font-family: var(--font); }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid rgba(47,107,255,0.42); outline-offset: 3px; }
+
+    /* ── Top navigation shell ──────────────────────────────────────────────────
+       Ported from the old quickler.co styles.css so the nav renders without the
+       marketing site. base.css already has .nav-brand/.nav-firm-name + a nav
+       border override below; these add the structural rules that were missing
+       (nav layout, logo, hamburger, menu-link styling) — that's why "More /
+       Sign out" were underlined and the hamburger was a broken empty box. */
+    nav {
+      position: sticky;
+      top: max(10px, env(safe-area-inset-top, 0px));
+      z-index: 100;
+      width: min(calc(100% - 56px), 1240px);
+      margin: 16px auto 0;
+      padding: 12px 14px 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background: #ffffff;
+      border: 1px solid rgba(24,52,132,0.18);
+      border-radius: 999px;
+      box-shadow: 0 2px 12px rgba(18,41,111,0.08);
+    }
+    .nav-name { display: inline-flex; align-items: center; text-decoration: none; }
+    .nav-name img { height: 38px; width: auto; }
+    .nav-toggle {
+      display: none;
+      width: 46px; height: 46px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #ffffff;
+      align-items: center; justify-content: center;
+      flex-direction: column; gap: 5px; cursor: pointer;
+    }
+    .hamburger-line {
+      width: 18px; height: 2px; border-radius: 999px;
+      background: var(--accent);
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .nav-menu {
+      display: flex; align-items: center; justify-content: flex-end;
+      flex: 1 1 auto; min-width: 0; gap: 4px; flex-wrap: nowrap;
+    }
+    .nav-menu a {
+      text-decoration: none;
+      color: var(--ink-soft);
+      font-size: 0.92rem; font-weight: 600;
+      padding: 10px 12px; border-radius: 999px;
+      white-space: nowrap;
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+    .nav-menu a:hover,
+    .nav-menu a:focus-visible,
+    .nav-menu a[aria-current="page"] {
+      background: rgba(47,107,255,0.08);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+    .app-section {
+      min-height: calc(100vh - 120px);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 56px 24px 84px;
+    }
+    /* Footer — ported from the old marketing styles.css so footer links aren't
+       browser-underlined. Centred copyright line. */
+    footer {
+      width: min(calc(100% - 56px), 1240px);
+      margin: 24px auto 44px;
+      padding: 24px 0 0;
+      text-align: center;
+      color: var(--ink-soft);
+      font-size: 0.92rem;
+    }
+    footer a { color: var(--ink); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .shell,
+    .shell-wide {
+      width: 100%;
+      margin: 0 auto;
+    }
+    .shell { max-width: 640px; }
+    .shell-wide { max-width: 960px; }
+    /* The shell is a flex item of .app-section, and a flex item never shrinks
+       below its widest unbreakable content (a long file name): on a phone its
+       side margins were pushed off the right edge, so everything ran to the
+       glass and Done was cut off (click-through 20 Oct 2026). */
+    .app-section > .shell, .app-section > .shell-wide { min-width: 0; }
+    /* The record and the shareable read wider than a form (Philip 2026-09-22).
+       This was an inline style on both templates, which no media query could
+       override, so it pinned 720px onto a 312px phone. As a class the phone
+       rule below can win without !important. */
+    .sm-shell-720 { max-width: 720px; width: 100%; margin: 0 auto; min-width: 0; }
+    /* The Records list, the Check page and Settings: a touch wider than a
+       Record, 780px against its 720px (Philip 2 Nov 2026: "this is too wide
+       ... similar width but fractionally wider than an actual output"; "the
+       settings page should be as wide as the records and check edit"). */
+    .shell-wide.rec-shell { max-width: 780px; }
+    .app-header h1,
+    .dash-header h1 {
+      color: var(--heading, #0d1a3a);
+    }
+    .steps {
+      display: flex;
+      gap: 8px;
+      margin: 0 0 26px;
+    }
+    .step-dot {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--line);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: rgba(100,110,140,0.7);
+      text-decoration: none;
+      flex-shrink: 0;
+      border: none;
+    }
+    .step-dot.active {
+      background: var(--accent, #2f6bff);
+      color: #fff;
+    }
+    .step-dot.done {
+      background: rgba(47,107,255,0.28);
+      color: rgba(47,107,255,0.9);
+      cursor: pointer;
+    }
+    .step-dot.done:hover {
+      background: rgba(47,107,255,0.45);
+    }
+    .card {
+      border: 1px solid #C2C2C2;
+      border-radius: var(--radius-lg);
+      background: #fff;
+      backdrop-filter: none;
+      box-shadow: var(--shadow-card);
+      padding: var(--card-padding, 32px);
+      margin-bottom: 22px;
+    }
+    .card h1,
+    .card h2 {
+      color: var(--heading, #0d1a3a);
+      letter-spacing: -0.02em;
+    }
+    .card h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.55rem, 3vw, 2rem);
+      line-height: 1.15;
+    }
+    .card h2 {
+      margin: 0 0 14px;
+      font-size: 1.18rem;
+    }
+    .sub {
+      margin: 0 0 26px;
+      color: #556;
+      line-height: 1.65;
+    }
+    .field,
+    .form-group {
+      margin-bottom: 18px;
+    }
+    .field-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .field label,
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink-soft);
+    }
+    .field-hint {
+      margin: 6px 0 0;
+      font-size: 0.83rem;
+      color: var(--ink-soft);
+      line-height: 1.55;
+    }
+    .field-hint kbd {
+      font-size: 0.95rem;
+      padding: 3px 7px;
+      background: rgba(47,107,255,0.07);
+      border: 1px solid rgba(47,107,255,0.18);
+      border-radius: 6px;
+      font-family: inherit;
+      font-weight: 600;
+      color: var(--heading, #0d1a3a);
+    }
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+      justify-content: flex-end;
+    }
+    .btn-danger {
+      background: transparent;
+      color: #b42318;
+      border: 1px solid rgba(180, 35, 24, 0.18);
+      box-shadow: none;
+    }
+    .btn-danger:hover {
+      background: rgba(180, 35, 24, 0.06);
+      color: #8e1c13;
+    }
+    .btn-sm {
+      padding: 10px 16px;
+      font-size: 0.88rem;
+    }
+
+/* Override external .btn — compact, square-cornered, same shape as .btn-round-add */
+.btn {
+  padding: 5px 14px !important;
+  border-radius: 8px !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  border: 1.5px solid var(--line, #dde3f0) !important;
+  background: transparent !important;
+  color: var(--ink-soft, #67789e) !important;
+  box-shadow: none !important;
+  /* Buttons are often <a> tags - never underline them. */
+  text-decoration: none !important;
+  transition: background 0.13s, color 0.13s, border-color 0.13s !important;
+}
+.btn:hover {
+  background: rgba(47,107,255,0.05) !important;
+  border-color: rgba(47,107,255,0.25) !important;
+  color: var(--accent, #2f6bff) !important;
+}
+.btn.btn-primary {
+  border-radius: 999px !important;
+  padding: 8px 20px !important;
+  font-size: 0.9rem !important;
+  background: var(--accent, #2f6bff) !important;
+  border-color: var(--accent, #2f6bff) !important;
+  color: #fff !important;
+}
+.btn.btn-primary:hover {
+  background: #1a57f0 !important;
+  border-color: #1a57f0 !important;
+  color: #fff !important;
+}
+.btn.btn-danger {
+  color: #b42318 !important;
+  border-color: rgba(180,35,24,0.25) !important;
+  background: transparent !important;
+}
+.btn.btn-danger:hover {
+  background: rgba(180,35,24,0.06) !important;
+  color: #8e1c13 !important;
+}
+.btn.btn-sm {
+  padding: 4px 12px !important;
+  font-size: 0.78rem !important;
+}
+    .flash {
+      margin-bottom: 18px;
+      padding: 13px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(180, 35, 24, 0.16);
+      background: rgba(180, 35, 24, 0.08);
+      color: #8e1c13;
+      font-size: 0.94rem;
+    }
+    /* .flash was hard-coded RED whatever category it was given, so a
+       successful save read as a failure -- "Logo uploaded" in error red
+       (Philip 2026-07-21). Templates already pass a category; honour it. */
+    .flash.success {
+      border-color: rgba(22, 163, 74, 0.22);
+      background: rgba(22, 163, 74, 0.08);
+      color: #14663a;
+    }
+    .flash.info {
+      border-color: rgba(24, 52, 132, 0.16);
+      background: rgba(24, 52, 132, 0.06);
+      color: var(--ink);
+    }
+    .eng-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .eng-row:last-child { border-bottom: none; }
+    .eng-name {
+      flex: 1;
+      font-weight: 600;
+      color: var(--heading, #0d1a3a);
+    }
+    .eng-phone {
+      color: var(--ink-soft);
+      font-size: 0.92rem;
+    }
+    .notice {
+      margin-bottom: 24px;
+      padding: 14px 16px;
+      border-left: 3px solid var(--highlight);
+      border-radius: 0 16px 16px 0;
+      background: rgba(244, 63, 140, 0.05);
+      color: #556;
+      line-height: 1.6;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .badge-paid { background: rgba(47,107,255,0.07); color: #5070b0; }
+    .badge-free { background: var(--surface-alt); color: var(--ink-soft); }
+    .badge-unsubscribed { background: rgba(156,163,175,0.18); color: #4b5563; }
+    .badge-voucher { background: rgba(168,85,247,0.07); color: #8555b0; }
+    .or-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 20px 0;
+      color: var(--ink-soft);
+      font-size: 0.85rem;
+    }
+    .or-divider::before,
+    .or-divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+    .tier-card,
+    .tier-highlight {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px 24px;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, rgba(47, 107, 255, 0.07) 0%, rgba(244, 63, 140, 0.06) 100%);
+    }
+    .tier-price {
+      font-size: clamp(2rem, 4vw, 2.35rem);
+      font-weight: 700;
+      color: var(--heading, #0d1a3a);
+      line-height: 1.1;
+    }
+    .tier-price span,
+    .tier-label {
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+    }
+
+    /* ── Unified form controls ───────────────────────────────────────────── */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="password"],
+    textarea,
+    select {
+      width: 100%;
+      box-sizing: border-box;
+      font-family: inherit;
+      font-size: 0.97rem;
+      font-weight: 400;
+      color: var(--ink, #0d1a3a);
+      background: rgba(255, 255, 255, 0.86);
+      border: 1.5px solid var(--line, #dde3f0);
+      border-radius: 12px;
+      padding: 11px 14px;
+      line-height: 1.5;
+      outline: none;
+      transition: border-color 0.17s ease, box-shadow 0.17s ease;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    input[type="number"]:focus,
+    input[type="password"]:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--accent, #2f6bff);
+      box-shadow: 0 0 0 3px rgba(47, 107, 255, 0.13);
+    }
+    input::placeholder,
+    textarea::placeholder {
+      color: #a8b0c4;
+      font-weight: 400;
+    }
+    textarea {
+      resize: vertical;
+      line-height: 1.65;
+    }
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23556' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 13px center;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+    input[type="checkbox"] {
+      width: 17px;
+      height: 17px;
+      border-radius: 5px;
+      padding: 0;
+      cursor: pointer;
+      accent-color: var(--accent, #2f6bff);
+    }
+
+    kbd {
+      display: inline-block;
+      padding: 1px 6px;
+      font-family: inherit;
+      font-size: 0.8em;
+      font-weight: 600;
+      color: var(--ink, #0d1a3a);
+      background: rgba(255,255,255,0.9);
+      border: 1.5px solid var(--line, #dde3f0);
+      border-radius: 5px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+    }
+
+    /* ── Shared phone picker (see static/phone_picker.js) ────────────────── */
+    .pp-wrap { width: 100%; }
+    .pp-row { display: flex; gap: 8px; position: relative; }
+    .pp-national { flex: 1; min-width: 0; }
+    .pp-combo-wrap { position: relative; flex-shrink: 0; }
+    .pp-combo {
+      display: flex; align-items: center; gap: 5px;
+      width: 130px; padding: 0 8px 0 10px;
+      background: rgba(255,255,255,0.86);
+      border: 1.5px solid var(--line, #dde3f0);
+      border-radius: 12px;
+      transition: border-color 0.17s, box-shadow 0.17s;
+      cursor: text; box-sizing: border-box; height: 46px;
+    }
+    .pp-combo:focus-within, .pp-combo.open {
+      border-color: var(--accent, #2f6bff);
+      box-shadow: 0 0 0 3px rgba(47,107,255,0.13);
+    }
+    .pp-flag { font-size: 1.1rem; flex-shrink: 0; line-height: 1; }
+    .pp-dial-input {
+      flex: 1; min-width: 0;
+      border: none !important; background: transparent !important;
+      box-shadow: none !important; padding: 0 !important; margin: 0 !important;
+      font-family: inherit !important;
+      font-size: 0.93rem !important; font-weight: 500 !important;
+      color: var(--ink, #0d1a3a) !important; width: 100% !important;
+      outline: none !important;
+    }
+    .pp-chevron { opacity: 0.4; flex-shrink: 0; transition: transform 0.18s; }
+    .pp-combo.open .pp-chevron { transform: rotate(180deg); }
+    .pp-panel {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0;
+      z-index: 2000; width: 260px; background: #fff;
+      border: 1.5px solid var(--line, #dde3f0); border-radius: 14px;
+      box-shadow: 0 8px 32px rgba(13,26,58,0.18); overflow: hidden;
+    }
+    .pp-panel.open { display: block; }
+    .pp-list { max-height: 240px; overflow-y: auto; overscroll-behavior: contain; }
+    .pp-opt {
+      display: flex; align-items: center; gap: 9px; padding: 9px 14px;
+      font-size: 0.9rem; color: var(--ink, #0d1a3a);
+      cursor: pointer; transition: background 0.1s;
+    }
+    .pp-opt:hover, .pp-opt.focused { background: rgba(47,107,255,0.07); }
+    .pp-opt.selected { font-weight: 600; color: var(--accent, #2f6bff); }
+    .pp-code { color: var(--ink-soft); font-size: 0.85rem; margin-left: auto; flex-shrink: 0; }
+    .pp-divider { height: 1px; background: var(--line, #dde3f0); margin: 4px 0; }
+    .pp-group-label {
+      padding: 6px 14px 2px; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft);
+    }
+
+    .nav-brand {
+      display: flex; align-items: center; gap: 10px;
+      flex: 1 1 auto; min-width: 0;
+    }
+    /* no line between our logo and the firm's name, only air (Philip 30 Oct
+       2026: "i'd cut it yeah leave the air gap") */
+    .nav-firm-name {
+      margin-left: 14px;
+      font-size: 1.18rem; font-weight: 700; color: #000;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0;
+      /* The whole name while the bar has room; cut with ... only when it runs
+         out (Philip 2 Nov 2026: "if there is space let the whole title be there"). */
+      text-decoration: none;
+    }
+    a.nav-firm-name:hover { color: var(--accent, #2f6bff); }
+
+    @media (max-width: 760px) {
+      .dash-grid,
+      .field-row {
+        grid-template-columns: 1fr;
+      }
+      .app-section {
+        padding: 40px 18px 64px;
+      }
+      .card {
+        padding: 24px 20px;
+      }
+    }
+
+    /* ── Phone: give the reading area the screen ─────────────────────────────
+       Philip 2026-09-22: "when the shrable or check editing thing is on mobile
+       let the wisth of the boxes on the screen be to 99% of the screen width
+       cos when narrow it is hard to read".
+
+       Three paddings were stacking on a phone -- the section's 18px, the
+       card's 20px, and the shell's own gutters -- each reasonable alone. On a
+       312px-wide window the answers table measured 188px: 60% of the screen,
+       so two fifths of a phone was margin while the answer text wrapped every
+       few words.
+
+       Narrower screens need LESS decoration, not the desktop's proportions
+       scaled down. The card keeps a hairline of padding so text does not touch
+       the glass, and the stacked outer gutters go. */
+    @media (max-width: 600px) {
+      /* ONE MARGIN, THE SAME ALL ROUND (Philip 2026-09-22: "Off centre and
+         squint make it all centred / We just need a 1% margij all the way
+         round").
+
+         The page was not merely narrow, it was LOPSIDED: measured on a 318px
+         screen the cards sat 20px from the left and 2px from the right,
+         while the page title started hard against the left edge. Three
+         different insets were each applying to a different element -- the
+         body's 8px both sides, the shell's own gutters, and .sd-skin's 18px
+         on the LEFT ONLY (a gutter for a status stripe that is no longer
+         drawn). Nothing shared an edge with anything else.
+
+         So the phone rule is now a single statement: everything spans the
+         full width, and ONE margin on the shell sets the gutter on every
+         side. Every card, heading and row then starts on the same vertical
+         line.
+
+         The content is 95% of the screen (Philip 2026-09-22: "Make it 95%"),
+         so the margin is HALF the remainder on each side: 2.5%. Setting 5%
+         a side would leave 90% and make the same mistake in the other
+         direction. */
+      body { margin-left: 0; margin-right: 0; }
+      .app-section { padding: 20px 0 48px; }
+      .shell, .shell-wide, .sm-shell-720 {
+        max-width: 100%;
+        width: auto;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+      }
+      .card {
+        padding: 16px 8px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 10px;
+      }
+      /* The answers table is the thing being read, so it takes the card's
+         full inner width rather than inheriting a cell inset.
+
+         The nesting ladder is an inline `padding: 8px Npx` where N is
+         8 + depth*24, so only !important can reach it. It is HALVED rather
+         than removed: at depth 3 it was spending 80px a side, over half a
+         312px phone, but flattening it altogether would lose which question
+         sits under which. The CSS var is set per depth by the template's own
+         class, so each level keeps a visible step. */
+      .sm-answers td, .sm-answers th {
+        padding-left: var(--sm-indent, 4px) !important;
+        padding-right: var(--sm-indent, 4px) !important;
+      }
+      .sm-answers .sm-d0 { --sm-indent: 4px; }
+      .sm-answers .sm-d1 { --sm-indent: 16px; }
+      .sm-answers .sm-d2 { --sm-indent: 28px; }
+      .sm-answers .sm-d3 { --sm-indent: 40px; }
+    }
+
+    /* Submission "Captured answers" table (Philip 2026-07-17).
+       - Long sections scroll VERTICALLY inside the card instead of forcing the
+         whole page sideways.
+       - table-layout:fixed + word-wrap makes a wide value wrap in place.
+       - Field column is a constant 20% on desktop; Value takes the rest and the
+         32px edit column stays fixed. Mobile keeps its natural flow. */
+    /* No inner scroll: the answer list uses as much page height as it needs and
+       the page scrolls normally instead of a cramped 520px box (Philip 2026-07-17). */
+    .sm-answers-scroll { }
+    .sm-answers, .sm-answers table { table-layout: fixed; width: 100%; }
+    .sm-answers td, .sm-answers th { overflow-wrap: anywhere; word-break: break-word; }
+    @media (min-width: 761px) {
+      .sm-answers > thead > tr > th:first-child,
+      .sm-answers > tbody > tr > .sm-answer-q { width: 20%; }
+    }
+
+    /* COLLAPSIBLE BULLETED NOTES (Y4, Philip 2026-07-18): a long catch-all answer
+       renders collapsed, with a bulleted body and real spacing between points —
+       the same shape as the shareable report. */
+    .sm-notes-block { text-align: left; }
+    /* A long text answer / note now sits on its own line below the question,
+       right-aligned the same as every other line in the answer column
+       (Philip 2026-09-11). Alignment is set inline per call site (there are
+       two: the long-answer span and the plain-note div), not here, since
+       each needed a different default before today and inline always wins
+       over this rule anyway -- kept only for the pre-wrap behaviour. */
+    .sm-answer-v .sm-longval { white-space: pre-wrap; }
+    .sm-notes-list { margin: 0; padding: 0 14px 12px 30px; }
+    .sm-notes-list li { margin: 0 0 7px 0; font-size: var(--note-size); line-height: var(--note-line); color: var(--ink-soft, #6b7280); overflow-wrap: anywhere; }
+    .sm-notes-list li:last-child { margin-bottom: 0; }
+    .sm-notes-prose { padding: 0 12px 12px 12px; font-size: var(--note-size); line-height: var(--note-line); color: var(--ink-soft, #6b7280); overflow-wrap: anywhere; white-space: pre-line; }
+
+    /* Collapse the nav into the hamburger BEFORE the desktop menu starts to wrap
+       (Philip 2026-07-06). At ~760-900px the row wrapped and the 999px pill
+       ballooned into a tall oval with More/Sign out stacked inside — an ugly
+       blob. Collapsing at 900px means it becomes a clean hamburger bar first, and
+       a rounded rectangle (not a pill) when the menu drops open so it never
+       balloons. */
+    @media (max-width: 900px) {
+      nav {
+        flex-wrap: wrap;
+        gap: 10px;
+        width: calc(100% - 24px);
+        padding: 12px 14px;
+        border-radius: 20px;
+      }
+      /* flex-basis 0, not auto: a long firm name made the brand as wide as its
+         content, so the menu button wrapped under it (click-through 1 Nov 2026). */
+      .nav-brand { flex: 1 1 0; min-width: 0; overflow: hidden; }
+      /* Logo takes at most a third of the top-bar width on small devices, so the
+         firm name + burger have room and nothing butts up (Philip 2026-07-14). */
+      .nav-name { max-width: 33%; }
+      .nav-name img { height: 28px; max-width: 100%; object-fit: contain; }
+      .nav-firm-name {
+        overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+        max-width: 40vw; display: inline-block; vertical-align: middle;
+      }
+      .nav-toggle { display: flex !important; flex: 0 0 auto; width: 52px; height: 52px; }
+      .hamburger-line { width: 22px; height: 2.5px; }
+      /* Burger opens into a floating white dropdown card, matching the look of
+         the share-menu dropdown on the shareable report pages (Philip 2026-07-14).
+         White scheme (not the report page's dark card): rounded, shadowed, right
+         aligned under the toggle, one tap-row per link. */
+      nav { position: relative; }
+      nav .nav-menu {
+        display: none !important;
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 8px;
+        z-index: 200;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2px;
+        min-width: 220px;
+        max-width: calc(100vw - 24px);
+        padding: 8px;
+        margin-top: 0;
+        background: #ffffff;
+        border: 1px solid rgba(24,52,132,0.18);
+        border-radius: 16px;
+        box-shadow: 0 16px 40px rgba(18,41,111,0.22);
+      }
+      nav.nav-open .nav-menu { display: flex !important; }
+      nav .nav-menu a {
+        padding: 15px 16px;
+        text-align: left;
+        border-radius: 10px;
+        font-size: 1.02rem;
+      }
+      .inputs-table thead {
+        display: none;
+      }
+      .inputs-table tr {
+        display: block;
+        margin-bottom: 18px;
+        border-bottom: 1.5px solid var(--line, #dde3f0);
+        padding-bottom: 18px;
+      }
+      .inputs-table td {
+        display: block;
+        border-bottom: none;
+        padding: 4px 0;
+      }
+    }
+
+    /* Touch devices wider than the burger-collapse point (big landscape
+       tablets, unfolded foldables) still show the inline nav — give those
+       links a finger-sized tap area. Gated on pointer, not width, so a mouse
+       laptop keeps the compact nav (Philip 2026-07-14). */
+    @media (pointer: coarse) and (min-width: 901px) {
+      .nav-menu a { padding: 13px 16px; font-size: 1rem; }
+    }
+
+
+/* Dark palette — two levels, borders do the separation work:
+   page #000000  →  surface #000000  →  elevated #000000             */
+
+
+/* Nav — same as body, seamless */
+nav { border-color: rgba(0,0,0,0.08) !important; transition: border-color 0.25s ease !important; }
+nav:hover { border-color: rgba(0,0,0,0.22) !important; }
+
+/* Cards — one step up */
+
+/* Buttons (base) — elevated */
+
+/* Form inputs — elevated */
+
+/* Tables */
+
+/* Badges */
+
+/* Phone picker */
+
+/* Footer */
+
+/* No gradients */
+
+/* ── Custom tooltip ─────────────────────────────────────────────────────── */
+.custom-tip {
+  position: fixed !important;
+  z-index: 2147483647;
+  background: #111 !important;
+  color: #fff !important;
+  font-size: 11px;
+  line-height: 1.4;
+  padding: 5px 9px;
+  border-radius: 6px;
+  border: none !important;
+  box-shadow: none !important;
+  pointer-events: none;
+  white-space: pre-wrap;
+  max-width: 260px;
+  margin: 0;
+  inset: unset;
+}
+
+/* ── Sign-out armed state ───────────────────────────────────────────────── */
+#signout-link {
+  padding: 3px 10px;
+  border-radius: 999px;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  transition: background 0.15s, color 0.15s;
+}
+#signout-link.signout-armed {
+  color: #1d4ed8 !important;
+  font-weight: 600 !important;
+  outline-color: transparent;
+  background: rgba(29,78,216,0.10);
+  border-radius: 999px;
+}
+
+/* ── Firm logo in the nav brand slot ────────────────────────────────────────
+   NO display-time filter. A light logo is inverted in the STORED FILE at upload
+   (workflow_branding.save_firm_logo), so the nav, the shareable, the PDF and any
+   emailed copy all get a usable image without each having to correct it. An
+   earlier version filtered here with invert(1), which left the file white and
+   only fixed the surfaces that can run CSS (Philip 2026-07-21). */
+
+/* An SVG with a viewBox but no intrinsic width/height collapses to 0x0 when it
+   is only given max-height, so a perfectly valid logo renders invisible. Giving
+   it a real height (and letting width follow) makes both raster and vector
+   logos size the same way (Philip 2026-07-21). */
+.firm-logo { height: 30px; width: auto; max-width: 150px; object-fit: contain; }
+.share-nav-firm ~ .firm-logo, nav .firm-logo { height: 32px; }
+
+
+/* Quickler staff acting for a firm: the logo is a Back to admin hub button.
+   Only that button is red, and bright (Philip 2 Nov 2026: "just make the back
+   to admin hub button the red and make it much brighter everything else can be
+   normal"); the bar itself is the customer's own. White on #e11d48 is 4.7:1. */
+.nav-staff-back {
+  height: 38px; box-sizing: border-box; padding: 0 16px; border-radius: 999px;
+  background: #e11d48; border: 1px solid #e11d48;
+  color: #fff; font-size: 0.92rem; font-weight: 700; white-space: nowrap;
+}
+.nav-staff-back:hover, .nav-staff-back:focus-visible { background: #be123c; border-color: #be123c; color: #fff; }
+.nav-staff-back .nsb-arrow { margin-right: 8px; }
+@media (max-width: 900px) {
+  /* The logo's own width, so the bar wraps exactly as the customer's does. */
+  .nav-staff-back { max-width: none; width: 152px; justify-content: center; height: 28px; padding: 0 8px; font-size: 0.82rem; }
+}
+@media (max-width: 520px) {
+  .nav-staff-back .nsb-long { display: none; }
+  .nav-staff-back { padding: 0 8px; }
+  .nav-staff-back .nsb-arrow { margin-right: 6px; }
+}
+
+/* An uploaded logo is shown scaled to fit its box, whole, however big or small
+   the file is: never cut at the side, never larger than the box (Philip 3 Nov
+   2026: "scale logos uploaded to whatever we need to look good there"). Used
+   by the Settings firm tile, the Check page's Check logo and the logo page. */
+.logo-preview { display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  padding: 14px; border-radius: 10px; background: var(--panel-soft, #f6f7fb); margin-bottom: 14px; min-width: 0; }
+.logo-preview-img { display: block; flex: 0 1 auto; min-width: 0; max-width: min(260px, 100%);
+  max-height: 72px; width: auto; height: auto; object-fit: contain; }
+.logo-preview > form { flex-shrink: 0; margin: 0; }

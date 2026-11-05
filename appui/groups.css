@@ -1,0 +1,43 @@
+/* Collapsible groups, shared by the Check page (Your sentences and Written
+   report, Managers, Check logo) and the Settings page (Philip 2 Nov
+   2026: "why does nothing on settings page have chevron"). One file, so the two
+   pages cannot drift. They LOOK LIKE A CHECK TILE ON THE HOME PAGE (Philip 2
+   Nov 2026: "restyle these drop downs like the checks would be on the home
+   page please UI is inconsistent drop downs"): a rounded card, the title in
+   the tile's title font on the left, the same chevron on the right turning
+   over when open, the body opening inside the same card. The values are
+   the home tile's (style.css .wf-card, .wf-name, .wf-expand-chevron). */
+.wfo-group {
+  border:1px solid var(--line,#e4e8f2); border-radius:18px; padding:20px 22px;
+  background:var(--surface-card,#fff);
+  box-shadow:0 2px 8px rgba(18,41,111,0.06);
+  transition:box-shadow 0.15s;
+  box-sizing:border-box; max-width:100%;
+}
+.wfo-group:hover { box-shadow:0 4px 18px rgba(13,26,58,0.08); }
+.wfo-group-head {
+  display:flex; align-items:center; gap:10px; cursor:pointer; user-select:none;
+  min-height:45px;
+}
+.wfo-group-head:focus { outline:none; }
+.wfo-group-head--fixed { cursor:default; }
+.wfo-group-head:focus-visible { outline:2px solid var(--accent,#2f6bff); outline-offset:2px; border-radius:6px; }
+.wfo-group-title { font-weight:700; font-size:1.2rem; color:var(--heading,#111); flex:1; }
+/* The chevron is the group's state: it turns with aria-expanded, which
+   wfoToggleGroup writes, so the two can never disagree. */
+.wfo-group-chevron { opacity:0.45; transition:transform 0.2s; flex-shrink:0; }
+.wfo-group-head[aria-expanded="true"] .wfo-group-chevron { transform:rotate(180deg); }
+.wfo-group-body { display:grid; grid-template-columns:1fr; gap:14px; margin-top:14px; padding-top:14px; }
+/* The tiles inside open in the group's own card, not a card within a card. */
+.wfo-group-body > .wfo-tile { border:0; padding:0; border-radius:0; background:none; aspect-ratio:auto; overflow:visible; }
+.wfo-group-body > .wfo-tile + .wfo-tile { border-top:1px solid var(--line,#e4e8f2); padding-top:14px; }
+/* Your sentences and Written report share one group: each keeps its own small
+   heading, switch and words (Philip 2 Nov 2026), a rule between the two. */
+.wfo-group-body > .wfo-it + .wfo-it { border-top:1px solid var(--line,#e4e8f2); padding-top:14px; margin-top:4px; }
+@media (max-width: 600px) { .wfo-group { padding:16px 14px; } .wfo-group-title { font-size:1.05rem; } }
+.wfo-group-body[hidden] { display:none; }
+/* A group whose body is a plain list (Settings: Contacts), not a grid. */
+.wfo-group-body--flow { display:block; }
+.wfo-group-body--flow[hidden] { display:none; }
+/* A control in the head row (Contacts: Add) sits right, before the chevron. */
+.wfo-group-head .wfo-group-extra { display:flex; align-items:center; gap:10px; }

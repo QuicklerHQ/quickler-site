@@ -1,0 +1,307 @@
+/* appsite.css: only what the web app never needed (Philip 5 Nov 2026: the
+   site is drawn with the app's own stylesheets in /appui/). Headings that are
+   h1/h2/h3 for search keep the look of the app element they sit in; the
+   rest is the cookie banner, the video, the footer links and the To do card
+   heading, all in the app's own values. */
+
+/* Headings wear the app element's look. */
+.site-h { margin: 0; font: inherit; font-weight: inherit; font-size: inherit; color: inherit; line-height: inherit; letter-spacing: inherit; }
+.wf-name.site-h { font-weight: 700; font-size: 1.2rem; color: var(--heading); line-height: 1.3; }
+.wfo-group-title.site-h { font-weight: 700; }
+.site-q { margin: 0; font: inherit; color: inherit; }
+
+/* Words inside a tile or group. */
+.site-words { margin: 0 0 10px; color: var(--ink); font-size: 0.95rem; line-height: 1.6; }
+.site-words p { margin: 0 0 10px; }
+.site-words ul, .site-words ol { margin: 0 0 10px; padding-left: 20px; }
+.site-words table, .site-raw table, .site-answer table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 6px 0 12px; }
+.site-words th, .site-words td, .site-raw th, .site-raw td, .site-answer th, .site-answer td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.site-words th, .site-raw th, .site-answer th { color: var(--heading); font-weight: 600; }
+.site-raw .story-eyebrow { font-size: 0.82rem; color: var(--ink-soft); margin: 0 0 4px; }
+.site-raw .story-h2, .site-raw h2 { font-size: 1.05rem; color: var(--heading); margin: 0 0 8px; }
+.site-raw .story-text { margin: 0 0 10px; font-size: 0.95rem; color: var(--ink); line-height: 1.6; }
+.site-note { margin-top: 6px; }
+.site-q-words { margin: 4px 0 12px; font-size: var(--note-size); color: var(--ink-soft); line-height: var(--note-line); }
+
+/* Cards and links as the app's Records rows; steps as its question rows. */
+.site-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 10px; }
+.rec-tile.site-tile { align-items: flex-start; min-height: 0; padding: 16px 18px; }
+.rec-tile.site-tile .row-title { font-size: 1.02rem; }
+.site-tile-words { display: block; margin-top: 4px; font-size: 0.85rem; color: var(--ink-soft); line-height: 1.5; font-weight: 400; }
+.site-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.site-actions { margin-top: 12px; }
+.site-actions .wf-action-btn { text-decoration: none; }
+.site-actions .site-action-main { color: var(--accent); }
+.site-group-label { font-size: 0.78rem; font-weight: 500; color: var(--ink-soft); white-space: nowrap; margin-right: 8px; }
+.wfo-group-extra { display: flex; align-items: center; }
+
+/* A guide as a Record. */
+.site-record { max-width: 760px; margin: 0 auto; }
+.site-rec-top { display: flex; align-items: center; margin: 4px 0 10px; }
+.site-rec-logo { height: 40px; width: auto; }
+.site-rec-meta { font-size: 0.95rem; color: var(--ink); margin: 0 0 14px; line-height: 1.45; }
+.site-rec-h1 { font-size: 1.35rem; font-weight: 700; color: var(--heading); }
+.site-rec-ref { font-size: 0.82rem; color: var(--ink-soft); margin: 4px 0 12px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.site-rec-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; color: var(--ink-soft); margin: 4px 0 4px; }
+.site-todo-head { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; }
+.site-todo-title { font-size: 1.15rem; font-weight: 700; color: #b91c1c; }
+.site-todo-body ul { list-style: none; margin: 0; padding: 0; }
+.site-todo-body li { padding: 9px 4px; border-bottom: 1px solid rgba(185,28,28,0.12); color: #991b1b; font-size: 0.9rem; line-height: 1.45; }
+.site-todo-body li:last-child { border-bottom: none; }
+.site-sec-head { padding: 8px 8px; display: flex; align-items: center; gap: 8px; list-style: none; cursor: default; }
+.site-sec-head::-webkit-details-marker { display: none; }
+.site-sec-head .sm-group-label { flex: 1 1 0; min-width: 0; font-size: calc(0.92rem + 1pt); color: var(--ink, #0d1a3a); font-weight: 500; }
+.site-sec-body { padding: 4px 8px 12px; }
+details.sm-section-group { border: 1px solid var(--line); border-radius: 8px; margin: 0 0 12px; }
+.site-answer p { margin: 0 0 8px; }
+.site-answer ul, .site-answer ol { margin: 0 0 8px; padding-left: 18px; }
+.site-transcript .site-wa { background: #efeae2 url("/appui/quickler-chat-bg.jpg"); border-radius: 10px; padding: 14px; max-height: none; }
+.site-transcript .wa-bubble { max-width: 80%; }
+.site-transcript .wa-text p { margin: 0 0 6px; }
+@media (max-width: 600px) {
+  .sm-answer-row td.sm-d1 { padding: 8px 12px !important; }
+  .site-answer { width: 100% !important; }
+}
+
+/* The marketing nav's links and button in the app's top bar. */
+nav[aria-label="Primary"] .nav-cta-pill { display: inline-flex; align-items: center; gap: 6px; background: var(--accent) !important; color: #fff !important; border-radius: 999px; }
+nav[aria-label="Primary"] .nav-cta-pill svg { width: 15px; height: 15px; }
+
+/* Footer: the app's small centred footer, with the site's links. */
+footer { text-align: center; font-size: 0.85rem; color: var(--ink); padding: 40px 16px 32px; }
+footer p { margin: 6px 0; }
+footer a { color: var(--ink); text-decoration: none; }
+footer a:hover { color: var(--accent); }
+.footer-social-link { color: var(--ink-soft); }
+
+/* Carried from the old site: the cookie banner and the video player. */
+.cookie-banner {
+    position: fixed;
+    left: 50%;
+    right: auto;
+    bottom: clamp(12px, 2vw, 20px);
+    transform: translateX(-50%);
+    width: min(320px, calc(100vw - 24px));
+    padding: 14px 16px;
+    border: 1px solid var(--line-strong);
+    border-radius: 20px;
+    background: var(--surface-card);
+    box-shadow: 0 24px 50px rgba(18, 41, 111, 0.18);
+    z-index: 200;
+}
+.cookie-banner-copy {
+    color: var(--ink);
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+.cookie-banner-copy a {
+    color: var(--accent-mid);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(91, 120, 214, 0.3);
+}
+.cookie-banner-copy a:hover,
+.cookie-banner-copy a:focus-visible {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+.cookie-banner-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+    justify-content: center;
+}
+.cookie-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+.cookie-button:hover {
+    transform: translateY(-1px);
+}
+.cookie-button-accept {
+    background: var(--accent);
+    color: #ffffff;
+    border-color: var(--accent);
+}
+.cookie-button-decline {
+    background: var(--surface-card);
+    color: var(--accent);
+    border-color: var(--line);
+}
+.footer-social {
+    margin-top: 14px;
+    display: flex;
+    justify-content: center;
+}
+.footer-social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.72);
+    color: var(--accent);
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.footer-social-link:hover,
+.footer-social-link:focus-visible {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 24px rgba(18, 41, 111, 0.08);
+    border-color: var(--line);
+}
+.footer-social-link img {
+    width: 20px;
+    height: 20px;
+}
+.cookie-banner {
+        left: 10px;
+        right: 10px;
+        transform: none;
+        width: auto;
+        bottom: 10px;
+        padding: 12px 12px 10px;
+        border-radius: 16px;
+    }
+.cookie-banner-copy {
+        font-size: 0.82rem;
+        line-height: 1.42;
+    }
+.cookie-banner-actions {
+        gap: 6px;
+        margin-top: 10px;
+    }
+.cookie-button {
+        min-height: 38px;
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+.page-dark-hero .footer-cta-zone,
+.page-dark-hero footer > p,
+.page-dark-hero footer > .footer-social,
+.page-dark-hero footer > .footer-rule {
+    max-width: min(calc(100% - (var(--page-gutter) * 2)), var(--content-width));
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Hero video embedded directly (replaces the gradient placeholder + the
+   duplicate 'Watch the video' button). Clean 16:9 frame. */
+.story-video-embed {
+    width: min(100%, 720px);
+    margin: clamp(20px, 3vw, 32px) auto 0;
+    aspect-ratio: 16 / 9;
+    min-height: 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    background: #000;
+}
+/* Standalone video panel: the walkthrough gets its OWN reel screen (a
+   composed "watch it work" moment) instead of being crammed under the 3
+   steps. Cap by height so the 16:9 frame always fits one viewport under
+   the heading, whatever the screen size. */
+.story-video-panel .story-video-embed {
+    /* Height is the binding constraint (must fit heading + video + both safe
+       bands in one viewport). Derive WIDTH from that height via 16:9 so the
+       frame is always a true 16:9 rectangle -- never wider than its height
+       warrants (the "width is odd" bug came from a fixed width + max-height
+       fighting the aspect-ratio). Width is also capped so it never exceeds
+       the column or gets too big on wide screens. */
+    height: min(
+        calc(100dvh - var(--safe-top) - var(--safe-bottom) - 160px),
+        calc((100vw - 2 * var(--gutter)) * 0.5625),
+        483px
+    );
+    width: auto;
+    max-width: min(100%, 860px);
+    aspect-ratio: 16 / 9;
+}
+/* Portrait (vertical Short): a 9:16 video letterboxes badly in the 16:9 box.
+   Render it 9:16 instead, height-capped to one viewport so it never dominates,
+   and derive the (narrow) width from that height. object-fit: cover on the
+   oardefault thumbnail means no black bars either. */
+/* Portrait (phone-shot) demo. On DESKTOP it is a contained phone frame:
+   height-capped so it never becomes a lonely screen-tall column, width from
+   9:16, centred. On MOBILE the same 9:16 goes full column width and looks
+   native. object-fit: cover crops the still to the box so there is never a
+   grey bar, whatever the source frame's shape. */
+.story-video-panel .story-video-embed.portrait {
+    /* A 9:16 video is bound by whichever runs out first: the panel's height OR
+       (on wide/short screens) a sensible width so it never becomes a lonely
+       hair-thin strip. Height is the usable panel height; width is capped so
+       on desktop and on landscape phones it stays a believable phone frame
+       rather than stretching to the full height of a short/wide viewport. */
+    height: min(100%, 78vh);
+    width: auto;
+    max-width: min(92vw, 46vh);
+    margin: 0 auto;
+    aspect-ratio: 9 / 16;
+}
+/* Desktop: cap the phone frame so it reads as a deliberate phone mock, not
+       a full-height column flanked by dead space. */
+    .story-video-panel .story-video-embed.portrait {
+        height: min(72vh, 620px);
+        max-width: none;
+    }
+.story-video-embed.portrait .yt-lite-thumb {
+    object-fit: cover;
+    transform: none;
+}
+/* Mobile: let the phone frame use the column width; height follows 9:16. */
+    .story-video-panel .story-video-embed.portrait {
+        height: auto;
+        width: min(100%, 340px);
+        max-width: 100%;
+    }
+.story-video-embed iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+/* Lite YouTube facade: thumbnail + play button shown until clicked. Nothing
+   loads from YouTube until then, so the page is fast. The .story-video-embed
+   box already sets the 16:9 frame, radius and shadow. */
+.yt-lite {
+    position: relative;
+    cursor: pointer;
+}
+.yt-lite-thumb {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* hqdefault has black bars on 16:9; scale up slightly to fill cleanly. */
+    transform: scale(1.02);
+}
+.yt-lite-play {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 68px;
+    height: 48px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
+    transition: transform 0.18s ease, opacity 0.18s ease;
+}
+.yt-lite-play svg path:first-child { transition: fill 0.18s ease; opacity: 0.92; }
+.yt-lite:hover .yt-lite-play { transform: scale(1.08); }
+.yt-lite:hover .yt-lite-play svg path:first-child { fill: #f00; opacity: 1; }
+.yt-lite:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.story-video-embed { width: 100%; }
+/* The app's logo sits bare in its top bar, no white pill. */
+nav[aria-label="Primary"] .nav-name { background: none !important; box-shadow: none !important; padding: 0 !important; border-radius: 0 !important; height: auto !important; }
+nav[aria-label="Primary"] .nav-name img { height: 38px; width: auto; }

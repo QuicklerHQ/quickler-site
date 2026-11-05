@@ -141,6 +141,23 @@ module.exports = function (eleventyConfig) {
   // pairs, so we parse those into mainEntity Q/A nodes. Returns "" when there is
   // no FAQ panel, so the template emits nothing. Gives Google FAQ rich results
   // and feeds AI search engines clean Q/A pairs.
+  // A guide's words cut into the question rows a Record shows: every <h3>
+  // becomes a question, the words under it its answer; words before the
+  // first <h3> are one row with no question (Philip 5 Nov 2026: the site is
+  // drawn as the app's Record).
+  eleventyConfig.addFilter("qaRows", (html) => {
+    const s = String(html || "");
+    const parts = s.split(/<h3[^>]*>/i);
+    const rows = [];
+    if (parts[0].replace(/<[^>]+>/g, "").trim()) rows.push({ q: "", a: parts[0] });
+    for (const part of parts.slice(1)) {
+      const i = part.search(/<\/h3>/i);
+      if (i < 0) { rows.push({ q: "", a: part }); continue; }
+      rows.push({ q: part.slice(0, i), a: part.slice(i + 5) });
+    }
+    return rows;
+  });
+
   eleventyConfig.addFilter("faqSchema", (panels) => {
     if (!Array.isArray(panels)) return "";
     const faq = panels.find((p) => p && p.kind === "faq" && p.html);
@@ -200,6 +217,8 @@ module.exports = function (eleventyConfig) {
   // Pass static assets straight through, unchanged.
   eleventyConfig.addPassthroughCopy({ "assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "css": "css" });
+  // The web app's own stylesheets and fonts (Philip 5 Nov 2026: the site copies the app).
+  eleventyConfig.addPassthroughCopy({ "appui": "appui" });
   eleventyConfig.addPassthroughCopy({ "js": "js" });
   eleventyConfig.addPassthroughCopy({ "src/css": "css" });
 

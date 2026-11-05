@@ -1,339 +1,306 @@
 {#- ============================================================
-    THE master template. One template every page uses.
-    A page supplies front-matter (hero + an ordered list of
-    `blocks`), and this renders them all in the unified .story
-    frame. Change this file -> every page using it changes.
+    THE master template every marketing page uses.
 
-    DESIGN RULE: max ~100 words per panel. Each screen is ONE composed
-    idea you could screenshot in isolation. If a section runs long, split
-    it into two panels rather than cramming -- there is no scroll within a
-    panel by design. Every screen (hero, blocks, footer) is a uniform
-    .story panel so behaviour is identical on every device.
+    THE SITE IS THE APP (Philip 5 Nov 2026 08:06 and 08:19: "copy the
+    dashboard pages and fit things into that so output is for articles, home
+    is for home page, settings for things ... no new code really just use what
+    we have", then "do it properly"). Every page is drawn with the web app's
+    own stylesheets (/appui/, copied from quickler-dashboard) and the app's own
+    markup, so a visitor already knows the app the day they sign up:
+      checks   -> Home's "All Checks" panel: each part is a Check tile, open
+      settings -> the Settings page: each part is a Settings group, open
+      record   -> a Record: title card, the short version as the To do list,
+                  each part a section of question rows, the FAQ as the
+                  WhatsApp transcript, all open
+    A guide (articlePanels) is a Record; pricing, about, help and legal are
+    Settings; everything else is Home. A page can set appMode itself.
 
-    ARCHITECTURE -- proper full-page scroller:
-      <nav>            position:fixed, floats OVER everything.
-      <div .story-scroll>   the ONE scroll container. It owns the
-                       scrollbar and the snap (height:100svh,
-                       overflow-y:scroll, scroll-snap-type). Because
-                       snap lives here -- not on <html> -- the fixed
-                       nav can never be captured by it (the Firefox
-                       sticky-in-snap bug is structurally impossible).
-        <section .story>    each panel is exactly 100svh, snap-align
-                       start, content flex-centred. No nav-offset
-                       maths: the nav floats, panels are full-height.
-        <div .story-tail>   trailing non-snap region (SEO prose +
-                       footer). Scrolls normally after the panels.
-
-    Front-matter contract:
-      hero: { eyebrow, heading, lede?, actions?[{label,href,style}], video? }
-        EYEBROW IS THE HOUSE STYLE: every hero opens with a short eyebrow
-        (small uppercase blue label) above the heading, then heading, then
-        lede, then actions. The homepage is the reference. Always set an
-        eyebrow so heros stay consistent across the site -- a section tag
-        ("Pricing", "Support"), a category ("Guide . Electrical"), a market
-        ("France"), or a punchy line ("No app. No paperwork.").
-      blocks: [ ordered list, each { type: ..., feature?, ...fields } ]
-        feature: true -> paint this ONE block as the gradient brand band
-                         (white text). Use at most once per page.
-        types:
-          - prose:   { eyebrow?, heading?, text|html, alt? }
-          - split:   { eyebrow?, heading, text, reverse?, alt? }
-          - steps:   { eyebrow?, heading, items:[{title,text}], video?, alt? }
-          - cards:   { eyebrow?, heading, items:[{kicker,title,text,href}], alt? }
-          - tags:    { eyebrow?, heading, text?, items:[{label,href,strong?}], alt? }
-          - cta:     { eyebrow?, heading, text?, actions:[{label,href,style?}], alt? }
-          - raw:     { html, alt? }   (escape hatch for bespoke content)
-      (footerCta in front-matter renders the closing CTA as today.)
-      Free-form page body (the {{ content }}) renders inside .story-tail.
+    Front matter is unchanged: hero { eyebrow, heading, lede, actions,
+    actionNote }, blocks [ prose | split | steps | cards | tags | cta | raw |
+    video | pricing ], articlePanels, relatedLinks, seoBody, content.
    ============================================================ -#}
-<!DOCTYPE html>
-<html lang="{{ seo.lang or 'en' }}">
-{% include "partials/head.njk" %}
-<body class="{{ bodyClass or 'page-story' }}">
-{% include "partials/nav.njk" %}
-{#- Which app page this page copies (Philip 5 Nov 2026 08:06: "copy the dashboard pages and fit things into that so output is for articles, home is for home page, settings for things"): a guide with articlePanels reads like a Record, the support and money pages like Settings, the rest like the Checks list on Home. A page can set appMode itself. -#}
+{%- set appUi = true %}
 {%- set _pl = permalink or '' %}
 {%- if appMode %}{% set _mode = appMode %}
 {%- elif articlePanels %}{% set _mode = 'record' %}
-{%- elif ('pricing' in _pl) or ('about' in _pl) or ('contact' in _pl) or ('/help/' in _pl) or ('faq' in _pl) or ('support' in _pl) or ('plans' in _pl) or ('legal' in _pl) %}{% set _mode = 'settings' %}
+{%- elif ('pricing' in _pl) or ('about' in _pl) or ('contact' in _pl) or ('/help/' in _pl) or ('faq' in _pl) or ('support' in _pl) or ('plans' in _pl) or ('legal' in _pl) or ('privacy' in _pl) or ('terms' in _pl) or ('cookies' in _pl) or ('dpa' in _pl) %}{% set _mode = 'settings' %}
 {%- else %}{% set _mode = 'checks' %}{% endif %}
-<main class="story-scroll app-{{ _mode }}">
+{%- set _chev %}<svg class="wf-expand-chevron" width="16" height="10" viewBox="0 0 12 7" fill="none" aria-hidden="true"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>{% endset %}
 
-{%- if hero %}
-<section id="top" class="story story-hero">
-    <div class="story-inner">
-        {%- if hero.eyebrow %}<p class="story-eyebrow">{{ hero.eyebrow }}</p>{% endif %}
-        <h1 class="story-h1">{{ hero.heading | safe }}</h1>
-        {%- if hero.lede %}<p class="story-lede">{{ hero.lede | priceTokens | safe }}</p>{% endif %}
-        {%- if hero.actions or copyForAi %}
-        <div class="story-actions">
-            {%- for a in hero.actions or [] %}
-            {#- An action that leaves the site opens in a new tab, so someone
-                booking a demo still has the page behind them. -#}
-            <a href="{{ a.href }}" class="btn {{ a.style or 'btn-primary' }}"{% if '//' in a.href and site.domain not in a.href %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ a.label }}</a>
-            {%- endfor %}
-            {#- Help pages (copyForAi, from help.11tydata.json): copy the page as
-                clean text for an AI chat (js/copy-for-ai.js). -#}
-            {%- if copyForAi %}
-            <button type="button" class="btn btn-secondary" data-copy-for-ai>Copy for AI chat</button>
-            {%- endif %}
-        </div>
-        {%- endif %}
-        {%- if hero.actionNote %}<p class="story-action-note">{{ hero.actionNote }}</p>{% endif %}
+{%- macro actionGroup(actions, domain) %}
+{%- if actions and actions | length %}
+  <div class="wf-bottom-bar site-actions">
+    <span></span>
+    <div class="wf-action-group" role="group">
+    {%- for a in actions %}
+      <a class="wf-action-btn{% if loop.first %} site-action-main{% endif %}" href="{{ a.href }}"{% if '//' in a.href and domain not in a.href %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ a.label }}</a>
+    {%- endfor %}
     </div>
-    {%- if hero.video %}
-    <div class="story-media-hero story-video-embed">
-        <iframe src="https://www.youtube-nocookie.com/embed/{{ hero.video }}?rel=0" title="Quickler walkthrough" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
-    {%- endif %}
-</section>
+  </div>
 {%- endif %}
+{%- endmacro %}
 
-{#- Alternating colour rhythm so each reel panel is visually distinct and
-    "instagrammable" on its own: hero is white (index 0), then panels
-    alternate gradient / white / gradient / white down the page. A block can
-    still force its look with feature:true (gradient), alt:true (tinted) or
-    plain:true (white). The auto-rhythm uses loop.index (1-based): odd ->
-    gradient band, even -> white. -#}
-{%- for b in blocks %}
-{#- App look (Philip 4 Nov 2026: "work and look basically the same as the web app"): every panel is plain white, no gradient bands, no photo panels. -#}
-{%- set altcls = "" %}
+{#- What one block holds, drawn with the app's own pieces: words as words,
+    steps and cards as the question rows and Record tiles the app shows,
+    tags as the app's round pills, actions as its Edit / Records buttons. -#}
+{%- macro blockBody(b, domain) %}
 {%- if b.type == "prose" %}
-{#- bgImage: a full-bleed photo behind this panel with a dark scrim over it so
-    the text stays legible. The panel forces the white-on-dark text styling
-    (story-photo reuses .story-feature's white text rules) regardless of the
-    alternating colour rhythm. -#}
-<section class="story {{ altcls }}"{% if b.bgImage %} style="--bg-photo: url('{{ b.bgImage }}'){% if b.bgDim %}; --scrim-edge: {{ b.bgDim }}; --scrim-mid: {{ b.bgDim - 0.08 }}{% endif %}"{% endif %}>
-    <div class="story-inner">
-        {%- if b.eyebrow %}<p class="story-eyebrow">{{ b.eyebrow }}</p>{% endif %}
-        {%- if b.heading %}<h2 class="story-h2">{{ b.heading | safe }}</h2>{% endif %}
-        {%- if b.html %}{{ b.html | priceTokens | safe }}{% else %}<p class="story-text story-text-centre">{{ b.text | priceTokens | safe }}</p>{% endif %}
-    </div>
-</section>
+  {%- if b.html %}<div class="site-words">{{ b.html | priceTokens | safe }}</div>{% elif b.text %}<p class="site-words">{{ b.text | priceTokens | safe }}</p>{% endif %}
 {%- elif b.type == "split" %}
-<section class="story {{ altcls }}"{% if b.bgImage %} style="--bg-photo: url('{{ b.bgImage }}'){% if b.bgDim %}; --scrim-edge: {{ b.bgDim }}; --scrim-mid: {{ b.bgDim - 0.08 }}{% endif %}"{% endif %}>
-    {%- if false %}
-    {#- Photo-backed split: full-panel photo + scrim (like prose). The media
-        column is dropped; copy centres so the text reads over the photo. -#}
-    <div class="story-inner">
-        {%- if b.eyebrow %}<p class="story-eyebrow">{{ b.eyebrow }}</p>{% endif %}
-        <h2 class="story-h2">{{ b.heading | safe }}</h2>
-        <p class="story-text story-text-centre">{{ b.text | priceTokens | safe }}</p>
+  <p class="site-words">{{ b.text | priceTokens | safe }}</p>
+{%- elif b.type == "steps" %}
+  {%- if b.text %}<p class="site-words">{{ b.text | priceTokens | safe }}</p>{% endif %}
+  <div class="wf-q-read">
+  {%- for it in b.items %}
+    <div class="q-row"><span class="q-label">{{ it.title | safe }}</span><span class="q-type">Step {{ loop.index }}</span></div>
+    <p class="site-q-words">{{ it.text | priceTokens | safe }}</p>
+  {%- endfor %}
+  </div>
+{%- elif b.type == "cards" %}
+  {%- if b.text %}<p class="site-words">{{ b.text | priceTokens | safe }}</p>{% endif %}
+  <div class="site-tiles">
+  {%- for it in b.items %}
+    {%- if it.href %}<a class="rec-tile site-tile" href="{{ it.href }}">{% else %}<div class="rec-tile site-tile">{% endif %}
+      <span class="row-main"><span class="row-title">{{ it.title | safe }}</span><span class="row-meta site-tile-words">{{ it.text | priceTokens | safe }}</span></span>
+      {%- if it.kicker %}<span class="row-when">{{ it.kicker }}</span>{% endif %}
+    {%- if it.href %}</a>{% else %}</div>{% endif %}
+  {%- endfor %}
+  </div>
+{%- elif b.type == "tags" %}
+  {%- if b.text %}<p class="site-words">{{ b.text | priceTokens | safe }}</p>{% endif %}
+  <div class="site-pills">
+  {%- for it in b.items %}{% if it.href %}<a class="btn-round-add{% if it.strong %} btn-round-add-primary{% endif %}" href="{{ it.href }}">{{ it.label }}</a>{% else %}<span class="btn-round-add">{{ it.label }}</span>{% endif %}{% endfor %}
+  </div>
+{%- elif b.type == "cta" %}
+  {%- if b.text %}<p class="site-words">{{ b.text | priceTokens | safe }}</p>{% endif %}
+  {{ actionGroup(b.actions, domain) }}
+{%- elif b.type == "raw" %}
+  <div class="site-raw">{{ b.html | priceTokens | safe }}</div>
+{%- elif b.type == "video" and b.video %}
+  {%- if b.text %}<p class="site-words">{{ b.text | priceTokens | safe }}</p>{% endif %}
+  <div class="story-video-embed yt-lite{% if b.portrait %} portrait{% endif %}" data-yt="{{ b.video }}" role="button" tabindex="0" aria-label="Play the Quickler walkthrough video">
+    {%- if b.portrait %}<img class="yt-lite-thumb" src="https://i.ytimg.com/vi/{{ b.video }}/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/{{ b.video }}/hqdefault.jpg'" alt="" loading="lazy" width="405" height="720">
+    {%- else %}<img class="yt-lite-thumb" src="https://i.ytimg.com/vi/{{ b.video }}/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">{% endif %}
+    <button type="button" class="yt-lite-play" aria-label="Play video"><svg viewBox="0 0 68 48" width="68" height="48" aria-hidden="true"><path fill="#f00" d="M66.5 7.7a8 8 0 0 0-5.6-5.7C56 .6 34 .6 34 .6S12 .6 7.1 2a8 8 0 0 0-5.6 5.7A83 83 0 0 0 0 24a83 83 0 0 0 1.5 16.3 8 8 0 0 0 5.6 5.7C12 47.4 34 47.4 34 47.4s22 0 26.9-1.4a8 8 0 0 0 5.6-5.7A83 83 0 0 0 68 24a83 83 0 0 0-1.5-16.3z"/><path fill="#fff" d="M27 34l18-10-18-10z"/></svg></button>
+  </div>
+{%- endif %}
+{%- endmacro %}
+
+
+
+{#- One Check tile, open. -#}
+{%- macro checkTile(title, when, id) %}
+<div class="wf-card wf-expanded"{% if id %} id="{{ id }}"{% endif %}>
+  <div class="wf-title-row" aria-expanded="true">
+    <span class="wf-name-block"><span class="wf-name">{{ title | safe }}</span></span>
+    {%- if when %}<span class="wf-activity">{{ when }}</span>{% endif %}
+    <svg class="wf-expand-chevron" width="16" height="10" viewBox="0 0 12 7" fill="none" aria-hidden="true"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+  </div>
+  <div class="wf-body">{{ caller() }}</div>
+</div>
+{%- endmacro %}
+
+{#- One Settings group, open. -#}
+{%- macro settingsGroup(title, extra, id) %}
+<div class="wfo-group site-group"{% if id %} id="{{ id }}"{% endif %}>
+  <div class="wfo-group-head wfo-group-head--fixed" aria-expanded="true">
+    <span class="wfo-group-title">{{ title | safe }}</span>
+    <span class="wfo-group-extra">{% if extra %}<span class="site-group-label">{{ extra }}</span>{% endif %}<svg class="wf-expand-chevron" width="16" height="10" viewBox="0 0 12 7" fill="none" aria-hidden="true"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+  </div>
+  <div class="wfo-group-body">{{ caller() }}</div>
+</div>
+{%- endmacro %}
+<!DOCTYPE html>
+<html lang="{{ seo.lang or 'en' }}">
+{% include "partials/head.njk" %}
+<body class="page-app app-{{ _mode }}">
+{% include "partials/nav.njk" %}
+<main id="main-content">
+<section class="app-section" style="padding-top:28px;">
+  <div class="shell-wide{% if _mode != 'checks' %} rec-shell{% endif %}">
+{%- set _lead = hero.lede %}
+{%- set _ledePanel = false %}{% set _todo = false %}{% set _faq = false %}
+{%- for ap in articlePanels or [] %}{% if ap.kind == 'lede' %}{% set _ledePanel = ap %}{% elif ap.kind == 'takeaways' %}{% set _todo = ap %}{% elif ap.kind == 'faq' %}{% set _faq = ap %}{% endif %}{% endfor %}
+
+{%- if _mode == 'checks' %}
+{#- ── HOME: the "All Checks" panel (templates/dashboard.html). -#}
+<div class="dash-main"><div>
+<div class="card" id="wf-section-card" style="padding-bottom:24px;">
+  <div class="wf-section-head" style="display:flex;flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin:0 0 14px;">
+    <div class="dash-section-title" style="flex:0 1 auto;min-width:0;font-weight:400;line-height:1.1;color:var(--ink);">{{ hero.eyebrow or 'Quickler' }}</div>
+    <div class="wf-section-actions" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0;justify-content:flex-end;">
+      {%- for a in hero.actions or [] %}<a href="{{ a.href }}" class="btn-round-add{% if loop.first %} btn-round-add-primary{% endif %}"{% if '//' in a.href and site.domain not in a.href %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ a.label }}</a>{% endfor %}
     </div>
-    {%- else %}
-    <div class="story-split {{ 'story-split-reverse' if b.reverse }}">
-        <div class="story-copy">
-            {%- if b.eyebrow %}<p class="story-eyebrow">{{ b.eyebrow }}</p>{% endif %}
-            <h2 class="story-h2">{{ b.heading | safe }}</h2>
-            <p class="story-text">{{ b.text | priceTokens | safe }}</p>
-        </div>
-        <div class="story-media" role="img" aria-label="{{ b.mediaAlt or '' }}"></div>
+  </div>
+  <div class="wf-card wf-expanded" id="top">
+    <div class="wf-title-row" aria-expanded="true">
+      <span class="wf-name-block"><h1 class="wf-name site-h">{{ hero.heading | safe }}</h1></span>
+      <svg class="wf-expand-chevron" width="16" height="10" viewBox="0 0 12 7" fill="none" aria-hidden="true"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </div>
+    <div class="wf-body">
+      {%- if hero.lede %}<p class="site-words">{{ hero.lede | priceTokens | safe }}</p>{% endif %}
+      {%- if hero.actionNote %}<div class="wf-meta site-note">{{ hero.actionNote }}</div>{% endif %}
+    </div>
+  </div>
+  {%- for b in blocks or [] %}
+  {%- set _t = b.heading or b.videoName or b.eyebrow or 'More' %}
+  <div class="wf-card wf-expanded">
+    <div class="wf-title-row" aria-expanded="true">
+      <span class="wf-name-block"><h2 class="wf-name site-h">{{ _t | safe }}</h2></span>
+      {%- if b.eyebrow and b.heading %}<span class="wf-activity">{{ b.eyebrow }}</span>{% endif %}
+      <svg class="wf-expand-chevron" width="16" height="10" viewBox="0 0 12 7" fill="none" aria-hidden="true"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </div>
+    <div class="wf-body">{{ blockBody(b, site.domain) }}</div>
+  </div>
+  {%- endfor %}
+</div>
+</div></div>
+
+{%- elif _mode == 'settings' %}
+{#- ── SETTINGS: the Settings page's groups (templates/dashboard_settings.html). -#}
+<div class="settings-col">
+  <div class="wfo-group site-group" id="top" style="margin-bottom:14px;">
+    <div class="wfo-group-head wfo-group-head--fixed" aria-expanded="true">
+      <h1 class="wfo-group-title site-h">{{ hero.heading | safe }}</h1>
+      <span class="wfo-group-extra">{% if hero.eyebrow %}<span class="site-group-label">{{ hero.eyebrow }}</span>{% endif %}</span>
+    </div>
+    <div class="wfo-group-body">
+      {%- if hero.lede %}<p class="site-words">{{ hero.lede | priceTokens | safe }}</p>{% endif %}
+      {{ actionGroup(hero.actions, site.domain) }}
+      {%- if hero.actionNote %}<div class="wf-meta site-note">{{ hero.actionNote }}</div>{% endif %}
+    </div>
+  </div>
+  {%- for b in blocks or [] %}
+  <div class="wfo-group site-group" style="margin-bottom:14px;">
+    {%- if b.type != 'raw' or b.heading %}
+    <div class="wfo-group-head wfo-group-head--fixed" aria-expanded="true">
+      <h2 class="wfo-group-title site-h">{{ (b.heading or b.videoName or b.eyebrow or 'More') | safe }}</h2>
+      <span class="wfo-group-extra">{% if b.eyebrow and b.heading %}<span class="site-group-label">{{ b.eyebrow }}</span>{% endif %}<svg class="wf-expand-chevron" width="16" height="10" viewBox="0 0 12 7" fill="none" aria-hidden="true" style="transform:rotate(180deg)"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
     </div>
     {%- endif %}
-</section>
-{%- elif b.type == "steps" %}
-<section class="story {{ altcls }}">
-    <div class="story-inner">
-        {%- if b.eyebrow %}<p class="story-eyebrow">{{ b.eyebrow }}</p>{% endif %}
-        <h2 class="story-h2">{{ b.heading | safe }}</h2>
-        <ol class="story-steps">
-            {%- for it in b.items %}
-            <li class="story-step"><span class="story-step-n">{{ loop.index }}</span><h3>{{ it.title }}</h3><p>{{ it.text | priceTokens | safe }}</p></li>
-            {%- endfor %}
-        </ol>
-        {%- if b.video %}
-        <div class="story-video-embed">
-            <iframe src="https://www.youtube-nocookie.com/embed/{{ b.video }}?rel=0" title="Quickler walkthrough" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        {%- endif %}
-    </div>
-</section>
-{%- elif b.type == "cards" %}
-<section class="story {{ altcls }}">
-    <div class="story-inner">
-        {%- if b.eyebrow %}<p class="story-eyebrow">{{ b.eyebrow }}</p>{% endif %}
-        <h2 class="story-h2">{{ b.heading | safe }}</h2>
-        {#- Column count is decided here, not in CSS: 4 cards read better as 2x2
-   than as an unbalanced 3+1, and anything above 3 wraps rather than
-   squeezing (6 across gave 160px columns that broke headings mid-word). -#}
-        {%- set _n = b.items | length %}
-        {%- set _cols = 2 if _n == 4 else (3 if _n > 3 else _n) %}
-        <div class="story-cards" style="--n: {{ _cols }}">
-            {%- for it in b.items %}
-            <a class="story-card" href="{{ it.href }}">{%- if it.kicker %}<span class="story-card-kicker">{{ it.kicker }}</span>{% endif %}<h3>{{ it.title }}</h3><p>{{ it.text }}</p></a>
-            {%- endfor %}
-        </div>
-    </div>
-</section>
-{%- elif b.type == "tags" %}
-<section class="story {{ altcls }}">
-    <div class="story-inner">
-        {%- if b.eyebrow %}<p class="story-eyebrow">{{ b.eyebrow }}</p>{% endif %}
-        <h2 class="story-h2">{{ b.heading | safe }}</h2>
-        {%- if b.text %}<p class="story-text story-text-centre">{{ b.text | priceTokens | safe }}</p>{% endif %}
-        <div class="story-tags">
-            {%- for it in b.items %}
-            <a href="{{ it.href }}" class="story-tag {{ 'story-tag-strong' if it.strong }}">{{ it.label }}</a>
-            {%- endfor %}
-        </div>
-    </div>
-</section>
-{%- elif b.type == "cta" %}
-<section class="story story-cta {{ altcls }}"{% if b.bgImage %} style="--bg-photo: url('{{ b.bgImage }}'){% if b.bgDim %}; --scrim-edge: {{ b.bgDim }}; --scrim-mid: {{ b.bgDim - 0.08 }}{% endif %}"{% endif %}>
-    <div class="story-inner">
-        {%- if b.eyebrow %}<p class="story-eyebrow">{{ b.eyebrow }}</p>{% endif %}
-        <h2 class="story-h2">{{ b.heading | safe }}</h2>
-        {%- if b.text %}<p class="story-text story-text-centre">{{ b.text | priceTokens | safe }}</p>{% endif %}
-        {%- if b.actions %}
-        <div class="story-actions">
-            {%- for a in b.actions %}
-            {#- As in the hero: a link off the site opens in a new tab. -#}
-            <a href="{{ a.href }}" class="btn {{ a.style or 'btn-primary' }}"{% if '//' in a.href and site.domain not in a.href %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ a.label }}</a>
-            {%- endfor %}
-        </div>
-        {%- endif %}
-    </div>
-</section>
-{%- elif b.type == "video" %}
-<section class="story story-video-panel {{ altcls }}">
-    <div class="story-inner">
-        {%- if b.eyebrow %}<p class="story-eyebrow">{{ b.eyebrow }}</p>{% endif %}
-        {%- if b.heading %}<h2 class="story-h2">{{ b.heading | safe }}</h2>{% endif %}
-        {%- if b.text %}<p class="story-text story-text-centre">{{ b.text | priceTokens | safe }}</p>{% endif %}
-        {#- Lite facade: NO YouTube iframe loads on page load (the player is
-            ~1.5MB+ of JS over a dozen requests -- the slow-load cause). Show
-            just the thumbnail + play button; js/persist-video.js swaps in the
-            real autoplaying iframe on click, then keeps it playing as you
-            scroll past. -#}
-        {#- portrait: a phone-shot demo. The box is a capped phone frame on desktop
-            and full-width on mobile (see CSS). Thumbnail is maxresdefault (exists
-            for both true Shorts and landscape-canvas uploads), object-fit: cover
-            crops it to the box cleanly. hqdefault is the onerror fallback. -#}
-        <div class="story-video-embed yt-lite{% if b.portrait %} portrait{% endif %}" data-yt="{{ b.video }}" role="button" tabindex="0" aria-label="Play the Quickler walkthrough video">
-            {%- if b.portrait %}
-            <img class="yt-lite-thumb" src="https://i.ytimg.com/vi/{{ b.video }}/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/{{ b.video }}/hqdefault.jpg'" alt="" loading="lazy" width="405" height="720">
-            {%- else %}
-            <img class="yt-lite-thumb" src="https://i.ytimg.com/vi/{{ b.video }}/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
-            {%- endif %}
-            <button type="button" class="yt-lite-play" aria-label="Play video"><svg viewBox="0 0 68 48" width="68" height="48" aria-hidden="true"><path fill="#f00" d="M66.5 7.7a8 8 0 0 0-5.6-5.7C56 .6 34 .6 34 .6S12 .6 7.1 2a8 8 0 0 0-5.6 5.7A83 83 0 0 0 0 24a83 83 0 0 0 1.5 16.3 8 8 0 0 0 5.6 5.7C12 47.4 34 47.4 34 47.4s22 0 26.9-1.4a8 8 0 0 0 5.6-5.7A83 83 0 0 0 68 24a83 83 0 0 0-1.5-16.3z"/><path fill="#fff" d="M27 34l18-10-18-10z"/></svg></button>
-        </div>
-    </div>
-</section>
-{%- elif b.type == "raw" %}
-<section class="story {{ altcls }}"><div class="story-inner">{{ b.html | priceTokens | safe }}</div></section>
-{%- elif b.type == "pricing" %}
-{#- Pricing block: renders the bundle/plan grid from the single source of truth
-    (src/_data/pricing.js) via the {% pricingCards %} shortcode. A pricing change
-    in that data file updates every page using this block. eyebrow/heading/intro
-    are optional overrides. -#}
-<section class="story {{ altcls }}"><div class="story-inner">
-    <p class="story-eyebrow">{{ b.eyebrow or "Monthly bundles" }}</p>
-    <h2 class="story-h2">{{ b.heading or "Pick the bundle that fits." }}</h2>
-    {%- if b.intro %}<p class="story-text story-text-centre">{{ b.intro }}</p>{% endif %}
-    {% pricingCards %}
-    <p class="story-text story-text-centre">{{ pricing.overflowLine }} <a href="mailto:{{ site.email }}">Talk to us</a>. {{ pricing.billing }}</p>
-</div></section>
-{%- endif %}
-{%- endfor %}
-
-{#- Article as REEL PANELS, in the SAME look + rhythm as the home page:
-    pink (gradient) / white / photo, alternating, centred cards. The article's
-    sections become full-screen snap panels that continue the reel. Each panel
-    still holds full crawlable text (SEO preserved). The colour rhythm continues
-    from the page's blocks (offset by `blocks | length`) so the alternation does
-    not reset. Every Nth panel gets the page's photo (articlePhoto) so the
-    pink/white/photo pattern matches home. `articlePanels`: list of
-    { eyebrow?, heading?, html, kind? }. -#}
-{%- if articlePanels %}
-<div class="rec-toc" role="navigation" aria-label="On this page">
-    <a href="#top" class="rec-toc-title">{{ hero.eyebrow or (seo and seo.title) or '' }}</a>
-    {%- for ap in articlePanels %}{% if ap.heading %}<a href="#part-{{ loop.index }}">{{ ap.heading | striptags }}</a>{% endif %}{% endfor %}
+    <div class="wfo-group-body">{{ blockBody(b, site.domain) }}</div>
+  </div>
+  {%- endfor %}
+  {%- if seoBody %}
+  <div class="wfo-group site-group" style="margin-bottom:14px;">
+    <div class="wfo-group-head wfo-group-head--fixed" aria-expanded="true"><h2 class="wfo-group-title site-h">More detail</h2></div>
+    <div class="wfo-group-body"><div class="site-words">{{ seoBody | priceTokens | safe }}</div></div>
+  </div>
+  {%- endif %}
 </div>
-{%- set base = (blocks | length) or 0 %}
-{%- for ap in articlePanels %}
-{%- set n = base + loop.index %}
-{#- photo every 3rd panel (if the page has an articlePhoto); else alternate
-    gradient (odd) / white (even), exactly like the blocks loop. -#}
-{%- set usePhoto = articlePhoto and (loop.index0 % 3 == 2) and ap.kind != 'lede' and ap.kind != 'takeaways' %}
-{%- set usePhoto = false %}{%- set acls = "" %}
-<section id="part-{{ loop.index }}" class="story story-article story-article-{{ ap.kind or 'default' }} {{ acls }}"{% if usePhoto %} style="--bg-photo: url('{{ articlePhoto }}'); --scrim-edge: 0.92; --scrim-mid: 0.84"{% endif %}>
-    <div class="story-inner story-article-inner">
-        {%- if ap.eyebrow %}<p class="story-eyebrow">{{ ap.eyebrow }}</p>{% endif %}
-        {%- if ap.heading %}<h2 class="story-h2">{{ ap.heading | safe }}</h2>{% endif %}
-        <div class="story-article-body">{{ ap.html | priceTokens | safe }}</div>
+
+{%- else %}
+{#- ── A GUIDE: a Record (templates/workflow/submission_detail.html). -#}
+<div class="site-record">
+  <div class="site-rec-top">
+    <img src="/assets/logos/quickler-logo.svg" alt="" width="152" height="36" class="site-rec-logo">
+  </div>
+  <div class="site-rec-meta">
+    <div>{{ hero.eyebrow or 'Quickler guide' }}</div>
+    <div>Quickler guide · {{ site.company }}</div>
+  </div>
+
+  <div class="card site-rec-title" id="top">
+    <h1 class="site-h site-rec-h1">{{ hero.heading | safe }}</h1>
+    {%- if hero.lede %}<div class="site-rec-ref">{{ hero.lede | priceTokens | safe }}</div>{% endif %}
+    {%- if _ledePanel %}
+    <div class="site-rec-label">IN SHORT</div>
+    <div class="site-words">{{ _ledePanel.html | priceTokens | safe }}</div>
+    {%- endif %}
+    {{ actionGroup(hero.actions, site.domain) }}
+    {%- if hero.actionNote %}<div class="wf-meta site-note">{{ hero.actionNote }}</div>{% endif %}
+  </div>
+
+  {%- if _todo %}
+  <div class="card site-todo">
+    <div class="site-todo-head"><span class="site-todo-title">{{ _todo.heading or 'To do list' }}</span></div>
+    <div class="sm-issues-list">
+    <div class="site-todo-body">{{ _todo.html | priceTokens | safe }}</div>
     </div>
-</section>
-{%- endfor %}
-{%- endif %}
+  </div>
+  {%- endif %}
 
-{#- Related guides -- internal-linking cluster. A final reel panel that links to
-    the 3-4 topically-closest guides. Spreads link equity (Google reads tight
-    topical clusters as authority) and keeps readers on-site. Rendered in the
-    reel rhythm: it continues the alternation so it never clashes with the panel
-    before it. `relatedLinks`: [{ label, href, blurb? }] in front-matter. -#}
-{%- if relatedLinks and relatedLinks | length %}
-{%- set rn = ((blocks | length) or 0) + ((articlePanels | length) or 0) + 1 %}
-<section class="story story-article story-related ">
-    <div class="story-inner story-article-inner">
-        <p class="story-eyebrow">Keep reading</p>
-        <h2 class="story-h2">Related guides</h2>
-        <ul class="story-related-list">
-            {%- for r in relatedLinks %}
-            <li><a href="{{ r.href }}">{{ r.label }}</a>{% if r.blurb %} <span class="story-related-blurb">{{ r.blurb }}</span>{% endif %}</li>
-            {%- endfor %}
-        </ul>
+  {%- if blocks and blocks | length %}
+  <div class="card">
+  {%- for b in blocks %}
+    <details class="sm-section-group" open>
+      <summary class="site-sec-head"><span class="sm-group-label">{{ (b.heading or b.videoName or b.eyebrow or 'More') | safe }}</span></summary>
+      <div class="site-sec-body">{{ blockBody(b, site.domain) }}</div>
+    </details>
+  {%- endfor %}
+  </div>
+  {%- endif %}
+
+  <div class="card">
+    <div class="sm-answers-scroll">
+    {%- for ap in articlePanels or [] %}
+    {%- if ap.kind != 'lede' and ap.kind != 'takeaways' and ap.kind != 'faq' %}
+    <details class="sm-section-group" id="part-{{ loop.index }}" open>
+      <summary class="site-sec-head"><span class="sm-group-label">{{ (ap.heading or ap.eyebrow or 'More') | safe }}</span>{% if ap.eyebrow and ap.heading %}<span class="site-group-label">{{ ap.eyebrow }}</span>{% endif %}</summary>
+      <table class="sm-normal-tab" style="width:100%;border-collapse:collapse;font-size:0.9rem;table-layout:fixed;"><tbody>
+      {%- for r in ap.html | priceTokens | qaRows %}
+        <tr class="sm-answer-row" style="border-bottom:1px solid rgba(0,0,0,0.06);">
+          <td class="sm-d1" style="padding:8px 32px 8px 32px;vertical-align:top;">
+            {%- if r.q %}<div class="sm-answer-q" style="display:flex;align-items:baseline;gap:10px;color:var(--ink,#0d1a3a);font-size:0.85rem;font-weight:500;opacity:0.95;"><h3 class="site-q">{{ r.q | safe }}</h3></div>{% endif %}
+            <div class="sm-answer-v" style="margin-top:2px;overflow-wrap:anywhere;color:var(--ink-soft,#6b7280);font-size:0.85rem;">
+              <div class="sm-longval sm-prose-answer site-answer" style="margin-top:4px;width:var(--ans-w, 89.75%);margin-left:auto;font-size:var(--note-size);color:var(--ink-soft);line-height:var(--note-line);text-align:left;">{{ r.a | safe }}</div>
+            </div>
+          </td>
+        </tr>
+      {%- endfor %}
+      </tbody></table>
+    </details>
+    {%- endif %}
+    {%- endfor %}
     </div>
-</section>
-{%- endif %}
+  </div>
 
-{#- Optional long-form SEO region (LEGACY fallback for pages not yet converted
-    to articlePanels). Raw HTML article rendered as a styled scroll region after
-    the reel panels, before the footer. Crawlable, visible, indexable. -#}
-{%- if seoBody and not articlePanels %}
-<section class="story-seo" aria-label="More detail">
-    <div class="story-seo-inner">
-        {{ seoBody | priceTokens | safe }}
+  {%- if _faq %}
+  {#- The questions people ask, drawn as the Record's WhatsApp transcript, open. -#}
+  <div class="card site-transcript">
+    <div class="site-sec-head"><span class="sm-group-label">{{ _faq.heading or 'Questions' }}</span><span class="site-group-label">Transcript</span></div>
+    <div class="wa-scroll site-wa">
+    {%- for r in _faq.html | priceTokens | qaRows %}
+      {%- if r.q %}<div class="wa-row wa-you wa-tail"><div class="wa-bubble"><div class="wa-text">{{ r.q | striptags }}</div></div></div>{% endif %}
+      <div class="wa-row wa-bot wa-tail"><div class="wa-bubble"><div class="wa-text">{{ r.a | safe }}</div></div></div>
+    {%- endfor %}
     </div>
-</section>
+  </div>
+  {%- endif %}
+
+  {%- if relatedLinks and relatedLinks | length %}
+  <div class="card">
+    <div class="site-sec-head"><span class="sm-group-label">Related guides</span></div>
+    <div class="site-tiles">
+    {%- for r in relatedLinks %}<a class="rec-tile site-tile" href="{{ r.href }}"><span class="row-main"><span class="row-title">{{ r.label }}</span>{% if r.blurb %}<span class="row-meta site-tile-words">{{ r.blurb }}</span>{% endif %}</span></a>{% endfor %}
+    </div>
+  </div>
+  {%- endif %}
+</div>
 {%- endif %}
 
-{#- Free-form page body (the {{ content }}) renders as its own non-snap region
-    BEFORE the footer, like seoBody -- so a page can supply a long list/article
-    in its body and it scrolls normally instead of being crammed in the footer. -#}
-{%- if content %}
-{{ content | safe }}
-{%- endif %}
-
-{#- Auto related-links block. Driven by src/_data/relatedClusters.js keyed on
-    fileSlug: every workflow page gets internal links to its topical siblings.
-    This is the site's internal-linking layer -- it spreads link equity and
-    signals topic clusters to search engines, so pages are not link islands.
-    A page opts out by setting hideRelated: true in front-matter. -#}
 {%- set rel = relatedClusters[page.fileSlug] %}
 {%- if rel and not hideRelated %}
-<section class="story story-alt">
-    <div class="story-inner">
-        <p class="story-eyebrow">{{ rel.label }}</p>
-        <h2 class="story-h2">Related Checks</h2>
-        {%- set _rn = rel.related | length %}
-        {%- set _rcols = 2 if _rn == 4 else (3 if _rn > 3 else _rn) %}
-        <div class="story-cards" style="--n: {{ _rcols }}">
-            {%- for it in rel.related %}
-            <a class="story-card" href="{{ it.href }}"><h3>{{ it.title }}</h3></a>
-            {%- endfor %}
-        </div>
-    </div>
-</section>
+<div class="card">
+  <div class="site-sec-head"><span class="sm-group-label">Related Checks</span><span class="site-group-label">{{ rel.label }}</span></div>
+  <div class="site-tiles">
+  {%- for it in rel.related %}<a class="rec-tile site-tile" href="{{ it.href }}"><span class="row-main"><span class="row-title">{{ it.title }}</span></span></a>{% endfor %}
+  </div>
+</div>
 {%- endif %}
 
-{#- Footer is its OWN reel panel -- a uniform full-screen .story like every
-    other section, so it behaves identically on every device (no special
-    'tail' region that broke on mobile). -#}
-<section class="story story-footer">
-{% include "partials/footer.njk" %}
-</section>
+{%- if seoBody and not articlePanels and _mode == 'checks' %}
+<div class="card site-more"><div class="site-sec-head"><span class="sm-group-label">More detail</span></div><div class="site-words">{{ seoBody | priceTokens | safe }}</div></div>
+{%- endif %}
 
+{%- if content %}
+<div class="card site-content">{{ content | safe }}</div>
+{%- endif %}
+
+  </div>
+</section>
 </main>
+{% include "partials/footer.njk" %}
 
 {#- Structured data (JSON-LD), generated from content already on the page so it
     can never drift from what the reader sees. Organization + WebSite are emitted
