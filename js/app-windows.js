@@ -166,3 +166,37 @@
     if (Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1));
   });
 })();
+
+/* Scrolling inside a window (Philip 5 Nov 2026 14:17): the page scrolls past
+   the windows as normal. On a computer, hold Ctrl and scroll to move inside a
+   window; on a phone, double tap a window to scroll inside it (tap outside to
+   let go). A short hint says so when someone tries. */
+(function () {
+  var boxes = document.querySelectorAll(".aw-scroll");
+  if (!boxes.length) return;
+  var touch = window.matchMedia && window.matchMedia("(hover: none)").matches;
+  function hint(box, text) {
+    var h = box.parentNode.querySelector(".aw-hint");
+    if (!h) { h = document.createElement("div"); h.className = "aw-hint"; h.setAttribute("aria-hidden", "true"); box.parentNode.appendChild(h); }
+    h.textContent = text; h.classList.add("is-on");
+    clearTimeout(h._t); h._t = setTimeout(function () { h.classList.remove("is-on"); }, 1400);
+  }
+  boxes.forEach(function (box) {
+    box.classList.add("aw-locked");
+    box.addEventListener("wheel", function (e) {
+      if (box.classList.contains("aw-active")) return;
+      if (e.ctrlKey) { e.preventDefault(); box.scrollTop += e.deltaY; box.scrollLeft += e.deltaX; }
+      else if (Math.abs(e.deltaY) > 2) { hint(box, "Hold Ctrl and scroll to move inside"); }
+    }, { passive: false });
+    var last = 0;
+    box.addEventListener("touchend", function () {
+      var now = Date.now();
+      if (now - last < 320) { box.classList.add("aw-active"); box.classList.remove("aw-locked"); hint(box, "Scrolling inside. Tap outside to stop"); }
+      last = now;
+    });
+    box.addEventListener("touchmove", function () { if (!box.classList.contains("aw-active")) hint(box, "Double tap to scroll inside"); }, { passive: true });
+  });
+  document.addEventListener("touchstart", function (e) {
+    boxes.forEach(function (box) { if (!box.contains(e.target) && box.classList.contains("aw-active")) { box.classList.remove("aw-active"); box.classList.add("aw-locked"); } });
+  }, { passive: true });
+})();

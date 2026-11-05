@@ -60,9 +60,9 @@
       <div class="wa-pin-body"><div class="wa-pin-addr">{{ m.address }}</div><div class="wa-pin-coords">{{ m.coords }}</div></div></div>
     {{ waTime(m) }}
   {%- elif m.kind == 'report' %}
-    <a class="aw-linkcard" href="/demo-report/"><span class="aw-linkcard-t">{{ _dw.check }} &ndash; {{ _dw.firm }}</span><span class="aw-linkcard-d">quickler.co</span></a>
+    <a class="aw-linkcard" href="https://app.quickler.co/view-only-share-link/spMOr8VyLnjiKZewjk_udZXKDeWIgxUAy1Mm43K9nhQ" target="_blank" rel="noopener"><span class="aw-linkcard-t">{{ _dw.check }} &ndash; {{ _dw.firm }}</span><span class="aw-linkcard-d">app.quickler.co</span></a>
     <div class="wa-text">Here is your report:
-<a class="wa-link" href="/demo-report/">https://quickler.co/demo-report/</a></div>
+<a class="wa-link" href="https://app.quickler.co/view-only-share-link/spMOr8VyLnjiKZewjk_udZXKDeWIgxUAy1Mm43K9nhQ" target="_blank" rel="noopener">https://app.quickler.co/view-only-share-link/spMOr8VyLnjiKZewjk_udZXKDeWIgxUAy1Mm43K9nhQ</a></div>
     {{ waTime(m) }}
   {%- endif %}
   </div>
@@ -146,13 +146,12 @@
     {{ waPanel(_dw.chat, 'aw-wa-tall') }}
   {%- elif kind == 'place' %}
     <div class="aw-wa">
-      <div class="wa-topbar"><div class="wa-avatar"><img src="/assets/icons/apple-touch-icon.png" alt="" width="40" height="40"></div><div class="wa-title"><div class="wa-name">Quickler</div></div>
-        <div class="aw-steps" role="group" aria-label="Step through the walk"><button type="button" class="aw-step" data-aw-step="0" aria-pressed="true">1. Start</button><button type="button" class="aw-step" data-aw-step="1" aria-pressed="false">2. After a voice note</button></div></div>
+      <div class="wa-topbar"><div class="wa-avatar"><img src="/assets/icons/apple-touch-icon.png" alt="" width="40" height="40"></div><div class="wa-title"><div class="wa-name">Quickler</div></div></div>
       <div class="wa-scroll aw-scroll" tabindex="0" aria-label="WhatsApp messages">
-        <div class="aw-stepview" data-aw-view="0">
+        <div>
           <div class="wa-row wa-bot wa-tail"><div class="wa-bubble"><div class="wa-text">{{ _dw.steps[0] | safe }}</div><span class="wa-time">13:43</span></div></div>
         </div>
-        <div class="aw-stepview" data-aw-view="1" hidden>
+        <div>
           {{ waMsg(_dw.stepVoice, {open: true}) }}
           <div class="wa-row wa-bot wa-tail"><div class="wa-bubble"><div class="wa-text">Carry on.</div><span class="wa-time">13:44</span></div></div>
           <div class="wa-row wa-bot"><div class="wa-bubble aw-flash"><div class="wa-text">{{ _dw.steps[1] | safe }}</div><span class="wa-time">13:45</span></div></div>
