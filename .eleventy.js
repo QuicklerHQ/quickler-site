@@ -159,13 +159,17 @@ module.exports = function (eleventyConfig) {
   // drawn as the app's Record).
   eleventyConfig.addFilter("qaRows", (html) => {
     const s = String(html || "");
-    const parts = s.split(/<h3[^>]*>/i);
+    // <h3 data-short="..."> carries the blunt answer shown small at the right
+    // of the tile (Philip 5 Nov 2026 13:48).
+    const parts = s.split(/<h3([^>]*)>/i);
     const rows = [];
     if (parts[0].replace(/<[^>]+>/g, "").trim()) rows.push({ q: "", a: parts[0] });
-    for (const part of parts.slice(1)) {
+    for (let k = 1; k < parts.length; k += 2) {
+      const attrs = parts[k] || "", part = parts[k + 1] || "";
+      const sm = attrs.match(/data-short="([^"]*)"/i);
       const i = part.search(/<\/h3>/i);
       if (i < 0) { rows.push({ q: "", a: part }); continue; }
-      rows.push({ q: part.slice(0, i), a: part.slice(i + 5) });
+      rows.push({ q: part.slice(0, i), a: part.slice(i + 5), short: sm ? sm[1] : "" });
     }
     return rows;
   });

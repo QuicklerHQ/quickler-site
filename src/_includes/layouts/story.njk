@@ -241,7 +241,7 @@
       {%- if _rows | length > 1 %}
         {%- for r in _rows %}{% if r.q %}
         {%- set _plain = r.a | striptags | trim %}
-        {%- set _short = 'Yes' if _plain.startsWith('Yes') else ('No' if _plain.startsWith('No.') or _plain.startsWith('No,') else '') %}
+        {%- set _short = r.short or ('Yes' if _plain.startsWith('Yes') else ('No' if _plain.startsWith('No.') or _plain.startsWith('No,') else '')) %}
         <details class="wf-card site-drop">
           <summary class="wf-title-row"><span class="wf-name-block"><h2 class="wf-name site-h">{{ r.q | safe }}</h2></span>{% if _short %}<span class="wf-activity">{{ _short }}</span>{% endif %}<svg class="wf-expand-chevron" width="16" height="10" viewBox="0 0 12 7" fill="none" aria-hidden="true"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></summary>
           <div class="wf-body site-drop-body"><div class="site-words">{{ r.a | priceTokens | safe }}</div></div>
@@ -260,7 +260,7 @@
     {%- set _srows = (seoBody | qaRows) if (seoBody and '<h3' in seoBody) else [] %}
     {%- for r in _srows %}{% if r.q %}
       {%- set _plain = r.a | striptags | trim %}
-      {%- set _short = 'Yes' if _plain.startsWith('Yes') else ('No' if _plain.startsWith('No.') or _plain.startsWith('No,') else '') %}
+      {%- set _short = r.short or ('Yes' if _plain.startsWith('Yes') else ('No' if _plain.startsWith('No.') or _plain.startsWith('No,') else '')) %}
       <details class="wf-card site-drop">
         <summary class="wf-title-row"><span class="wf-name-block"><h3 class="wf-name site-h">{{ r.q | safe }}</h3></span>{% if _short %}<span class="wf-activity">{{ _short }}</span>{% endif %}<svg class="wf-expand-chevron" width="16" height="10" viewBox="0 0 12 7" fill="none" aria-hidden="true"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></summary>
         <div class="wf-body site-drop-body"><div class="site-words">{{ r.a | priceTokens | safe }}</div></div>
