@@ -109,7 +109,7 @@ const minimumShort = "£75 a month for each phone number on the account.";
 const overflowLine = "Big team? Talk to us.";
 
 // Billing line.
-const billing = "Billed monthly in arrears by UK Direct Debit.";
+const billing = "Billed monthly in arrears by UK Direct Debit, or by purchase order if you need one (email purchaseorder@quickler.co).";
 
 // ---- Generated, reusable wording (so prose never hardcodes numbers) ----
 // The trial line, for any template that reads it.
