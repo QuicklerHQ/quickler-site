@@ -237,3 +237,116 @@ body nav[aria-label="Primary"] { position: sticky !important; left: auto !import
 .story code { display: inline-block; max-width: 100%; overflow-x: auto; vertical-align: bottom; white-space: pre; }
 pre, code { max-width: 100% !important; overflow-x: auto !important; }
 pre code, code { display: inline-block; box-sizing: border-box; }
+
+/* ═══ THE THREE APP PAGES (Philip 5 Nov 2026 08:06) ═══════════════════════
+   "copy the dashboard pages and fit things into that": Home = the Checks
+   list, an article = a Record, pricing/about/help = Settings. Values from the
+   app's own dashboard/style.css (.wf-card, .wf-name, .wf-activity,
+   .wf-expand-chevron, .settings-tile) and the Record page. Every drop-down
+   is shown open, so a visitor already knows the app when they sign up. */
+:root {
+    --app-chev-up: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235c6b90' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 15l6-6 6 6'/%3E%3C/svg%3E");
+    --app-heading: #0d1a3a;
+    --app-line-row: rgba(24, 52, 132, 0.25);
+}
+
+/* ── Home: the Checks list. The page is the "All Checks" panel; each
+   section is a Check tile, open: name bold at the app's 1.2rem, the label
+   small and grey at the right like the "when" word, the up chevron after. */
+.app-checks .story:not(.story-hero) .story-inner,
+.app-checks .story:not(.story-hero) .story-split {
+    position: relative; border-radius: 18px !important; padding: 20px 22px !important;
+    border-color: var(--app-line-row) !important;
+}
+.app-checks .story:not(.story-hero) .story-h2 {
+    font-size: 1.2rem !important; font-weight: 700 !important; color: var(--app-heading) !important;
+    padding-right: 150px; min-height: 45px; display: flex !important; align-items: center;
+    margin: 0 !important; padding-bottom: 14px; border-bottom: 1px solid rgba(24, 52, 132, 0.10);
+    margin-bottom: 14px !important;
+}
+.app-checks .story:not(.story-hero) .story-eyebrow {
+    position: absolute; top: 34px; right: 52px; margin: 0 !important;
+    font-size: 0.78rem !important; font-weight: 500 !important; color: var(--app-ink-soft) !important;
+    white-space: nowrap; max-width: 34%; overflow: hidden; text-overflow: ellipsis;
+}
+.app-checks .story:not(.story-hero) .story-inner::after,
+.app-checks .story:not(.story-hero) .story-split::after {
+    content: ""; position: absolute; top: 33px; right: 22px; width: 20px; height: 20px;
+    background: var(--app-chev-up) no-repeat center / 20px; opacity: 0.6;
+}
+.app-checks .story:not(.story-hero) .story-split .story-inner::after { display: none; }
+.app-checks .story:not(.story-hero) .story-split .story-eyebrow { right: 52px; }
+.app-checks .story-media { display: none !important; }
+.app-checks .story-split { display: block !important; }
+
+/* ── Settings: tiles two to a row, the first full width (the app's Contacts
+   tile), each title at 1.2rem bold with an open chevron. */
+.app-settings { display: grid !important; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
+.app-settings > * { min-width: 0; }
+.app-settings > .story { padding: 0 !important; }
+.app-settings > .story-hero, .app-settings > .story-seo, .app-settings > .story-footer,
+.app-settings > .story:has(table), .app-settings > .story:has(.story-cards),
+.app-settings > .story:has(.story-steps), .app-settings > .story-cta { grid-column: 1 / -1; }
+.app-settings .story:not(.story-hero) .story-inner, .app-settings .story:not(.story-hero) .story-split {
+    position: relative; border-radius: 18px !important; padding: 20px 22px !important; border-color: var(--app-line-row) !important;
+}
+.app-settings .story:not(.story-hero) .story-h2 {
+    font-size: 1.2rem !important; font-weight: 700 !important; padding-right: 34px; margin-bottom: 12px !important;
+}
+.app-settings .story:not(.story-hero) .story-inner::after {
+    content: ""; position: absolute; top: 24px; right: 22px; width: 20px; height: 20px;
+    background: var(--app-chev-up) no-repeat center / 20px; opacity: 0.6;
+}
+.app-settings .story:not(.story-hero) .story-eyebrow { font-size: 0.82rem !important; color: var(--app-ink-soft) !important; }
+@media (max-width: 720px) { .app-settings { grid-template-columns: 1fr; } }
+
+/* ── An article: a Record. The contents down the left, faded, like the
+   Record's question list; a header with the title and a line under it; each
+   part a section box inside the Record card, its title on top and the words
+   set in under it like an answer. */
+.app-record { position: relative; }
+.rec-toc { display: none; }
+@media (min-width: 1280px) {
+    .app-record .rec-toc {
+        display: flex; flex-direction: column; gap: 6px;
+        position: fixed; top: 120px; left: 16px; width: 180px; max-height: calc(100vh - 140px); overflow: auto;
+        font-size: 0.72rem; line-height: 1.3; border-left: 2px solid rgba(24, 52, 132, 0.10); padding-left: 10px;
+    }
+    .app-record .rec-toc a { color: rgba(92, 107, 144, 0.55) !important; text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .app-record .rec-toc a:hover { color: var(--app-accent) !important; }
+    .app-record .rec-toc .rec-toc-title { font-weight: 700; color: rgba(92, 107, 144, 0.75) !important; }
+}
+.app-record .story-hero .story-inner { border: 0 !important; padding: 8px 6px 4px !important; }
+.app-record .story-hero .story-eyebrow { color: var(--app-ink) !important; font-size: 0.95rem !important; }
+.app-record .story-hero .story-h1 { font-size: clamp(1.4rem, 2.6vw, 1.7rem) !important; }
+.app-record .story-article .story-article-inner { border-radius: 18px !important; padding: 18px !important; border-color: var(--app-line-row) !important; }
+.app-record .story-article .story-h2 {
+    font-size: 1.02rem !important; font-weight: 600 !important; color: var(--app-heading) !important;
+    margin: 0 0 10px !important; padding: 8px 10px; border: 1px solid rgba(24, 52, 132, 0.14); border-bottom: 0;
+    border-radius: 8px 8px 0 0; background: #ffffff;
+}
+.app-record .story-article .story-eyebrow { font-size: 0.78rem !important; color: var(--app-ink-soft) !important; margin: 0 0 6px 4px !important; }
+.app-record .story-article .story-article-body {
+    border: 1px solid rgba(24, 52, 132, 0.14); border-top: 0; border-radius: 0 0 8px 8px;
+    margin-top: -10px; padding: 6px 18px 14px clamp(18px, 12vw, 150px);
+}
+.app-record .story-article .story-article-body p, .app-record .story-article .story-article-body li { font-size: 0.92rem !important; color: #3f4d73 !important; }
+.app-record .story-article .story-article-body h3 { font-size: 0.9rem; font-weight: 600; color: var(--app-heading); margin: 14px 0 4px -clamp(0px, 9vw, 130px); }
+/* The short version sits where the Record's To do list sits: a list with a
+   line between each thing. */
+.app-record .story-article-takeaways .story-article-body ul { list-style: none; padding: 0; margin: 0; }
+.app-record .story-article-takeaways .story-article-body li { padding: 8px 0; border-bottom: 1px solid rgba(24, 52, 132, 0.08); }
+.app-record .story-article-takeaways .story-article-body li:last-child { border-bottom: 0; }
+.app-record .story-article-takeaways .story-article-body { padding-left: 18px; }
+@media (max-width: 640px) {
+    .app-record .story-article .story-article-body { padding-left: 14px; }
+    .app-checks .story:not(.story-hero) .story-eyebrow { display: none; }
+    .app-checks .story:not(.story-hero) .story-h2 { padding-right: 34px; }
+}
+.app-checks .story:not(.story-hero) .story-h2, .app-record .story-article .story-h2 { width: 100% !important; box-sizing: border-box; }
+.app-settings .story-inner .story-inner::after, .app-checks .story-inner .story-inner::after { display: none !important; }
+.app-settings > .story:has(.story-tags) { grid-column: 1 / -1; }
+.app-record .story-article-takeaways .story-article-body li::before { display: none !important; }
+.app-record .story-article-body { max-width: none !important; width: auto !important; }
+.app-record .story-article-lede .story-article-body { border-top: 1px solid rgba(24, 52, 132, 0.14); border-radius: 8px; margin-top: 0; padding-left: 18px; }
+.app-record .story-article .story-article-body { display: block !important; width: 100% !important; box-sizing: border-box; }

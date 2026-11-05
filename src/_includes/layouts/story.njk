@@ -51,7 +51,13 @@
 {% include "partials/head.njk" %}
 <body class="{{ bodyClass or 'page-story' }}">
 {% include "partials/nav.njk" %}
-<main class="story-scroll">
+{#- Which app page this page copies (Philip 5 Nov 2026 08:06: "copy the dashboard pages and fit things into that so output is for articles, home is for home page, settings for things"): a guide with articlePanels reads like a Record, the support and money pages like Settings, the rest like the Checks list on Home. A page can set appMode itself. -#}
+{%- set _pl = permalink or '' %}
+{%- if appMode %}{% set _mode = appMode %}
+{%- elif articlePanels %}{% set _mode = 'record' %}
+{%- elif ('pricing' in _pl) or ('about' in _pl) or ('contact' in _pl) or ('/help/' in _pl) or ('faq' in _pl) or ('support' in _pl) or ('plans' in _pl) or ('legal' in _pl) %}{% set _mode = 'settings' %}
+{%- else %}{% set _mode = 'checks' %}{% endif %}
+<main class="story-scroll app-{{ _mode }}">
 
 {%- if hero %}
 <section id="top" class="story story-hero">
@@ -239,6 +245,10 @@
     pink/white/photo pattern matches home. `articlePanels`: list of
     { eyebrow?, heading?, html, kind? }. -#}
 {%- if articlePanels %}
+<div class="rec-toc" role="navigation" aria-label="On this page">
+    <a href="#top" class="rec-toc-title">{{ hero.eyebrow or (seo and seo.title) or '' }}</a>
+    {%- for ap in articlePanels %}{% if ap.heading %}<a href="#part-{{ loop.index }}">{{ ap.heading | striptags }}</a>{% endif %}{% endfor %}
+</div>
 {%- set base = (blocks | length) or 0 %}
 {%- for ap in articlePanels %}
 {%- set n = base + loop.index %}
@@ -246,7 +256,7 @@
     gradient (odd) / white (even), exactly like the blocks loop. -#}
 {%- set usePhoto = articlePhoto and (loop.index0 % 3 == 2) and ap.kind != 'lede' and ap.kind != 'takeaways' %}
 {%- set usePhoto = false %}{%- set acls = "" %}
-<section class="story story-article story-article-{{ ap.kind or 'default' }} {{ acls }}"{% if usePhoto %} style="--bg-photo: url('{{ articlePhoto }}'); --scrim-edge: 0.92; --scrim-mid: 0.84"{% endif %}>
+<section id="part-{{ loop.index }}" class="story story-article story-article-{{ ap.kind or 'default' }} {{ acls }}"{% if usePhoto %} style="--bg-photo: url('{{ articlePhoto }}'); --scrim-edge: 0.92; --scrim-mid: 0.84"{% endif %}>
     <div class="story-inner story-article-inner">
         {%- if ap.eyebrow %}<p class="story-eyebrow">{{ ap.eyebrow }}</p>{% endif %}
         {%- if ap.heading %}<h2 class="story-h2">{{ ap.heading | safe }}</h2>{% endif %}
