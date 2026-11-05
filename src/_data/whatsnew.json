@@ -1,0 +1,126 @@
+[
+  {
+    "date": "2026-11-03",
+    "title": "Easier edits and tidier PDFs",
+    "items": [
+      "If you delete a Record by mistake, you now get an Undo note and can bring it back.",
+      "Download all your data and get a link by email, so you do not have to wait on the page.",
+      "Contacts are easier to manage: Edit and History sit in one bar, and Delete and Save are in the pop-up.",
+      "The Records page has a search box for titles once you have more than ten Records.",
+      "PDFs draw groups of answers in neat boxes, and you can show several Usual answer pictures on a question.",
+      "A Fault is never saved cut off with dots, and the walk's own location is not swapped for an old Usual answer."
+    ],
+    "dateText": "3 November 2026"
+  },
+  {
+    "date": "2026-10-21",
+    "title": "Usual answers and clearer Records",
+    "items": [
+      "A question can have a Usual answer. It fills in the Record and prints after the answer.",
+      "A photo you caption now goes on the question your words describe.",
+      "The Record page, the Word file and the Link say each sentence once.",
+      "Every word beside an answer on the Record can be edited.",
+      "WhatsApp messages are shorter and end with just how to finish.",
+      "Questions with blank sub-questions are now counted properly in the score."
+    ],
+    "dateText": "21 October 2026"
+  },
+  {
+    "date": "2026-10-12",
+    "title": "Better photos and Word reports",
+    "items": [
+      "Times in reports are shown in UK time, for example 9.08 a.m.",
+      "Each photo on a Fault is sorted as a Fault photo or an OK photo.",
+      "When you give a Fault a rating, it is kept as you said it.",
+      "Your own template's words are kept as they are in the Formal report editor.",
+      "The To do list uses only what the person said on the job.",
+      "The More button looks the same on every page."
+    ],
+    "dateText": "12 October 2026"
+  },
+  {
+    "date": "2026-10-05",
+    "title": "Landscape PDFs and quicker pages",
+    "items": [
+      "PDFs are now landscape, smaller, with photos as small tiles and no cover page.",
+      "Signatures are drawn the same in the PDF as on the Record.",
+      "Records and photos load faster, and the sign-in page no longer reloads on its own.",
+      "After a photo, Quickler waits for 30 seconds of quiet and then gives you the count.",
+      "A Fault said on a Yes/No question stays on that question."
+    ],
+    "dateText": "5 October 2026"
+  },
+  {
+    "date": "2026-09-30",
+    "title": "Edit right in the row",
+    "items": [
+      "Click the words on a Record to edit them in the row, with no pop-up.",
+      "Drag photos in and out of a question. You can delete a photo and bring it back.",
+      "A deleted photo is left off the PDF and the shared page.",
+      "Each question can be in the score or left out, and you can choose how silence counts.",
+      "The WhatsApp list shows a big green tick and a red cross, and is never split.",
+      "The billing page shows the real due date and every invoice you have paid."
+    ],
+    "dateText": "30 September 2026"
+  },
+  {
+    "date": "2026-09-24",
+    "title": "Your Check can have its own logo",
+    "items": [
+      "A Check can have its own logo at the top of its PDF and shared pages.",
+      "You can write answers as points or as a paragraph, and make words bold.",
+      "Each To do line can be reworded.",
+      "Photos are turned upright and placed on the question they show.",
+      "A pencil on the location card lets you set where the work was.",
+      "After you say Done, Quickler listens to every voice note again and tells the speakers apart."
+    ],
+    "dateText": "24 September 2026"
+  },
+  {
+    "date": "2026-09-17",
+    "title": "Long voice notes and a simpler list",
+    "items": [
+      "A voice note can be ten minutes long. Quickler says it is working on it while it listens.",
+      "Saying done now gets a reply to say your Record is filed.",
+      "Every Record gets a title.",
+      "The Records page is one list with the newest first.",
+      "A failed photo now says so, and does not just vanish."
+    ],
+    "dateText": "17 September 2026"
+  },
+  {
+    "date": "2026-09-08",
+    "title": "A tidier Records page",
+    "items": [
+      "The workbook download is now an Excel file with one row per Fault, and it says which walk each came from.",
+      "Shareable links say View-only.",
+      "The shared report fits a narrow phone screen.",
+      "A place with several things wrong with it is shown once.",
+      "A building's history is one click away.",
+      "Downloads now have proper names."
+    ],
+    "dateText": "8 September 2026"
+  },
+  {
+    "date": "2026-08-25",
+    "title": "People in one place",
+    "items": [
+      "All your people are now in one list, with their role shown on each row.",
+      "Voice notes are kept so you can listen to them again next to the transcript.",
+      "The shared page says Completed by.",
+      "Pop-ups no longer have a Cancel button, because the cross already closes them.",
+      "A Record is checked once more before it is filed, so Faults match the answers."
+    ],
+    "dateText": "25 August 2026"
+  },
+  {
+    "date": "2026-08-19",
+    "title": "Small wording fixes",
+    "items": [
+      "The opener now tells you to say restart if you want to begin a Check again.",
+      "Messages use plainer words.",
+      "Behind-the-scenes fixes."
+    ],
+    "dateText": "19 August 2026"
+  }
+]

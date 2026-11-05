@@ -1,0 +1,23 @@
+---json
+{
+  "layout": "layouts/believe.njk",
+  "permalink": "/new/index.html",
+  "seo": { "title": "What's new | Quickler", "description": "Every change to Quickler, newest first: what you can now do, and what we fixed.", "canonical": "https://quickler.co/new/" }
+}
+---
+{#- What's new (Philip 5 Nov 2026, Q16: "and then from every promote over time
+    can you back date that"): one entry per release to prod, newest first, in
+    plain words. Add an entry to src/_data/whatsnew.json at every promote. -#}
+<div class="card">
+  <h1 class="site-home-h2" style="font-size:2rem">What's new.</h1>
+  <p class="site-words">Every change to Quickler, newest first.</p>
+</div>
+{%- for e in whatsnew %}
+<div class="wf-card wf-expanded" style="margin-bottom:14px">
+  <div class="wf-title-row" aria-expanded="true">
+    <span class="wf-name-block"><h2 class="wf-name site-h">{{ e.title }}</h2></span>
+    <span class="wf-activity">{{ e.dateText }}</span>
+  </div>
+  <div class="wf-body"><ul class="site-words">{% for i in e.items %}<li>{{ i }}</li>{% endfor %}</ul></div>
+</div>
+{%- endfor %}
