@@ -35,7 +35,7 @@
     <div class="wa-vlen">{{ m.dur }}</div>
   </div>
 </div>
-<div class="aw-heard"{% if not open %} hidden{% endif %}><b>What Quickler heard:</b> {{ m.transcript }}</div>
+<div class="aw-heard">{{ m.transcript }}</div>
 {%- endmacro %}
 
 {%- macro waMsg(m, opts) -%}

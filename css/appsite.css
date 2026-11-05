@@ -770,3 +770,8 @@ html.aw-lb-on { overflow: hidden; }
 @media print { .dr-page .cookie-banner { display: none !important; } }
 .aw-lb { z-index: 2147483000; }
 .aw-lb-img { height: auto !important; max-height: calc(100vh - 130px); max-height: calc(100dvh - 130px); }
+/* Voice notes (Philip 5 Nov 2026 14:12): the transcript sits under the note as
+   WhatsApp shows its own transcripts, no label; the play button is hidden until
+   the real audio files are on the site, so nothing pretends to play. */
+.aw-heard { font-style: italic; color: #3b4a6b; }
+.aw-voice .wa-vplay { visibility: hidden; }
