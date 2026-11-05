@@ -77,6 +77,7 @@ module.exports = function (eleventyConfig) {
   });
 
   // ISO date (YYYY-MM-DD) for sitemap <lastmod>.
+  eleventyConfig.addFilter("ukTime", (secs) => new Date(secs * 1000).toLocaleString("en-GB", { timeZone: "Europe/London", day: "numeric", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit" }).replace(" at ", ", "));
   eleventyConfig.addFilter("isoDate", (d) => {
     const dt = d instanceof Date ? d : new Date();
     return dt.toISOString().slice(0, 10);

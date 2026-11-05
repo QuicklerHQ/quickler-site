@@ -1,0 +1,52 @@
+{
+ "source": "UptimeRobot, checked every 5 minutes",
+ "updated": 1793896439,
+ "parts": [
+  {
+   "name": "The app and report links",
+   "what": "app.quickler.co: the dashboard, every Record and every shared report link",
+   "up_now": true,
+   "nums": [
+    {
+     "label": "24 hours",
+     "pct": "100.00"
+    },
+    {
+     "label": "7 days",
+     "pct": "99.95"
+    },
+    {
+     "label": "30 days",
+     "pct": "99.99"
+    },
+    {
+     "label": "90 days",
+     "pct": "99.99"
+    }
+   ]
+  },
+  {
+   "name": "WhatsApp and Telegram recording",
+   "what": "The service that answers on site and writes the Record",
+   "up_now": true,
+   "nums": [
+    {
+     "label": "24 hours",
+     "pct": "100.00"
+    },
+    {
+     "label": "7 days",
+     "pct": "100.00"
+    },
+    {
+     "label": "30 days",
+     "pct": "99.98"
+    },
+    {
+     "label": "90 days",
+     "pct": "99.98"
+    }
+   ]
+  }
+ ]
+}
