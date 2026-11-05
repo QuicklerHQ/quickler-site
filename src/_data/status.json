@@ -1,0 +1,7 @@
+{
+  "_note": "UptimeRobot monitor-specific API keys (read-only, one monitor each, safe to publish; UptimeRobot > Integrations & API > Monitor-specific API keys). Empty until Philip creates them (5 Nov 2026).",
+  "parts": [
+    { "name": "The app and report links", "what": "app.quickler.co: the dashboard, every Record and every shared report link", "key": "" },
+    { "name": "WhatsApp and Telegram recording", "what": "The service that answers on site and writes the Record", "key": "" }
+  ]
+}

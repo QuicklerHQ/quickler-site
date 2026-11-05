@@ -237,6 +237,7 @@
       <div class="dash-section-title">{{ _ptitle }}</div>
       <a class="btn-round-add btn-round-add-primary" href="{{ _pbtn.href }}">{{ _pbtn.label }}</a>
     </div>
+    {%- if panelInclude %}{% include panelInclude %}{% endif %}
     {%- for b in blocks or [] %}
       {%- set _rows = (b.html | qaRows) if (b.html and '<h3' in b.html) else [] %}
       {%- if _rows | length > 1 %}
