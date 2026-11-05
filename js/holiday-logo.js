@@ -121,6 +121,10 @@
   // shrinks on scroll and on small screens.
   var nav = img.closest("nav"), a = img.closest("a");
   if (!nav || !a) return;
+  // The white pill and its blue glow were for the old coloured bar. The site
+  // now has the app's white bar, where the app shows its holiday logo bare
+  // (Philip 5 Nov 2026 09:13: "why is there this blue shadow?").
+  if (document.body && document.body.classList.contains("page-app")) return;
   // Inset from the bar's edge, as the WhatsApp pill is, so a rim of the
   // bar's colour shows round it.
   var INSET = 4;
