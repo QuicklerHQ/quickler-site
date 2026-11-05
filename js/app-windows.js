@@ -264,3 +264,34 @@ document.addEventListener("click", function (e) {
   });
   document.addEventListener("touchstart", function (e) { document.querySelectorAll(".aw-live-wrap.is-on").forEach(function (w) { if (!w.contains(e.target)) w.classList.remove("is-on"); }); }, { passive: true });
 })();
+
+/* Flash the hint big when a window first comes into view, and again when
+   someone scrolls or swipes over it without using it (5 Nov 2026 17:42). */
+(function () {
+  var touch = window.matchMedia && window.matchMedia("(hover: none)").matches;
+  function flash(tip) {
+    if (!tip || tip._last && Date.now() - tip._last < 4000) return;
+    tip._last = Date.now();
+    tip.classList.remove("is-flash"); void tip.offsetWidth; tip.classList.add("is-flash");
+  }
+  function hostOf(el) { return el.closest(".aw-live-wrap") || el.parentNode; }
+  var tips = Array.prototype.slice.call(document.querySelectorAll(".aw-hover-hint"));
+  tips.forEach(function (tip) {
+    tip.addEventListener("animationend", function () { tip.classList.remove("is-flash"); });
+    var host = tip.parentNode;
+    var inUse = function () { return host.classList.contains("is-on") || host.querySelector(".aw-active") || document.documentElement.classList.contains("aw-ctrl"); };
+    host.addEventListener("wheel", function (e) { if (!e.ctrlKey && !inUse()) flash(tip); }, { passive: true });
+    if (touch) host.addEventListener("touchmove", function () { if (!inUse()) flash(tip); }, { passive: true });
+  });
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        io.unobserve(en.target);
+        var tip = en.target.querySelector(":scope > .aw-hover-hint");
+        setTimeout(function () { flash(tip); }, 500);
+      });
+    }, { threshold: 0.55 });
+    tips.forEach(function (tip) { io.observe(tip.parentNode); });
+  }
+})();

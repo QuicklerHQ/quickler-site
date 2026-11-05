@@ -140,3 +140,18 @@ body.app-home footer, body.app-heypage footer { background: #fdf0f7 !important; 
 .aw-live-wrap.is-on .aw-live, html.aw-ctrl .aw-live-wrap .aw-live { pointer-events: auto; }
 .aw-live-wrap:hover .aw-hover-hint { opacity: 1; }
 html.aw-ctrl .aw-live-wrap .aw-hover-hint, .aw-live-wrap.is-on .aw-hover-hint { opacity: 0 !important; }
+/* The "how to use this window" hint flashes up, big and centred, when a window
+   comes into view and whenever someone scrolls over it without using it
+   (user feedback via Philip 5 Nov 2026 17:42: the old small hint was missed). */
+.aw-hover-hint { top: 50% !important; bottom: auto !important; transform: translate(-50%, -50%) !important; font-size: 1.2rem !important; font-weight: 700; letter-spacing: .01em; padding: 14px 26px !important; background: linear-gradient(90deg, #2F6BFF, #7C3AED 55%, #F43F8C) !important; box-shadow: 0 10px 34px rgba(124,58,237,.45), 0 0 0 0 rgba(124,58,237,.5); }
+.aw-hover-hint.is-flash { animation: awHintPop 2.8s cubic-bezier(.2,.9,.3,1.2) both; }
+@keyframes awHintPop {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(.55); box-shadow: 0 10px 34px rgba(124,58,237,.45), 0 0 0 0 rgba(124,58,237,.55); }
+  12% { opacity: 1; transform: translate(-50%, -50%) scale(1.12); }
+  22% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 10px 34px rgba(124,58,237,.45), 0 0 0 18px rgba(124,58,237,0); }
+  40% { transform: translate(-50%, -50%) scale(1.06); box-shadow: 0 10px 34px rgba(124,58,237,.45), 0 0 0 0 rgba(244,63,140,.5); }
+  52% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 10px 34px rgba(124,58,237,.45), 0 0 0 18px rgba(244,63,140,0); }
+  85% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(.96); }
+}
+@media (prefers-reduced-motion: reduce) { .aw-hover-hint.is-flash { animation: awHintFade 2.8s both; } @keyframes awHintFade { 0%,100% { opacity: 0; } 10%,85% { opacity: 1; } } }
