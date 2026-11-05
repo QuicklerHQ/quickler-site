@@ -59,3 +59,10 @@ body.app-home footer, body.app-heypage footer { background: #fdf0f7 !important; 
   .aw-ba2-arrow svg { transform: rotate(90deg); }
   .aw-ba2-col + .aw-ba2-col { border-top: 0 !important; }
 }
+/* Click areas over the real report picture. */
+.aw-report { position: relative; }
+.aw-report > img { display: block; }
+.aw-hs-layer { position: absolute; left: 50%; top: 0; transform: translateX(-50%); width: 100%; max-width: 780px; aspect-ratio: 1170 / 12168; pointer-events: none; }
+.aw-hs { position: absolute; display: block; padding: 0; border: 0; background: transparent; cursor: pointer; pointer-events: auto; border-radius: 8px; }
+.aw-hs:hover, .aw-hs:focus-visible { outline: 2px solid rgba(124,58,237,.55); outline-offset: 2px; background: rgba(124,58,237,.06); }
+.aw-hs-done { background: rgba(17,121,90,.18) !important; outline: 2px solid #11795a !important; }

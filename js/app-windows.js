@@ -242,3 +242,25 @@
     track.addEventListener("pointerdown", function (e) { if (e.target === track) at(e.clientY - track.getBoundingClientRect().top); });
   });
 })();
+
+/* The real report windows: the app's own controls work (Philip 5 Nov 2026 15:47):
+   Copy buttons copy, To do items jump to their question, photos open, the
+   location opens a map, the share and download buttons go to the real report. */
+(function () {
+  document.addEventListener("click", function (e) {
+    var c = e.target.closest && e.target.closest("[data-aw-copytext]");
+    if (c) {
+      e.preventDefault();
+      var t = c.getAttribute("data-aw-copytext");
+      if (navigator.clipboard) navigator.clipboard.writeText(t);
+      c.classList.add("aw-hs-done"); setTimeout(function () { c.classList.remove("aw-hs-done"); }, 1200);
+      return;
+    }
+    var g = e.target.closest && e.target.closest("[data-aw-goto]");
+    if (g) {
+      e.preventDefault();
+      var box = g.closest(".aw-report"), img = box.querySelector("img");
+      box.scrollTo({ top: (+g.getAttribute("data-aw-goto")) * (img.clientWidth / 780) - 12, behavior: "smooth" });
+    }
+  });
+})();
