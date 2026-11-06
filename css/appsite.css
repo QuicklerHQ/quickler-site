@@ -536,7 +536,7 @@ body.app-home .hey, body.app-heypage .hey { max-width: none; }
 .hey-frame-playing::after { display: none; }
 .hey-watch-video { position: relative; width: 100%; aspect-ratio: 16 / 9; }
 .hey-watch-video.hey-watch-portrait { width: min(100%, 360px); aspect-ratio: 9 / 16; margin: 0 auto; }
-.hey-watch-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 12px 12px 0 0; }
+.hey-watch-video iframe, .hey-watch-video video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 12px 12px 0 0; }
 
 /* HEY's narrow and phone mode (Philip 5 Nov 2026 12:45): the top bar hugs the
    top, a MENU word instead of a burger, and the menu opens inside the same white
@@ -571,7 +571,7 @@ body.app-home .hey, body.app-heypage .hey { max-width: none; }
 /* A playing video sits whole in a proper rounded box, never cut off by the
    card's edge (Philip 5 Nov 2026 12:53). */
 .hey-frame.hey-frame-playing { padding: 22px !important; border-radius: 22px !important; margin-bottom: clamp(32px, 5vw, 56px) !important; }
-.hey-frame-playing .hey-watch-video iframe { border-radius: 14px; background: #000; }
+.hey-frame-playing .hey-watch-video iframe, .hey-frame-playing .hey-watch-video video { border-radius: 14px; background: #000; }
 .hey-frame-playing .hey-watch-video.hey-watch-portrait { width: min(100%, 380px, calc((100vh - 120px) * 9 / 16)); }
 
 /* HEY's feature blocks (Philip 5 Nov 2026 13:00), not bold: a light gradient
