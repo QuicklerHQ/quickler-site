@@ -181,3 +181,11 @@ html.aw-ctrl .aw-hover-hint, .aw-live-wrap.is-on .aw-hover-hint, .aw-scroll.aw-a
 /* The question a link opened is marked for a moment (Philip 5 Nov 2026 20:42). */
 .hash-lit { box-shadow: 0 0 0 3px #7C3AED, 0 10px 30px rgba(124,58,237,.25) !important; border-radius: 16px; transition: box-shadow .4s ease; }
 [id] { scroll-margin-top: 110px; }
+
+/* Very wide screens (Philip 6 Nov 2026: "basecamp is much better on a hyper
+   screen"): the whole site scales up so it fills the width, as Basecamp's
+   does. Nothing changes below 2000 px wide. */
+@media (min-width: 2000px) { html { zoom: 1.15; } }
+@media (min-width: 2400px) { html { zoom: 1.35; } }
+@media (min-width: 3000px) { html { zoom: 1.6; } }
+@media (min-width: 3600px) { html { zoom: 1.85; } }
