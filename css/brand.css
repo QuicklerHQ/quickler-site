@@ -11,7 +11,7 @@ body.app-home footer, body.app-heypage footer { background: #fdf0f7 !important; 
 .aw .wa-text, .aw .wa-bubble { font-family: var(--font, 'Space Grotesk'), "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Apple Symbols", "Noto Sans Symbols 2", "Noto Sans Symbols", sans-serif !important; }
 /* Window scrolling: locked until Ctrl (computer) or a double tap (phone). */
 .aw-scroll.aw-locked { overflow: hidden !important; overscroll-behavior: auto !important; touch-action: pan-y; }
-.aw-scroll.aw-active { overflow-y: auto !important; overscroll-behavior: contain; }
+.aw-scroll.aw-active { overflow-y: auto !important; overscroll-behavior: auto; /* at the bottom, the page carries on scrolling (Philip 6 Nov 2026) */ }
 .aw-wa, .aw-rec, .aw-body { position: relative; }
 .aw-hint { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); z-index: 5; pointer-events: none; opacity: 0; transition: opacity .2s; background: rgba(12,23,52,.82); color: #fff; font-size: .95rem; padding: 10px 16px; border-radius: 999px; white-space: nowrap; }
 .aw-hint.is-on { opacity: 1; }
