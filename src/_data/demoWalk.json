@@ -1157,14 +1157,6 @@
    "tail": false
   },
   {
-   "id": "9032",
-   "from": "you",
-   "kind": "text",
-   "html": "<span class=\"aw-done\">Done</span>",
-   "time": "09:44",
-   "tail": true
-  },
-  {
    "id": "9033",
    "from": "bot",
    "kind": "report",
