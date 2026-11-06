@@ -637,6 +637,12 @@ body.app-home footer, body.app-heypage footer { width: auto !important; box-sizi
 /* The page cloud in the app's own pill style, Quickler colours (Philip 5 Nov 2026 13:41). */
 .hey-cloud a { background: #fff !important; border: 1px solid #dfe3f0; color: #5A4FCF !important; font-weight: 500 !important; }
 .hey-cloud a:hover { background: linear-gradient(90deg, #2F6BFF, #7C3AED 55%, #F43F8C) !important; color: #fff !important; border-color: transparent; }
+/* A green tick and a soft colour on each chip (Philip 6 Nov 2026: "more colour or ticks") */
+.hey-end .hey-cloud a:nth-child(3n+1) { background: #eef3ff !important; border-color: #c9d8ff; }
+.hey-end .hey-cloud a:nth-child(3n+2) { background: #f3ecff !important; border-color: #ddccfb; }
+.hey-end .hey-cloud a:nth-child(3n) { background: #ffeef6 !important; border-color: #f8cde1; }
+.hey-end .hey-cloud a::before { content: "\2713"; color: #12a150; font-weight: 800; margin-right: 6px; }
+.hey-end .hey-cloud a:hover::before { color: #fff; }
 /* REAL APP WINDOWS on the home page (Philip 5 Nov 2026: "use the real one",
    "make these things actually work"). A wide white window with the app's top
    bar; inside, live HTML of his own demo walk: the WhatsApp chat, the Record,
