@@ -148,7 +148,7 @@
       at its part. The pictures below are only the stop-gap until then. -#}
   {%- set _live = {'chat': '#messages', 'done': '#messages', 'photos': '#photo-1', 'todo': '#todo'} %}
   {%- if site.demoBase and _live[kind] %}
-    <div class="aw-live-wrap"><iframe class="aw-live" src="{{ site.demoBase }}/demo?embed=1{{ _live[kind] }}" title="Quickler's demo report, live" loading="lazy" referrerpolicy="strict-origin"></iframe><div class="aw-hover-hint">Hold Ctrl to scroll</div></div>
+    <div class="aw-live-wrap"><iframe class="aw-live" src="{{ site.demoBase }}/demo?embed=1{{ _live[kind] }}" title="Quickler's demo report, live" loading="lazy" referrerpolicy="strict-origin"></iframe><div class="aw-hover-hint">Double click or tap to use it</div></div>
   {%- elif kind == 'chat' %}
     {{ waPanel(_dw.chat, 'aw-wa-tall') }}
   {%- elif kind == 'place' %}

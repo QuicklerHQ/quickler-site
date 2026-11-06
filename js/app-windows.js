@@ -149,15 +149,15 @@
     box.addEventListener("wheel", function (e) {
       if (box.classList.contains("aw-active")) return;
       if (e.ctrlKey) { e.preventDefault(); box.scrollTop += e.deltaY; box.scrollLeft += e.deltaX; }
-      else if (Math.abs(e.deltaY) > 2 && !box._hinted) { box._hinted = true; hint(box, "Hold Ctrl and scroll to move inside"); }
+      else if (Math.abs(e.deltaY) > 2 && !box._hinted) { box._hinted = true; hint(box, "Double click or tap to scroll inside"); }
     }, { passive: false });
     var last = 0;
     box.addEventListener("touchend", function () {
       var now = Date.now();
-      if (now - last < 320) { box.classList.add("aw-active"); box.classList.remove("aw-locked"); hint(box, "Scrolling inside. Tap outside to stop"); }
+      if (now - last < 320) { box.classList.add("aw-active"); box.classList.remove("aw-locked"); hint(box, "Scrolling inside. Click or tap outside to stop"); }
       last = now;
     });
-    box.addEventListener("touchmove", function () { if (!box.classList.contains("aw-active")) hint(box, "Double tap to scroll inside"); }, { passive: true });
+    box.addEventListener("touchmove", function () { if (!box.classList.contains("aw-active")) hint(box, "Double click or tap to scroll inside"); }, { passive: true });
   });
   document.addEventListener("touchstart", function (e) {
     boxes.forEach(function (box) { if (!box.contains(e.target) && box.classList.contains("aw-active")) { box.classList.remove("aw-active"); box.classList.add("aw-locked"); } });
@@ -242,7 +242,7 @@ document.addEventListener("click", function (e) {
   document.querySelectorAll(".aw-scroll").forEach(function (box) {
     var host = box.parentNode;
     var tip = document.createElement("div"); tip.className = "aw-hover-hint"; tip.setAttribute("aria-hidden", "true");
-    tip.textContent = touch ? "Double tap to scroll inside" : "Hold Ctrl to scroll";
+    tip.textContent = "Double click or tap to scroll inside";
     host.appendChild(tip);
     box.addEventListener("mouseenter", function () { if (!box.classList.contains("aw-active")) tip.classList.add("is-on"); });
     box.addEventListener("mouseleave", function () { tip.classList.remove("is-on"); });
@@ -254,7 +254,7 @@ document.addEventListener("click", function (e) {
    phone does the same until you tap outside (Philip 5 Nov 2026 16:47). */
 (function () {
   var touch = window.matchMedia && window.matchMedia("(hover: none)").matches;
-  document.querySelectorAll(".aw-live-wrap .aw-hover-hint").forEach(function (h) { if (touch) h.textContent = "Double tap to use it"; });
+  document.querySelectorAll(".aw-live-wrap .aw-hover-hint").forEach(function (h) { h.textContent = "Double click or tap to use it"; });
   addEventListener("keydown", function (e) { if (e.key === "Control") document.documentElement.classList.add("aw-ctrl"); });
   addEventListener("keyup", function (e) { if (e.key === "Control") document.documentElement.classList.remove("aw-ctrl"); });
   addEventListener("blur", function () { document.documentElement.classList.remove("aw-ctrl"); });
@@ -298,4 +298,22 @@ document.addEventListener("click", function (e) {
     }, { threshold: 0.4 });
     tips.forEach(function (tip) { io.observe(tip.parentNode); });
   } else { tips.forEach(function (tip) { tip._seen = true; update(tip); }); }
+})();
+
+/* Double click for everyone (Philip 6 Nov 2026 08:31): Samsung Internet on a
+   phone said "hold Ctrl", so the hint no longer guesses the device. A double
+   click (or double tap) opens a window for use on any device; a click or tap
+   outside lets go. Ctrl still works quietly for those who know it. */
+(function () {
+  function on(box) { box.classList.add("aw-active"); box.classList.remove("aw-locked"); }
+  document.querySelectorAll(".aw-scroll").forEach(function (box) {
+    box.addEventListener("dblclick", function (e) { e.preventDefault(); on(box); });
+  });
+  document.querySelectorAll(".aw-live-wrap").forEach(function (w) {
+    w.addEventListener("dblclick", function () { w.classList.add("is-on"); });
+  });
+  document.addEventListener("mousedown", function (e) {
+    document.querySelectorAll(".aw-scroll.aw-active").forEach(function (box) { if (!box.contains(e.target)) { box.classList.remove("aw-active"); box.classList.add("aw-locked"); } });
+    document.querySelectorAll(".aw-live-wrap.is-on").forEach(function (w) { if (!w.contains(e.target)) w.classList.remove("is-on"); });
+  });
 })();
