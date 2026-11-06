@@ -9,7 +9,7 @@
   "London",
   "NW1"
  ],
- "coords": "51.5226° N, 0.1683° W",
+ "coords": "51.5226\u00b0 N, 0.1683\u00b0 W",
  "plus": "9C8VF27G+CJ London",
  "weather": {
   "temp": "9.8",
@@ -246,7 +246,7 @@
     },
     {
      "key": "exit_doors_keep_clear_signs",
-     "label": "Exit doors “Keep Clear”",
+     "label": "Exit doors \u201cKeep Clear\u201d",
      "answer": "Yes",
      "cls": "yes",
      "notes": [
@@ -356,7 +356,7 @@
    "rows": [
     {
      "key": "first_aid_contents_match_list",
-     "label": "Actual contents – Vs – Contents List",
+     "label": "Actual contents \u2013 Vs \u2013 Contents List",
      "answer": "Yes",
      "cls": "yes",
      "notes": [],
@@ -942,191 +942,200 @@
  ],
  "chat": [
   {
-   "id": "8458",
+   "id": "8984",
    "from": "you",
    "kind": "voice",
-   "transcript": "Site safety inspection, please",
-   "dur": "0:03",
-   "time": "13:43",
+   "transcript": "Hello. Site safety inspection, please. I'm at the six-home building project in Glasgow. Uh, the job number is C one zero five one. The plant equipment on site is a dumper, a roller, two diggers, and a telehandler. Health and safety policy and pre-construction information are in order. The F10 is up on the wall. The construction phase plan is in the cabin, and the health and safety law poster is up. The RAMS are all done and in the cabin. Everyone's also been properly inducted. One ground worker hadn't signed the new road and footpath RAMS. I flagged it, and it was sorted there and then. Toolbox talk was done this morning. The sheet was signed. The NPORS ticket was seen for the main excavator driver. One person's CSCS card has expired",
+   "dur": "0:58",
+   "time": "09:33",
    "tail": true
   },
   {
-   "id": "8459",
+   "id": "8985",
    "from": "bot",
    "kind": "text",
    "html": "Hang on...",
    "long": false,
-   "time": "13:43",
+   "time": "09:33",
    "tail": true
   },
   {
-   "id": "8460",
+   "id": "8986",
    "from": "bot",
    "kind": "text",
-   "html": "<i>Ready for Site Safety Inspection.</i>\n\n<b>Location</b> ⌖ <b>▸</b> Share your pin\nWhat you should cover:\n<b>Audit</b>\n<b>Information ▸</b> Details\n<b>Results ▸</b> Outcome · Notes · Conclusion\n<b>Fire Safety ▸</b> Alarm · Exits · Doors\n<b>Fire ▸</b> Available · Service · Seal · Clear\n<b>Fire Log ▸</b> Available · Weekly · Lighting\n<b>Fire Signs ▸</b> Assembly · Evacuation · Keep Clear · Extinguisher\n<b>Aid Signs ▸</b> Aiders · Kits\n<b>Safety Gear ▸</b> Kits · Eyewash · Burns · AED\n<b>Aid Contents ▸</b> Match · Expiry\n<b>Lighting ▸</b> Internal · External · Local\n<b>Surfaces ▸</b> Marking · Paths\n<b>Walkways ▸</b> Parking · Pavements · Stairs\n<b>Welfare ▸</b> Water · Benches · Floors · Noise · Cleanliness · Heating · Air · Smoking · Toilets\n<b>Wiring</b>\n<b>Electrical ▸</b> Test date · Signs\n<b>Storage ▸</b> Stability · Racking\n<b>Steps ▸</b> Number · Condition\n<b>General ▸</b> Notices · Tanks\n<b>Hazards</b>\n<b>Plant ▸</b> Defects · Guards · Controls\n<b>Mobile Plant</b>\n<b>Manual ▸</b> Posture · Loads · Flooring · Aids\n<b>Documents ▸</b> Policy · Minutes\n<b>Law Poster</b>\n<b>Contractors ▸</b> RAMS · Induction · Permit · Complete · Scope · Segregation\n<b>Other Areas</b>\n\nType <b>done</b> to finish\n\n<i>Say “restart” to start again.</i>",
+   "html": "<i>Site Safety Inspection</i>\n\u2705 10 OK \u00b7 \u274c2 to fix\n\n<b>Location</b> \u2316 <b>\u25b8</b> Share your pin\nWhat still needs covered:\n<b>People \u25b8</b> Crew \u00b7 Lead\n<b>Arrangements \u25b8</b> Procedure \u00b7 Check-in\n<b>Emergency \u25b8</b> Actions \u00b7 Extinguisher \u00b7 Location \u00b7 Exits \u00b7 Steward \u00b7 First aid \u00b7 Box location \u00b7 999 \u00b7 Stock\n<b>Welfare \u25b8</b> Toilets \u00b7 Sinks \u00b7 Soap \u00b7 Clothing \u00b7 Changing \u00b7 Drinking \u00b7 Canteen\n<b>Transport \u25b8</b> Segregation \u00b7 RAMS \u00b7 One-way \u00b7 Banksmen \u00b7 Reversing \u00b7 Safety \u00b7 Maintenance\n<b>Appliances \u25b8</b> Testing \u00b7 Photos\n<b>COSHH</b>\n\n\u2705 \u2713 Job \u00b7 \u2713 Activities \u00b7 \u2713 Issues \u00b7 \u2713 Comments\n\n\u26a0\ufe0f <b>Details, fix, &amp; photos\u274c:</b>\nArrangements \u2192 Cards\u2717\nEmergency \u2192 Signatures\u2717\n\nType <b>done</b> to finish",
    "long": true,
-   "time": "13:43",
+   "time": "09:33",
    "tail": false
   },
   {
-   "id": "8461",
+   "id": "8989",
    "from": "you",
-   "kind": "location",
-   "address": "Bell Street, London NW1",
-   "coords": "51.5226° N, 0.1683° W",
-   "time": "13:44",
+   "kind": "voice",
+   "transcript": "Right. The dumpers, rollers, and excavators are all in decent shape",
+   "dur": "0:07",
+   "time": "09:33",
    "tail": true
   },
   {
-   "id": "8462",
+   "id": "8990",
+   "from": "bot",
+   "kind": "text",
+   "html": "<i>Site Safety Inspection</i>\n\u2705 11 OK \u00b7 \u274c13 to fix\nPhotos 1\n\n<b>Location</b> \u2316 <b>\u25b8</b> Share your pin\nWhat still needs covered:\n<b>People \u25b8</b> Crew \u00b7 Lead\n<b>Arrangements \u25b8</b> Procedure \u00b7 Check-in\n<b>Emergency \u25b8</b> Actions \u00b7 Extinguisher \u00b7 Location \u00b7 Exits \u00b7 Steward \u00b7 First aid \u00b7 Box location \u00b7 999 \u00b7 Stock\n<b>Welfare \u25b8</b> Toilets \u00b7 Sinks \u00b7 Soap \u00b7 Clothing \u00b7 Changing \u00b7 Drinking \u00b7 Canteen\n<b>Transport \u25b8</b> Segregation \u00b7 RAMS \u00b7 One-way \u00b7 Banksmen \u00b7 Reversing \u00b7 Safety\n<b>Appliances \u25b8</b> Testing \u00b7 Photos\n<b>COSHH</b>\n\n\u2705 \u2713 Job \u00b7 \u2713 Activities \u00b7 \u2713 Issues \u00b7 \u2713 Comments\n\n\u26a0\ufe0f <b>Details, fix, &amp; photos\u274c:</b>\nArrangements \u2192 Cards\u2717\nEmergency \u2192 Signatures\u2717\n\nType <b>done</b> to finish",
+   "long": true,
+   "time": "09:34",
+   "tail": true
+  },
+  {
+   "id": "8995",
+   "from": "you",
+   "kind": "voice",
+   "transcript": "All the beacons on the plant equipment, reversing cameras, their seat belts, their controls, and the seats are all fine. One tipper has got a smashed light though, which has been fixed with duct tape",
+   "dur": "0:14",
+   "time": "09:35",
+   "tail": true
+  },
+  {
+   "id": "8996",
    "from": "bot",
    "kind": "text",
    "html": "Carry on.",
    "long": false,
-   "time": "13:44",
+   "time": "09:35",
    "tail": true
   },
   {
-   "id": "8463",
+   "id": "8997",
    "from": "bot",
    "kind": "text",
-   "html": "<i>Site Safety Inspection</i>\nLocation ⌖ ✓\n\nWhat still needs covered:\n<b>Audit</b>\n<b>Information ▸</b> Details\n<b>Results ▸</b> Outcome · Notes · Conclusion\n<b>Fire Safety ▸</b> Alarm · Exits · Doors\n<b>Fire ▸</b> Available · Service · Seal · Clear\n<b>Fire Log ▸</b> Available · Weekly · Lighting\n<b>Fire Signs ▸</b> Assembly · Evacuation · Keep Clear · Extinguisher\n<b>Aid Signs ▸</b> Aiders · Kits\n<b>Safety Gear ▸</b> Kits · Eyewash · Burns · AED\n<b>Aid Contents ▸</b> Match · Expiry\n<b>Lighting ▸</b> Internal · External · Local\n<b>Surfaces ▸</b> Marking · Paths\n<b>Walkways ▸</b> Parking · Pavements · Stairs\n<b>Welfare ▸</b> Water · Benches · Floors · Noise · Cleanliness · Heating · Air · Smoking · Toilets\n<b>Wiring</b>\n<b>Electrical ▸</b> Test date · Signs\n<b>Storage ▸</b> Stability · Racking\n<b>Steps ▸</b> Number · Condition\n<b>General ▸</b> Notices · Tanks\n<b>Hazards</b>\n<b>Plant ▸</b> Defects · Guards · Controls\n<b>Mobile Plant</b>\n<b>Manual ▸</b> Posture · Loads · Flooring · Aids\n<b>Documents ▸</b> Policy · Minutes\n<b>Law Poster</b>\n<b>Contractors ▸</b> RAMS · Induction · Permit · Complete · Scope · Segregation\n<b>Other Areas</b>\n\nType <b>done</b> to finish",
+   "html": "<i>Site Safety Inspection</i>\n\u2705 12 OK \u00b7 \u274c14 to fix\nPhotos 4\n\n<b>Location</b> \u2316 <b>\u25b8</b> Share your pin\nWhat still needs covered:\n<b>People \u25b8</b> Crew \u00b7 Lead\n<b>Arrangements \u25b8</b> Procedure \u00b7 Check-in\n<b>Emergency \u25b8</b> Actions \u00b7 Extinguisher \u00b7 Location \u00b7 Exits \u00b7 Steward \u00b7 First aid \u00b7 Box location \u00b7 999 \u00b7 Stock\n<b>Welfare \u25b8</b> Toilets \u00b7 Sinks \u00b7 Soap \u00b7 Clothing \u00b7 Changing \u00b7 Drinking \u00b7 Canteen\n<b>Transport \u25b8</b> Segregation \u00b7 RAMS \u00b7 One-way \u00b7 Banksmen\n<b>Appliances \u25b8</b> Testing \u00b7 Photos\n<b>COSHH</b>\n\n\u2705 \u2713 Job \u00b7 \u2713 Activities \u00b7 \u2713 Issues \u00b7 \u2713 Comments\n\n\u26a0\ufe0f <b>Details, fix, &amp; photos\u274c:</b>\nArrangements \u2192 Cards\u2717\nEmergency \u2192 Signatures\u2717\nTransport \u2192 Safety\u2717\n\nType <b>done</b> to finish",
    "long": true,
-   "time": "13:44",
+   "time": "09:35",
    "tail": false
   },
   {
-   "id": "8465",
+   "id": "9004",
    "from": "you",
    "kind": "voice",
-   "transcript": "Main fire exit fine. Sign up, door closes, and the door also latches. The extinguishers are also in date",
-   "dur": "0:09",
-   "time": "13:44",
-   "tail": true
-  },
-  {
-   "id": "8466",
-   "from": "bot",
-   "kind": "text",
-   "html": "Carry on.",
-   "long": false,
-   "time": "13:44",
-   "tail": true
-  },
-  {
-   "id": "8467",
-   "from": "bot",
-   "kind": "text",
-   "html": "<i>Site Safety Inspection</i>\n✅ 3 OK\n⌖ ✓\n\nWhat still needs covered:\n<b>Audit</b>\n<b>Information ▸</b> Details\n<b>Results ▸</b> Outcome · Notes · Conclusion\n<b>Fire Safety ▸</b> Alarm\n<b>Fire ▸</b> Available · Seal · Clear\n<b>Fire Log ▸</b> Available · Weekly · Lighting\n<b>Fire Signs ▸</b> Assembly · Evacuation · Keep Clear · Extinguisher\n<b>Aid Signs ▸</b> Aiders · Kits\n<b>Safety Gear ▸</b> Kits · Eyewash · Burns · AED\n<b>Aid Contents ▸</b> Match · Expiry\n<b>Lighting ▸</b> Internal · External · Local\n<b>Surfaces ▸</b> Marking · Paths\n<b>Walkways ▸</b> Parking · Pavements · Stairs\n<b>Welfare ▸</b> Water · Benches · Floors · Noise · Cleanliness · Heating · Air · Smoking · Toilets\n<b>Wiring</b>\n<b>Electrical ▸</b> Test date · Signs\n<b>Storage ▸</b> Stability · Racking\n<b>Steps ▸</b> Number · Condition\n<b>General ▸</b> Notices · Tanks\n<b>Hazards</b>\n<b>Plant ▸</b> Defects · Guards · Controls\n<b>Mobile Plant</b>\n<b>Manual ▸</b> Posture · Loads · Flooring · Aids\n<b>Documents ▸</b> Policy · Minutes\n<b>Law Poster</b>\n<b>Contractors ▸</b> RAMS · Induction · Permit · Complete · Scope · Segregation\n<b>Other Areas</b>\n\nType <b>done</b> to finish",
-   "long": true,
-   "time": "13:45",
-   "tail": false
-  },
-  {
-   "id": "8468",
-   "from": "you",
-   "kind": "photo",
-   "n": 1,
-   "time": "13:45",
-   "tail": true
-  },
-  {
-   "id": "8469",
-   "from": "you",
-   "kind": "photo",
-   "n": 2,
-   "time": "13:45",
-   "tail": false
-  },
-  {
-   "id": "8471",
-   "from": "you",
-   "kind": "voice",
-   "transcript": "Backfire exit has been blocked with boxes and trolleys and it needs cleared immediately",
-   "dur": "0:06",
-   "time": "13:45",
-   "tail": false
-  },
-  {
-   "id": "8472",
-   "from": "you",
-   "kind": "photo",
-   "n": 3,
-   "time": "13:45",
-   "tail": false
-  },
-  {
-   "id": "8474",
-   "from": "you",
-   "kind": "voice",
-   "transcript": "Extension lead is trailing across the corridor. That is a trip hazard",
-   "dur": "0:04",
-   "time": "13:45",
-   "tail": false
-  },
-  {
-   "id": "8475",
-   "from": "you",
-   "kind": "photo",
-   "n": 4,
-   "time": "13:45",
-   "tail": false
-  },
-  {
-   "id": "8476",
-   "from": "bot",
-   "kind": "text",
-   "html": "4 photos received",
-   "long": false,
-   "time": "13:46",
-   "tail": true
-  },
-  {
-   "id": "8478",
-   "from": "you",
-   "kind": "voice",
-   "transcript": "Stepladder in the store has no ID number. The first aid kit is in date, although the eyewash is out of date, and there is actually a few bandages missing. The toilets are clean, and the health and safety law poster is present, and everything else is fine",
+   "transcript": "The PPE is fine. The eye wash was out of date, so it's been thrown away, so it's fine now. There are masks for face fit tested individuals and non-tested individuals. There's also earplugs and water available on the site",
    "dur": "0:18",
-   "time": "13:46",
+   "time": "09:36",
    "tail": true
   },
   {
-   "id": "8479",
+   "id": "9005",
    "from": "bot",
    "kind": "text",
    "html": "Carry on.",
    "long": false,
-   "time": "13:46",
+   "time": "09:36",
    "tail": true
   },
   {
-   "id": "8480",
+   "id": "9012",
    "from": "you",
-   "kind": "album",
-   "ns": [
-    5,
-    6,
-    7,
-    8
-   ],
-   "time": "13:46",
+   "kind": "voice",
+   "transcript": "Pedestrian and vehicle routes are properly separated, and there's also a one-way system. There are banksmen on the dumpers and reversing alarms are working properly. It's quite muddy around the site, but it's not a problem.",
+   "dur": "0:16",
+   "time": "09:37",
    "tail": true
   },
   {
-   "id": "8484",
+   "id": "9013",
    "from": "bot",
    "kind": "text",
-   "html": "8 photos received",
+   "html": "Carry on.",
    "long": false,
-   "time": "13:47",
+   "time": "09:37",
    "tail": true
   },
   {
-   "id": "8485",
+   "id": "9014",
+   "from": "bot",
+   "kind": "text",
+   "html": "<i>Site Safety Inspection</i>\n\u2705 16 OK \u00b7 \u274c15 to fix\nPhotos 14\n\n<b>Location</b> \u2316 <b>\u25b8</b> Share your pin\nWhat still needs covered:\n<b>People \u25b8</b> Crew \u00b7 Lead\n<b>Arrangements \u25b8</b> Procedure \u00b7 Check-in\n<b>Emergency \u25b8</b> Actions \u00b7 Extinguisher \u00b7 Location \u00b7 Exits \u00b7 Steward \u00b7 First aid \u00b7 Box location \u00b7 999\n<b>Welfare \u25b8</b> Toilets \u00b7 Sinks \u00b7 Soap \u00b7 Clothing \u00b7 Changing \u00b7 Canteen\n<b>Transport \u25b8</b> RAMS\n<b>Appliances \u25b8</b> Testing \u00b7 Photos\n<b>COSHH</b>\n\n\u2705 \u2713 Job \u00b7 \u2713 Activities \u00b7 \u2713 Issues \u00b7 \u2713 Comments\n\n\u26a0\ufe0f <b>Details, fix, &amp; photos\u274c:</b>\nArrangements \u2192 Cards\u2717\nEmergency \u2192 Signatures\u2717 \u00b7 Stock\u2717\nTransport \u2192 Safety\u2717\n\nType <b>done</b> to finish",
+   "long": true,
+   "time": "09:37",
+   "tail": false
+  },
+  {
+   "id": "9017",
+   "from": "you",
+   "kind": "voice",
+   "transcript": "Everyone was wearing the appropriate hard hats, also the appropriate earplugs and dust masks when required",
+   "dur": "0:09",
+   "time": "09:38",
+   "tail": true
+  },
+  {
+   "id": "9018",
+   "from": "bot",
+   "kind": "text",
+   "html": "<i>Site Safety Inspection</i>\n\u2705 16 OK \u00b7 \u274c15 to fix\nPhotos 14\n\n<b>Location</b> \u2316 <b>\u25b8</b> Share your pin\nWhat still needs covered:\n<b>People \u25b8</b> Crew \u00b7 Lead\n<b>Arrangements \u25b8</b> Procedure \u00b7 Check-in\n<b>Emergency \u25b8</b> Actions \u00b7 Extinguisher \u00b7 Location \u00b7 Exits \u00b7 Steward \u00b7 First aid \u00b7 Box location \u00b7 999\n<b>Welfare \u25b8</b> Toilets \u00b7 Sinks \u00b7 Soap \u00b7 Clothing \u00b7 Changing \u00b7 Canteen\n<b>Transport \u25b8</b> RAMS\n<b>Appliances \u25b8</b> Testing \u00b7 Photos\n<b>COSHH</b>\n\n\u2705 \u2713 Job \u00b7 \u2713 Activities \u00b7 \u2713 Issues \u00b7 \u2713 Comments\n\n\u26a0\ufe0f <b>Details, fix, &amp; photos\u274c:</b>\nArrangements \u2192 Cards\u2717\nEmergency \u2192 Signatures\u2717 \u00b7 Stock\u2717\nTransport \u2192 Safety\u2717\n\nType <b>done</b> to finish",
+   "long": true,
+   "time": "09:38",
+   "tail": true
+  },
+  {
+   "id": "9021",
+   "from": "you",
+   "kind": "voice",
+   "transcript": "The masks for a cutoff saw which was found in the storage container is properly and correctly available. The storage container is quite cluttered and does need a tidy. And also, I forgot to mention that the COSHH assessments are in the site office.",
+   "dur": "0:20",
+   "time": "09:38",
+   "tail": true
+  },
+  {
+   "id": "9022",
+   "from": "bot",
+   "kind": "text",
+   "html": "Carry on.",
+   "long": false,
+   "time": "09:38",
+   "tail": true
+  },
+  {
+   "id": "9023",
+   "from": "bot",
+   "kind": "text",
+   "html": "<i>Site Safety Inspection</i>\n\u2705 16 OK \u00b7 \u274c16 to fix\nPhotos 15\n\n<b>Location</b> \u2316 <b>\u25b8</b> Share your pin\nWhat still needs covered:\n<b>People \u25b8</b> Crew \u00b7 Lead\n<b>Arrangements \u25b8</b> Procedure \u00b7 Check-in\n<b>Emergency \u25b8</b> Actions \u00b7 Extinguisher \u00b7 Location \u00b7 Exits \u00b7 Steward \u00b7 First aid \u00b7 Box location \u00b7 999\n<b>Welfare \u25b8</b> Toilets \u00b7 Sinks \u00b7 Soap \u00b7 Clothing \u00b7 Changing \u00b7 Canteen\n<b>Transport \u25b8</b> RAMS\n<b>Appliances \u25b8</b> Testing \u00b7 Photos\n\n\u2705 \u2713 Job \u00b7 \u2713 Activities \u00b7 \u2713 Issues \u00b7 \u2713 COSHH\n\n\u26a0\ufe0f <b>Details, fix, &amp; photos\u274c:</b>\nArrangements \u2192 Cards\u2717\nEmergency \u2192 Signatures\u2717 \u00b7 Stock\u2717\nTransport \u2192 Safety\u2717\nComments\u2717\n\nType <b>done</b> to finish",
+   "long": true,
+   "time": "09:39",
+   "tail": false
+  },
+  {
+   "id": "9026",
+   "from": "you",
+   "kind": "voice",
+   "transcript": "Also, I have just noticed now on leaving the site that there's a tipper with a missing stud on the front right wheel. It's got five out of six, so that should be replaced straight away",
+   "dur": "0:13",
+   "time": "09:39",
+   "tail": true
+  },
+  {
+   "id": "9027",
+   "from": "bot",
+   "kind": "text",
+   "html": "Carry on.",
+   "long": false,
+   "time": "09:39",
+   "tail": true
+  },
+  {
+   "id": "9028",
+   "from": "bot",
+   "kind": "text",
+   "html": "<i>Site Safety Inspection</i>\n\u2705 15 OK \u00b7 \u274c17 to fix\nPhotos 16\n\n<b>Location</b> \u2316 <b>\u25b8</b> Share your pin\nWhat still needs covered:\n<b>People \u25b8</b> Crew \u00b7 Lead\n<b>Arrangements \u25b8</b> Procedure \u00b7 Check-in\n<b>Emergency \u25b8</b> Actions \u00b7 Extinguisher \u00b7 Location \u00b7 Exits \u00b7 Steward \u00b7 First aid \u00b7 Box location \u00b7 999\n<b>Welfare \u25b8</b> Toilets \u00b7 Sinks \u00b7 Soap \u00b7 Clothing \u00b7 Changing \u00b7 Canteen\n<b>Transport \u25b8</b> RAMS\n<b>Appliances \u25b8</b> Testing \u00b7 Photos\n\n\u2705 \u2713 Job \u00b7 \u2713 Activities \u00b7 \u2713 Issues \u00b7 \u2713 COSHH\n\n\u26a0\ufe0f <b>Details, fix, &amp; photos\u274c:</b>\nArrangements \u2192 Cards\u2717\nEmergency \u2192 Signatures\u2717 \u00b7 Stock\u2717\nTransport \u2192 Safety\u2717 \u00b7 Maintenance\u2717\nComments\u2717\n\nType <b>done</b> to finish",
+   "long": true,
+   "time": "09:39",
+   "tail": false
+  },
+  {
+   "id": "9029",
    "from": "you",
    "kind": "text",
    "html": "<span class=\"aw-done\">Done</span>",
-   "time": "13:47",
+   "time": "09:40",
    "tail": true
   },
   {
@@ -1135,31 +1144,39 @@
    "kind": "text",
    "html": "Working on your report.",
    "long": false,
-   "time": "13:47",
+   "time": "09:40",
    "tail": true
   },
   {
-   "id": "8486",
+   "id": "9030",
    "from": "bot",
    "kind": "text",
    "html": "Putting your report together now, the link will arrive soon. When there are lots of questions this can take a few minutes.",
    "long": false,
-   "time": "13:47",
+   "time": "09:40",
    "tail": false
   },
   {
-   "id": "8487",
+   "id": "9032",
+   "from": "you",
+   "kind": "text",
+   "html": "<span class=\"aw-done\">Done</span>",
+   "time": "09:44",
+   "tail": true
+  },
+  {
+   "id": "9033",
    "from": "bot",
    "kind": "report",
-   "time": "13:50",
-   "tail": false
+   "time": "09:44",
+   "tail": true
   }
  ],
  "steps": [
-  "<i>Ready for Site Safety Inspection.</i>\n\n<b>Location</b> ⌖ <b>▸</b> Share your pin\nWhat you should cover:\n<b>Audit</b>\n<b>Information ▸</b> Details\n<b>Results ▸</b> Outcome · Notes · Conclusion\n<b>Fire Safety ▸</b> Alarm<span class=\"aw-drop\"> · Exits · Doors</span>\n<b>Fire ▸</b> Available<span class=\"aw-drop\"> · Service</span> · Seal · Clear\n<b>Fire Log ▸</b> Available · Weekly · Lighting\n<b>Fire Signs ▸</b> Assembly · Evacuation · Keep Clear · Extinguisher\n<b>Aid Signs ▸</b> Aiders · Kits\n<b>Safety Gear ▸</b> Kits · Eyewash · Burns · AED\n<b>Aid Contents ▸</b> Match · Expiry\n<b>Lighting ▸</b> Internal · External · Local\n<b>Surfaces ▸</b> Marking · Paths\n<b>Walkways ▸</b> Parking · Pavements · Stairs\n<b>Welfare ▸</b> Water · Benches · Floors · Noise · Cleanliness · Heating · Air · Smoking · Toilets\n<b>Wiring</b>\n<b>Electrical ▸</b> Test date · Signs\n<b>Storage ▸</b> Stability · Racking\n<b>Steps ▸</b> Number · Condition\n<b>General ▸</b> Notices · Tanks\n<b>Hazards</b>\n<b>Plant ▸</b> Defects · Guards · Controls\n<b>Mobile Plant</b>\n<b>Manual ▸</b> Posture · Loads · Flooring · Aids\n<b>Documents ▸</b> Policy · Minutes\n<b>Law Poster</b>\n<b>Contractors ▸</b> RAMS · Induction · Permit · Complete · Scope · Segregation\n<b>Other Areas</b>\n\nType <b>done</b> to finish\n\n<i>Say “restart” to start again.</i>",
-  "<i>Site Safety Inspection</i>\n✅ 3 OK\n⌖ ✓\n\nWhat still needs covered:\n<b>Audit</b>\n<b>Information ▸</b> Details\n<b>Results ▸</b> Outcome · Notes · Conclusion\n<b>Fire Safety ▸</b> Alarm\n<b>Fire ▸</b> Available · Seal · Clear\n<b>Fire Log ▸</b> Available · Weekly · Lighting\n<b>Fire Signs ▸</b> Assembly · Evacuation · Keep Clear · Extinguisher\n<b>Aid Signs ▸</b> Aiders · Kits\n<b>Safety Gear ▸</b> Kits · Eyewash · Burns · AED\n<b>Aid Contents ▸</b> Match · Expiry\n<b>Lighting ▸</b> Internal · External · Local\n<b>Surfaces ▸</b> Marking · Paths\n<b>Walkways ▸</b> Parking · Pavements · Stairs\n<b>Welfare ▸</b> Water · Benches · Floors · Noise · Cleanliness · Heating · Air · Smoking · Toilets\n<b>Wiring</b>\n<b>Electrical ▸</b> Test date · Signs\n<b>Storage ▸</b> Stability · Racking\n<b>Steps ▸</b> Number · Condition\n<b>General ▸</b> Notices · Tanks\n<b>Hazards</b>\n<b>Plant ▸</b> Defects · Guards · Controls\n<b>Mobile Plant</b>\n<b>Manual ▸</b> Posture · Loads · Flooring · Aids\n<b>Documents ▸</b> Policy · Minutes\n<b>Law Poster</b>\n<b>Contractors ▸</b> RAMS · Induction · Permit · Complete · Scope · Segregation\n<b>Other Areas</b>\n\nType <b>done</b> to finish"
+  "<i>Ready for Site Safety Inspection.</i>\n\n<b>Location</b> \u2316 <b>\u25b8</b> Share your pin\nWhat you should cover:\n<b>Audit</b>\n<b>Information \u25b8</b> Details\n<b>Results \u25b8</b> Outcome \u00b7 Notes \u00b7 Conclusion\n<b>Fire Safety \u25b8</b> Alarm<span class=\"aw-drop\"> \u00b7 Exits \u00b7 Doors</span>\n<b>Fire \u25b8</b> Available<span class=\"aw-drop\"> \u00b7 Service</span> \u00b7 Seal \u00b7 Clear\n<b>Fire Log \u25b8</b> Available \u00b7 Weekly \u00b7 Lighting\n<b>Fire Signs \u25b8</b> Assembly \u00b7 Evacuation \u00b7 Keep Clear \u00b7 Extinguisher\n<b>Aid Signs \u25b8</b> Aiders \u00b7 Kits\n<b>Safety Gear \u25b8</b> Kits \u00b7 Eyewash \u00b7 Burns \u00b7 AED\n<b>Aid Contents \u25b8</b> Match \u00b7 Expiry\n<b>Lighting \u25b8</b> Internal \u00b7 External \u00b7 Local\n<b>Surfaces \u25b8</b> Marking \u00b7 Paths\n<b>Walkways \u25b8</b> Parking \u00b7 Pavements \u00b7 Stairs\n<b>Welfare \u25b8</b> Water \u00b7 Benches \u00b7 Floors \u00b7 Noise \u00b7 Cleanliness \u00b7 Heating \u00b7 Air \u00b7 Smoking \u00b7 Toilets\n<b>Wiring</b>\n<b>Electrical \u25b8</b> Test date \u00b7 Signs\n<b>Storage \u25b8</b> Stability \u00b7 Racking\n<b>Steps \u25b8</b> Number \u00b7 Condition\n<b>General \u25b8</b> Notices \u00b7 Tanks\n<b>Hazards</b>\n<b>Plant \u25b8</b> Defects \u00b7 Guards \u00b7 Controls\n<b>Mobile Plant</b>\n<b>Manual \u25b8</b> Posture \u00b7 Loads \u00b7 Flooring \u00b7 Aids\n<b>Documents \u25b8</b> Policy \u00b7 Minutes\n<b>Law Poster</b>\n<b>Contractors \u25b8</b> RAMS \u00b7 Induction \u00b7 Permit \u00b7 Complete \u00b7 Scope \u00b7 Segregation\n<b>Other Areas</b>\n\nType <b>done</b> to finish\n\n<i>Say \u201crestart\u201d to start again.</i>",
+  "<i>Site Safety Inspection</i>\n\u2705 3 OK\n\u2316 \u2713\n\nWhat still needs covered:\n<b>Audit</b>\n<b>Information \u25b8</b> Details\n<b>Results \u25b8</b> Outcome \u00b7 Notes \u00b7 Conclusion\n<b>Fire Safety \u25b8</b> Alarm\n<b>Fire \u25b8</b> Available \u00b7 Seal \u00b7 Clear\n<b>Fire Log \u25b8</b> Available \u00b7 Weekly \u00b7 Lighting\n<b>Fire Signs \u25b8</b> Assembly \u00b7 Evacuation \u00b7 Keep Clear \u00b7 Extinguisher\n<b>Aid Signs \u25b8</b> Aiders \u00b7 Kits\n<b>Safety Gear \u25b8</b> Kits \u00b7 Eyewash \u00b7 Burns \u00b7 AED\n<b>Aid Contents \u25b8</b> Match \u00b7 Expiry\n<b>Lighting \u25b8</b> Internal \u00b7 External \u00b7 Local\n<b>Surfaces \u25b8</b> Marking \u00b7 Paths\n<b>Walkways \u25b8</b> Parking \u00b7 Pavements \u00b7 Stairs\n<b>Welfare \u25b8</b> Water \u00b7 Benches \u00b7 Floors \u00b7 Noise \u00b7 Cleanliness \u00b7 Heating \u00b7 Air \u00b7 Smoking \u00b7 Toilets\n<b>Wiring</b>\n<b>Electrical \u25b8</b> Test date \u00b7 Signs\n<b>Storage \u25b8</b> Stability \u00b7 Racking\n<b>Steps \u25b8</b> Number \u00b7 Condition\n<b>General \u25b8</b> Notices \u00b7 Tanks\n<b>Hazards</b>\n<b>Plant \u25b8</b> Defects \u00b7 Guards \u00b7 Controls\n<b>Mobile Plant</b>\n<b>Manual \u25b8</b> Posture \u00b7 Loads \u00b7 Flooring \u00b7 Aids\n<b>Documents \u25b8</b> Policy \u00b7 Minutes\n<b>Law Poster</b>\n<b>Contractors \u25b8</b> RAMS \u00b7 Induction \u00b7 Permit \u00b7 Complete \u00b7 Scope \u00b7 Segregation\n<b>Other Areas</b>\n\nType <b>done</b> to finish"
  ],
- "doneFrom": 18,
+ "doneFrom": 21,
  "stepVoice": {
   "id": "8465",
   "from": "you",
