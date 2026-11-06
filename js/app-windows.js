@@ -317,3 +317,43 @@ document.addEventListener("click", function (e) {
     document.querySelectorAll(".aw-live-wrap.is-on").forEach(function (w) { if (!w.contains(e.target)) w.classList.remove("is-on"); });
   });
 })();
+
+/* The opening voice note plays by itself the first time the chat window
+   scrolls into view (Philip 6 Nov 2026 10:11). Only that one note, only once.
+   Browsers refuse sound before the visitor has clicked or tapped anything, so
+   then it plays silently (the wave and timer move) and the sound comes on at
+   their first click, tap or key press. */
+(function () {
+  var panel = document.querySelector(".aw-wa");
+  if (!panel || !("IntersectionObserver" in window)) return;
+  var first = panel.querySelector(".wa-scroll > *:not(.wa-day)");
+  var btn = first && first.querySelector(".wa-vplay");
+  var audio = first && first.querySelector("audio.wa-audio");
+  if (!btn || !audio) return;
+  var done = false;
+  function unmute() {
+    audio.muted = false;
+    ["pointerdown", "keydown", "touchstart"].forEach(function (t) { removeEventListener(t, unmute, true); });
+  }
+  function start() {
+    if (done) return; done = true;
+    var played = false, tries = 0;
+    audio.addEventListener("play", function () { played = true; }, { once: true });
+    btn.click();
+    (function check() {
+      if (played) return;
+      if (!audio.currentSrc && ++tries < 20) { setTimeout(check, 500); return; }
+      if (!audio.currentSrc) return;
+      setTimeout(function () {
+        if (played) return;
+        audio.muted = true;
+        ["pointerdown", "keydown", "touchstart"].forEach(function (t) { addEventListener(t, unmute, true); });
+        var p = audio.play(); if (p && p.catch) p.catch(function () {});
+      }, 400);
+    })();
+  }
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (en) { if (en.isIntersecting) { io.disconnect(); start(); } });
+  }, { threshold: 0.6 });
+  io.observe(panel);
+})();
