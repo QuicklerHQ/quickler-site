@@ -21,6 +21,42 @@ function fileFor(site, loc) {
   return path.join(site, f);
 }
 
+
+// Clean Markdown copy of a page's <main> (Philip 9 Nov 2026): /pages/foo.html -> /pages/foo.md,
+// /dir/ -> /dir/index.md. Not linked from any visible page; llms.txt points at these.
+function toMarkdown(mainHtml) {
+  let h = mainHtml
+    .replace(/<(script|style|noscript|svg|template|form|button|iframe|nav|footer)[\s\S]*?<\/\1>/gi, " ")
+    .replace(/<!--[\s\S]*?-->/g, " ")
+    .replace(/<img[^>]*>/gi, " ");
+  h = h.replace(/<a\s[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi, (_, href, txt) => {
+    const t = txt.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+    if (!t) return " ";
+    if (/^(#|javascript:|mailto:)/i.test(href)) return t;
+    const abs = href.startsWith("http") ? href : ORIGIN + (href.startsWith("/") ? href : "/" + href);
+    return `[${t}](${abs})`;
+  });
+  h = h
+    .replace(/<h1[^>]*>([\s\S]*?)<\/h1>/gi, "\n\n# $1\n\n")
+    .replace(/<h2[^>]*>([\s\S]*?)<\/h2>/gi, "\n\n## $1\n\n")
+    .replace(/<h3[^>]*>([\s\S]*?)<\/h3>/gi, "\n\n### $1\n\n")
+    .replace(/<h[4-6][^>]*>([\s\S]*?)<\/h[4-6]>/gi, "\n\n#### $1\n\n")
+    .replace(/<li[^>]*>/gi, "\n- ")
+    .replace(/<(strong|b)[^>]*>([\s\S]*?)<\/\1>/gi, "**$2**")
+    .replace(/<\/(p|div|tr|section|article|ul|ol|table|blockquote|details|summary)>|<br\s*\/?>/gi, "\n\n")
+    .replace(/<\/t[dh]>/gi, " | ")
+    .replace(/<[^>]+>/g, " ");
+  const lines = decode(h).split("\n").map((l) => l.replace(/[ \t]+/g, " ").trim());
+  const out = [];
+  for (const l of lines) {
+    if (!l || /^[-|*\s]*$/.test(l) && l !== "") { if (out.length && out[out.length - 1] !== "") out.push(""); continue; }
+    if (/^\*\*\s*\*\*$/.test(l)) continue;
+    out.push(l.replace(/^(#+) +/, "$1 ").replace(/ \| *$/, ""));
+  }
+  return out.join("\n").replace(/\n{3,}/g, "\n\n").trim();
+}
+const mdPath = (loc) => { const u = loc.replace(ORIGIN, "") || "/"; return u.endsWith("/") ? u + "index.md" : u.replace(/\.html?$/, "") + ".md"; };
+
 function readPage(site, loc) {
   let html = "";
   try { html = fs.readFileSync(fileFor(site, loc), "utf8"); } catch (e) { return null; }
@@ -38,7 +74,10 @@ function readPage(site, loc) {
   let body = lines.join("\n\n");
   if (body.length > MAX_BODY) body = body.slice(0, MAX_BODY).replace(/\s+\S*$/, "") + " ...";
   const title = clean(t).replace(/\s*[|–—-]\s*Quickler\s*$/i, "") || clean(h1) || loc;
-  return { loc, title: dash(title), desc: dash(clean(d)), body: dash(body) };
+  const mainRaw = (html.match(/<main[\s\S]*?<\/main>/i) || [html])[0];
+  let md = dash(toMarkdown(mainRaw));
+  if (md.length > 200000) md = md.slice(0, 200000) + "\n\n...";
+  return { loc, title: dash(title), desc: dash(clean(d)), body: dash(body), md, mdUrl: ORIGIN + mdPath(loc) };
 }
 
 module.exports = function generate(site, scriptsDir) {
@@ -62,13 +101,20 @@ module.exports = function generate(site, scriptsDir) {
   for (const g of Object.keys(groups).sort((a, b) => (a === "Pages") - (b === "Pages") || a.localeCompare(b))) {
     out += `\n### ${g}\n\n`;
     for (const p of groups[g].sort((a, b) => a.title.localeCompare(b.title))) {
-      out += `- [${p.title.replace(/[\[\]]/g, "")}](${p.loc})${p.desc ? ": " + p.desc : ""}\n`;
+      out += `- [${p.title.replace(/[\[\]]/g, "")}](${p.mdUrl})${p.desc ? ": " + p.desc : ""}\n`;
     }
   }
   fs.writeFileSync(path.join(site, "llms.txt"), out);
 
+  for (const p of pages) {
+    const head = `# ${p.title}\n\n${p.desc ? "> " + p.desc + "\n\n" : ""}Source: ${p.loc}\n\n`;
+    const f = path.join(site, mdPath(p.loc));
+    fs.mkdirSync(path.dirname(f), { recursive: true });
+    fs.writeFileSync(f, head + p.md + "\n");
+  }
+
   let full = fullIntro + "\n---\n\n# Every page\n\n";
   for (const p of pages) full += `## ${p.title}\n${p.loc}\n\n${p.body || p.desc}\n\n`;
   fs.writeFileSync(path.join(site, "llms-full.txt"), full);
-  console.log(`[llms] ${pages.length} pages, llms.txt ${out.length} chars, llms-full.txt ${full.length} chars`);
+  console.log(`[llms] ${pages.length} pages and .md copies, llms.txt ${out.length} chars, llms-full.txt ${full.length} chars`);
 };

@@ -52,7 +52,8 @@ module.exports = function (eleventyConfig) {
     return api.getAll()
       .filter((p) => {
         const url = p.url || "";
-        if (!url.endsWith(".html")) return false;
+        // Folder pages (/, /features/x/, /new/ ...) count too (9 Nov 2026: home was missing).
+        if (!url.endsWith(".html") && !url.endsWith("/")) return false;
         if (skipUrl.test(url)) return false;
         const robots = (p.data.seo && p.data.seo.robots) || p.data.robots || "";
         if (/noindex/i.test(robots)) return false;
