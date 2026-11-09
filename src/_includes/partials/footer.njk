@@ -39,5 +39,8 @@
   </div>
   <p class="site-foot-small">© {{ site.company }} 2026 · <a href="https://find-and-update.company-information.service.gov.uk/company/{{ site.companyNo }}" target="_blank" rel="noopener noreferrer">Company No. {{ site.companyNo }}</a> · Information Commission (formerly the ICO) {{ site.ico }} · <a href="#top">Back to top ↑</a> · <span class="site-version">v{{ release.shown or site.version }}</span></p>
 </footer>
-{#- The floating 'Try Quickler free' button was removed (Philip 9 Nov 2026: 'make the try quickler free thing go away'). -#}
+{#- HEY's floating button, bottom right, once the page has scrolled (Philip 5 Nov 2026).
+    It hides again at the very bottom of the page, so it never covers the footer's small print (Philip 9 Nov 2026). -#}
+<a class="hey-float" href="https://app.quickler.co/signup" aria-hidden="true" tabindex="-1">Try Quickler free</a>
+<script>(function(){var b=document.querySelector('.hey-float');if(!b)return;function f(){var d=document.documentElement,atEnd=window.innerHeight+window.scrollY>=d.scrollHeight-160;b.classList.toggle('hey-float-on',window.scrollY>240&&!atEnd)}addEventListener('scroll',f,{passive:true});addEventListener('resize',f);f();})();</script>
 
