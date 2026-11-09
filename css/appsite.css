@@ -466,7 +466,7 @@ body.app-heypage .app-section { overflow-x: hidden; }
 .hey-h1-page { font-size: clamp(2.2rem, 5.4vw, 3.8rem); }
 .hey-hero > .hey-h1:not(.hey-h1-page) { font-weight: 700; }
 .hey-h1, .hey-sub { text-wrap: balance; }
-@media (min-width: 640px) { .hey-h1 .nw { white-space: nowrap; } } /* break between phrases, never mid-phrase (Philip 9 Nov 2026) */ /* Philip 9 Nov 2026: home headline bold */
+@media (min-width: 640px) { .hey-h1 .nw { white-space: nowrap; } .hey-sub .sub-line { display: block; } } /* break between phrases, never mid-phrase (Philip 9 Nov 2026) */ /* Philip 9 Nov 2026: home headline bold */
 .hey-sub-page { font-weight: 600; font-size: clamp(1.1rem, 2.2vw, 1.4rem); margin-bottom: 26px; }
 .hey-second { margin-top: 12px; }
 .hey-second a { color: #5A4FCF; font-weight: 700; }
