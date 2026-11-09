@@ -138,7 +138,7 @@
     {%- if hero.sub %}<p class="hey-sub">{{ hero.sub | safe }}</p>{% endif %}
     {%- if hero.lede %}<p class="hey-lede">{{ hero.lede | safe }}</p>{% endif %}
     {%- set a0 = (hero.actions or [])[0] %}{% if a0 %}<a class="hey-btn" href="{{ a0.href }}">{{ a0.label }}</a>{% endif %}
-    <div class="hey-note">No obligation, no card needed.</div>
+    <div class="hey-note">No card, no contract. Cancel any time.</div>
     {%- if homeVideo %}
     {#- HEY's frame (Philip 5 Nov 2026 12:45): a still from the video itself
         (the real app, Philip 12:52) under a colour wash, with one white "See how Quickler works" pill; pressing it
@@ -222,7 +222,7 @@
     <h1 class="hey-h1 hey-h1-page">{{ hero.heading | safe }}</h1>
     {%- if hero.lede %}<p class="hey-sub hey-sub-page">{{ hero.lede | priceTokens | safe }}</p>{% endif %}
     {%- set a0 = (hero.actions or [])[0] %}{% if a0 %}<a class="hey-btn" href="{{ a0.href }}"{% if '//' in a0.href and site.domain not in a0.href %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ a0.label }}</a>{% endif %}
-    {%- if a0 and 'signup' in a0.href %}<div class="hey-note">No obligation, no card needed.</div>{% elif hero.actionNote %}<div class="hey-note">{{ hero.actionNote }}</div>{% endif %}
+    {%- if a0 and 'signup' in a0.href %}<div class="hey-note">No card, no contract. Cancel any time.</div>{% elif hero.actionNote %}<div class="hey-note">{{ hero.actionNote }}</div>{% endif %}
   </div>
   {#- Below the HEY hero, the page's parts sit in the app's own Checks panel
       (Philip 5 Nov 2026 12:17): a panel title like "All FAQs", a button top

@@ -46,7 +46,7 @@ const plans = [
     price: 0,
     priceSuffix: " for 14 days",
     quantity: 0,
-    quantityLabel: "Everything unlocked. No card needed to start.",
+    quantityLabel: "Everything unlocked. No card needed to start. No contract, cancel any time.",
     note: "14-day free trial.",
   },
   {
@@ -84,8 +84,8 @@ const trial = {
 const freeTier = {
   reports: 0,
   photosPerReport: 0,
-  line: "14-day free trial. Everything is unlocked. No card needed to start.",
-  shortLine: "14-day free trial. No card needed to start.",
+  line: "14-day free trial. Everything is unlocked. No card needed to start. No contract, cancel any time.",
+  shortLine: "14-day free trial. No card needed to start. No contract, cancel any time.",
 };
 
 // Fair-use clause. Backs the "unlimited" promise on paid accounts: unlimited is

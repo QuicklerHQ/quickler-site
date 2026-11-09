@@ -10,10 +10,10 @@
   "bookingUrl": "https://calendar.app.google/AnMJ8Um75bGuWsMj6",
   "signupUrl": "https://app.quickler.co/signup",
   "trialDays": 0,
-  "trialLine": "14-day free trial. No card needed to start.",
+  "trialLine": "14-day free trial. No card needed to start. No contract, cancel any time.",
   "whatsapp": "447455741203",
   "whatsappLink": "https://wa.me/447455741203?text=Hello",
   "googleVerification": "",
-  "version": 524,
+  "version": 525,
   "demoBase": "https://app.quickler.co"
 }
