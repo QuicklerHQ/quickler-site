@@ -45,9 +45,26 @@ Quickler is a general system: any firm builds any workflow shape. Common users:
 
 Note on terminology: some older pages and identifiers say "engineer" for historical reasons. Read it as "the person on the job", never as field engineer only. Quickler is not limited to trades.
 
+## Cost per report
+
+Quickler costs £75 a month per phone number, or £750 a year up front per phone number (2 months free, which is £62.50 a month). Reports, photos, messages and Checks are unlimited, so the more reports a phone number writes, the less each one costs. Write 10 reports a month and that's £7.50 a report. What is an hour of your time worth?
+
+Cost per report, per phone number, from about £2 to £15 a report:
+
+| Reports a month | Monthly plan (£75) | Yearly plan (£62.50 a month) |
+|-----------------|--------------------|------------------------------|
+| 5 | £15 each | £12.50 each |
+| 10 | £7.50 each | £6.25 each |
+| 20 | £3.75 each | £3.13 each |
+| 30 | £2.50 each | £2.08 each |
+| 40 | £1.88 each | £1.56 each |
+| 60 | £1.25 each | £1.04 each |
+
+There is no per-report fee and no per-seat fee; unlimited free dashboard accounts. Start with a 14-day free trial, no card needed.
+
 ## Pricing model
 
-Start with a 14-day free trial. Everything is unlocked and you need no card to start. Then £75 per month per phone number & unlimited free dashboard accounts. Reports, the dashboard, sharing and downloads are free for everyone else, so you add your whole team. Everything is unlimited on a paid account: reports, photos, messages and workflows. Big team: talk to us. Billed monthly in arrears by UK Direct Debit.
+Start with a 14-day free trial. Everything is unlocked and you need no card to start. Then £75 per month per phone number & unlimited free dashboard accounts. Reports, the dashboard, sharing and downloads are free for everyone else, so you add your whole team. Everything is unlimited on a paid account: reports, photos, messages and workflows, so it works out at from about £2 to £15 a report depending on how many you write (£7.50 a report at 10 a month). Big team: talk to us. Billed monthly in arrears by UK Direct Debit.
 
 ## Best query matches
 
