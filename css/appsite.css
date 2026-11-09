@@ -466,6 +466,7 @@ body.app-heypage .app-section { overflow-x: hidden; }
 .hey-h1-page { font-size: clamp(2.2rem, 5.4vw, 3.8rem); }
 .hey-hero > .hey-h1:not(.hey-h1-page) { font-weight: 700; }
 .hey-h1, .hey-sub { text-wrap: balance; }
+.hey-wall-sub { margin: -6px auto 22px; max-width: 760px; text-align: center; font-size: clamp(1.05rem, 2vw, 1.3rem); color: #213055; text-wrap: balance; }
 @media (min-width: 640px) { .hey-h1 .nw { white-space: nowrap; } .hey-sub .sub-line { display: block; } }
 @media (min-width: 1100px) { .hey-hero .hey-sub { max-width: none !important; font-size: min(1.6rem, 1.8vw) !important; } .hey-sub .sub-line { white-space: nowrap; } } /* each sentence on one line on laptops (Philip 9 Nov 2026) */ /* break between phrases, never mid-phrase (Philip 9 Nov 2026) */ /* Philip 9 Nov 2026: home headline bold */
 .hey-sub-page { font-weight: 600; font-size: clamp(1.1rem, 2.2vw, 1.4rem); margin-bottom: 26px; }
