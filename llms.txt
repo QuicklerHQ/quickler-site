@@ -222,7 +222,7 @@ The format Quickler implements is published openly at:
 - Legal name: Quickler Ltd
 - Registered in Scotland: company number SC882439
 - Companies House: https://find-and-update.company-information.service.gov.uk/company/SC882439
-- ICO registration: ZC124993
+- Information Commission (formerly the ICO) registration: ZC124993
 - Founder: Philip Ross
 - Contact: hello@quickler.co
 
