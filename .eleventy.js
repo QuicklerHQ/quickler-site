@@ -242,6 +242,12 @@ module.exports = function (eleventyConfig) {
   // Speed: minify the built CSS in-place after the build. Zero dependency,
   // strips comments and collapses whitespace. The authored CSS stays readable;
   // only the deployed _site/css/*.css is minified. Safe, conservative regex.
+  // llms.txt and llms-full.txt: hand-written intros plus every sitemap page,
+  // generated from the built HTML so new pages are covered automatically.
+  eleventyConfig.on("eleventy.after", async () => {
+    require("./scripts/generate-llms.js")(require("path").resolve("_site"), require("path").resolve("scripts"));
+  });
+
   eleventyConfig.on("eleventy.after", async () => {
     const fs = require("fs");
     const path = require("path");
@@ -264,7 +270,7 @@ module.exports = function (eleventyConfig) {
   });
 
   // Root-level SEO/static files copied verbatim.
-  ["robots.txt", "sitemap.xml", "llms.txt", "llms-full.txt", "CNAME",
+  ["robots.txt", "sitemap.xml", "CNAME",
    "site.json", "site.webmanifest", "favicon.ico", "favicon.svg",
    "privacy.html"].forEach(f =>
     eleventyConfig.addPassthroughCopy(f));
