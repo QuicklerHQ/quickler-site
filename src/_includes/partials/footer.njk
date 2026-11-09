@@ -11,6 +11,21 @@
   </div>
   <div class="footer-rule"></div>
   {%- endif %}
+  {#- Monthly email sign-up (Philip 9 Nov 2026, Q68/Q69): looks like a sign-up, is the
+      Formspree contact form with the topic filled in, so each one lands in the inbox. -#}
+  <form class="foot-news" action="https://formspree.io/f/mjknoeqd" method="POST">
+    <label class="foot-news-label" for="foot-news-email">One short email a month on what's new. Unsubscribe any time.</label>
+    <div class="foot-news-row">
+      <input id="foot-news-email" type="email" name="email" placeholder="Your email" autocomplete="email" inputmode="email" required>
+      <input type="hidden" name="topic" value="Newsletter sign-up">
+      <input type="hidden" name="_subject" value="Newsletter sign-up">
+      <input type="hidden" name="message" value="Please add me to the monthly Quickler newsletter.">
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
+      <button type="submit">Sign up</button>
+    </div>
+    <p class="foot-news-done" hidden>Thanks, you're on the list.</p>
+  </form>
+  <script>(function(){var f=document.querySelector('.foot-news');if(!f)return;f.addEventListener('submit',function(e){e.preventDefault();var b=f.querySelector('button');b.disabled=true;b.textContent='Sending...';fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}}).then(function(r){if(!r.ok)throw 0;f.querySelector('.foot-news-row').hidden=true;f.querySelector('.foot-news-done').hidden=false;}).catch(function(){b.disabled=false;b.textContent='Try again';});});})();</script>
   {#- Columns like Basecamp's and HEY's footers (Philip 5 Nov 2026: "tidy that up"). -#}
   <div class="site-foot-cols">
     <div class="site-foot-col"><div class="site-foot-head">Quickler</div>

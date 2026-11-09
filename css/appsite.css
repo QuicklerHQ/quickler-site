@@ -382,6 +382,13 @@ footer { text-align: left; max-width: 960px; margin: 0 auto; padding: 40px 16px 
 .site-foot-head { font-weight: 700; color: var(--heading); font-size: 0.9rem; margin-bottom: 2px; }
 .site-foot-col a { color: var(--ink-soft); font-size: 0.88rem; text-decoration: none; overflow-wrap: anywhere; }
 .site-foot-col a:hover { color: var(--accent); }
+.foot-news { margin: 0 auto 22px; max-width: 520px; text-align: center; }
+.foot-news-label { display: block; font-size: 0.95rem; color: var(--ink); margin-bottom: 8px; }
+.foot-news-row { display: flex; gap: 8px; }
+.foot-news-row[hidden] { display: none; }
+.foot-news-row input[type=email] { flex: 1; min-width: 0; padding: 10px 14px; border: 1px solid var(--line); border-radius: 999px; font: inherit; background: #fff; }
+.foot-news-row button { padding: 10px 18px; border: 0; border-radius: 999px; font: inherit; font-weight: 700; color: #fff; background: linear-gradient(90deg, #5A4FCF, #7C3AED); cursor: pointer; }
+.foot-news-done { margin: 0; font-weight: 600; color: var(--ink); }
 .site-foot-small { margin-top: 26px !important; font-size: 0.78rem; color: var(--ink-soft); text-align: center; }
 .site-foot-small a { color: var(--ink-soft); }
 .site-version { opacity: 1; color: #5a5f78; }
