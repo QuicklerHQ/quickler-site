@@ -189,3 +189,4 @@ html.aw-ctrl .aw-hover-hint, .aw-live-wrap.is-on .aw-hover-hint, .aw-scroll.aw-a
 @media (min-width: 2400px) { html { zoom: 1.35; } }
 @media (min-width: 3000px) { html { zoom: 1.6; } }
 @media (min-width: 3600px) { html { zoom: 1.85; } }
+.aw-live-free .aw-live { pointer-events: auto; }

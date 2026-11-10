@@ -146,9 +146,9 @@
       it becomes when it updates"). Once site.demoBase is set, each window is the
       dashboard's own /demo page (whichever Record is the website demo), opened
       at its part. The pictures below are only the stop-gap until then. -#}
-  {%- set _live = {'chat': '/demo?embed=1&view=messages', 'done': '/demo?embed=1&view=messages&at=done', 'photos': '/demo?embed=1&focus=q#q-vehicle_safety_features_present_and_used', 'todo': '/demo?embed=1&focus=todo', 'edit': '/demo/edit?embed=1'} %}
+  {%- set _live = {'chat': '/demo?embed=1&view=messages', 'done': '/demo?embed=1&view=messages&at=done', 'photos': '/demo?embed=1&focus=q#q-vehicle_safety_features_present_and_used', 'todo': '/demo?embed=1&focus=todo', 'edit': '/demo/edit?embed=1&at=q-general_issues_ok'} %}
   {%- if site.demoBase and _live[kind] %}
-    <div class="aw-live-wrap"><iframe class="aw-live" src="{{ site.demoBase }}{{ _live[kind] }}" title="Quickler's demo report, live" loading="lazy" referrerpolicy="strict-origin"></iframe><div class="aw-hover-hint">Double click or tap to use it</div></div>
+    <div class="aw-live-wrap{% if kind == 'todo' %} aw-live-free{% endif %}"><iframe class="aw-live" src="{{ site.demoBase }}{{ _live[kind] }}" title="Quickler's demo report, live" loading="lazy" referrerpolicy="strict-origin"></iframe>{% if kind != 'todo' %}<div class="aw-hover-hint">Double click or tap to use it</div>{% endif %}</div>
   {%- elif kind == 'chat' %}
     {{ waPanel(_dw.chat, 'aw-wa-tall') }}
   {%- elif kind == 'place' %}
