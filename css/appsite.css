@@ -858,4 +858,7 @@ html.aw-lb-on { overflow: hidden; }
   /* Story buttons (e.g. "UK guides and templates" / "Workflows"): stack in a wrapping row, no overlap. */
   .story-actions { display: flex; flex-wrap: wrap; gap: 12px; }
   .story-actions .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 20px; white-space: normal; overflow: visible; text-overflow: clip; }
+  /* Contact form: space between each label and the field above it. */
+  .contact-clean label { display: block; margin: 16px 0 6px; }
+  .contact-clean button[type=submit], .contact-clean .btn-primary { margin-top: 18px; }
 }
