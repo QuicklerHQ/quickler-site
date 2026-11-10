@@ -264,6 +264,18 @@ const clusters = {
       ["five-regulators-one-job-british-isles", "Five regulators, one job"],
     ],
   },
+  coshh: {
+    label: "COSHH",
+    pages: [
+      ["coshh-risk-assessment-field-teams-uk", "COSHH guide for field teams"],
+      ["coshh-assessment-from-safety-data-sheet-uk", "COSHH from a safety data sheet"],
+      ["coshh-register-construction-site-uk", "COSHH register for construction"],
+      ["coshh-assessment-template-word-pdf-uk", "COSHH template: Word, PDF or voice"],
+      ["coshh-cleaning-firms-uk", "COSHH for cleaning firms"],
+      ["coshh-care-homes-schools-uk", "COSHH in care homes and schools"],
+      ["coshh-assessment-review-how-often-uk", "How often to review COSHH"],
+    ],
+  },
   general: {
     label: "Field compliance",
     pages: [
