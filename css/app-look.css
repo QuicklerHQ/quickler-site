@@ -350,3 +350,20 @@ pre code, code { display: inline-block; box-sizing: border-box; }
 .app-record .story-article-body { max-width: none !important; width: auto !important; }
 .app-record .story-article-lede .story-article-body { border-top: 1px solid rgba(24, 52, 132, 0.14); border-radius: 8px; margin-top: 0; padding-left: 18px; }
 .app-record .story-article .story-article-body { display: block !important; width: 100% !important; box-sizing: border-box; }
+
+/* Phones: the footer's link columns and newsletter row on pages that use this older stylesheet
+   (legal, regions, positioning pages). Without this the links ran together in one line
+   (10 Nov 2026 review, Philip 10 Nov 2026). Phones only. */
+@media (max-width: 760px) {
+  footer .foot-news { margin: 0 auto 22px; max-width: 520px; text-align: center; }
+  footer .foot-news-label { display: block; margin-bottom: 8px; }
+  footer .foot-news-row { display: flex; gap: 8px; }
+  footer .foot-news-row[hidden] { display: none; }
+  footer .foot-news-row input[type=email] { flex: 1; min-width: 0; padding: 10px 14px; border: 1px solid var(--app-line); border-radius: 999px; font: inherit; background: #fff; }
+  footer .foot-news-row button { padding: 10px 18px; border: 0; border-radius: 999px; font: inherit; font-weight: 700; color: #fff; background: linear-gradient(90deg, #5A4FCF, #7C3AED); cursor: pointer; }
+  footer .site-foot-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 16px; padding: 24px 16px 0; border-top: 1px solid var(--app-line); text-align: left; }
+  footer .site-foot-col { display: flex; flex-direction: column; min-width: 0; }
+  footer .site-foot-head { font-weight: 700; font-size: 0.9rem; margin-bottom: 2px; color: var(--app-heading, #0d1a3a); }
+  footer .site-foot-col a { display: flex; align-items: center; min-height: 40px; font-size: 0.88rem; text-decoration: none; overflow-wrap: anywhere; }
+  footer .site-foot-small { margin-top: 26px; font-size: 0.78rem; text-align: center; padding: 0 16px; }
+}

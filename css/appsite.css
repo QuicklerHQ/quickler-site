@@ -838,3 +838,24 @@ html.aw-lb-on { overflow: hidden; }
   .wf-title-row .wf-activity { order: 3; flex: 1 1 100%; text-align: left; white-space: normal; }
   .wf-title-row .wf-name-block .wf-name { display: block; -webkit-line-clamp: unset; line-clamp: unset; overflow: visible; overflow-wrap: break-word; hyphens: manual; }
 }
+
+/* Phones: layout faults found in the 10 Nov 2026 review (Philip 10 Nov 2026). Phones only; desktop untouched. */
+@media (max-width: 760px) {
+  /* Linked tiles: the grey label goes under the title, so the title and text keep the full card width
+     (no "Medicat / ion and / infectio / n control"). */
+  .rec-tile.site-tile { flex-wrap: wrap; }
+  .rec-tile.site-tile .row-main { flex: 1 1 100%; }
+  .rec-tile.site-tile .row-when { flex: 1 1 100%; order: 3; text-align: left; white-space: normal; }
+  /* Section headings in a panel head wrap in full instead of ending in "...". */
+  .hey-panel-head .dash-section-title { white-space: normal; overflow: visible; text-overflow: clip; min-width: 0; }
+  /* Card button rows: labels wrap, never clip. Tap height at least 40px. */
+  .site-actions .wf-action-group { flex-wrap: wrap; }
+  .site-actions .wf-action-btn { white-space: normal; overflow: visible; text-overflow: clip; justify-content: center; min-height: 40px; }
+  .btn-round-add { min-height: 40px; display: inline-flex; align-items: center; }
+  /* Footer links: 40px tap rows. */
+  .site-foot-col { gap: 0; }
+  .site-foot-col a { display: flex; align-items: center; min-height: 40px; }
+  /* Story buttons (e.g. "UK guides and templates" / "Workflows"): stack in a wrapping row, no overlap. */
+  .story-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .story-actions .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 20px; white-space: normal; overflow: visible; text-overflow: clip; }
+}
