@@ -23,6 +23,14 @@ eleventyExcludeFromCollections: true
     <priority>0.6</priority>
   </url>
 {%- endfor %}
+{%- for v in videos %}
+  <url>
+    <loc>https://quickler.co/videos/{{ v.slug }}/</loc>
+    <lastmod>{{ v.uploadDate }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+{%- endfor %}
 {%- for cont in continentList %}
   <url>
     <loc>https://quickler.co/pages/continent-{{ cont.slug }}.html</loc>

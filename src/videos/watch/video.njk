@@ -1,0 +1,44 @@
+---json
+{
+  "layout": "layouts/believe.njk",
+  "pagination": { "data": "videos", "size": 1, "alias": "v" },
+  "permalink": "/videos/{{ v.slug }}/index.html",
+  "eleventyExcludeFromCollections": true,
+  "eleventyComputed": {
+    "seo": {
+      "title": "{{ v.title }} | Quickler",
+      "description": "{{ v.summary }}",
+      "canonical": "https://quickler.co/videos/{{ v.slug }}/",
+      "lang": "en"
+    }
+  }
+}
+---
+{%- set ld = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": v.title,
+  "description": v.description,
+  "thumbnailUrl": [site.domain + v.poster],
+  "uploadDate": v.uploadDate,
+  "duration": v.duration,
+  "contentUrl": site.domain + v.video,
+  "embedUrl": site.domain + "/videos/" + v.slug + "/",
+  "transcript": v.transcript | join("\n\n")
+} %}
+<script type="application/ld+json">{{ ld | dump | safe }}</script>
+<div class="card">
+  <h1 class="site-home-h2" style="font-size:2rem">{{ v.title }}</h1>
+  <p class="site-words">{{ v.summary }}</p>
+  <video controls preload="none" poster="{{ v.poster }}" style="width:100%;max-width:960px;height:auto;aspect-ratio:16/9;background:#000" src="{{ v.video }}"></video>
+  <h2 class="site-home-h2" style="font-size:1.2rem;margin-top:24px">Chapters</h2>
+  <ul>
+  {%- for c in v.chapters %}
+    <li>{{ c[0] }} {{ c[1] }}</li>
+  {%- endfor %}
+  </ul>
+  <h2 class="site-home-h2" style="font-size:1.2rem;margin-top:24px">Transcript</h2>
+  {%- for p in v.transcript %}
+  <p class="site-words">{{ p }}</p>
+  {%- endfor %}
+</div>
