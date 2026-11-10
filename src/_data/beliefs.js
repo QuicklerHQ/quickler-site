@@ -2,7 +2,7 @@
 // own domain at /believe/). Each one is true of the product today or written
 // in the privacy policy; keep it that way.
 module.exports = [
-  { n: "01", title: "It never makes things up.", text: "Every name and number in a report comes from something you said, sent or photographed. If two of your answers do not match, Quickler flags it for you to settle. It does not guess, and it does not fill a gap with something that sounds right." },
+  { n: "01", title: "It never makes things up.", text: "Every name and number in a report comes from something you said, sent or photographed. It does not guess, and it does not fill a gap with something that sounds right." },
   { n: "02", title: "You sign, not us.", text: "Quickler writes the report. You read it, change what you want and sign it, as you always have. Your name goes on it, so the last word is always yours." },
   { n: "03", title: "Your report, not ours.", text: "Send us a report you already write, and every new one comes back in that layout: your headings, your tables, your logo. Your clients should see your work, not a software company's template." },
   { n: "04", title: "Talk, don't type.", text: "The person on site uses the WhatsApp already on their phone, or Telegram. No new app to install, no login to remember, very little to learn. If it takes training, it gets skipped." },

@@ -11,7 +11,7 @@ Most inspection software gives you its report and charges you per seat. Quickler
 - **It fills YOUR report, not ours.** Upload the finished report your firm sends to clients, in Word or PDF, or even a photograph of one. Quickler reads it, works out which of its wording is standing text and which is one visit's facts, and returns every record in that same document with your styles, headings, tables, headers, footer and logo intact. No other WhatsApp-based tool does this.
 - **Pay for each phone number on the account.** £75 per month per phone number & unlimited free dashboard accounts. Reports, the dashboard, sharing and downloads are free for everyone else, so a 30-person team with 5 phone numbers pays £375 a month, not 30 seats. Per-seat tools charge for the licence whether that person opens the app daily or never.
 - **There is no new app and no login for the person on site.** They use the WhatsApp already on their phone, or Telegram if you prefer, chosen per person. Nothing to install, no password, very little to learn. The usual reason inspection software fails is that the people on site stop opening the app.
-- **It does not make things up.** Every name, number and identifier written on a record has to stand in something actually said, sent or photographed. Where two answers disagree, or a date reads two ways, it raises the clash for a human to settle rather than picking one quietly. Rules that must never be wrong (Yes, No or N/A only; no question left unanswered) are fixed in code like a light switch; the AI only judges which box the words belong in, so the best replies say what they see, are specific, and stick to what is in front of them.
+- **It does not make things up.** Every name, number and identifier written on a record has to stand in something actually said, sent or photographed. Rules that must never be wrong (Yes, No or N/A only; no question left unanswered) are fixed in code like a light switch; the AI only judges which box the words belong in, so the best replies say what they see, are specific, and stick to what is in front of them.
 - **It handles the real world.** No signal underground, then twenty messages arriving at once in the wrong order, is handled as one walk. A voice note in a gale, in a thick accent, with the words of your trade taught to the transcriber. A scanned PDF with no text layer is read as a picture rather than rejected.
 
 ## What Quickler does
@@ -22,7 +22,6 @@ Most inspection software gives you its report and charges you per seat. Quickler
 - Thirteen question types: yes/no, written answer, number, date, time, photo, signature, graded word scales, location, weather, options, voice, and repeating tables
 - Rebuilds every answer after the walk from the whole conversation, with three independent reads voting on what was said
 - Lists each fault with its place, and writes a to-do job for every one
-- Raises what it could not settle for a human to decide, quoting the words it heard
 - Fills your own report template, and produces PDF, Word, Excel, CSV, a web page and bulk zips
 - Schedules checks, reminds and chases anyone who has not answered, and emails a weekly digest
 - Keeps the whole conversation, every photo and a full edit history against the record
