@@ -827,3 +827,14 @@ html.aw-lb-on { overflow: hidden; }
 .hey-watch-video:fullscreen .qp-bar { border-radius: 0; }
 .hey-watch-video:-webkit-full-screen { width: 100%; height: 100%; aspect-ratio: auto; background: #000; }
 @media (max-width: 520px) { .hey-watch-video .qp-bar { padding: 4px 8px; gap: 8px; } }
+
+/* Phones: a folding card's title gets the whole row; its grey label sits under it,
+   and the title wraps in full (no two-line cut, no "...", no spilling into the next card)
+   (Philip 10 Nov 2026, 11:58 screenshot). */
+@media (max-width: 760px) {
+  .wf-title-row { flex-wrap: wrap; }
+  .wf-title-row .wf-name-block { flex: 1 1 0; min-width: 0; order: 1; }
+  .wf-title-row .wf-expand-chevron { order: 2; flex: none; }
+  .wf-title-row .wf-activity { order: 3; flex: 1 1 100%; text-align: left; white-space: normal; }
+  .wf-title-row .wf-name-block .wf-name { display: block; -webkit-line-clamp: unset; line-clamp: unset; overflow: visible; overflow-wrap: break-word; hyphens: manual; }
+}
