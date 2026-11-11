@@ -9,7 +9,7 @@ preload are identical on every page -> defined ONCE here. -#}
   <script src="/js/nav-compact.js" defer></script>
   {%- if not appUi %}<script src="/js/reel-nav.js" defer></script>{% endif %}
   <script src="/js/persist-video.js" defer></script>
-  <script src="/js/qplayer.js" defer></script>
+  <script src="/js/qplayer.js?v={{ site.version }}" defer></script>
 
   <meta charset="UTF-8">
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -101,6 +101,7 @@ preload are identical on every page -> defined ONCE here. -#}
   <link rel="stylesheet" href="/appui/pages.css?v={{ site.version }}">
   <link rel="stylesheet" href="/css/appsite.css?v={{ site.version }}">
   <link rel="stylesheet" href="/css/brand.css?v={{ site.version }}">
+  <link rel="stylesheet" href="/css/qplayer.css?v={{ site.version }}">
   <link rel="stylesheet" href="/css/snap.css?v={{ site.version }}">
   {%- else %}
   <link rel="stylesheet" href="/css/tokens.css?v={{ site.version }}">

@@ -1,5 +1,9 @@
-// Home page video bar (Philip 9 Nov 2026): Quickler blue, play/pause, seek and
-// fullscreen only. No volume control; volume is always at full, never muted.
+// One video player for the whole site (Philip 9 and 11 Nov 2026): play/pause,
+// seek and fullscreen only, on a bar that fades through the Quickler logo's
+// colours (css/qplayer.css). No volume control; volume is always at full,
+// never muted. Markup: src/_includes/partials/video-player.njk. Every
+// [data-qp] wrapper on the page is set up on load; the home video calls
+// qPlayer() itself when its still is swapped for the video.
 (function () {
     var SVG = {
         play: '<svg width="14" height="16" viewBox="0 0 14 16" aria-hidden="true"><path d="M1 0l13 8-13 8z" fill="currentColor"/></svg>',
@@ -62,6 +66,20 @@
             else if (wrap.webkitRequestFullscreen) { wrap.webkitRequestFullscreen(); }
             else if (v.webkitEnterFullscreen) { v.webkitEnterFullscreen(); }
         });
+        // Space or K plays and pauses when the player itself has focus.
+        wrap.addEventListener("keydown", function (e) {
+            if (e.target === wrap && (e.key === " " || e.key === "k")) { e.preventDefault(); toggle(); }
+        });
         sync(); paint();
     };
+    // Only one video plays at a time.
+    document.addEventListener("play", function (e) {
+        var vids = document.querySelectorAll(".qp-wrap video");
+        for (var i = 0; i < vids.length; i++) if (vids[i] !== e.target && !vids[i].paused) vids[i].pause();
+    }, true);
+    function boot() {
+        var ws = document.querySelectorAll("[data-qp]");
+        for (var i = 0; i < ws.length; i++) window.qPlayer(ws[i]);
+    }
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
 })();

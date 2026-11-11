@@ -1,0 +1,30 @@
+/* One video player for the whole site (Philip 11 Nov 2026): the home video,
+   the feature videos and the /videos/ pages all use this. Markup comes from
+   src/_includes/partials/video-player.njk, behaviour from /js/qplayer.js.
+   The bar is play/pause, seek and fullscreen only (Philip 9 Nov 2026), and
+   fades left to right through the Quickler logo's colours. */
+:root { --qp-gradient: linear-gradient(90deg, #3B5BDB 0%, #5A4FCF 35%, #7C3AED 65%, #EC4899 100%); }
+.qp-wrap { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 14px; background: #000; }
+.qp-wrap video { position: absolute; inset: 0; display: block; width: 100%; height: 100%; border: 0; border-radius: 14px; background: #000; object-fit: contain; }
+.qp-wrap .qp-bar { position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; display: flex; align-items: center; gap: 12px; padding: 8px 14px;
+  background: #2F6BFF; background: var(--qp-gradient); color: #fff; border-radius: 0 0 14px 14px; }
+.qp-btn { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; padding: 0; border: 0; border-radius: 8px; background: transparent; color: #fff; cursor: pointer; }
+.qp-btn:hover, .qp-btn:focus-visible { background: rgba(255,255,255,0.22); outline: none; }
+.qp-seek { flex: 1; min-width: 0; height: 24px; margin: 0; background: transparent; cursor: pointer; -webkit-appearance: none; appearance: none; touch-action: none; --p: 0%; }
+.qp-seek:focus-visible { outline: 2px solid #fff; outline-offset: 2px; border-radius: 4px; }
+.qp-seek::-webkit-slider-runnable-track { height: 6px; border-radius: 3px; background: linear-gradient(to right, #fff var(--p), rgba(255,255,255,0.35) var(--p)); }
+.qp-seek::-moz-range-track { height: 6px; border-radius: 3px; background: rgba(255,255,255,0.35); }
+.qp-seek::-moz-range-progress { height: 6px; border-radius: 3px; background: #fff; }
+.qp-seek::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; margin-top: -4px; border-radius: 50%; background: #fff; border: 0; }
+.qp-seek::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 0; }
+.qp-wrap:fullscreen { width: 100%; height: 100%; aspect-ratio: auto; border-radius: 0; background: #000; }
+.qp-wrap:fullscreen video { border-radius: 0 !important; object-fit: contain; }
+.qp-wrap:fullscreen .qp-bar { border-radius: 0; }
+.qp-wrap:-webkit-full-screen { width: 100%; height: 100%; aspect-ratio: auto; background: #000; }
+@media (max-width: 520px) { .qp-wrap .qp-bar { padding: 4px 8px; gap: 8px; } }
+
+/* Feature and watch pages: the player sits under the intro. */
+.fx-video { max-width: 960px; margin: 22px 0 8px; }
+.fx-page .fx-h2 { font-size: 1.2rem; margin-top: 28px; }
+.fx-q { padding: 14px 0; border-top: 1px solid var(--line, #e5e5e5); margin-top: 18px; }
+.fx-q h2 { font-size: 1.05rem; margin: 0 0 4px; }

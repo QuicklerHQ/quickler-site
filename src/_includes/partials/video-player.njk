@@ -1,0 +1,10 @@
+{#- The one video player (Philip 11 Nov 2026). Every video on the site goes
+    through this macro so they all share the same bar: play/pause, seek and
+    fullscreen, fading through the logo's colours. CSS: /css/qplayer.css,
+    JS: /js/qplayer.js (sets it up on load; without JS the browser's own
+    controls show instead).
+    Use: {% from "partials/video-player.njk" import videoPlayer %}
+         {{ videoPlayer(v.video, v.poster, v.title) }} -#}
+{%- macro videoPlayer(src, poster, label) -%}
+<div class="qp-wrap" data-qp><video src="{{ src }}" poster="{{ poster }}" preload="none" playsinline controls aria-label="{{ label | striptags }}"></video></div>
+{%- endmacro %}
