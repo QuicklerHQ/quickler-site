@@ -261,5 +261,56 @@
         "You can reword a line, hide one or change the order. Whoever receives the report can copy the list and paste it wherever it is needed."
       ]
     }
+  },
+  {
+    "slug": "edit-any-word",
+    "page": "/features/edit-any-word/",
+    "title": "Quickler: edit any word on the report",
+    "summary": "Quickler writes the report and you stay in control: click any answer to edit it, and every edit saves as you go.",
+    "description": "Once Quickler has written the report, you can click any answer to edit it. Every edit saves as you go, whether it is a word, a sentence or a paragraph, and Quickler learns your habits from the changes you make.",
+    "video": "/assets/video/feature-edit-any-word.mp4?v=1",
+    "poster": "/assets/video/feature-edit-any-word-poster.jpg?v=1",
+    "duration": "PT21S",
+    "durationText": "0:21",
+    "uploadDate": "2026-11-11",
+    "chapters": [
+      [
+        "0:00",
+        "You are always in control"
+      ],
+      [
+        "0:03",
+        "Click any answer to edit it"
+      ],
+      [
+        "0:07",
+        "Edits save as you go"
+      ],
+      [
+        "0:12",
+        "Quickler learns your habits"
+      ]
+    ],
+    "transcript": [
+      "With Quickler, you are always in control.",
+      "Once we've written the report, you can click any answer to edit it.",
+      "All edits save as you go, whether you've changed a word, a sentence or a paragraph.",
+      "Quickler also learns your habits and the changes you make to make things easier in the future."
+    ],
+    "feature": {
+      "name": "Edit any word",
+      "heading": "Quickler writes it up. You have the last word.",
+      "short": "Click any answer on the Record to edit it. Every edit saves as you go.",
+      "intro": [
+        "Once Quickler has written the report, you can click any answer to edit it. Change a word, a sentence or a whole paragraph, and it saves as you go.",
+        "Quickler also learns your habits from the changes you make, to make things easier next time."
+      ],
+      "faq": [
+        [
+          "Can I change any word in the report before it goes?",
+          "<strong>Yes.</strong> Every word on the Record can be edited."
+        ]
+      ]
+    }
   }
 ]
