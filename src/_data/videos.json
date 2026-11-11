@@ -472,6 +472,57 @@
     }
   },
   {
+    "slug": "works-with-no-signal",
+    "page": "/features/works-with-no-signal/",
+    "title": "Quickler: lose signal and keep going",
+    "summary": "No signal in a car park, tunnel or remote site? Keep sending messages and photos; WhatsApp sends them when you are back online. Quickler reminds you to say done after 15 minutes and files the record after 12 hours.",
+    "description": "You will visit places with no internet connection, like a multi-storey car park, a tunnel or a remote project. Just carry on sending your messages and photos, and WhatsApp sends them as soon as you are back online. If you forget to say done, Quickler reminds you after 15 minutes and files the record after 12 hours.",
+    "video": "/assets/video/feature-works-with-no-signal.mp4?v=1",
+    "poster": "/assets/video/feature-works-with-no-signal-poster.jpg?v=1",
+    "duration": "PT31S",
+    "durationText": "0:31",
+    "uploadDate": "2026-11-11",
+    "chapters": [
+      [
+        "0:00",
+        "No internet connection"
+      ],
+      [
+        "0:09",
+        "Carry on sending"
+      ],
+      [
+        "0:12",
+        "Sent when you are back online"
+      ],
+      [
+        "0:19",
+        "A reminder after 15 minutes"
+      ],
+      [
+        "0:24",
+        "Filed after 12 hours"
+      ]
+    ],
+    "transcript": [
+      "It's very likely you'll visit somewhere with no internet connection at some point, whether that's a multi-storey car park, a tunnel or a remote project.",
+      "You can just carry on sending your messages and photos as normal.",
+      "WhatsApp will then send them as soon as you're back online, just like your messages come through when you turn off flight mode.",
+      "After 15 minutes, if you forget to say done, Quickler will remind you to do so,",
+      "and if you still forget, the record will file after 12 hours."
+    ],
+    "feature": {
+      "name": "Lose signal, keep going",
+      "heading": "Lose signal? Keep going.",
+      "short": "No signal? Keep sending. WhatsApp sends it all when you are back online.",
+      "intro": [
+        "Sooner or later you will visit somewhere with no internet connection: a multi-storey car park, a tunnel or a remote project. Just carry on sending your messages and photos as normal, and WhatsApp sends them as soon as you are back online.",
+        "If you forget to say done, Quickler reminds you after 15 minutes, and files the record after 12 hours."
+      ],
+      "faq": []
+    }
+  },
+  {
     "slug": "simple-pricing",
     "page": "/features/simple-pricing/",
     "title": "Quickler pricing: 75 pounds a month per phone number",
