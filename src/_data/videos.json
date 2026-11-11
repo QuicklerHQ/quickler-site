@@ -414,5 +414,61 @@
         ]
       ]
     }
+  },
+  {
+    "slug": "start-from-your-form",
+    "page": "/features/start-from-your-form/",
+    "title": "Quickler: start from the form you already use",
+    "summary": "Upload the form you already use, as Word, PDF, a spreadsheet or a photo, or paste the questions in. Quickler extracts the questions, you check them, and your team can use it on WhatsApp straight away.",
+    "description": "Start from the form you already use. Upload a Word document, a PDF, a spreadsheet or a photo, paste the questions in, or upload a previously completed record from another app. Quickler extracts the questions, you check them over, make any edits and press continue, and your team can use it on WhatsApp straight away.",
+    "video": "/assets/video/feature-start-from-your-form.mp4?v=1",
+    "poster": "/assets/video/feature-start-from-your-form-poster.jpg?v=1",
+    "duration": "PT30S",
+    "durationText": "0:30",
+    "uploadDate": "2026-11-11",
+    "chapters": [
+      [
+        "0:00",
+        "The form you already use"
+      ],
+      [
+        "0:07",
+        "Upload it or paste it in"
+      ],
+      [
+        "0:11",
+        "Coming from another app"
+      ],
+      [
+        "0:17",
+        "Quickler extracts the questions"
+      ],
+      [
+        "0:20",
+        "Check, edit, continue"
+      ],
+      [
+        "0:24",
+        "Ready on WhatsApp"
+      ]
+    ],
+    "transcript": [
+      "You might have a form you already use in another app, or a Word document, a PDF, a spreadsheet or even just a photo.",
+      "You can upload any of these, or just copy and paste the questions in.",
+      "If it's on another app, you can export your data from it, or simply upload a previously completed record.",
+      "Quickler will extract the questions for you.",
+      "You can then check it over, make any edits and press continue.",
+      "Your team can then use it on WhatsApp straight away."
+    ],
+    "feature": {
+      "name": "Start from your form",
+      "heading": "Start from the form you already use.",
+      "short": "Upload your Word, PDF, spreadsheet or a photo of your form, and Quickler pulls out the questions.",
+      "intro": [
+        "Upload the form you already use: a Word document, a PDF, a spreadsheet or even a photo of it. Or just paste the questions in. Coming from another app? Export your data, or upload a report you have already done.",
+        "Quickler extracts the questions. You check them over, make any edits and press continue, and your team can use it on WhatsApp straight away."
+      ],
+      "faq": []
+    }
   }
 ]
