@@ -518,6 +518,52 @@
     }
   },
   {
+    "slug": "use-whatsapp",
+    "page": "/features/use-whatsapp/",
+    "title": "Quickler: use the WhatsApp you already have",
+    "summary": "Quickler works on WhatsApp, which 90% of people in the UK already have: nothing to download and no login for your team.",
+    "description": "Nobody loves another app on their phone. Quickler works on WhatsApp, the same app that 90% of people in the UK already have. There is nothing to download and no login for your team: if they can send a message, they can use Quickler.",
+    "video": "/assets/video/feature-use-whatsapp.mp4?v=1",
+    "poster": "/assets/video/feature-use-whatsapp-poster.jpg?v=1",
+    "duration": "PT23S",
+    "durationText": "0:23",
+    "uploadDate": "2026-11-11",
+    "chapters": [
+      [
+        "0:00",
+        "No new app"
+      ],
+      [
+        "0:04",
+        "Quickler works on WhatsApp"
+      ],
+      [
+        "0:11",
+        "Nothing to download, no login"
+      ],
+      [
+        "0:15",
+        "If they can send a message"
+      ]
+    ],
+    "transcript": [
+      "Nobody loves another app on their phone.",
+      "Therefore, Quickler works on WhatsApp, the same app that 90% of people in the UK already have.",
+      "There is nothing to download and no login for your team.",
+      "If they know how to send a message, they know how to use Quickler."
+    ],
+    "feature": {
+      "name": "Use the WhatsApp you already have",
+      "heading": "Use the WhatsApp you already have.",
+      "short": "No new app, no download, no login. If your team can send a message, they can use Quickler.",
+      "intro": [
+        "Nobody loves another app on their phone. Quickler works on WhatsApp, the same app that 90% of people in the UK already have.",
+        "There is nothing to download and no login for your team. If they know how to send a message, they know how to use Quickler."
+      ],
+      "faq": []
+    }
+  },
+  {
     "slug": "schedules-and-reminders",
     "page": "/features/schedules-and-reminders/",
     "title": "Quickler: schedules and reminders",
