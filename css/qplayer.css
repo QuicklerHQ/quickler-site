@@ -28,3 +28,8 @@
 .fx-page .fx-h2 { font-size: 1.2rem; margin-top: 28px; }
 .fx-q { padding: 14px 0; border-top: 1px solid var(--line, #e5e5e5); margin-top: 18px; }
 .fx-q h2 { font-size: 1.05rem; margin: 0 0 4px; }
+
+/* Bar hides while playing after 5 s without the pointer moving, or when the pointer leaves (Philip 11 Nov 2026). */
+.qp-wrap .qp-bar { transition: opacity .3s ease; }
+.qp-wrap.qp-idle .qp-bar { opacity: 0; pointer-events: none; }
+.qp-wrap.qp-idle, .qp-wrap.qp-idle video { cursor: none; }

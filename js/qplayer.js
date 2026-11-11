@@ -70,6 +70,24 @@
         wrap.addEventListener("keydown", function (e) {
             if (e.target === wrap && (e.key === " " || e.key === "k")) { e.preventDefault(); toggle(); }
         });
+        // The bar hides while playing when the pointer leaves the video, or has not moved
+        // for 5 seconds; any move, tap or key brings it back, and it always shows when paused
+        // (Philip 11 Nov 2026 22:42).
+        var idleT = null;
+        function hide() { if (!v.paused && !seeking) wrap.classList.add("qp-idle"); }
+        function show() {
+            wrap.classList.remove("qp-idle");
+            clearTimeout(idleT);
+            if (!v.paused) idleT = setTimeout(hide, 5000);
+        }
+        wrap.addEventListener("mousemove", show);
+        wrap.addEventListener("touchstart", show, { passive: true });
+        wrap.addEventListener("focusin", show);
+        wrap.addEventListener("keydown", show);
+        wrap.addEventListener("mouseleave", function () { clearTimeout(idleT); hide(); });
+        v.addEventListener("play", show);
+        v.addEventListener("pause", function () { clearTimeout(idleT); wrap.classList.remove("qp-idle"); });
+        v.addEventListener("ended", function () { clearTimeout(idleT); wrap.classList.remove("qp-idle"); });
         sync(); paint();
     };
     // Only one video plays at a time.
