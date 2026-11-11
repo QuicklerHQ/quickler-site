@@ -472,6 +472,57 @@
     }
   },
   {
+    "slug": "schedules-and-reminders",
+    "page": "/features/schedules-and-reminders/",
+    "title": "Quickler: schedules and reminders",
+    "summary": "Many Checks happen on a routine. Pick the days and times and Quickler sends the Check to your team. Anyone who has not done it gets a reminder and their manager is told.",
+    "description": "Schedule a Check on the days and times you choose, or every few days, weeks or months. Quickler sends it to your team, reminds anyone who has not done it and tells their manager. Need something done today? Send it now.",
+    "video": "/assets/video/feature-schedules-and-reminders.mp4?v=1",
+    "poster": "/assets/video/feature-schedules-and-reminders-poster.jpg?v=1",
+    "duration": "PT19S",
+    "durationText": "0:19",
+    "uploadDate": "2026-11-11",
+    "chapters": [
+      [
+        "0:00",
+        "Checks on a routine"
+      ],
+      [
+        "0:02",
+        "Pick the days and times"
+      ],
+      [
+        "0:08",
+        "Reminders and managers told"
+      ],
+      [
+        "0:13",
+        "Send it now"
+      ]
+    ],
+    "transcript": [
+      "Many Checks happen on a routine.",
+      "Tell Quickler which days and times you need it and it will send the Check to your team whenever you choose.",
+      "If someone hasn't done it, they'll get a reminder and their manager is told.",
+      "If you need something done today, just send it now."
+    ],
+    "feature": {
+      "name": "Schedules and reminders",
+      "heading": "Set it once. It keeps asking.",
+      "short": "Pick the days and times, and Quickler sends the Check to your team. Anyone who has not done it gets a reminder.",
+      "intro": [
+        "A Check can repeat on the days and times you pick, or every few days, weeks or months. Quickler sends it to your team whenever you choose.",
+        "Anyone who has not done it gets a reminder and their manager is told. If you need something done today, send it now."
+      ],
+      "faq": [
+        [
+          "Can a Check repeat on a schedule?",
+          "<strong>Yes.</strong> Pick the days and times, or every few days, weeks or months."
+        ]
+      ]
+    }
+  },
+  {
     "slug": "works-with-no-signal",
     "page": "/features/works-with-no-signal/",
     "title": "Quickler: lose signal and keep going",
