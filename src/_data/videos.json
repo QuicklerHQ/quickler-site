@@ -312,5 +312,61 @@
         ]
       ]
     }
+  },
+  {
+    "slug": "share-link",
+    "page": "/features/share-link/",
+    "title": "Quickler: a shareable link for every report",
+    "summary": "Every report has its own view-only link that anyone can open on any device, with no login or app, and it always shows the Record as it is now.",
+    "description": "Every report has its own shareable link. Copy it and send it to a client, your boss or a site manager. They open it on any device with no login or app. It is view only, and it always shows the Record as it is now, so any change you make reaches their copy straight away.",
+    "video": "/assets/video/feature-share-link.mp4?v=1",
+    "poster": "/assets/video/feature-share-link-poster.jpg?v=1",
+    "duration": "PT26S",
+    "durationText": "0:26",
+    "uploadDate": "2026-11-11",
+    "chapters": [
+      [
+        "0:00",
+        "A link for every report"
+      ],
+      [
+        "0:03",
+        "Send it to anyone"
+      ],
+      [
+        "0:08",
+        "Any device, no login or app"
+      ],
+      [
+        "0:12",
+        "View only"
+      ],
+      [
+        "0:15",
+        "Always up to date"
+      ]
+    ],
+    "transcript": [
+      "Every report has its own shareable link.",
+      "It can be copied and sent to anyone, whether that's a client, your boss or a site manager.",
+      "They can open it on any device without needing a login or an app.",
+      "It's view only, so they can't change anything.",
+      "And the link always shows the Record as it is now. So if you need to change something, their copy will be updated straight away."
+    ],
+    "feature": {
+      "name": "Shareable link",
+      "heading": "Send a link, not an attachment.",
+      "short": "Every report has its own view-only link, always up to date, that anyone can open with no login.",
+      "intro": [
+        "Every report has its own link you can copy and send to anyone: a client, your boss or a site manager. They open it on any device, with no login or app.",
+        "It is view only, so nobody can change it. And it always shows the Record as it is now, so if you change something, their copy updates straight away."
+      ],
+      "faq": [
+        [
+          "Do they need an account to open it?",
+          "<strong>No.</strong> Anyone with the link can open it on any device, with no login or app."
+        ]
+      ]
+    }
   }
 ]
