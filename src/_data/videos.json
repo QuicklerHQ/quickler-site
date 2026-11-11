@@ -53,6 +53,127 @@
     ]
   },
   {
+    "slug": "voice-notes",
+    "title": "Quickler: send a voice note, not a typed message",
+    "summary": "Send a voice note during a visit. Quickler writes it out, in any accent, and puts each thing you said on the right question.",
+    "description": "There are few things more annoying than typing during a visit. With Quickler you send a voice note on WhatsApp, Quickler writes it out in any accent and puts each thing you said on the right question in your report.",
+    "uploadDate": "2026-11-11",
+    "duration": "PT18S",
+    "durationText": "0:18",
+    "video": "/assets/video/feature-voice-notes.mp4?v=1",
+    "poster": "/assets/video/feature-voice-notes-poster.jpg?v=1",
+    "chapters": [
+      [
+        "0:00",
+        "Typing on a visit is a pain"
+      ],
+      [
+        "0:04",
+        "Send a voice note"
+      ],
+      [
+        "0:08",
+        "Any accent, on the right question"
+      ]
+    ],
+    "transcript": [
+      "There are few things more annoying than typing during a visit.",
+      "With Quickler, you can send a voice note, just like you would to a friend.",
+      "Quickler transcribes any accent",
+      "and puts each thing you said on the right question in your report."
+    ]
+  },
+  {
+    "slug": "photos",
+    "title": "Quickler: photos go where they belong",
+    "summary": "Send photos straight to Quickler on WhatsApp. No need to say what they are for: Quickler puts each one where it belongs.",
+    "description": "Send your photos straight to Quickler on WhatsApp. There is no need to say what they are for. Quickler works it out and puts each photo where it belongs, and if one lands in the wrong place you drag it across and Quickler learns from it.",
+    "uploadDate": "2026-11-11",
+    "duration": "PT23S",
+    "durationText": "0:23",
+    "video": "/assets/video/feature-photos.mp4?v=1",
+    "poster": "/assets/video/feature-photos-poster.jpg?v=1",
+    "chapters": [
+      [
+        "0:00",
+        "Photos on a visit"
+      ],
+      [
+        "0:06",
+        "No need to say what they are for"
+      ],
+      [
+        "0:11",
+        "Drag one if it lands wrong"
+      ]
+    ],
+    "transcript": [
+      "Often when you're visiting somewhere, you'll need to take photos.",
+      "You can send them straight to Quickler on WhatsApp.",
+      "There's no need to say what the photos are for.",
+      "Quickler works it out and puts each photo where it belongs.",
+      "If one does land in the wrong place, just drag it to the right one.",
+      "That change is logged and used to improve Quickler for you next time."
+    ]
+  },
+  {
+    "slug": "whats-left",
+    "title": "Quickler: always know what is left to cover",
+    "summary": "After every message Quickler replies with what is still to cover, so you never lose track on a site.",
+    "description": "As you go round a site it is easy to lose track of what you have and have not said. After every message, Quickler replies with what is still to cover, so you always know what is left.",
+    "uploadDate": "2026-11-11",
+    "duration": "PT14S",
+    "durationText": "0:14",
+    "video": "/assets/video/feature-whats-left.mp4?v=1",
+    "poster": "/assets/video/feature-whats-left-poster.jpg?v=1",
+    "chapters": [
+      [
+        "0:00",
+        "Easy to lose track"
+      ],
+      [
+        "0:05",
+        "Quickler shows what is still to cover"
+      ]
+    ],
+    "transcript": [
+      "As you go round a site, it's easy to lose track of what you have and haven't said.",
+      "After every message, Quickler replies with what's still to cover.",
+      "That way, you always know what's left."
+    ]
+  },
+  {
+    "slug": "say-done",
+    "title": "Quickler: when you are finished, say done",
+    "summary": "Say done and Quickler knows your inspection is over, then sorts every photo and word into the right place.",
+    "description": "Saying done is how Quickler knows your inspection is over. Nothing gets filed until you say it. Then Quickler sorts all your photos and words into the right places, ready for you to improve.",
+    "uploadDate": "2026-11-11",
+    "duration": "PT18S",
+    "durationText": "0:18",
+    "video": "/assets/video/feature-say-done.mp4?v=1",
+    "poster": "/assets/video/feature-say-done-poster.jpg?v=1",
+    "chapters": [
+      [
+        "0:00",
+        "Say done"
+      ],
+      [
+        "0:05",
+        "Nothing is filed until you say it"
+      ],
+      [
+        "0:08",
+        "Sorted, ready to improve"
+      ]
+    ],
+    "transcript": [
+      "When you are finished, just say done.",
+      "That's how Quickler knows your inspection is over.",
+      "Nothing gets filed until you say it.",
+      "Then Quickler sorts all your photos and all the words into the right places, ready for you to improve."
+    ]
+  },
+  {
     "slug": "to-do-list",
     "title": "Quickler: every Fault on a To do list",
     "summary": "A 20 second look at the To do list: every Fault you mention goes to the top of the Record, ready to reword, hide, reorder and copy.",
