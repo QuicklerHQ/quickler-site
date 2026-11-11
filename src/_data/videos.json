@@ -472,6 +472,52 @@
     }
   },
   {
+    "slug": "answer-in-any-order",
+    "page": "/features/answer-in-any-order/",
+    "title": "Quickler: answer in any order",
+    "summary": "Answer in the order that suits you, by text, voice note, photo, document or location, and Quickler puts each one on the right question.",
+    "description": "On a visit, things rarely happen in the order of a form. With Quickler you answer in the order that suits you, by text message, voice note, photo, document or even your location, and Quickler puts each one in the right place.",
+    "video": "/assets/video/feature-answer-in-any-order.mp4?v=1",
+    "poster": "/assets/video/feature-answer-in-any-order-poster.jpg?v=1",
+    "duration": "PT19S",
+    "durationText": "0:19",
+    "uploadDate": "2026-11-11",
+    "chapters": [
+      [
+        "0:00",
+        "Visits don't follow the form"
+      ],
+      [
+        "0:04",
+        "Answer in any order"
+      ],
+      [
+        "0:07",
+        "Text, voice, photo, document, location"
+      ],
+      [
+        "0:12",
+        "Each one in the right place"
+      ]
+    ],
+    "transcript": [
+      "On a visit, things rarely happen in the order of a form.",
+      "With Quickler, you can answer in the order that suits you best,",
+      "whether that's a text message, a voice note, a photo, a document or even your location,",
+      "Quickler will put each one of these in the right place."
+    ],
+    "feature": {
+      "name": "Answer in any order",
+      "heading": "Answer in any order.",
+      "short": "Text, voice note, photo, document or location, in any order. Each lands on the right question.",
+      "intro": [
+        "On a visit, things rarely happen in the order of a form. With Quickler you answer in the order that suits you best.",
+        "Send a text message, a voice note, a photo, a document or even your location, and Quickler puts each one in the right place."
+      ],
+      "faq": []
+    }
+  },
+  {
     "slug": "schedules-and-reminders",
     "page": "/features/schedules-and-reminders/",
     "title": "Quickler: schedules and reminders",
