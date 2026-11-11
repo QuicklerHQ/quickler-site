@@ -470,5 +470,51 @@
       ],
       "faq": []
     }
+  },
+  {
+    "slug": "simple-pricing",
+    "page": "/features/simple-pricing/",
+    "title": "Quickler pricing: 75 pounds a month per phone number",
+    "summary": "Quickler costs 75 pounds a month for each phone number, with no contract, or 750 pounds a year up front for two months free. Try it free for 14 days, no card needed.",
+    "description": "Quickler costs 75 pounds a month for each phone number. There is no contract and you can cancel any time. Or pay 750 pounds a year up front and get two months free. Try it free for 14 days, with no card needed.",
+    "video": "/assets/video/feature-simple-pricing.mp4?v=1",
+    "poster": "/assets/video/feature-simple-pricing-poster.jpg?v=1",
+    "duration": "PT18S",
+    "durationText": "0:18",
+    "uploadDate": "2026-11-11",
+    "chapters": [
+      [
+        "0:00",
+        "75 pounds a month per phone number"
+      ],
+      [
+        "0:04",
+        "No contract, cancel any time"
+      ],
+      [
+        "0:06",
+        "750 a year, two months free"
+      ],
+      [
+        "0:11",
+        "14 days free, no card"
+      ]
+    ],
+    "transcript": [
+      "Quickler costs 75 pounds a month for each phone number.",
+      "There's no contract, and you can cancel any time.",
+      "If you would like two months free, you can pay 750 pounds a year up front.",
+      "You can try it free for 14 days, with no card needed."
+    ],
+    "feature": {
+      "name": "Simple pricing",
+      "heading": "Simple pricing.",
+      "short": "75 pounds a month for each phone number, no contract. Or 750 a year for two months free.",
+      "intro": [
+        "Quickler costs 75 pounds a month for each phone number. There is no contract, and you can cancel any time.",
+        "If you would like two months free, pay 750 pounds a year up front. You can try it free for 14 days, with no card needed."
+      ],
+      "faq": []
+    }
   }
 ]
