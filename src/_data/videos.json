@@ -172,36 +172,5 @@
       "Nothing gets filed until you say it.",
       "Then Quickler sorts all your photos and all the words into the right places, ready for you to improve."
     ]
-  },
-  {
-    "slug": "to-do-list",
-    "title": "Quickler: every Fault on a To do list",
-    "summary": "A 20 second look at the To do list: every Fault you mention goes to the top of the Record, ready to reword, hide, reorder and copy.",
-    "description": "Every Fault you mention on WhatsApp goes straight into the To do list at the top of the Record, so nobody has to hunt for it. You can reword a line, hide one or change the order, and the person receiving the report can copy and paste it wherever it is needed.",
-    "uploadDate": "2026-11-11",
-    "duration": "PT20S",
-    "durationText": "0:20",
-    "video": "/assets/video/feature-to-do-list.mp4?v=1",
-    "poster": "/assets/video/feature-to-do-list-poster.jpg?v=1",
-    "chapters": [
-      [
-        "0:00",
-        "Every Fault goes on the To do list"
-      ],
-      [
-        "0:08",
-        "Reword, hide or reorder"
-      ],
-      [
-        "0:11",
-        "Copy and paste it on"
-      ]
-    ],
-    "transcript": [
-      "Every fault you mention goes straight into the To do list.",
-      "It sits at the top of the Record, so nobody has to hunt for it.",
-      "You can reword a line, hide one or change the order.",
-      "And when the person receiving the report gets it, they can copy and paste wherever it's needed."
-    ]
   }
 ]
