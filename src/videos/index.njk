@@ -10,7 +10,7 @@
   <p class="site-words">Every Quickler video, each with its full transcript.</p>
   {%- for v in videos %}
   <div class="yes-q" style="padding:14px 0;border-top:1px solid var(--line,#e5e5e5)">
-    <h2 style="font-size:1.05rem;margin:0 0 4px"><a href="/videos/{{ v.slug }}/">{{ v.title }}</a></h2>
+    <h2 style="font-size:1.05rem;margin:0 0 4px"><a href="{{ v.page or ('/videos/' + v.slug + '/') }}">{{ v.title }}</a></h2>
     <p class="site-words">{{ v.summary }} ({{ v.durationText }}, {{ v.uploadDate }})</p>
   </div>
   {%- endfor %}

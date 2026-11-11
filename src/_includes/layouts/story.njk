@@ -145,7 +145,7 @@
         swaps the picture for the video. -#}
     <div class="hey-frame hey-frame-mock" id="hey-watch-frame">
       <picture><source srcset="/assets/photos/video/walkthrough-frame.webp?v=3" type="image/webp"><img class="hey-watch-still" src="/assets/photos/video/walkthrough-frame.jpg?v=3" alt="" width="1280" height="720" loading="lazy"></picture>
-      <button type="button" class="hey-watch" onclick="var f=document.getElementById('hey-watch-frame');f.classList.add('hey-frame-playing');f.innerHTML='<div class=&quot;hey-watch-video{% if homeVideo.portrait %} hey-watch-portrait{% endif %}&quot;>{% if homeVideo.src %}<video src=&quot;{{ homeVideo.src }}&quot; poster=&quot;{{ homeVideo.poster }}&quot; autoplay playsinline preload=&quot;auto&quot;></video>{% else %}<iframe src=&quot;https://www.youtube-nocookie.com/embed/{{ homeVideo.video }}?autoplay=1&amp;rel=0&amp;playsinline=1&quot; title=&quot;See how Quickler works&quot; allow=&quot;autoplay; encrypted-media; picture-in-picture; fullscreen&quot; allowfullscreen></iframe>{% endif %}</div>';window.qPlayer&&qPlayer(f.querySelector('.hey-watch-video'));"><svg width="14" height="16" viewBox="0 0 14 16" aria-hidden="true"><path d="M0 0l14 8-14 8z" fill="currentColor"/></svg> See how Quickler works</button>
+      <button type="button" class="hey-watch" onclick="var f=document.getElementById('hey-watch-frame');f.classList.add('hey-frame-playing');f.innerHTML='<div class=&quot;hey-watch-video qp-wrap{% if homeVideo.portrait %} hey-watch-portrait{% endif %}&quot;>{% if homeVideo.src %}<video src=&quot;{{ homeVideo.src }}&quot; poster=&quot;{{ homeVideo.poster }}&quot; autoplay playsinline preload=&quot;auto&quot;></video>{% else %}<iframe src=&quot;https://www.youtube-nocookie.com/embed/{{ homeVideo.video }}?autoplay=1&amp;rel=0&amp;playsinline=1&quot; title=&quot;See how Quickler works&quot; allow=&quot;autoplay; encrypted-media; picture-in-picture; fullscreen&quot; allowfullscreen></iframe>{% endif %}</div>';window.qPlayer&&qPlayer(f.querySelector('.hey-watch-video'));"><svg width="14" height="16" viewBox="0 0 14 16" aria-hidden="true"><path d="M0 0l14 8-14 8z" fill="currentColor"/></svg> See how Quickler works</button>
     </div>
     {%- endif %}
   </div>
@@ -241,7 +241,25 @@
     {%- if panelInclude %}{% include panelInclude %}{% endif %}
     {%- for b in blocks or [] %}
       {%- set _rows = (b.html | qaRows) if (b.html and '<h3' in b.html) else [] %}
-      {%- if _rows | length > 1 %}
+      {%- if b.type == "featureVideos" %}
+      {#- One feature per row, its video beside it, sides alternating on a wide
+          screen and stacked on a phone (Philip 11 Nov 2026, after hey.com and
+          basecamp.com). Each row links to the feature's own page. -#}
+      {%- from "partials/video-player.njk" import videoPlayer %}
+      <section class="fv" id="see-each-one">
+        {%- if b.heading %}<h2 class="fv-head">{{ b.heading }}</h2>{% endif %}
+        {%- for v in featureVideos %}
+        <div class="fv-row">
+          <div class="fv-text">
+            <h3 class="fv-title">{{ v.feature.heading }}</h3>
+            <p class="site-words">{{ v.feature.short }}</p>
+            <a class="fv-more" href="{{ v.page }}" aria-label="{{ v.feature.name }}: more, with the full transcript">More, with the full transcript</a>
+          </div>
+          <div class="fv-media">{{ videoPlayer(v.video, v.poster, v.title) }}</div>
+        </div>
+        {%- endfor %}
+      </section>
+      {%- elif _rows | length > 1 %}
         {%- for r in _rows %}{% if r.q %}
         {%- set _plain = r.a | striptags | trim %}
         {%- set _short = r.short or ('Yes' if _plain.startsWith('Yes') else ('No' if _plain.startsWith('No.') or _plain.startsWith('No,') else '')) %}

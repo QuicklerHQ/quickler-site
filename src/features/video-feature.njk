@@ -1,0 +1,48 @@
+---json
+{
+  "layout": "layouts/believe.njk",
+  "pagination": { "data": "featureVideos", "size": 1, "alias": "v" },
+  "permalink": "{{ v.page }}index.html",
+  "eleventyExcludeFromCollections": true,
+  "eleventyComputed": {
+    "seo": {
+      "title": "{{ v.feature.heading | replace('.', '') }} | Quickler",
+      "description": "{{ v.summary }}",
+      "canonical": "https://quickler.co{{ v.page }}",
+      "lang": "en"
+    }
+  }
+}
+---
+{#- One page per feature, with its video and the full transcript (Philip 11 Nov
+    2026, after hey.com/features and basecamp.com/features). Data: videos.json
+    entries with "page" and "feature". The old /videos/<slug>/ address of each
+    of these sends people here. -#}
+{%- from "partials/video-player.njk" import videoPlayer %}
+{%- set ld = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": v.title,
+  "description": v.description,
+  "thumbnailUrl": [site.domain + v.poster],
+  "uploadDate": v.uploadDate,
+  "duration": v.duration,
+  "contentUrl": site.domain + v.video,
+  "embedUrl": site.domain + v.page,
+  "transcript": v.transcript | join("\n\n")
+} %}
+<script type="application/ld+json">{{ ld | dump | safe }}</script>
+<div class="card fx-page">
+  <h1 class="site-home-h2" style="font-size:2rem">{{ v.feature.heading }}</h1>
+  {%- for p in v.feature.intro %}
+  <p class="site-words">{{ p | safe }}</p>
+  {%- endfor %}
+  <div class="fx-video">{{ videoPlayer(v.video, v.poster, v.title) }}</div>
+  <h2 class="site-home-h2 fx-h2">Transcript</h2>
+  {%- for p in v.transcript %}
+  <p class="site-words">{{ p }}</p>
+  {%- endfor %}
+  {%- for q in v.feature.faq or [] %}
+  <div class="fx-q"><h2>{{ q[0] }}</h2><p class="site-words">{{ q[1] | safe }}</p></div>
+  {%- endfor %}
+</div>

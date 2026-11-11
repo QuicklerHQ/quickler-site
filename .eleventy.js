@@ -9,6 +9,11 @@
  * same paths as the current site (no URL changes, no redirects).
  */
 module.exports = function (eleventyConfig) {
+  // The videos that have their own feature page (/features/<slug>/), and the
+  // rest, which keep a plain watch page at /videos/<slug>/ (11 Nov 2026).
+  const _videos = () => JSON.parse(require("fs").readFileSync(__dirname + "/src/_data/videos.json", "utf8"));
+  eleventyConfig.addGlobalData("featureVideos", () => _videos().filter((v) => v.feature && v.page));
+  eleventyConfig.addGlobalData("watchVideos", () => _videos().filter((v) => !v.page));
   // Complete index of every content page (reel pages under /pages/), so the
   // guides/all-articles page can list ALL articles and none get orphaned.
   // Excludes utility pages (demo, redirects) and the index pages themselves.

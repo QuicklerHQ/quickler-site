@@ -81,7 +81,17 @@
       "With Quickler, you can send a voice note, just like you would to a friend.",
       "Quickler transcribes any accent",
       "and puts each thing you said on the right question in your report."
-    ]
+    ],
+    "page": "/features/voice-notes/",
+    "feature": {
+      "name": "Voice notes",
+      "heading": "Send a voice note, not a typed message.",
+      "short": "Talk instead of typing. Quickler writes your voice note out, in any accent, and puts each thing you said on the right question.",
+      "intro": [
+        "Typing on a phone during a visit is slow and fiddly. With Quickler you send a voice note on WhatsApp, just as you would to a friend.",
+        "Quickler writes it out, in any accent, and puts each thing you said on the right question in your report."
+      ]
+    }
   },
   {
     "slug": "photos",
@@ -114,7 +124,25 @@
       "Quickler works it out and puts each photo where it belongs.",
       "If one does land in the wrong place, just drag it to the right one.",
       "That change is logged and used to improve Quickler for you next time."
-    ]
+    ],
+    "page": "/features/photos-on-the-right-question/",
+    "feature": {
+      "name": "Photos",
+      "heading": "Take the photo. Quickler finds its place.",
+      "short": "Send photos as you go, with no need to say what they are for. Quickler puts each one where it belongs.",
+      "intro": [
+        "Send photos as you walk round, in any order. There is no need to say what they are for: Quickler looks at each one and puts it on the question it answers.",
+        "If one lands in the wrong place, drag it to the right one. The change is logged and used to improve Quickler for you next time.",
+        "A photo sits on one question only, so the same picture never appears twice in a Record. Forgot one? Photos can be added afterwards, and the extras are placed too.",
+        "In the Word and PDF report the photos sit in the boxes your layout gives them."
+      ],
+      "faq": [
+        [
+          "Can I send photos as I walk round?",
+          "<strong>Yes.</strong> Each photo lands on the question it answers."
+        ]
+      ]
+    }
   },
   {
     "slug": "whats-left",
@@ -140,7 +168,17 @@
       "As you go round a site, it's easy to lose track of what you have and haven't said.",
       "After every message, Quickler replies with what's still to cover.",
       "That way, you always know what's left."
-    ]
+    ],
+    "page": "/features/whats-left/",
+    "feature": {
+      "name": "What's left",
+      "heading": "Always know what is left to cover.",
+      "short": "After every message, Quickler replies with what you have not covered yet, so you never lose your place.",
+      "intro": [
+        "As you go round a site it is easy to lose track of what you have and have not said.",
+        "After every message, Quickler replies with what is still to cover. That way you always know what is left, and nothing gets forgotten on the way out."
+      ]
+    }
   },
   {
     "slug": "say-done",
@@ -171,6 +209,57 @@
       "That's how Quickler knows your inspection is over.",
       "Nothing gets filed until you say it.",
       "Then Quickler sorts all your photos and all the words into the right places, ready for you to improve."
-    ]
+    ],
+    "page": "/features/say-done/",
+    "feature": {
+      "name": "Say done",
+      "heading": "When you are finished, say done.",
+      "short": "Saying done is how Quickler knows you have finished. Then it sorts every photo and word into the right place.",
+      "intro": [
+        "Saying done is how Quickler knows your inspection is over. Nothing is filed until you say it. If you forget, the Record is filed for you after 12 hours of quiet.",
+        "Then Quickler sorts all your photos and all your words into the right places in the Record, ready for you to read through and improve."
+      ]
+    }
+  },
+  {
+    "slug": "to-do-list",
+    "title": "Quickler: every Fault on a To do list",
+    "summary": "Every Fault you mention goes to the top of the Record on the To do list, ready to reword, hide, reorder and copy.",
+    "description": "Every Fault you mention on WhatsApp goes straight into the To do list at the top of the Record, so nobody has to hunt for it. You can reword a line, hide one or change the order, and the person receiving the report can copy and paste it wherever it is needed.",
+    "uploadDate": "2026-11-11",
+    "duration": "PT20S",
+    "durationText": "0:20",
+    "video": "/assets/video/feature-to-do-list.mp4?v=2",
+    "poster": "/assets/video/feature-to-do-list-poster.jpg?v=2",
+    "chapters": [
+      [
+        "0:00",
+        "Every Fault goes on the To do list"
+      ],
+      [
+        "0:07",
+        "Reword, hide or reorder"
+      ],
+      [
+        "0:11",
+        "Copy and paste it on"
+      ]
+    ],
+    "transcript": [
+      "Every Fault you mention goes straight into the To do list.",
+      "It sits at the top of the Record, so nobody has to hunt for it.",
+      "You can reword a line, hide one or change the order.",
+      "And when the person receiving the report gets it, they can copy and paste wherever it's needed."
+    ],
+    "page": "/features/to-do-list/",
+    "feature": {
+      "name": "To do list",
+      "heading": "Every Fault on one To do list.",
+      "short": "Every Fault you mention goes on the To do list at the top of the Record, ready to copy and send on.",
+      "intro": [
+        "Every Fault you mention goes straight onto the To do list at the top of the Record, so nobody has to hunt through the report for it.",
+        "You can reword a line, hide one or change the order. Whoever receives the report can copy the list and paste it wherever it is needed."
+      ]
+    }
   }
 ]
