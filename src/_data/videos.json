@@ -368,5 +368,51 @@
         ]
       ]
     }
+  },
+  {
+    "slug": "download-formats",
+    "page": "/features/download-formats/",
+    "title": "Quickler: download a report as PDF, Word, Excel, CSV or a web page",
+    "summary": "Anyone receiving a report can download it as a PDF, a Word document, an Excel file, a CSV or a web page, and you can download all of your own records at any time.",
+    "description": "Many people receiving a report still want to keep the files for their own records. Quickler lets them download it as a PDF, a Word document, an Excel file, a CSV or a web page. You can also download all of your own records at any time.",
+    "video": "/assets/video/feature-download-formats.mp4?v=1",
+    "poster": "/assets/video/feature-download-formats-poster.jpg?v=1",
+    "duration": "PT20S",
+    "durationText": "0:20",
+    "uploadDate": "2026-11-11",
+    "chapters": [
+      [
+        "0:00",
+        "Keep the files"
+      ],
+      [
+        "0:06",
+        "PDF, Word, Excel, CSV or a web page"
+      ],
+      [
+        "0:13",
+        "Download all your records"
+      ]
+    ],
+    "transcript": [
+      "Many people receiving the report will still want to download and keep the files for their own records.",
+      "That's why Quickler lets them download a PDF, a Word document, Excel, a CSV or even a web version.",
+      "You can also download all of your own records at any time."
+    ],
+    "feature": {
+      "name": "Download it how you like",
+      "heading": "PDF, Word, Excel, CSV or a web page.",
+      "short": "Anyone receiving a report can download it as a PDF, Word, Excel, CSV or web page.",
+      "intro": [
+        "Many people receiving a report still want to keep the files for their own records. They can download it as a PDF, a Word document, an Excel file, a CSV or a web page.",
+        "You can also download all of your own records at any time."
+      ],
+      "faq": [
+        [
+          "Does the person receiving the report need an account to download it?",
+          "<strong>No.</strong> The downloads are on the report's own link."
+        ]
+      ]
+    }
   }
 ]
