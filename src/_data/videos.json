@@ -1058,5 +1058,241 @@
       ],
       "faq": []
     }
+  },
+  {
+    "slug": "usual-answers",
+    "page": "/features/usual-answers/",
+    "title": "Quickler: usual answers",
+    "summary": "Set the usual answer to a question once. If you do not mention it on the day, Quickler inserts it. If something is different, your real words are used instead.",
+    "description": "Some things are the same on every visit. Set the usual answer to a question once in Quickler. If you do not mention it on the day, Quickler inserts your usual answer for you. If something is different, just say so and your real words are used instead.",
+    "video": "/assets/video/feature-usual-answers.mp4?v=1",
+    "poster": "/assets/video/feature-usual-answers-poster.jpg?v=1",
+    "duration": "PT30S",
+    "durationText": "0:30",
+    "uploadDate": "2026-11-12",
+    "chapters": [
+      [
+        "0:00",
+        "Some things are the same every visit"
+      ],
+      [
+        "0:03",
+        "A standard answer to a question"
+      ],
+      [
+        "0:12",
+        "Set it once as the usual answer"
+      ],
+      [
+        "0:17",
+        "Not mentioned: your usual answer"
+      ],
+      [
+        "0:21",
+        "Different? Your real words are used"
+      ]
+    ],
+    "transcript": [
+      "Some things are the same on every visit.",
+      "You might have a standard answer you give to a question every time. For example, \"Used cooking oil is stored in sealed containers, away from any heat.\"",
+      "With Quickler, you can set it once as the usual answer for that question.",
+      "If you don't mention it on the day, Quickler inserts your usual answer for you.",
+      "And if something's different, just say so, and your real words are used instead."
+    ],
+    "feature": {
+      "name": "Usual answers",
+      "heading": "Usual answers.",
+      "short": "Set the usual answer to a question once. If you do not mention it, Quickler inserts it; if something is different, your real words are used.",
+      "intro": [
+        "Some things are the same on every visit. Set the usual answer to a question once, and if you do not mention it on the day, Quickler inserts it for you.",
+        "If something is different, just say so and your real words are used instead."
+      ],
+      "faq": []
+    }
+  },
+  {
+    "slug": "whole-chat-kept",
+    "page": "/features/whole-chat-kept/",
+    "title": "Quickler: the whole chat, kept",
+    "summary": "Every Record keeps the whole chat it came from, attached at the bottom of the Record, so you can show where the data came from.",
+    "description": "Every Record in Quickler keeps the whole chat it came from, attached at the bottom of the Record. That is every message, photo, voice note and any documents, with the time they were sent. So if anyone ever asks where the data came from, you can show them.",
+    "video": "/assets/video/feature-whole-chat-kept.mp4?v=1",
+    "poster": "/assets/video/feature-whole-chat-kept-poster.jpg?v=1",
+    "duration": "PT16S",
+    "durationText": "0:16",
+    "uploadDate": "2026-11-12",
+    "chapters": [
+      [
+        "0:00",
+        "The whole chat, on the Record"
+      ],
+      [
+        "0:04",
+        "Every message, photo, voice note and document"
+      ],
+      [
+        "0:08",
+        "Show where the data came from"
+      ]
+    ],
+    "transcript": [
+      "Every Record keeps the whole chat it came from, attached at the bottom of the Record.",
+      "That is every message, photo, voice note and any documents, with the time they were sent.",
+      "So if anyone ever asks where the data came from, you can show them."
+    ],
+    "feature": {
+      "name": "The whole chat, kept",
+      "heading": "The whole chat, kept.",
+      "short": "Every Record keeps the whole chat it came from, with the time each message was sent.",
+      "intro": [
+        "Every Record keeps the whole chat it came from, attached at the bottom of the Record: every message, photo, voice note and any documents, with the time they were sent.",
+        "So if anyone ever asks where the data came from, you can show them."
+      ],
+      "faq": []
+    }
+  },
+  {
+    "slug": "download-all-your-data",
+    "page": "/features/download-all-your-data/",
+    "title": "Quickler: download all your data",
+    "summary": "All the data you generate on Quickler is yours. Download everything in one file from Settings, with every Record, photo and message.",
+    "description": "Quickler is the data processor and you are the data controller, so all the data you generate on Quickler is yours. In Settings, scroll to the bottom, click Download data and press Prepare download. Quickler puts everything together in one file, with all the Records in every format, including all the photos and messages, and emails you a download link when it is ready.",
+    "video": "/assets/video/feature-download-all-your-data.mp4?v=1",
+    "poster": "/assets/video/feature-download-all-your-data-poster.jpg?v=1",
+    "duration": "PT40S",
+    "durationText": "0:40",
+    "uploadDate": "2026-11-12",
+    "chapters": [
+      [
+        "0:00",
+        "Your data is yours"
+      ],
+      [
+        "0:10",
+        "Settings, Download data, Prepare download"
+      ],
+      [
+        "0:17",
+        "Everything in one file"
+      ],
+      [
+        "0:25",
+        "A download link by email"
+      ],
+      [
+        "0:28",
+        "Deleting all your data"
+      ]
+    ],
+    "transcript": [
+      "Quickler is the data processor, and you are the data controller.",
+      "That means all the data you generate on Quickler is yours, and you can take control of it whenever you like.",
+      "In Settings, scroll to the bottom of the page, click Download Data, and press Prepare Download.",
+      "Quickler then puts everything together in one file, with all the records in every format, including all the photos and messages.",
+      "When it's ready, you'll receive a download link by email.",
+      "If you want to delete all your data from Quickler, simply contact deletedata@quickler.co with your details."
+    ],
+    "feature": {
+      "name": "Download all your data",
+      "heading": "Download all your data.",
+      "short": "All the data you generate on Quickler is yours. Download it all in one file from Settings.",
+      "intro": [
+        "Quickler is the data processor and you are the data controller, so all the data you generate on Quickler is yours. In Settings, scroll to the bottom, click Download data and press Prepare download.",
+        "Quickler puts everything together in one file, with all the Records in every format, including all the photos and messages, and emails you a download link when it is ready. To delete all your data, contact deletedata@quickler.co with your details."
+      ],
+      "faq": []
+    }
+  },
+  {
+    "slug": "send-your-location",
+    "page": "/features/send-your-location/",
+    "title": "Quickler: send your location",
+    "summary": "Send your location in WhatsApp or Telegram and Quickler finds the address and the current weather for the Record, with no address to type.",
+    "description": "Sending your location tells Quickler exactly where your visit was without having to type an address. On an iPhone using WhatsApp, tap the plus, then Location, then your current location. On Android, tap the paperclip, then Location. Telegram works the same way. Quickler uses your location to find the address and the current weather and adds them to the Record automatically.",
+    "video": "/assets/video/feature-send-your-location.mp4?v=1",
+    "poster": "/assets/video/feature-send-your-location-poster.jpg?v=1",
+    "duration": "PT41S",
+    "durationText": "0:41",
+    "uploadDate": "2026-11-12",
+    "chapters": [
+      [
+        "0:00",
+        "No address to type"
+      ],
+      [
+        "0:06",
+        "WhatsApp on iPhone"
+      ],
+      [
+        "0:14",
+        "WhatsApp on Android"
+      ],
+      [
+        "0:20",
+        "Telegram"
+      ],
+      [
+        "0:30",
+        "Address and weather on the Record"
+      ]
+    ],
+    "transcript": [
+      "Sending your location tells Quickler exactly where your visit was without having to type an address.",
+      "On an iPhone using WhatsApp, tap the plus, then select location and finally select your current location.",
+      "For WhatsApp, on an Android, tap the paperclip, then location, and send your current location.",
+      "That is also the same process for on telegram, on Android or on iPhone where you tap the paperclip, then select location and select your current location.",
+      "Quickler uses your location to find the address and the current weather to add to your record automatically."
+    ],
+    "feature": {
+      "name": "Send your location",
+      "heading": "Send your location.",
+      "short": "Send your location and Quickler finds the address and the weather for the Record.",
+      "intro": [
+        "Sending your location tells Quickler exactly where your visit was without having to type an address. Use the plus on an iPhone or the paperclip on Android in WhatsApp, or the paperclip in Telegram, then choose Location.",
+        "Quickler uses your location to find the address and the current weather, and adds them to the Record automatically."
+      ],
+      "faq": []
+    }
+  },
+  {
+    "slug": "your-logo",
+    "page": "/features/your-logo/",
+    "title": "Quickler: your logo on every report",
+    "summary": "Upload your logo once and it goes on every Record and all the downloads. You can use a different logo on a single Check.",
+    "description": "Quickler allows you to brand your reports. Upload your logo once and it goes on every Record and all the downloads. You can even use a different logo on a single Check if you need to.",
+    "video": "/assets/video/feature-your-logo.mp4?v=1",
+    "poster": "/assets/video/feature-your-logo-poster.jpg?v=1",
+    "duration": "PT15S",
+    "durationText": "0:15",
+    "uploadDate": "2026-11-12",
+    "chapters": [
+      [
+        "0:00",
+        "Brand your reports"
+      ],
+      [
+        "0:03",
+        "Upload your logo once"
+      ],
+      [
+        "0:08",
+        "A different logo on a single Check"
+      ]
+    ],
+    "transcript": [
+      "Quickler allows you to brand your reports.",
+      "You can upload your logo once, and it goes on every record and all the downloads.",
+      "You can even use a different logo on a single Check if you need to."
+    ],
+    "feature": {
+      "name": "Your logo on every report",
+      "heading": "Your logo on every report.",
+      "short": "Upload your logo once and it goes on every Record and all the downloads.",
+      "intro": [
+        "Quickler allows you to brand your reports. Upload your logo once and it goes on every Record and all the downloads.",
+        "You can even use a different logo on a single Check if you need to."
+      ],
+      "faq": []
+    }
   }
 ]
