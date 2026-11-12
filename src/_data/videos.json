@@ -564,6 +564,52 @@
     }
   },
   {
+    "slug": "your-own-layout",
+    "page": "/features/your-own-layout/",
+    "title": "Quickler: your report, in your own layout",
+    "summary": "Send a finished report as Word, PDF or a photo, and every new record comes back in that layout, with your headings, tables, logos and footers.",
+    "description": "You have probably spent years getting your reports to look just right. With Quickler you do not have to change them: send a finished report as a Word document, a PDF or even a photo, and every new record comes back in that layout, with your headings, tables, logos and footers.",
+    "video": "/assets/video/feature-your-own-layout.mp4?v=1",
+    "poster": "/assets/video/feature-your-own-layout-poster.jpg?v=1",
+    "duration": "PT21S",
+    "durationText": "0:21",
+    "uploadDate": "2026-11-12",
+    "chapters": [
+      [
+        "0:00",
+        "Reports that look just right"
+      ],
+      [
+        "0:05",
+        "No need to change them"
+      ],
+      [
+        "0:07",
+        "Send a finished report"
+      ],
+      [
+        "0:12",
+        "Every record in that layout"
+      ]
+    ],
+    "transcript": [
+      "You've probably already spent years getting your reports to look just right.",
+      "With Quickler, you don't have to change them.",
+      "Send us a finished report as a Word document, a PDF or even a photo,",
+      "and every new record comes back in that layout, with your headings, tables, logos and footers."
+    ],
+    "feature": {
+      "name": "Your report, in your own layout",
+      "heading": "Your report, in your own layout.",
+      "short": "Send a finished report and every new record comes back in that layout.",
+      "intro": [
+        "You have probably spent years getting your reports to look just right. With Quickler, you do not have to change them.",
+        "Send a finished report as a Word document, a PDF or even a photo, and every new record comes back in that layout, with your headings, tables, logos and footers."
+      ],
+      "faq": []
+    }
+  },
+  {
     "slug": "schedules-and-reminders",
     "page": "/features/schedules-and-reminders/",
     "title": "Quickler: schedules and reminders",
