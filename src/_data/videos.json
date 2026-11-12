@@ -909,5 +909,62 @@
       ],
       "faq": []
     }
+  },
+  {
+    "slug": "coshh-assessments",
+    "page": "/features/coshh-assessments/",
+    "title": "Quickler: three COSHH assessments in under three minutes",
+    "summary": "Three COSHH assessments done on WhatsApp in under three minutes: say new COSHH, send the safety data sheet, add a short voice note, then say done.",
+    "description": "Three COSHH assessments done on WhatsApp in under three minutes. Say new COSHH, send the safety data sheet as a file, add a short voice note on how it is used, then say done. Quickler reads each sheet and fills in the ingredients, hazards, controls and safety gear. The reports arrive a few minutes later and download in several formats, including a Word document in your own report layout.",
+    "video": "/assets/video/feature-coshh-assessments.mp4?v=1",
+    "poster": "/assets/video/feature-coshh-assessments-poster.jpg?v=1",
+    "duration": "PT1M7S",
+    "durationText": "1:07",
+    "uploadDate": "2026-11-12",
+    "chapters": [
+      [
+        "0:00",
+        "An evening at the desk"
+      ],
+      [
+        "0:10",
+        "Three in under three minutes"
+      ],
+      [
+        "0:13",
+        "New COSHH, the sheet, a voice note, done"
+      ],
+      [
+        "0:29",
+        "The same again, then a third time"
+      ],
+      [
+        "0:43",
+        "Written up while you carry on"
+      ],
+      [
+        "0:56",
+        "Download in several formats"
+      ]
+    ],
+    "transcript": [
+      "Every product on the site needs a COSHH assessment, and that usually means an evening at the desk with a safety data sheet.",
+      "Here I did three in under three minutes.",
+      "As you can see, I said, new COSHH, sent the safety data sheet, sent a short voice note saying how it's used, and then I said done.",
+      "Then I moved straight onto the next one and did the same again. New COSHH, new SDS, a new voice note and said done.",
+      "And then I did the exact same thing a third time.",
+      "While I was doing this, all three were being written up. A few minutes later they all appeared together, with all the ingredients, hazards, controls and safety gear filled in.",
+      "From here I can then download them in different formats, including a Word document in the client's own report layout."
+    ],
+    "feature": {
+      "name": "Three COSHH assessments in under three minutes",
+      "heading": "Three COSHH assessments in under three minutes.",
+      "short": "Say new COSHH, send the safety data sheet and a short voice note, then say done. Quickler fills in the rest.",
+      "intro": [
+        "Three COSHH assessments were done on WhatsApp in under three minutes. For each one: say new COSHH, send the safety data sheet as a file, add a short voice note on how it is used, then say done.",
+        "Quickler reads each sheet and fills in the ingredients, hazards, controls and safety gear. The reports arrive a few minutes later and download in several formats, including a Word document in your own report layout."
+      ],
+      "faq": []
+    }
   }
 ]
