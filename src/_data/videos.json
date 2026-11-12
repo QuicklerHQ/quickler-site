@@ -610,6 +610,52 @@
     }
   },
   {
+    "slug": "every-change-kept",
+    "page": "/features/every-change-kept/",
+    "title": "Quickler: every change is kept",
+    "summary": "Every word on a Record can be edited, before it goes out and after, and every edit is kept in the Record's history with who made it and when.",
+    "description": "Every word on a Record can be changed, before it goes out and after. Nothing is changed without trace: every edit is kept in the Record's history, with who made it and when, so you can always see exactly what was changed.",
+    "video": "/assets/video/feature-every-change-kept.mp4?v=1",
+    "poster": "/assets/video/feature-every-change-kept-poster.jpg?v=1",
+    "duration": "PT20S",
+    "durationText": "0:20",
+    "uploadDate": "2026-11-12",
+    "chapters": [
+      [
+        "0:00",
+        "Every word can be changed"
+      ],
+      [
+        "0:05",
+        "Nothing changed without trace"
+      ],
+      [
+        "0:08",
+        "Every edit is kept"
+      ],
+      [
+        "0:12",
+        "See exactly what was changed"
+      ]
+    ],
+    "transcript": [
+      "Every word on a record can be changed, before it goes out and after.",
+      "But nothing is changed without trace.",
+      "Every edit is kept in the record's history, with who made it and when.",
+      "That way, you can always see exactly what was changed."
+    ],
+    "feature": {
+      "name": "Every change is kept",
+      "heading": "Every change is kept.",
+      "short": "Edit any word, before or after it goes out. Every edit is kept, with who and when.",
+      "intro": [
+        "Every word on a Record can be changed, before it goes out and after. But nothing is changed without trace.",
+        "Every edit is kept in the Record's history, with who made it and when, shown in the Changes and time taken panel. That way, you can always see exactly what was changed."
+      ],
+      "faq": []
+    }
+  },
+  {
     "slug": "schedules-and-reminders",
     "page": "/features/schedules-and-reminders/",
     "title": "Quickler: schedules and reminders",
