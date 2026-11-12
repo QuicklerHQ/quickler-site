@@ -848,5 +848,66 @@
       ],
       "faq": []
     }
+  },
+  {
+    "slug": "combine-records",
+    "page": "/features/combine-records/",
+    "title": "Quickler: combine Records",
+    "summary": "Tick Records on a Check's Records page and press Combine records to make one combined Record that lists exactly what it was made from.",
+    "description": "Tick Records on a Check's Records page, by subject or by person, and press Combine records. Quickler makes one combined Record. At one place the latest answer counts. At different places the worst answer is flagged and the Fault names the place. Each photo appears once, and the combined Record lists the Records it was made from.",
+    "video": "/assets/video/feature-combine-records.mp4?v=1",
+    "poster": "/assets/video/feature-combine-records-poster.jpg?v=1",
+    "duration": "PT1M",
+    "durationText": "1:00",
+    "uploadDate": "2026-11-12",
+    "chapters": [
+      [
+        "0:00",
+        "One Record from many"
+      ],
+      [
+        "0:09",
+        "Tick the Records you want"
+      ],
+      [
+        "0:19",
+        "The combined Record"
+      ],
+      [
+        "0:24",
+        "Same place: the latest answer"
+      ],
+      [
+        "0:30",
+        "Different places: the worst answer"
+      ],
+      [
+        "0:39",
+        "Each photo once, and what it was made from"
+      ],
+      [
+        "0:49",
+        "A few clicks"
+      ]
+    ],
+    "transcript": [
+      "Imagine you have a week's worth of inspections, or one big site that took several days to get round. Either way, you'll want one record that brings them all together.",
+      "On the Check's Record page, press Combine. Then click the records you want, by subject or by person. Take a group, and everything in it comes as well.",
+      "Quickler then makes them into one combined record, kept under Combined Records on that page.",
+      "If the records are all from the same place, like a daily check of one building, the latest answer counts.",
+      "If they're from different places, like separate buildings on a big site, the worst answer is the one that's flagged, and the fault always says which place it came from.",
+      "Any photo that turns up more than once appears only once, and the combined record lists exactly what it was made from, so you can always find the originals.",
+      "So, whether you need one report for a large site, or one for the whole week, It only takes a few clicks. Quickler has you covered."
+    ],
+    "feature": {
+      "name": "Combine Records",
+      "heading": "Combine Records.",
+      "short": "Tick Records and press Combine records to get one Record for the whole week or the whole site.",
+      "intro": [
+        "On a Check's Records page, tick the Records you want, by subject or by person, and press Combine records. Take a group and everything in it comes as well. Quickler makes one combined Record, kept under Combined records on that page.",
+        "If the Records are all from the same place, the latest answer counts. If they are from different places, the worst answer is flagged and the Fault names the place it came from. Each photo appears once, and the combined Record lists exactly what it was made from, so you can always find the originals."
+      ],
+      "faq": []
+    }
   }
 ]
