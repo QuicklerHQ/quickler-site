@@ -758,6 +758,52 @@
     }
   },
   {
+    "slug": "forgot-something",
+    "page": "/features/forgot-something/",
+    "title": "Quickler: forgot something? Add it after done",
+    "summary": "Said done, then spotted a fault on the way out? Tell Quickler straight away and the record is amended.",
+    "description": "You have said done and your record is filing, then you notice a fault on the way back to the car. Just tell Quickler straight away and the record is amended, so nothing gets left out.",
+    "video": "/assets/video/feature-forgot-something.mp4?v=2",
+    "poster": "/assets/video/feature-forgot-something-poster.jpg?v=2",
+    "duration": "PT19S",
+    "durationText": "0:19",
+    "uploadDate": "2026-11-12",
+    "chapters": [
+      [
+        "0:00",
+        "Said done, record filing"
+      ],
+      [
+        "0:05",
+        "A fault you didn't mention"
+      ],
+      [
+        "0:10",
+        "Tell Quickler, the record is amended"
+      ],
+      [
+        "0:13",
+        "Nothing left out"
+      ]
+    ],
+    "transcript": [
+      "Imagine you've just said done to Quickler and your record is filing.",
+      "You're back at the car, and you notice a fault as you leave that you didn't mention.",
+      "Just tell Quickler straight away, and the record is amended.",
+      "That way, nothing gets left out."
+    ],
+    "feature": {
+      "name": "Forgot something?",
+      "heading": "Forgot something? Just say so.",
+      "short": "Spotted a fault after saying done? Tell Quickler and the record is amended.",
+      "intro": [
+        "You have said done and your record is filing. Then, back at the car, you notice a fault you did not mention.",
+        "Just tell Quickler straight away, and the record is amended. That way, nothing gets left out."
+      ],
+      "faq": []
+    }
+  },
+  {
     "slug": "simple-pricing",
     "page": "/features/simple-pricing/",
     "title": "Quickler pricing: 75 pounds a month per phone number",
