@@ -966,5 +966,97 @@
       ],
       "faq": []
     }
+  },
+  {
+    "slug": "what-you-dont-mention",
+    "page": "/features/what-you-dont-mention/",
+    "title": "Quickler: what you don't mention",
+    "summary": "What you do not mention is filed as OK. Quickler reads each question to see whether a place might simply not have it, and files that as N/A.",
+    "description": "On a visit you usually only mention what is wrong. Quickler files anything you do not mention as OK. It also reads each question to see whether a place might simply not have it, such as solar panels, and files that as N/A. Any answer can be changed on the Record afterwards.",
+    "video": "/assets/video/feature-what-you-dont-mention.mp4?v=1",
+    "poster": "/assets/video/feature-what-you-dont-mention-poster.jpg?v=1",
+    "duration": "PT29S",
+    "durationText": "0:29",
+    "uploadDate": "2026-11-12",
+    "chapters": [
+      [
+        "0:00",
+        "You only mention what is wrong"
+      ],
+      [
+        "0:03",
+        "What you do not mention is OK"
+      ],
+      [
+        "0:07",
+        "Quickler reads each question"
+      ],
+      [
+        "0:13",
+        "Not at this place: N/A"
+      ],
+      [
+        "0:21",
+        "Change any answer afterwards"
+      ]
+    ],
+    "transcript": [
+      "On a visit, you usually only mention what's wrong.",
+      "So Quickler automatically assumes anything you don't mention is OK.",
+      "Quickler reads each question to work out whether a place might simply not have it.",
+      "For example, if your report asks about solar panels, most buildings don't have them, so if they're not mentioned, Quickler marks them as not applicable.",
+      "And of course, you can always change any answer in the Record afterwards."
+    ],
+    "feature": {
+      "name": "What you don't mention",
+      "heading": "What you don't mention.",
+      "short": "Anything you do not mention is filed as OK, and a question a place may not have is filed as N/A.",
+      "intro": [
+        "On a visit you usually only mention what is wrong. What you do not mention is filed as OK.",
+        "Quickler reads each question to see whether a place might simply not have it, such as solar panels, and files that as N/A. Any answer can be changed on the Record afterwards."
+      ],
+      "faq": []
+    }
+  },
+  {
+    "slug": "your-sentences",
+    "page": "/features/your-sentences/",
+    "title": "Quickler: the sentences you always write",
+    "summary": "Type your standard paragraphs once. Quickler reads them into sentences and shows them in the Record under the matching answer.",
+    "description": "Many reports have standard paragraphs you write again and again. Type them into Quickler once and it reads them into sentences, each tied to a Fault. They appear in the Record under the matching answer, and you can pick or edit them on the Record. Your standard wording is always there, but never where it does not belong.",
+    "video": "/assets/video/feature-your-sentences.mp4?v=1",
+    "poster": "/assets/video/feature-your-sentences-poster.jpg?v=1",
+    "duration": "PT17S",
+    "durationText": "0:17",
+    "uploadDate": "2026-11-12",
+    "chapters": [
+      [
+        "0:00",
+        "Standard paragraphs, written once"
+      ],
+      [
+        "0:05",
+        "They appear in the Record"
+      ],
+      [
+        "0:10",
+        "Always there, never out of place"
+      ]
+    ],
+    "transcript": [
+      "Many reports have standard paragraphs which you write again and again.",
+      "By sending them to Quickler once, they'll appear in the Record automatically when appropriate.",
+      "So your standard wording is always there, but never where it doesn't belong."
+    ],
+    "feature": {
+      "name": "The sentences you always write",
+      "heading": "The sentences you always write.",
+      "short": "Type your standard paragraphs once and they appear in the Record under the matching answer.",
+      "intro": [
+        "Type your standard paragraphs into Quickler once. Quickler reads them into sentences, each tied to a Fault, and they appear in the Record under the matching answer.",
+        "You can pick or edit them on the Record. Your standard wording is always there, but never where it does not belong."
+      ],
+      "faq": []
+    }
   }
 ]
