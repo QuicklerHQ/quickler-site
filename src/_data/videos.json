@@ -1294,5 +1294,51 @@
       ],
       "faq": []
     }
+  },
+  {
+    "slug": "build-your-own-check",
+    "page": "/features/build-your-own-check/",
+    "title": "Quickler: build your own Check",
+    "summary": "Build your own Check with its own name, your questions in your own order, sections, the type of answer and the usual answers. The person on site sees its sections in WhatsApp.",
+    "description": "Every company does things a little differently. With Quickler you build your own Check: give it a name, put your questions in your own order, group them into sections, choose the type of answer and set the usual answers. Then your team can use it on WhatsApp straight away.",
+    "video": "/assets/video/feature-build-your-own-check.mp4?v=1",
+    "poster": "/assets/video/feature-build-your-own-check-poster.jpg?v=1",
+    "duration": "PT20S",
+    "durationText": "0:20",
+    "uploadDate": "2026-11-12",
+    "chapters": [
+      [
+        "0:00",
+        "Every company does things differently"
+      ],
+      [
+        "0:03",
+        "Build your own Check"
+      ],
+      [
+        "0:09",
+        "Sections, answer types and usual answers"
+      ],
+      [
+        "0:14",
+        "Your team uses it on WhatsApp"
+      ]
+    ],
+    "transcript": [
+      "Every company does things a little differently.",
+      "With Quickler, you can build your own Check, with your own questions, in your own order.",
+      "Group them into sections, choose the type of answer, and set the usual answers.",
+      "Then your team can use it on WhatsApp immediately."
+    ],
+    "feature": {
+      "name": "Build your own Check",
+      "heading": "Build your own Check.",
+      "short": "Name your Check, put your questions in your own order, group them into sections, and choose the type of answer and the usual answers.",
+      "intro": [
+        "Every company does things a little differently. With Quickler you build your own Check: its name, your own questions in your own order, grouped into sections, with the type of answer and the usual answers you choose.",
+        "Then the person on site sees its sections in WhatsApp, and your team can use it straight away."
+      ],
+      "faq": []
+    }
   }
 ]
