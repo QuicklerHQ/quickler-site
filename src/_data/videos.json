@@ -1340,5 +1340,51 @@
       ],
       "faq": []
     }
+  },
+  {
+    "slug": "add-your-team",
+    "page": "/features/add-your-team/",
+    "title": "Quickler: add your team",
+    "summary": "Add a person in Contacts with their name and phone number. There is no app for them to download and no password to remember, and when it is time for a Check they ask Quickler for it on WhatsApp.",
+    "description": "Adding someone to Quickler takes seconds. In Contacts, all you need is their name and their phone number. There is no app for them to download and no password to remember. When it is time for a Check, they just ask Quickler for it on WhatsApp.",
+    "video": "/assets/video/feature-add-your-team.mp4?v=1",
+    "poster": "/assets/video/feature-add-your-team-poster.jpg?v=1",
+    "duration": "PT16S",
+    "durationText": "0:16",
+    "uploadDate": "2026-11-12",
+    "chapters": [
+      [
+        "0:00",
+        "Adding someone takes seconds"
+      ],
+      [
+        "0:03",
+        "Their name and phone number"
+      ],
+      [
+        "0:05",
+        "No app to download, no password"
+      ],
+      [
+        "0:08",
+        "Ask Quickler for a Check"
+      ]
+    ],
+    "transcript": [
+      "Adding someone to Quickler takes seconds.",
+      "All you need is their name and their phone number.",
+      "There's no app for them to download and no password to remember.",
+      "When the time comes to do a Check, they need only ask Quickler for it."
+    ],
+    "feature": {
+      "name": "Add your team",
+      "heading": "Add your team.",
+      "short": "Add a person in Contacts with their name and phone number. Nothing to download and no password to remember.",
+      "intro": [
+        "Adding someone to Quickler takes seconds. In Contacts, all you need is their name and their phone number.",
+        "There is no app for them to download and no password to remember. When it is time for a Check, they just ask Quickler for it on WhatsApp."
+      ],
+      "faq": []
+    }
   }
 ]
