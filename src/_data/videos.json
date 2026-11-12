@@ -615,7 +615,7 @@
     "title": "Quickler: every change is kept",
     "summary": "Every word on a Record can be edited, before it goes out and after, and every edit is kept in the Record's history with who made it and when.",
     "description": "Every word on a Record can be changed, before it goes out and after. Nothing is changed without trace: every edit is kept in the Record's history, with who made it and when, so you can always see exactly what was changed.",
-    "video": "/assets/video/feature-every-change-kept.mp4?v=1",
+    "video": "/assets/video/feature-every-change-kept.mp4?v=2",
     "poster": "/assets/video/feature-every-change-kept-poster.jpg?v=1",
     "duration": "PT20S",
     "durationText": "0:20",
