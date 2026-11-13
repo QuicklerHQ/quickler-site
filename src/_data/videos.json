@@ -1709,5 +1709,84 @@
       ],
       "faq": []
     }
+  },
+  {
+    "slug": "send-signature-whatsapp",
+    "page": "/features/send-signature-whatsapp/",
+    "title": "Quickler: send your signature on WhatsApp",
+    "summary": "Take a photo of something plain, select the pen, pick a colour, write your signature and send it. Quickler reads it as a signature, and you carry on with your check or say done.",
+    "description": "How to send your signature on WhatsApp on an Android phone. In the Quickler chat, tap the camera and take a photo of something plain. Select the pen, pick a colour, write your signature and send it. The rotation does not matter. Quickler reads it as a signature and you carry on, or say done.",
+    "video": "/assets/video/feature-send-signature-whatsapp.mp4?v=1",
+    "poster": "/assets/video/feature-send-signature-whatsapp-poster.jpg?v=1",
+    "duration": "PT1M7S",
+    "durationText": "1:07",
+    "uploadDate": "2026-11-13",
+    "chapters": [
+      [
+        "0:00",
+        "Sending a signature with a photo"
+      ],
+      [
+        "0:11",
+        "Press the camera in the chat"
+      ],
+      [
+        "0:14",
+        "Take a photo of something plain"
+      ],
+      [
+        "0:23",
+        "Press the photo button"
+      ],
+      [
+        "0:28",
+        "Select the pen"
+      ],
+      [
+        "0:34",
+        "Pick a colour"
+      ],
+      [
+        "0:38",
+        "Write your signature"
+      ],
+      [
+        "0:44",
+        "Press done"
+      ],
+      [
+        "0:46",
+        "Any rotation is fine"
+      ],
+      [
+        "0:54",
+        "Quickler reads it as a signature"
+      ],
+      [
+        "0:57",
+        "Carry on, or say done"
+      ]
+    ],
+    "transcript": [
+      "Sometimes you may need to send a signature as part of your report. With Quickler, you can do that through Telegram or WhatsApp by using a photo. I'll show you how.",
+      "First, press the camera button on the chat and then take a photo of something plain.",
+      "This could be your hand or a piece of clothing or the ground or something like that.",
+      "I'm taking a photo of the desk in this situation. Then press the photo button.",
+      "Once you've done that, select the pen. You'll see on WhatsApp the pen is in the top right.",
+      "You can choose any colour you want. I'm going to go for bright green.",
+      "And then write your signature.",
+      "Once you've done that, press done. I should say the rotation that you send your signature in doesn't matter because Quickler will correct that for you. You don't have to say anything.",
+      "It will be recognised as a signature. It'll be recognised as writing. And you can go on with your check as normal. Or if you're just coming to the end, you can say done as usual."
+    ],
+    "feature": {
+      "name": "Send your signature on WhatsApp",
+      "heading": "Send your signature on WhatsApp.",
+      "short": "Take a photo of something plain, select the pen, pick a colour and write your signature. Quickler reads it as a signature.",
+      "intro": [
+        "In the Quickler chat, tap the camera and take a photo of something plain. Select the pen, pick a colour, write your signature and send it. Any rotation is fine.",
+        "Quickler reads it as a signature. Then carry on with your check, or say done."
+      ],
+      "faq": []
+    }
   }
 ]
