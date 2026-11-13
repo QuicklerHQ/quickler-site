@@ -1386,5 +1386,123 @@
       ],
       "faq": []
     }
+  },
+  {
+    "slug": "getting-started",
+    "page": "/features/getting-started/",
+    "title": "Quickler: getting started",
+    "summary": "Set up a Check from a form you already use or from pasted questions, check them over, add your team with a name and phone number each, and they answer on WhatsApp. Try it free for 14 days, no card needed.",
+    "description": "Getting started with Quickler is simple. Set up a Check by uploading a form you already use or pasting in some questions, check over the questions and press Continue, then add your team with a name and phone number for each person. They answer on WhatsApp, say done, and the report is ready for you to check and share. Free for 14 days, no card needed.",
+    "video": "/assets/video/feature-getting-started.mp4?v=1",
+    "poster": "/assets/video/feature-getting-started-poster.jpg?v=1",
+    "duration": "PT39S",
+    "durationText": "0:39",
+    "uploadDate": "2026-11-13",
+    "chapters": [
+      [
+        "0:00",
+        "Getting started is simple"
+      ],
+      [
+        "0:02",
+        "Set up a Check"
+      ],
+      [
+        "0:04",
+        "Upload a form or paste questions"
+      ],
+      [
+        "0:10",
+        "Check over the questions"
+      ],
+      [
+        "0:17",
+        "Add your team"
+      ],
+      [
+        "0:22",
+        "Who does which Check, and when"
+      ],
+      [
+        "0:26",
+        "They answer on WhatsApp"
+      ],
+      [
+        "0:32",
+        "Free for 14 days, no card needed"
+      ]
+    ],
+    "transcript": [
+      "Getting started with Quickler is simple.",
+      "First, you'll need to set up a check.",
+      "To do so, you can either upload a form you already use, or paste in some questions.",
+      "Once the questions have been processed, you can check over them and make any edits.",
+      "Then, you can press continue.",
+      "After that you'll want to add your team with a name and phone number for each person.",
+      "You can also choose who does which check and when.",
+      "Your team answers on WhatsApp, says done, and the report is ready for you to check and share.",
+      "You can try it free for 14 days with no card needed."
+    ],
+    "feature": {
+      "name": "Getting started",
+      "heading": "Getting started.",
+      "short": "Set up a Check from a form you already use or some pasted questions, add your team, and they answer on WhatsApp. Free for 14 days, no card needed.",
+      "intro": [
+        "Getting started with Quickler is simple. Set up a Check by uploading a form you already use or pasting in some questions. Once they have been processed, check over the questions, make any edits and press Continue.",
+        "Then add your team with a name and phone number for each person, and choose who does which Check and when. They answer on WhatsApp and say done, and the report is ready for you to check and share. You can try it free for 14 days with no card needed."
+      ],
+      "faq": []
+    }
+  },
+  {
+    "slug": "site-safety",
+    "page": "/features/site-safety/",
+    "title": "Quickler: site safety inspections",
+    "summary": "Walk the site and send photos and voice notes on WhatsApp. Send your location for the address and weather, and every fault lands on the To do list, ready to copy into your own system.",
+    "description": "For a site safety inspection, walk the site and send photos and voice notes on WhatsApp as you go round. Send your location and Quickler adds the address and the weather. The faults you pick up go on the To do list, the site manager can copy the actions straight into their own system, and every inspection is kept with the whole chat and every photo.",
+    "video": "/assets/video/feature-site-safety.mp4?v=1",
+    "poster": "/assets/video/feature-site-safety-poster.jpg?v=1",
+    "duration": "PT36S",
+    "durationText": "0:36",
+    "uploadDate": "2026-11-13",
+    "chapters": [
+      [
+        "0:00",
+        "Walk the site, send photos and voice notes"
+      ],
+      [
+        "0:08",
+        "Address and weather from your location"
+      ],
+      [
+        "0:12",
+        "Faults go on the To do list"
+      ],
+      [
+        "0:18",
+        "Copy the actions into your own system"
+      ],
+      [
+        "0:25",
+        "Every inspection kept, chat and photos"
+      ]
+    ],
+    "transcript": [
+      "If you have to do a site safety inspection, with Quickler you can walk the site and send photos and voice notes on WhatsApp as you go round.",
+      "When you need to send your location, Quickler can add the address and the weather for you.",
+      "The faults that you pick up as you go round the site will be added to the To do list on Quickler.",
+      "When a site manager receives the report from you, they'll be able to copy the actions straight into their own system.",
+      "Every inspection is kept with the whole chat and every photo, in case anyone ever asks what was done on the day."
+    ],
+    "feature": {
+      "name": "Site safety",
+      "heading": "Site safety inspections.",
+      "short": "Walk the site and send photos and voice notes on WhatsApp. Faults go on the To do list, and every inspection is kept with its chat and photos.",
+      "intro": [
+        "For a site safety inspection, walk the site and send photos and voice notes on WhatsApp as you go round. When you send your location, Quickler adds the address and the weather for you.",
+        "The faults you pick up go on the To do list, and the site manager can copy the actions straight into their own system. Every inspection is kept with the whole chat and every photo, in case anyone ever asks what was done on the day."
+      ],
+      "faq": []
+    }
   }
 ]
