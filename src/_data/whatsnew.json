@@ -14,6 +14,19 @@
     "dateText": "13 November 2026"
   },
   {
+    "date": "2026-11-06",
+    "title": "Several Checks in a row",
+    "items": [
+      "Doing several Checks back to back? Just send \"new COSHH\" (or a short form of any Check's name) to start the next one. Each gets its own Record.",
+      "Each report link now names its Record: \"Here is your report for...\". When you do several in a row, they arrive in the order you did them.",
+      "After you say done, Quickler replies once, to say it is working on your report.",
+      "A photo now appears only once on a Record, on the question it belongs to.",
+      "The address from your location pin is never used to fill in a name.",
+      "PDFs show the Record's title in your PDF reader."
+    ],
+    "dateText": "6 November 2026"
+  },
+  {
     "date": "2026-11-03",
     "title": "Easier edits and tidier PDFs",
     "items": [
