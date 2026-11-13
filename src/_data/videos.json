@@ -1601,5 +1601,113 @@
       ],
       "faq": []
     }
+  },
+  {
+    "slug": "your-data-looked-after",
+    "page": "/features/your-data-looked-after/",
+    "title": "Quickler: your data, looked after",
+    "summary": "Your reports are kept on secure servers in the European Union, backed up and encrypted to a second location, and older messages and data are deleted after three years.",
+    "description": "Where is your data kept? Your reports are kept on secure servers in the European Union. They are backed up and encrypted to a second location. Any older messages and older data are deleted after three years.",
+    "video": "/assets/video/feature-your-data.mp4?v=1",
+    "poster": "/assets/video/feature-your-data-poster.jpg?v=1",
+    "duration": "PT17S",
+    "durationText": "0:17",
+    "uploadDate": "2026-11-13",
+    "chapters": [
+      [
+        "0:00",
+        "Your reports on secure servers in the European Union"
+      ],
+      [
+        "0:04",
+        "Backed up and encrypted to a second location"
+      ],
+      [
+        "0:08",
+        "Older messages and data deleted after three years"
+      ]
+    ],
+    "transcript": [
+      "Your reports are kept on secure servers in the European Union.",
+      "They're backed up and encrypted to a second location.",
+      "Any older messages and older data is deleted after three years."
+    ],
+    "feature": {
+      "name": "Your data, looked after",
+      "heading": "Your data, looked after.",
+      "short": "Reports are kept on secure servers in the European Union, backed up and encrypted to a second location.",
+      "intro": [
+        "Your reports are kept on secure servers in the European Union. They are backed up and encrypted to a second location.",
+        "Any older messages and older data are deleted after three years."
+      ],
+      "faq": []
+    }
+  },
+  {
+    "slug": "send-location-whatsapp-android",
+    "page": "/features/send-location-whatsapp-android/",
+    "title": "Quickler: send your location on WhatsApp (Android)",
+    "summary": "On Android, tap the paperclip, choose Location and send your current location, or open the full map and move the red pin, then press Send this location. Quickler adds the weather and address.",
+    "description": "How to send your location on WhatsApp on an Android phone. Tap the paperclip at the bottom of the screen and choose Location. If you are on site, press Send your current location. If you are not, open the map to full screen, move the red pin to where you need and press Send this location. Quickler uses that pin to get the weather and the address.",
+    "video": "/assets/video/feature-send-location-whatsapp-android.mp4?v=1",
+    "poster": "/assets/video/feature-send-location-whatsapp-android-poster.jpg?v=1",
+    "duration": "PT1M",
+    "durationText": "1:00",
+    "uploadDate": "2026-11-13",
+    "chapters": [
+      [
+        "0:00",
+        "Sending your location on Android"
+      ],
+      [
+        "0:07",
+        "Press the paperclip"
+      ],
+      [
+        "0:12",
+        "Choose Location"
+      ],
+      [
+        "0:21",
+        "Send your current location"
+      ],
+      [
+        "0:27",
+        "Not on site: open the map full screen"
+      ],
+      [
+        "0:38",
+        "Move the red pin"
+      ],
+      [
+        "0:45",
+        "Press Send this location"
+      ],
+      [
+        "0:51",
+        "Weather and address added"
+      ]
+    ],
+    "transcript": [
+      "For sharing your location on an Android device on WhatsApp, the steps are pretty simple.",
+      "First, you must press the paperclip down at the bottom of your screen.",
+      "We'll then open a menu like this, where we select Location.",
+      "This will then open the map as you see before you.",
+      "If you're on a site right now, press Send your current location.",
+      "If you are not at this site, but you'd like to select that site address, you can press the button in the top left that expands the map to full screen.",
+      "From there, you'll see a red pin in the centre of your screen, and you can choose to move that wherever you need.",
+      "Once you have selected where your pin would be, you can press on the pin and press Send this location.",
+      "Quickler will use that pin you have sent to get the weather and your address from that location."
+    ],
+    "feature": {
+      "name": "Send your location on WhatsApp (Android)",
+      "heading": "Send your location on WhatsApp (Android).",
+      "short": "Tap the paperclip, choose Location and send your current location, or move the red pin. Quickler adds the weather and address.",
+      "intro": [
+        "On Android, tap the paperclip at the bottom of the screen and choose Location. If you are on site, press Send your current location. If you are not, open the map to full screen, move the red pin to where you need and press Send this location.",
+        "Quickler uses that pin to add the weather and the address to the Record."
+      ],
+      "faq": []
+    }
   }
 ]
