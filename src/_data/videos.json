@@ -1504,5 +1504,102 @@
       ],
       "faq": []
     }
+  },
+  {
+    "slug": "fire-risk-assessments",
+    "page": "/features/fire-risk-assessments/",
+    "title": "Quickler: fire risk assessments",
+    "summary": "Walk the building and talk, sending photos as you go. Each photo lands on the right question, every fault goes on the To do list, and the report comes back in your own layout with your own standard wording.",
+    "description": "A fire risk assessment usually means a lot of notes, a lot of photos and a long write-up. With Quickler you walk the building and talk, sending photos as you go. Each photo lands on the right question and every fault goes on the To do list. Download the report as Word or a written report (PDF), and Quickler can use your own report layout with your own standard wording where it belongs.",
+    "video": "/assets/video/feature-fire-risk-assessments.mp4?v=1",
+    "poster": "/assets/video/feature-fire-risk-assessments-poster.jpg?v=1",
+    "duration": "PT23S",
+    "durationText": "0:23",
+    "uploadDate": "2026-11-13",
+    "chapters": [
+      [
+        "0:00",
+        "Notes, photos and a long write-up"
+      ],
+      [
+        "0:05",
+        "Walk the building and talk"
+      ],
+      [
+        "0:10",
+        "Photos on the right question, faults on the To do list"
+      ],
+      [
+        "0:14",
+        "Your own layout and standard wording"
+      ]
+    ],
+    "transcript": [
+      "A fire risk assessment usually means a lot of notes, a lot of photos, and a long write-up.",
+      "With Quickler, you can walk the building and talk, sending photos as you go.",
+      "Each photo lands on the right question, and every fault goes on the To do list.",
+      "Your report comes back in your own layout with your own standard wording where it belongs."
+    ],
+    "feature": {
+      "name": "Fire risk assessments",
+      "heading": "Fire risk assessments.",
+      "short": "Walk the building and talk, sending photos as you go. Each photo lands on the right question and every fault goes on the To do list.",
+      "intro": [
+        "A fire risk assessment usually means a lot of notes, a lot of photos and a long write-up. With Quickler you walk the building and talk, sending photos as you go. Each photo lands on the right question, and every fault goes on the To do list.",
+        "Download the report as Word or a written report (PDF). Quickler can use your own report layout, with your own standard wording where it belongs."
+      ],
+      "faq": []
+    }
+  },
+  {
+    "slug": "care-homes",
+    "page": "/features/care-homes/",
+    "title": "Quickler: checks for care homes",
+    "summary": "Staff do the regular checks in WhatsApp with voice notes and photos. Quickler writes the Record and puts every fault on the To do list, you schedule the checks, and you are notified if one is missed.",
+    "description": "Care homes need lots of regular checks of rooms, fire doors, kitchens and equipment. With Quickler your staff do them in WhatsApp with a voice note or photos as they go around. Quickler writes the Record and puts every fault on the To do list. Schedule the checks for the days you need, and if one is missed, you will be notified. When an inspector asks, every Record is there with photos, dates and who did it.",
+    "video": "/assets/video/feature-care-homes.mp4?v=1",
+    "poster": "/assets/video/feature-care-homes-poster.jpg?v=1",
+    "duration": "PT31S",
+    "durationText": "0:31",
+    "uploadDate": "2026-11-13",
+    "chapters": [
+      [
+        "0:00",
+        "Regular checks of rooms, doors, kitchens, equipment"
+      ],
+      [
+        "0:06",
+        "Staff answer in WhatsApp with voice notes and photos"
+      ],
+      [
+        "0:12",
+        "The Record and the To do list"
+      ],
+      [
+        "0:16",
+        "Schedule the checks, get notified if one is missed"
+      ],
+      [
+        "0:21",
+        "Every Record ready for the inspector"
+      ]
+    ],
+    "transcript": [
+      "Care homes require lots of regular checks of their rooms, the fire doors, the kitchens and the equipment.",
+      "With Quickler, your staff can do them in WhatsApp with a voice note or photos as they go around.",
+      "Quickler writes the Record and puts every fault on the To do list.",
+      "You can schedule the checks for the days that you need, and if one is missed, you'll be notified.",
+      "So when an inspector asks, you have every Record available, with photos, dates and who did it."
+    ],
+    "feature": {
+      "name": "Care homes",
+      "heading": "Checks for care homes.",
+      "short": "Staff do the regular checks in WhatsApp with voice notes and photos. Faults go on the To do list, and you are notified if a check is missed.",
+      "intro": [
+        "Care homes need lots of regular checks of rooms, fire doors, kitchens and equipment. With Quickler your staff do them in WhatsApp with a voice note or photos as they go around, and Quickler writes the Record and puts every fault on the To do list.",
+        "Schedule the checks for the days you need, and if one is missed you will be notified. When an inspector asks, every Record is there with photos, dates and who did it."
+      ],
+      "faq": []
+    }
   }
 ]
