@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-11-13",
+    "title": "Downloads that match the page",
+    "items": [
+      "Every download (the PDF, Word, your own form and the Link) now shows exactly what the Record page shows.",
+      "When you pick a choice, its sentence sits in the same box as your notes, and you can edit both.",
+      "COSHH data sheets keep their capitals and show one statement per line. Each exposure limit sits beside its own substance, and there is a Disposal code line.",
+      "When you pick the same choice again and again, Quickler learns it as a usual answer.",
+      "How long something lasts now has a \"More than 2 hours\" option.",
+      "Voice notes can be up to 30 minutes long.",
+      "Each Record shows how long the walk took, plus a total time."
+    ],
+    "dateText": "13 November 2026"
+  },
+  {
     "date": "2026-11-03",
     "title": "Easier edits and tidier PDFs",
     "items": [
