@@ -1848,5 +1848,85 @@
       ],
       "faq": []
     }
+  },
+  {
+    "slug": "graded-answers",
+    "page": "/features/graded-answers/",
+    "title": "Quickler: graded answers",
+    "summary": "Set a question's answer type to Graded, choose the words people will use, order them best to worst and say what each means. On site nobody sees the list: they answer in their own words and Quickler picks the matching grade.",
+    "description": "How graded answers work in Quickler. Set a question's answer type to Graded and choose the words people will use, from a list you already use or by pressing Add word. Put the best answer first and the worst last, and click a word to write what it means; that sentence goes on the Record. You can grade with numbers instead. On site nobody sees the list, they answer in their own words and Quickler picks the matching grade. The key sits at the bottom of the Record and prints on the PDF.",
+    "video": "/assets/video/feature-graded-answers.mp4?v=1",
+    "poster": "/assets/video/feature-graded-answers-poster.jpg?v=1",
+    "duration": "PT1M24S",
+    "durationText": "1:24",
+    "uploadDate": "2026-11-14",
+    "chapters": [
+      [
+        "0:00",
+        "Questions with a list of fixed answers"
+      ],
+      [
+        "0:13",
+        "Set the answer type to Graded"
+      ],
+      [
+        "0:19",
+        "Pick a list or press Add word"
+      ],
+      [
+        "0:25",
+        "Best answer first, worst last"
+      ],
+      [
+        "0:30",
+        "Click a word to say what it means"
+      ],
+      [
+        "0:40",
+        "The cross removes a word"
+      ],
+      [
+        "0:42",
+        "Grades with a number"
+      ],
+      [
+        "0:50",
+        "On site, nobody sees the list"
+      ],
+      [
+        "1:00",
+        "The key at the bottom of the Record"
+      ],
+      [
+        "1:10",
+        "The key prints on the PDF"
+      ],
+      [
+        "1:14",
+        "Hide and show the key"
+      ]
+    ],
+    "transcript": [
+      "Some questions have a list of fixed answers, like the location or type of work, or it could be a fire risk assessment that might be graded as trivial, tolerable and so on.",
+      "To do that we can set the answer type to graded, then choose the words that people will use.",
+      "You can pick a list that you already use, if you have one, or press Add word and type your own.",
+      "Add the best answer first and the worst answer last.",
+      "Click any word to write what it means. That sentence then goes to the Record.",
+      "If you leave a word's meaning empty, Quickler will write one for you shortly after.",
+      "The cross beside a word gets rid of it. Or perhaps you'd rather a grade with a number. Then in that case you can choose numbers and set the highest number.",
+      "On site, nobody will see this list. They'll just say it in their own words and Quickler will pick the matching word, that is the matching grade.",
+      "You can open the key at the bottom of the Record to see every word and what it means. You can change a word's sentence here and it changes on every Record of that Check.",
+      "The key is printed on your PDF as well, so readers can see it too. Or hide it by pressing Hide. You can press it again to show it."
+    ],
+    "feature": {
+      "name": "Graded answers",
+      "heading": "Graded answers.",
+      "short": "Choose the words people will use, best first and worst last, and say what each means. Quickler picks the matching grade from what they say.",
+      "intro": [
+        "Set a question's answer type to Graded, then choose the words people will use: a list you already use, or your own through Add word. Put the best answer first and the worst last, and click any word to write what it means. That sentence goes on the Record. You can grade with a number instead and set the highest number.",
+        "On site nobody sees the list. People answer in their own words and Quickler picks the matching grade. The key sits at the bottom of the Record, printed on the PDF too, and you can hide it or show it again."
+      ],
+      "faq": []
+    }
   }
 ]
