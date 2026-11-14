@@ -1711,6 +1711,66 @@
     }
   },
   {
+    "slug": "send-location-telegram",
+    "page": "/features/send-location-telegram/",
+    "title": "Quickler: send your location on Telegram",
+    "summary": "On Telegram, press the paperclip, choose Location and send your current location or pick another place. You can switch the base map to Satellite to choose a very specific spot.",
+    "description": "How to send your location to Quickler on Telegram. It is very similar to WhatsApp: press the paperclip, then select Location from the bar underneath. Send your current location or choose another place. On Telegram you can also change the base map to Satellite to pick a very specific spot, such as an allotment, then send the selected location.",
+    "video": "/assets/video/feature-send-location-telegram.mp4?v=1",
+    "poster": "/assets/video/feature-send-location-telegram-poster.jpg?v=1",
+    "duration": "PT47S",
+    "durationText": "0:47",
+    "uploadDate": "2026-11-14",
+    "chapters": [
+      [
+        "0:00",
+        "Sending your location on Telegram"
+      ],
+      [
+        "0:04",
+        "Press the paperclip, as on WhatsApp"
+      ],
+      [
+        "0:08",
+        "Choose Location"
+      ],
+      [
+        "0:14",
+        "Current location or another place"
+      ],
+      [
+        "0:21",
+        "Change the base map to Satellite"
+      ],
+      [
+        "0:37",
+        "Pick a very specific spot"
+      ],
+      [
+        "0:40",
+        "Send the selected location"
+      ]
+    ],
+    "transcript": [
+      "This is how to send your location to Quickler on Telegram.",
+      "It's very similar to WhatsApp, where you first press the paperclip.",
+      "From there you'll see under the bottom bar the Location option. Select that.",
+      "From there you can select your current location and you can also choose other locations, should you need to.",
+      "On Telegram there's the extra benefit, which is like iOS on WhatsApp, you can do this as well, you can change the base map to Satellite, which allows you to choose very specific items, for example this allotment in Dundee.",
+      "You can then send that selected location and the process is done."
+    ],
+    "feature": {
+      "name": "Send your location on Telegram",
+      "heading": "Send your location on Telegram.",
+      "short": "Press the paperclip, choose Location and send your current location or another place. On Telegram you can also switch the map to Satellite.",
+      "intro": [
+        "On Telegram, press the paperclip as you would on WhatsApp, then select Location from the bar underneath. Send your current location, or choose another place if you need to.",
+        "Telegram lets you change the base map to Satellite, which helps you pick a very specific spot. Then send the selected location and you are done."
+      ],
+      "faq": []
+    }
+  },
+  {
     "slug": "send-signature-whatsapp",
     "page": "/features/send-signature-whatsapp/",
     "title": "Quickler: send your signature on WhatsApp",
