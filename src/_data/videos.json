@@ -2196,11 +2196,11 @@
     "page": "/features/why-ai-gets-things-wrong/",
     "title": "Why AI gets things wrong",
     "summary": "Why AI gets things wrong, and how to guide it correctly: a light switch, a dice and a desert island explain it, and three habits help you get the best from Quickler.",
-    "description": "A 6 minute 27 second explainer on why AI gets things wrong, and how to guide it. Old-fashioned code is like a light switch, the same action gives the same result. AI is more like rolling a dice: it works out probabilities and picks one of the most likely answers, so now and then it lands on the wrong side. A desert island and two inspectors show how to paint your dice with sixes, and three habits make Quickler work better: precise questions, section headings as signposts, and saying what you see on site.",
-    "video": "/assets/video/feature-why-ai-gets-things-wrong.mp4?v=1",
+    "description": "A 6 minute 26 second explainer on why AI gets things wrong, and how to guide it. Old-fashioned code is like a light switch, the same action gives the same result. AI is more like rolling a dice: it works out probabilities and picks one of the most likely answers, so now and then it lands on the wrong side. A desert island and two inspectors show how to paint your dice with sixes, and three habits make Quickler work better: precise questions, section headings as signposts, and saying what you see on site.",
+    "video": "/assets/video/feature-why-ai-gets-things-wrong.mp4?v=2",
     "poster": "/assets/video/feature-why-ai-gets-things-wrong-poster.jpg?v=1",
-    "duration": "PT6M27S",
-    "durationText": "6:27",
+    "duration": "PT6M26S",
+    "durationText": "6:26",
     "uploadDate": "2026-11-14",
     "chapters": [
       [
@@ -2228,7 +2228,7 @@
         "On site: say where you are and what you see"
       ],
       [
-        "5:08",
+        "5:06",
         "Walk round naturally, with a mail room for your messages"
       ]
     ],
