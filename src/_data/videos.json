@@ -1928,5 +1928,99 @@
       ],
       "faq": []
     }
+  },
+  {
+    "slug": "records-page",
+    "page": "/features/records-page/",
+    "title": "Quickler: the Records page",
+    "summary": "Every Check has a Records page with everything it has collected: filter by date, switch between By title and By user, download every Record at once, add and move photos, see every change, and delete with ten seconds to undo.",
+    "description": "A tour of the Records page in Quickler. Every Check has one, holding everything it has ever collected. Filter by date, switch between By title and By user, open a title to see its history, and press Download all to get every Record in a zip, each in its own folder. Open a Record to add, turn, caption, copy or archive photos, see documents sent during the walk, check the changes and time taken, and delete with about 10 seconds to undo. Deleted Records are kept for 30 days.",
+    "video": "/assets/video/feature-records-page.mp4?v=1",
+    "poster": "/assets/video/feature-records-page-poster.jpg?v=1",
+    "duration": "PT1M41S",
+    "durationText": "1:41",
+    "uploadDate": "2026-11-14",
+    "chapters": [
+      [
+        "0:00",
+        "Everything the Check has collected"
+      ],
+      [
+        "0:05",
+        "Filters by date"
+      ],
+      [
+        "0:11",
+        "By title or By user"
+      ],
+      [
+        "0:17",
+        "A title's whole history"
+      ],
+      [
+        "0:23",
+        "Download all, as a zip"
+      ],
+      [
+        "0:32",
+        "Add and move photos"
+      ],
+      [
+        "0:39",
+        "Turn a photo"
+      ],
+      [
+        "0:43",
+        "Change a caption"
+      ],
+      [
+        "0:48",
+        "Copy or archive a photo"
+      ],
+      [
+        "0:55",
+        "Archived photos wait at the bottom"
+      ],
+      [
+        "1:03",
+        "Documents sent during the walk"
+      ],
+      [
+        "1:10",
+        "Changes and time taken"
+      ],
+      [
+        "1:19",
+        "Delete, with Undo"
+      ],
+      [
+        "1:30",
+        "Kept for 30 days"
+      ]
+    ],
+    "transcript": [
+      "Every Check has a Records page, with everything it has ever collected.",
+      "Once you have enough Records, filters appear: today, 7 days, 30 days and so on.",
+      "You can switch between By title and By user to see the same Records another way.",
+      "You can click a title and you see its whole history, one Record after another.",
+      "You can press Download all and choose a file type for every Record at once. Quickler packs them into a zip with each Record in its own folder.",
+      "You can also open any Record and add more photos, or drag them to where they belong, like this.",
+      "When you click on a photo, you can turn it like this. You can change its caption here and type what you like, like this. Or you can copy it by clicking here, like this. Or you can archive it if you don't want it on the Record.",
+      "An archived photo waits all the way down here at the bottom. You can bring it back by clicking here.",
+      "A document sent during the walk, much like a PDF, is kept with the Record too, down here.",
+      "Press Changes and time taken to see how long the walk and edits took. Every change sits under its question with who made it and when.",
+      "To delete a Record, press Delete, then confirm in the box that it opens. You get about 10 seconds to press Undo and the Record comes straight back.",
+      "Even after that, a Record is kept for 30 days after being deleted, so if you need it, just ask us."
+    ],
+    "feature": {
+      "name": "The Records page",
+      "heading": "The Records page.",
+      "short": "Everything a Check has collected, with filters, downloads of every Record at once, photo tools, a full change history, and delete with Undo.",
+      "intro": [
+        "Every Check has a Records page with everything it has ever collected. Filter by date, switch between By title and By user, open a title to see its history, and press Download all to get every Record in one zip, each in its own folder.",
+        "Open a Record to add, turn, caption, copy or archive photos, see documents sent during the walk, and check the changes and time taken. Delete gives you about 10 seconds to press Undo, and a deleted Record is kept for 30 days."
+      ],
+      "faq": []
+    }
   }
 ]
