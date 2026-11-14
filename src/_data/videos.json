@@ -1788,5 +1788,407 @@
       ],
       "faq": []
     }
+  },
+  {
+    "slug": "send-location-telegram",
+    "page": "/features/send-location-telegram/",
+    "title": "Quickler: send your location on Telegram",
+    "summary": "On Telegram, press the paperclip, choose Location and send your current location or pick another place. You can switch the base map to Satellite to choose a very specific spot.",
+    "description": "How to send your location to Quickler on Telegram. It is very similar to WhatsApp: press the paperclip, then select Location from the bar underneath. Send your current location or choose another place. On Telegram you can also change the base map to Satellite to pick a very specific spot, such as an allotment, then send the selected location.",
+    "video": "/assets/video/feature-send-location-telegram.mp4?v=1",
+    "poster": "/assets/video/feature-send-location-telegram-poster.jpg?v=1",
+    "duration": "PT47S",
+    "durationText": "0:47",
+    "uploadDate": "2026-11-14",
+    "chapters": [
+      [
+        "0:00",
+        "Sending your location on Telegram"
+      ],
+      [
+        "0:04",
+        "Press the paperclip, as on WhatsApp"
+      ],
+      [
+        "0:08",
+        "Choose Location"
+      ],
+      [
+        "0:14",
+        "Current location or another place"
+      ],
+      [
+        "0:21",
+        "Change the base map to Satellite"
+      ],
+      [
+        "0:37",
+        "Pick a very specific spot"
+      ],
+      [
+        "0:40",
+        "Send the selected location"
+      ]
+    ],
+    "transcript": [
+      "This is how to send your location to Quickler on Telegram.",
+      "It's very similar to WhatsApp, where you first press the paperclip.",
+      "From there you'll see under the bottom bar the Location option. Select that.",
+      "From there you can select your current location and you can also choose other locations, should you need to.",
+      "On Telegram there's the extra benefit, which is like iOS on WhatsApp, you can do this as well, you can change the base map to Satellite, which allows you to choose very specific items, for example this allotment in Dundee.",
+      "You can then send that selected location and the process is done."
+    ],
+    "feature": {
+      "name": "Send your location on Telegram",
+      "heading": "Send your location on Telegram.",
+      "short": "Press the paperclip, choose Location and send your current location or another place. On Telegram you can also switch the map to Satellite.",
+      "intro": [
+        "On Telegram, press the paperclip as you would on WhatsApp, then select Location from the bar underneath. Send your current location, or choose another place if you need to.",
+        "Telegram lets you change the base map to Satellite, which helps you pick a very specific spot. Then send the selected location and you are done."
+      ],
+      "faq": []
+    }
+  },
+  {
+    "slug": "graded-answers",
+    "page": "/features/graded-answers/",
+    "title": "Quickler: graded answers",
+    "summary": "Set a question's answer type to Graded, choose the words people will use, order them best to worst and say what each means. On site nobody sees the list: they answer in their own words and Quickler picks the matching grade.",
+    "description": "How graded answers work in Quickler. Set a question's answer type to Graded and choose the words people will use, from a list you already use or by pressing Add word. Put the best answer first and the worst last, and click a word to write what it means; that sentence goes on the Record. You can grade with numbers instead. On site nobody sees the list, they answer in their own words and Quickler picks the matching grade. The key sits at the bottom of the Record and prints on the PDF.",
+    "video": "/assets/video/feature-graded-answers.mp4?v=1",
+    "poster": "/assets/video/feature-graded-answers-poster.jpg?v=1",
+    "duration": "PT1M24S",
+    "durationText": "1:24",
+    "uploadDate": "2026-11-14",
+    "chapters": [
+      [
+        "0:00",
+        "Questions with a list of fixed answers"
+      ],
+      [
+        "0:13",
+        "Set the answer type to Graded"
+      ],
+      [
+        "0:19",
+        "Pick a list or press Add word"
+      ],
+      [
+        "0:25",
+        "Best answer first, worst last"
+      ],
+      [
+        "0:30",
+        "Click a word to say what it means"
+      ],
+      [
+        "0:40",
+        "The cross removes a word"
+      ],
+      [
+        "0:42",
+        "Grades with a number"
+      ],
+      [
+        "0:50",
+        "On site, nobody sees the list"
+      ],
+      [
+        "1:00",
+        "The key at the bottom of the Record"
+      ],
+      [
+        "1:10",
+        "The key prints on the PDF"
+      ],
+      [
+        "1:14",
+        "Hide and show the key"
+      ]
+    ],
+    "transcript": [
+      "Some questions have a list of fixed answers, like the location or type of work, or it could be a fire risk assessment that might be graded as trivial, tolerable and so on.",
+      "To do that we can set the answer type to graded, then choose the words that people will use.",
+      "You can pick a list that you already use, if you have one, or press Add word and type your own.",
+      "Add the best answer first and the worst answer last.",
+      "Click any word to write what it means. That sentence then goes to the Record.",
+      "If you leave a word's meaning empty, Quickler will write one for you shortly after.",
+      "The cross beside a word gets rid of it. Or perhaps you'd rather a grade with a number. Then in that case you can choose numbers and set the highest number.",
+      "On site, nobody will see this list. They'll just say it in their own words and Quickler will pick the matching word, that is the matching grade.",
+      "You can open the key at the bottom of the Record to see every word and what it means. You can change a word's sentence here and it changes on every Record of that Check.",
+      "The key is printed on your PDF as well, so readers can see it too. Or hide it by pressing Hide. You can press it again to show it."
+    ],
+    "feature": {
+      "name": "Graded answers",
+      "heading": "Graded answers.",
+      "short": "Choose the words people will use, best first and worst last, and say what each means. Quickler picks the matching grade from what they say.",
+      "intro": [
+        "Set a question's answer type to Graded, then choose the words people will use: a list you already use, or your own through Add word. Put the best answer first and the worst last, and click any word to write what it means. That sentence goes on the Record. You can grade with a number instead and set the highest number.",
+        "On site nobody sees the list. People answer in their own words and Quickler picks the matching grade. The key sits at the bottom of the Record, printed on the PDF too, and you can hide it or show it again."
+      ],
+      "faq": []
+    }
+  },
+  {
+    "slug": "records-page",
+    "page": "/features/records-page/",
+    "title": "Quickler: the Records page",
+    "summary": "Every Check has a Records page with everything it has collected: filter by date, switch between By title and By user, download every Record at once, add and move photos, see every change, and delete with ten seconds to undo.",
+    "description": "A tour of the Records page in Quickler. Every Check has one, holding everything it has ever collected. Filter by date, switch between By title and By user, open a title to see its history, and press Download all to get every Record in a zip, each in its own folder. Open a Record to add, turn, caption, copy or archive photos, see documents sent during the walk, check the changes and time taken, and delete with about 10 seconds to undo. Deleted Records are kept for 30 days.",
+    "video": "/assets/video/feature-records-page.mp4?v=1",
+    "poster": "/assets/video/feature-records-page-poster.jpg?v=1",
+    "duration": "PT1M41S",
+    "durationText": "1:41",
+    "uploadDate": "2026-11-14",
+    "chapters": [
+      [
+        "0:00",
+        "Everything the Check has collected"
+      ],
+      [
+        "0:05",
+        "Filters by date"
+      ],
+      [
+        "0:11",
+        "By title or By user"
+      ],
+      [
+        "0:17",
+        "A title's whole history"
+      ],
+      [
+        "0:23",
+        "Download all, as a zip"
+      ],
+      [
+        "0:32",
+        "Add and move photos"
+      ],
+      [
+        "0:39",
+        "Turn a photo"
+      ],
+      [
+        "0:43",
+        "Change a caption"
+      ],
+      [
+        "0:48",
+        "Copy or archive a photo"
+      ],
+      [
+        "0:55",
+        "Archived photos wait at the bottom"
+      ],
+      [
+        "1:03",
+        "Documents sent during the walk"
+      ],
+      [
+        "1:10",
+        "Changes and time taken"
+      ],
+      [
+        "1:19",
+        "Delete, with Undo"
+      ],
+      [
+        "1:30",
+        "Kept for 30 days"
+      ]
+    ],
+    "transcript": [
+      "Every Check has a Records page, with everything it has ever collected.",
+      "Once you have enough Records, filters appear: today, 7 days, 30 days and so on.",
+      "You can switch between By title and By user to see the same Records another way.",
+      "You can click a title and you see its whole history, one Record after another.",
+      "You can press Download all and choose a file type for every Record at once. Quickler packs them into a zip with each Record in its own folder.",
+      "You can also open any Record and add more photos, or drag them to where they belong, like this.",
+      "When you click on a photo, you can turn it like this. You can change its caption here and type what you like, like this. Or you can copy it by clicking here, like this. Or you can archive it if you don't want it on the Record.",
+      "An archived photo waits all the way down here at the bottom. You can bring it back by clicking here.",
+      "A document sent during the walk, much like a PDF, is kept with the Record too, down here.",
+      "Press Changes and time taken to see how long the walk and edits took. Every change sits under its question with who made it and when.",
+      "To delete a Record, press Delete, then confirm in the box that it opens. You get about 10 seconds to press Undo and the Record comes straight back.",
+      "Even after that, a Record is kept for 30 days after being deleted, so if you need it, just ask us."
+    ],
+    "feature": {
+      "name": "The Records page",
+      "heading": "The Records page.",
+      "short": "Everything a Check has collected, with filters, downloads of every Record at once, photo tools, a full change history, and delete with Undo.",
+      "intro": [
+        "Every Check has a Records page with everything it has ever collected. Filter by date, switch between By title and By user, open a title to see its history, and press Download all to get every Record in one zip, each in its own folder.",
+        "Open a Record to add, turn, caption, copy or archive photos, see documents sent during the walk, and check the changes and time taken. Delete gives you about 10 seconds to press Undo, and a deleted Record is kept for 30 days."
+      ],
+      "faq": []
+    }
+  },
+  {
+    "slug": "your-account",
+    "page": "/features/your-account/",
+    "title": "Quickler: your account",
+    "summary": "Everything for your account lives on the Settings page: your plan and next bill, past invoices, cancelling in two clicks, signing in by password, link or code, and adding contacts by email, phone number or both.",
+    "description": "How your Quickler account works. Everything lives on the Settings page. Press Billing to see your plan, the phone numbers this month and your next bill, download any past invoice as a PDF, and cancel in two clicks. Sign in with email and password, a sign-in link that lasts a day or a six-digit code that works for 15 minutes. Add contacts with an email, a phone number or both. Everyone who joins by email joins as an admin, and Quickler asks you to confirm the cost before a new number takes you above your plan.",
+    "video": "/assets/video/feature-your-account.mp4?v=1",
+    "poster": "/assets/video/feature-your-account-poster.jpg?v=1",
+    "duration": "PT1M29S",
+    "durationText": "1:29",
+    "uploadDate": "2026-11-14",
+    "chapters": [
+      [
+        "0:00",
+        "Billing on the Settings page"
+      ],
+      [
+        "0:08",
+        "Plan, phone numbers and next bill"
+      ],
+      [
+        "0:13",
+        "Past invoices"
+      ],
+      [
+        "0:26",
+        "Cancelling takes two clicks"
+      ],
+      [
+        "0:34",
+        "Signing in"
+      ],
+      [
+        "0:39",
+        "Sign-in link and six-digit code"
+      ],
+      [
+        "0:49",
+        "Set a password"
+      ],
+      [
+        "0:52",
+        "Contacts: email, phone, or both"
+      ],
+      [
+        "1:02",
+        "Joining by email makes an admin"
+      ],
+      [
+        "1:06",
+        "Phone numbers and the checks"
+      ],
+      [
+        "1:19",
+        "Going above your plan"
+      ]
+    ],
+    "transcript": [
+      "Everything for your account lives on the Settings page. Press Billing and it opens right there, with no new page.",
+      "You can see your plan, the phone numbers this month and your next bill.",
+      "Every payment collected appears under past invoices, and this is also emailed to you. You can download a copy as a PDF for any invoice or of your subscription confirmation.",
+      "Cancelling takes just two clicks, so it can never happen by accident. If you cancel, your Checks keep running until the end of the paid period.",
+      "To sign in, enter your email and password, or ask for a sign-in link. The link lasts one day. If you need it, you can ask for a six-digit code instead. A code works for 15 minutes, then it stops working.",
+      "In Settings, you can set a password of at least 10 characters.",
+      "Each contact can have an email, a phone number, or both. Just enter an email and Quickler will invite them to your account. Everyone who joins via email joins as an admin, so choose carefully.",
+      "If you add a phone number, that's how you can do Checks on WhatsApp and Telegram. With only a phone number, they never need to log in. With only an email, they never need to do a Check on their phone.",
+      "If a new number takes you above your plan, Quickler will ask you to confirm the extra cost first."
+    ],
+    "feature": {
+      "name": "Your account",
+      "heading": "Your account.",
+      "short": "Billing, invoices, signing in and your contacts, all on the Settings page.",
+      "intro": [
+        "Everything for your account lives on the Settings page. Press Billing to see your plan, the phone numbers this month and your next bill, download any past invoice as a PDF, and cancel in two clicks. If you cancel, your Checks keep running until the end of the paid period.",
+        "Sign in with your email and password, a sign-in link that lasts one day, or a six-digit code that works for 15 minutes. Each contact can have an email, a phone number or both. Everyone who joins by email joins as an admin. If a new number takes you above your plan, Quickler asks you to confirm the extra cost first."
+      ],
+      "faq": []
+    }
+  },
+  {
+    "slug": "setting-up-a-check",
+    "page": "/features/setting-up-a-check/",
+    "title": "Quickler: setting up a Check",
+    "summary": "Open a Check and press Edit to reach its Overview page: duplicate it, set up its questions, sentences and written report, choose who it is for and when, tidy Checks into folders and add sums to number questions.",
+    "description": "A tour of setting up a Check in Quickler. Open any Check and press Edit to land on its Overview page. Duplicate it, set up its questions and question sources, your sentences and the written report, which can follow your own layout. Under Who and when set the phone access times and who the Check is for, turn on Tell managers, use Send now, tidy Checks into folders on the home page, and add sums to number questions in words.",
+    "video": "/assets/video/feature-setting-up-a-check.mp4?v=1",
+    "poster": "/assets/video/feature-setting-up-a-check-poster.jpg?v=1",
+    "duration": "PT2M26S",
+    "durationText": "2:26",
+    "uploadDate": "2026-11-14",
+    "chapters": [
+      [
+        "0:00",
+        "Edit opens the Overview page"
+      ],
+      [
+        "0:05",
+        "Duplicate a Check"
+      ],
+      [
+        "0:10",
+        "Edit questions"
+      ],
+      [
+        "0:15",
+        "Question sources"
+      ],
+      [
+        "0:21",
+        "Your sentences"
+      ],
+      [
+        "0:37",
+        "The written report"
+      ],
+      [
+        "0:55",
+        "Edit where answers go"
+      ],
+      [
+        "1:00",
+        "Who and when: phone access"
+      ],
+      [
+        "1:05",
+        "Contacts"
+      ],
+      [
+        "1:21",
+        "Tell managers"
+      ],
+      [
+        "1:32",
+        "Several people, Send now"
+      ],
+      [
+        "1:43",
+        "Folders on the home page"
+      ],
+      [
+        "2:02",
+        "Sums on number questions"
+      ]
+    ],
+    "transcript": [
+      "Open any Check and press Edit, and you land on its Overview page.",
+      "Duplicate makes a copy you can rename and change without touching the original.",
+      "Edit questions says Needs setup until your Check has some questions.",
+      "Question sources show where your questions came from, like a PDF or a document that you uploaded.",
+      "Your sentences are paragraphs you always write, or depending on an answer to a question, used only when a walk needs them. They work in the same way as the question sources, where you upload a document and Quickler sets them up from it.",
+      "The written report turns each Record into a finished document, in a PDF or a Word document, laid out in sections like any report. This is particularly useful and intended for when you want to upload a finished report of yours, and Quickler will use your own layout. Edit where answers go shows where each answer lands in that layout.",
+      "Under Who and when, Phone access sets the times this Check can be done. Contacts sets who this Check is for.",
+      "If you choose Nobody, then anyone with a phone number on your account can do it. If you choose People with a phone number, only those people you select can do it on WhatsApp or Telegram. If you choose people who have emails on the account, they will get sent an email with the Record when Tell managers is turned on.",
+      "Several people can do the same Check at the same time. Send now sends the Check to one person straight away. Something urgent, like a safety Fault, is sent to managers straight away.",
+      "To tidy up your Checks on the home page, you can use a folder. If you press New folder, you'll be able to give it a name and save it. You can drag a Check into a folder and back out if you don't need it. You can rename a folder or delete it. The Checks and Records inside are never deleted.",
+      "Some answers are worked out for you, like a total or a date. On a number question, you can press Add a sum and say in words what needs adding. You can then press Enter and Quickler turns it into a sum. On the Record, the answer is worked out, and you can still edit it, should you need to do so."
+    ],
+    "feature": {
+      "name": "Setting up a Check",
+      "heading": "Setting up a Check.",
+      "short": "From the Overview page: questions, sentences, the written report, who and when, folders and sums.",
+      "intro": [
+        "Open any Check and press Edit to land on its Overview page. Duplicate makes a copy to change without touching the original. Set up its questions and question sources, your sentences, and the written report, which can follow your own layout if you upload one.",
+        "Under Who and when, set the times the Check can be done and who it is for, and turn on Tell managers. Tidy Checks into folders on the home page, and on a number question press Add a sum and say in words what needs adding."
+      ],
+      "faq": []
+    }
   }
 ]
