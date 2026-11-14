@@ -523,10 +523,10 @@
     "title": "Quickler: use the WhatsApp you already have",
     "summary": "Quickler works on WhatsApp, which 90% of people in the UK already have: nothing to download and no login for your team.",
     "description": "Nobody loves another app on their phone. Quickler works on WhatsApp, the same app that 90% of people in the UK already have. There is nothing to download and no login for your team: if they can send a message, they can use Quickler.",
-    "video": "/assets/video/feature-use-whatsapp.mp4?v=1",
+    "video": "/assets/video/feature-use-whatsapp.mp4?v=2",
     "poster": "/assets/video/feature-use-whatsapp-poster.jpg?v=1",
-    "duration": "PT23S",
-    "durationText": "0:23",
+    "duration": "PT22S",
+    "durationText": "0:22",
     "uploadDate": "2026-11-11",
     "chapters": [
       [
@@ -916,10 +916,10 @@
     "title": "Quickler: three COSHH assessments in under three minutes",
     "summary": "Three COSHH assessments done on WhatsApp in under three minutes: say new COSHH, send the safety data sheet, add a short voice note, then say done.",
     "description": "Three COSHH assessments done on WhatsApp in under three minutes. Say new COSHH, send the safety data sheet as a file, add a short voice note on how it is used, then say done. Quickler reads each sheet and fills in the ingredients, hazards, controls and safety gear. The reports arrive a few minutes later and download in several formats, including a Word document in your own report layout.",
-    "video": "/assets/video/feature-coshh-assessments.mp4?v=1",
+    "video": "/assets/video/feature-coshh-assessments.mp4?v=2",
     "poster": "/assets/video/feature-coshh-assessments-poster.jpg?v=1",
-    "duration": "PT1M7S",
-    "durationText": "1:07",
+    "duration": "PT57S",
+    "durationText": "0:57",
     "uploadDate": "2026-11-12",
     "chapters": [
       [
@@ -927,23 +927,23 @@
         "An evening at the desk"
       ],
       [
-        "0:10",
+        "0:08",
         "Three in under three minutes"
       ],
       [
-        "0:13",
+        "0:10",
         "New COSHH, the sheet, a voice note, done"
       ],
       [
-        "0:29",
+        "0:23",
         "The same again, then a third time"
       ],
       [
-        "0:43",
+        "0:35",
         "Written up while you carry on"
       ],
       [
-        "0:56",
+        "0:47",
         "Download in several formats"
       ]
     ],
@@ -1649,10 +1649,10 @@
     "title": "Quickler: send your location on WhatsApp (Android)",
     "summary": "On Android, tap the paperclip, choose Location and send your current location, or open the full map and move the red pin, then press Send this location. Quickler adds the weather and address.",
     "description": "How to send your location on WhatsApp on an Android phone. Tap the paperclip at the bottom of the screen and choose Location. If you are on site, press Send your current location. If you are not, open the map to full screen, move the red pin to where you need and press Send this location. Quickler uses that pin to get the weather and the address.",
-    "video": "/assets/video/feature-send-location-whatsapp-android.mp4?v=1",
+    "video": "/assets/video/feature-send-location-whatsapp-android.mp4?v=2",
     "poster": "/assets/video/feature-send-location-whatsapp-android-poster.jpg?v=1",
-    "duration": "PT1M",
-    "durationText": "1:00",
+    "duration": "PT59S",
+    "durationText": "0:59",
     "uploadDate": "2026-11-13",
     "chapters": [
       [
@@ -1680,11 +1680,11 @@
         "Move the red pin"
       ],
       [
-        "0:45",
+        "0:44",
         "Press Send this location"
       ],
       [
-        "0:51",
+        "0:50",
         "Weather and address added"
       ]
     ],
@@ -1716,7 +1716,7 @@
     "title": "Quickler: send your location on Telegram",
     "summary": "On Telegram, press the paperclip, choose Location and send your current location or pick another place. You can switch the base map to Satellite to choose a very specific spot.",
     "description": "How to send your location to Quickler on Telegram. It is very similar to WhatsApp: press the paperclip, then select Location from the bar underneath. Send your current location or choose another place. On Telegram you can also change the base map to Satellite to pick a very specific spot, such as an allotment, then send the selected location.",
-    "video": "/assets/video/feature-send-location-telegram.mp4?v=1",
+    "video": "/assets/video/feature-send-location-telegram.mp4?v=2",
     "poster": "/assets/video/feature-send-location-telegram-poster.jpg?v=1",
     "duration": "PT47S",
     "durationText": "0:47",
@@ -1776,10 +1776,10 @@
     "title": "Quickler: send your signature on WhatsApp",
     "summary": "Take a photo of something plain, select the pen, pick a colour, write your signature and send it. Quickler reads it as a signature, and you carry on with your check or say done.",
     "description": "How to send your signature on WhatsApp on an Android phone. In the Quickler chat, tap the camera and take a photo of something plain. Select the pen, pick a colour, write your signature and send it. The rotation does not matter. Quickler reads it as a signature and you carry on, or say done.",
-    "video": "/assets/video/feature-send-signature-whatsapp.mp4?v=1",
+    "video": "/assets/video/feature-send-signature-whatsapp.mp4?v=2",
     "poster": "/assets/video/feature-send-signature-whatsapp-poster.jpg?v=1",
-    "duration": "PT1M7S",
-    "durationText": "1:07",
+    "duration": "PT1M1S",
+    "durationText": "1:01",
     "uploadDate": "2026-11-13",
     "chapters": [
       [
@@ -1803,27 +1803,27 @@
         "Select the pen"
       ],
       [
-        "0:34",
+        "0:33",
         "Pick a colour"
       ],
       [
-        "0:38",
+        "0:37",
         "Write your signature"
       ],
       [
-        "0:44",
+        "0:40",
         "Press done"
       ],
       [
-        "0:46",
+        "0:42",
         "Any rotation is fine"
       ],
       [
-        "0:54",
+        "0:50",
         "Quickler reads it as a signature"
       ],
       [
-        "0:57",
+        "0:52",
         "Carry on, or say done"
       ]
     ],
@@ -1836,7 +1836,7 @@
       "You can choose any colour you want. I'm going to go for bright green.",
       "And then write your signature.",
       "Once you've done that, press done. I should say the rotation that you send your signature in doesn't matter because Quickler will correct that for you. You don't have to say anything.",
-      "It will be recognised as a signature. It'll be recognised as writing. And you can go on with your check as normal. Or if you're just coming to the end, you can say done as usual."
+      "It will be recognised as a signature, and you can go on with your check as normal. Or if you're just coming to the end, you can say done as usual."
     ],
     "feature": {
       "name": "Send your signature on WhatsApp",
