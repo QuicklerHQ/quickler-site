@@ -2101,5 +2101,94 @@
       ],
       "faq": []
     }
+  },
+  {
+    "slug": "setting-up-a-check",
+    "page": "/features/setting-up-a-check/",
+    "title": "Quickler: setting up a Check",
+    "summary": "Open a Check and press Edit to reach its Overview page: duplicate it, set up its questions, sentences and written report, choose who it is for and when, tidy Checks into folders and add sums to number questions.",
+    "description": "A tour of setting up a Check in Quickler. Open any Check and press Edit to land on its Overview page. Duplicate it, set up its questions and question sources, your sentences and the written report, which can follow your own layout. Under Who and when set the phone access times and who the Check is for, turn on Tell managers, use Send now, tidy Checks into folders on the home page, and add sums to number questions in words.",
+    "video": "/assets/video/feature-setting-up-a-check.mp4?v=2",
+    "poster": "/assets/video/feature-setting-up-a-check-poster.jpg?v=1",
+    "duration": "PT2M24S",
+    "durationText": "2:24",
+    "uploadDate": "2026-11-14",
+    "chapters": [
+      [
+        "0:00",
+        "Edit opens the Overview page"
+      ],
+      [
+        "0:05",
+        "Duplicate a Check"
+      ],
+      [
+        "0:10",
+        "Edit questions"
+      ],
+      [
+        "0:15",
+        "Question sources"
+      ],
+      [
+        "0:21",
+        "Your sentences"
+      ],
+      [
+        "0:37",
+        "The written report"
+      ],
+      [
+        "0:55",
+        "Edit where answers go"
+      ],
+      [
+        "1:00",
+        "Who and when: phone access"
+      ],
+      [
+        "1:05",
+        "Contacts"
+      ],
+      [
+        "1:21",
+        "Tell managers"
+      ],
+      [
+        "1:32",
+        "Several people, Send now"
+      ],
+      [
+        "1:43",
+        "Folders on the home page"
+      ],
+      [
+        "2:00",
+        "Sums on number questions"
+      ]
+    ],
+    "transcript": [
+      "Open any Check and press Edit, and you land on its Overview page.",
+      "Duplicate makes a copy you can rename and change without touching the original.",
+      "Edit questions says Needs setup until your Check has some questions.",
+      "Question sources show where your questions came from, like a PDF or a document that you uploaded.",
+      "Your sentences are paragraphs you always write, or depending on an answer to a question, used only when a walk needs them. They work in the same way as the question sources, where you upload a document and Quickler sets them up from it.",
+      "The written report turns each Record into a finished document, in a PDF or a Word document, laid out in sections like any report. This is particularly useful and intended for when you want to upload a finished report of yours, and Quickler will use your own layout. Edit where answers go shows where each answer lands in that layout.",
+      "Under Who and when, Phone access sets the times this Check can be done. Contacts sets who this Check is for.",
+      "If you choose Nobody, then anyone with a phone number on your account can do it. If you choose People with a phone number, only those people you select can do it on WhatsApp or Telegram. If you choose people who have emails on the account, they will get sent an email with the Record when Tell managers is turned on.",
+      "Several people can do the same Check at the same time. Send now sends the Check to one person straight away. Something urgent, like a safety Fault, is sent to managers straight away.",
+      "To tidy up your Checks on the home page, you can use a folder. If you press New folder, you'll be able to give it a name and save it. You can drag a Check into a folder. You can rename a folder or delete it. The Checks and Records inside are never deleted.",
+      "Some answers are worked out for you, like a total or a date. On a number question, you can press Add a sum and say in words what needs adding. You can then press Enter and Quickler turns it into a sum. On the Record, the answer is worked out, and you can still edit it, should you need to do so."
+    ],
+    "feature": {
+      "name": "Setting up a Check",
+      "heading": "Setting up a Check.",
+      "short": "From the Overview page: questions, sentences, the written report, who and when, folders and sums.",
+      "intro": [
+        "Open any Check and press Edit to land on its Overview page. Duplicate makes a copy to change without touching the original. Set up its questions and question sources, your sentences, and the written report, which can follow your own layout if you upload one.",
+        "Under Who and when, set the times the Check can be done and who it is for, and turn on Tell managers. Tidy Checks into folders on the home page, and on a number question press Add a sum and say in words what needs adding."
+      ],
+      "faq": []
+    }
   }
 ]
