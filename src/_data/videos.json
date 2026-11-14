@@ -2022,5 +2022,84 @@
       ],
       "faq": []
     }
+  },
+  {
+    "slug": "your-account",
+    "page": "/features/your-account/",
+    "title": "Quickler: your account",
+    "summary": "Everything for your account lives on the Settings page: your plan and next bill, past invoices, cancelling in two clicks, signing in by password, link or code, and adding contacts by email, phone number or both.",
+    "description": "How your Quickler account works. Everything lives on the Settings page. Press Billing to see your plan, the phone numbers this month and your next bill, download any past invoice as a PDF, and cancel in two clicks. Sign in with email and password, a sign-in link that lasts a day or a six-digit code that works for 15 minutes. Add contacts with an email, a phone number or both. Everyone who joins by email joins as an admin, and Quickler asks you to confirm the cost before a new number takes you above your plan.",
+    "video": "/assets/video/feature-your-account.mp4?v=1",
+    "poster": "/assets/video/feature-your-account-poster.jpg?v=1",
+    "duration": "PT1M29S",
+    "durationText": "1:29",
+    "uploadDate": "2026-11-14",
+    "chapters": [
+      [
+        "0:00",
+        "Billing on the Settings page"
+      ],
+      [
+        "0:08",
+        "Plan, phone numbers and next bill"
+      ],
+      [
+        "0:13",
+        "Past invoices"
+      ],
+      [
+        "0:26",
+        "Cancelling takes two clicks"
+      ],
+      [
+        "0:34",
+        "Signing in"
+      ],
+      [
+        "0:39",
+        "Sign-in link and six-digit code"
+      ],
+      [
+        "0:49",
+        "Set a password"
+      ],
+      [
+        "0:52",
+        "Contacts: email, phone, or both"
+      ],
+      [
+        "1:02",
+        "Joining by email makes an admin"
+      ],
+      [
+        "1:06",
+        "Phone numbers and the checks"
+      ],
+      [
+        "1:19",
+        "Going above your plan"
+      ]
+    ],
+    "transcript": [
+      "Everything for your account lives on the Settings page. Press Billing and it opens right there, with no new page.",
+      "You can see your plan, the phone numbers this month and your next bill.",
+      "Every payment collected appears under past invoices, and this is also emailed to you. You can download a copy as a PDF for any invoice or of your subscription confirmation.",
+      "Cancelling takes just two clicks, so it can never happen by accident. If you cancel, your Checks keep running until the end of the paid period.",
+      "To sign in, enter your email and password, or ask for a sign-in link. The link lasts one day. If you need it, you can ask for a six-digit code instead. A code works for 15 minutes, then it stops working.",
+      "In Settings, you can set a password of at least 10 characters.",
+      "Each contact can have an email, a phone number, or both. Just enter an email and Quickler will invite them to your account. Everyone who joins via email joins as an admin, so choose carefully.",
+      "If you add a phone number, that's how you can do Checks on WhatsApp and Telegram. With only a phone number, they never need to log in. With only an email, they never need to do a Check on their phone.",
+      "If a new number takes you above your plan, Quickler will ask you to confirm the extra cost first."
+    ],
+    "feature": {
+      "name": "Your account",
+      "heading": "Your account.",
+      "short": "Billing, invoices, signing in and your contacts, all on the Settings page.",
+      "intro": [
+        "Everything for your account lives on the Settings page. Press Billing to see your plan, the phone numbers this month and your next bill, download any past invoice as a PDF, and cancel in two clicks. If you cancel, your Checks keep running until the end of the paid period.",
+        "Sign in with your email and password, a sign-in link that lasts one day, or a six-digit code that works for 15 minutes. Each contact can have an email, a phone number or both. Everyone who joins by email joins as an admin. If a new number takes you above your plan, Quickler asks you to confirm the extra cost first."
+      ],
+      "faq": []
+    }
   }
 ]
