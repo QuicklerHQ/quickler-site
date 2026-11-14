@@ -2190,5 +2190,73 @@
       ],
       "faq": []
     }
+  },
+  {
+    "slug": "why-ai-gets-things-wrong",
+    "page": "/features/why-ai-gets-things-wrong/",
+    "title": "Why AI gets things wrong",
+    "summary": "Why AI gets things wrong, and how to guide it correctly: a light switch, a dice and a desert island explain it, and three habits help you get the best from Quickler.",
+    "description": "A 6 minute 27 second explainer on why AI gets things wrong, and how to guide it. Old-fashioned code is like a light switch, the same action gives the same result. AI is more like rolling a dice: it works out probabilities and picks one of the most likely answers, so now and then it lands on the wrong side. A desert island and two inspectors show how to paint your dice with sixes, and three habits make Quickler work better: precise questions, section headings as signposts, and saying what you see on site.",
+    "video": "/assets/video/feature-why-ai-gets-things-wrong.mp4?v=1",
+    "poster": "/assets/video/feature-why-ai-gets-things-wrong-poster.jpg?v=1",
+    "duration": "PT6M27S",
+    "durationText": "6:27",
+    "uploadDate": "2026-11-14",
+    "chapters": [
+      [
+        "0:00",
+        "Why AI gets things wrong: a light switch and a dice"
+      ],
+      [
+        "1:10",
+        "Painting the dice with sixes"
+      ],
+      [
+        "1:52",
+        "The desert island and the polar bears"
+      ],
+      [
+        "2:35",
+        "Two inspectors, one building"
+      ],
+      [
+        "3:07",
+        "Three habits: precise questions and signposts"
+      ],
+      [
+        "3:45",
+        "On site: say where you are and what you see"
+      ],
+      [
+        "5:08",
+        "Walk round naturally, with a mail room for your messages"
+      ]
+    ],
+    "transcript": [
+      "You might have heard people say that AI gets things wrong, and that it makes mistakes. But why is that? By the end of this video, you'll have an idea why, and how to guide it correctly. To do so, we'll start by talking about a light switch.",
+      "It's a pretty simple and familiar thing. You flick it on, and the light comes on. That is how old-fashioned computer code works. The same action gives the same result, with no surprises.",
+      "But AI is different. It's much more like rolling a dice. It's not magic, it's not human, and it's not thinking. It is a machine. It's working out probabilities using some clever maths, and then picking one of the most likely answers. Let's imagine a dice, and that we want to roll a six. With a normal dice, we roll and we hope. Most of the time we don't get a six, but now and then we do. Real AI does far better than that, but it can still be wrong in a similar way. And this is the root of how AI gets things wrong. Not because it's broken, but because the dice landed on the wrong side.",
+      "Now imagine a shop that sells specialist dice. Dice with a six on every side. Roll one of these, and it can only land on a six. That is what you're doing when you're trying to tell an AI clearly what you want. Every clear, relevant thing you say paints another side with a six.",
+      "Now, our real AI dice doesn't have six sides, it has a hundred thousand sides or more. For every word that it writes, or even part of a word that it writes, it rolls again. You'll never manage to paint every side with your figurative sixes, but the more you paint, the better your odds are of rolling a six.",
+      "But there's a catch. Imagine you grew up on a remote desert island. Your whole world is palm trees, sunshine and fish. You do have one book though, and it's all about polar bears. One day someone comes along and asks you about the North Pole. Well, you certainly know a few things, but you have no real idea what it's like. All you can picture is a cold desert island with large, white, extremely hungry, fluffy mammals.",
+      "AI has the same problem. If it hasn't been told something, it fills the gap with whatever seems likely. And it won't say \"I don't know\". Instead, it will guess as if it is the right answer, because it doesn't know enough to know it's wrong.",
+      "Picture two inspectors walking round the same building, using the same checklist and the same AI system. One gets a report that's spot on, first time. The other spends half an hour putting it right. The difference isn't the AI. It's how they talk. One says \"the door's closer is broken\". Which door? The AI has to guess. The other says \"kitchen, second fire door, third floor, the door's closer is broken\". There's nothing to guess. It's clear.",
+      "There are three habits that make Quickler work better. These are essentially the same as painting sixes on our dice. The first two are for when we set things up. First, make sure your questions are precise and distinct. If two questions ask nearly the same thing, even a person would struggle to know which box an answer belongs in. An AI struggles here as well. Secondly, we can use section headings as signposts, like Fire doors, Lighting and Kitchen. They help the AI, just as it would help a person, to work out where something goes.",
+      "Third is for when you're on site, and it's the main one. As you go round, talk about what you're seeing, and be specific. Don't just send photos or information on their own. Something like \"the fire extinguisher by the main stairs is in date, and the pin and seal are in good order\" is a great help. If you send a photo, there's no knowing what it means, even for a human, unless there is text that can be read in the photo. In our own data, about a third of photos arrive with no words at all.",
+      "Think of a new apprentice on their first day, and you tell them \"go and sort that out\", and neither of you really knows what will happen next, because no one is entirely sure what that is. But if we tell the apprentice \"replace the cracked tile by door three\", you'll get a replaced cracked tile by door three. AI is the same. Say where you are first, and say what you are seeing. \"Room sixteen, the windows have damaged seals.\" If we were to walk in somewhere and just say \"damaged seals\", there's no context; there's no knowing if that is a damaged window seal, a door seal or a sea mammal. This is because AI isn't replacing your expertise. That expertise is in your head, and the only way to get it out of your head is for you to speak properly.",
+      "What all of this allows is for you to walk around and do your inspection naturally. Most inspection apps are like a lift, where you go from floor to floor in a set order. Question one, question two, question three. In order, one at a time. But that's not natural. In reality, you walk into a classroom and see the floor, the walls and the call points all at once. Quickler lets you work that way. It works a little like a mail room. It tips out the whole sack, in other words all of your messages, reads every address, and puts every letter in the right pigeonhole. With the extra benefit that if you said \"no defects\" on the vans, and ten minutes later spotted a broken wing mirror, you can just say so, and the latest answer wins.",
+      "Of course, there are some things that must never be left to AI, and Quickler doesn't leave everything to AI. Many things are covered by our figurative light switches, and they work the same way every time.",
+      "So next time you're on site, say what you see, be specific, and talk about your photos. Be the inspector who is precise in their language. And in that way, you are painting your dice with sixes, and you're going to roll a six."
+    ],
+    "feature": {
+      "name": "Why AI gets things wrong",
+      "heading": "Why AI gets things wrong.",
+      "short": "A light switch, a dice and a desert island, and three habits that help you guide it.",
+      "intro": [
+        "AI is not magic, it is not human and it is not thinking. It works out probabilities and picks one of the most likely answers, much like rolling a dice, so now and then it lands on the wrong side. This film uses a light switch, a dice and a desert island to show why, and how to guide it correctly.",
+        "Quickler works best when you say where you are and what you see, be specific, and talk about your photos instead of sending them on their own. When you set up a Check, make your questions precise and distinct and use section headings as signposts. Then walk round naturally: Quickler reads every message and puts each answer in the right place."
+      ],
+      "faq": []
+    }
   }
 ]
