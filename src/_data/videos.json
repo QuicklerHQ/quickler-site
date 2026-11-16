@@ -2195,13 +2195,13 @@
     "slug": "why-ai-gets-things-wrong",
     "page": "/features/why-ai-gets-things-wrong/",
     "title": "Why AI gets things wrong",
-    "summary": "Why AI gets things wrong, and how to guide it correctly: a light switch, a dice and a desert island explain it, and three habits help you get the best from Quickler.",
+    "summary": "Why does AI get things wrong? Because it doesn't work like a light switch. It works more like rolling a dice: it weighs up the likely answers and picks one. This video shows what that means, and three habits that load the dice in your favour when you use AI for inspections and records.",
     "description": "A 6 minute 26 second explainer on why AI gets things wrong, and how to guide it. Old-fashioned code is like a light switch, the same action gives the same result. AI is more like rolling a dice: it works out probabilities and picks one of the most likely answers, so now and then it lands on the wrong side. A desert island and two inspectors show how to paint your dice with sixes, and three habits make Quickler work better: precise questions, section headings as signposts, and saying what you see on site.",
-    "video": "/assets/video/feature-why-ai-gets-things-wrong.mp4?v=2",
-    "poster": "/assets/video/feature-why-ai-gets-things-wrong-poster.jpg?v=1",
+    "video": "/assets/video/feature-why-ai-gets-things-wrong.mp4?v=3",
+    "poster": "/assets/video/feature-why-ai-gets-things-wrong-poster.jpg?v=2",
     "duration": "PT6M26S",
     "durationText": "6:26",
-    "uploadDate": "2026-11-14",
+    "uploadDate": "2026-11-16",
     "chapters": [
       [
         "0:00",
