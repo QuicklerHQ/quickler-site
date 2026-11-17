@@ -53,6 +53,52 @@
     ]
   },
   {
+    "slug": "quickler-full-demo",
+    "title": "Quickler: the full demo, every feature in 28 minutes",
+    "summary": "A 28 minute walk through all of Quickler: signing up, setting up a Check, a walk on the phone, the Record, sharing and downloads, real jobs, and your account and pricing.",
+    "description": "The full Quickler demo in one film: sign up, set up a Check, do the walk on WhatsApp, then see the finished Record, share it and download it, with real jobs and pricing at the end. A note on sound: some sections were recorded on my laptop's built-in microphone, so the audio quality varies in places. Sorry about that.",
+    "uploadDate": "2026-11-17",
+    "duration": "PT27M43S",
+    "durationText": "27:43",
+    "video": "/assets/video/quickler-long-demo.mp4?v=1",
+    "poster": "/assets/video/quickler-long-demo-poster.jpg?v=1",
+    "chapters": [
+      [
+        "0:00",
+        "Introduction and signing up"
+      ],
+      [
+        "1:38",
+        "A. Why Quickler"
+      ],
+      [
+        "2:07",
+        "B. Setting up"
+      ],
+      [
+        "13:10",
+        "C. The walk on the phone"
+      ],
+      [
+        "18:45",
+        "D. The Record"
+      ],
+      [
+        "19:48",
+        "E. Sharing and downloads"
+      ],
+      [
+        "22:51",
+        "F. Real jobs"
+      ],
+      [
+        "25:04",
+        "G. Your account, and pricing"
+      ]
+    ],
+    "transcript": []
+  },
+  {
     "slug": "voice-notes",
     "title": "Quickler: send a voice note, not a typed message",
     "summary": "Send a voice note during a visit. Quickler writes it out, in any accent, and puts each thing you said on the right question.",
