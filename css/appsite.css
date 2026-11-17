@@ -863,3 +863,4 @@ html.aw-lb-on { overflow: hidden; }
 .hey-bubble-quote { font-weight: 400; }
 .hey-bubble p b { font-weight: 700; }
 @media (max-width: 600px) { .hey-bubbles { columns: 1; } .hey-bubble p { font-size: 1rem; } }
+@media (min-width: 601px) and (max-width: 1000px) { .hey-bubble-who { font-size: 0.72rem; padding: 3px 10px; } }
