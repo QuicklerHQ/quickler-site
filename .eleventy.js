@@ -278,7 +278,7 @@ module.exports = function (eleventyConfig) {
   // Root-level SEO/static files copied verbatim.
   ["robots.txt", "sitemap.xml", "CNAME",
    "site.json", "site.webmanifest", "favicon.ico", "favicon.svg",
-   "privacy.html"].forEach(f =>
+   "privacy.html", "736d1ddfd55e83d9a251ced5e4d3f12d.txt"].forEach(f =>
     eleventyConfig.addPassthroughCopy(f));
 
   // Static directories served verbatim (not module pages).
