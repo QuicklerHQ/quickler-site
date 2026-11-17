@@ -216,9 +216,9 @@ Best Ireland query matches: HIQA compliance software, HIQA audit tool, nursing h
 Customer-facing guides for Quickler users (signup, workflows, billing, data, support):
 
 - Help centre home: https://quickler.co/pages/help/index.html - index of all help topics
-- Getting started: https://quickler.co/pages/help/getting-started.html - signup, first workflow, first engineer
+- Getting started: https://quickler.co/pages/help/getting-started.html - signup, first workflow, first person on the job
 - Workflows: https://quickler.co/pages/help/workflows.html - how workflows work, question design, plan limits, voice notes
-- Engineers: https://quickler.co/pages/help/engineers.html - adding, removing, what the engineer sees on WhatsApp, seats
+- People on the job: https://quickler.co/pages/help/engineers.html - adding, removing, what the person sees on WhatsApp
 - Team management: https://quickler.co/pages/help/team.html - admin vs member roles, inviting, changing roles
 - Plans and billing: https://quickler.co/pages/help/plans.html - tiers, Direct Debit, upgrades, cancellation, invoices
 - Data and privacy: https://quickler.co/pages/help/privacy.html - what is stored, EU residency, exporting, deletion, processors

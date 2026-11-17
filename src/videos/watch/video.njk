@@ -7,7 +7,7 @@
   "eleventyComputed": {
     "seo": {
       "title": "{{ v.title }} | Quickler",
-      "description": "{{ v.summary }}",
+      "description": "{{ v.summary | replace(\"'\", '’') }}",
       "canonical": "https://quickler.co/videos/{{ v.slug }}/",
       "lang": "en"
     }
@@ -31,6 +31,9 @@
 <div class="card">
   <h1 class="site-home-h2" style="font-size:2rem">{{ v.title }}</h1>
   <p class="site-words">{{ v.summary }}</p>
+  {%- if v.more %}
+  <p class="site-words">{{ v.more }}</p>
+  {%- endif %}
   <div class="fx-video">{{ videoPlayer(v.video, v.poster, v.title) }}</div>
   <h2 class="site-home-h2" style="font-size:1.2rem;margin-top:24px">Chapters</h2>
   <ul>

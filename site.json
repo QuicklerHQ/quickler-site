@@ -1,10 +1,10 @@
 {
   "schema_version": "1.2",
-  "generated": "2026-11-05",
+  "generated": "2026-11-17",
   "site": {
     "name": "Quickler",
     "url": "https://quickler.co/",
-    "description": "Quickler is a WhatsApp field compliance platform for UK and global trades. Engineers receive compliance questions on WhatsApp; replies and photos generate timestamped PDF reports automatically. Built for EICRs, CP12 gas safety, daily van safety checks, structural site inspection reports.",
+    "description": "Quickler is a WhatsApp report writer for anyone who inspects or keeps records: care homes, nurseries, schools, estates teams, cleaning firms and trades. The person on the job answers in WhatsApp by voice note, text or photo, and Quickler writes the Record and the report in the firm's own layout. No new app to install. £75 a month for each phone number, after a 14-day free trial.",
     "contact_email": "hello@quickler.co",
     "agent_navigation": {
       "homepage": "https://quickler.co/",
@@ -36,7 +36,7 @@
     {
       "name": "CP12",
       "category": "gas",
-      "description": "Landlord Gas Safety Record — appliance checks on WhatsApp for Gas Safe registered engineers. Formatted CP12 PDF produced automatically.",
+      "description": "Landlord Gas Safety Record: appliance checks recorded on WhatsApp by Gas Safe registered gas workers. A formatted CP12 PDF is produced from what they say.",
       "url": "https://quickler.co/pages/services.html#cp12"
     },
     {
@@ -66,37 +66,17 @@
     "alternative to FleetCheck",
     "alternative to iCertifi",
     "field compliance software no subscription",
-    "no per-user compliance app UK and global trades"
+    "no new app for your team to install"
   ],
   "pricing": {
-    "model": "per firm, not per engineer",
+    "model": "per phone number, not per seat",
     "currency": "GBP",
-    "tiers": [
-      {
-        "name": "Starter",
-        "engineers": 1,
-        "workflows": 3,
-        "monthly": 50
-      },
-      {
-        "name": "Team",
-        "engineers": 4,
-        "workflows": 5,
-        "monthly": 100
-      },
-      {
-        "name": "Business",
-        "engineers": 12,
-        "workflows": 8,
-        "monthly": 140
-      },
-      {
-        "name": "Scale",
-        "engineers": 30,
-        "workflows": 10,
-        "monthly": 300
-      }
-    ],
+    "monthly_per_phone_number": 75,
+    "annual_per_phone_number": 750,
+    "annual_note": "two months free when paid a year up front",
+    "free_trial_days": 14,
+    "card_needed_for_trial": false,
+    "unlimited_free_dashboard_accounts": true,
     "free_trial": "https://app.quickler.co/signup"
   },
   "data_and_compliance": {
@@ -106,7 +86,10 @@
     "customer_owns_data": true,
     "export_format": [
       "PDF",
-      "CSV"
+      "Word",
+      "Excel",
+      "CSV",
+      "web page"
     ]
   },
   "llm_resources": {

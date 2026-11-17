@@ -30,6 +30,7 @@ eleventyComputed:
   <div class="story-inner">
     <p class="story-eyebrow">Countries</p>
     <h2 class="story-h2">Countries in {{ cont.name }}.</h2>
+    <p class="story-text">Quickler works anywhere WhatsApp does, so the same steps apply in every country in {{ cont.name }}: the person on site answers by voice note, text or photo and Quickler writes the report. Your reports are kept on secure servers in the European Union. Quickler is £75 a month for each phone number, with a 14-day free trial and no card needed.</p>
     <div class="story-tags">
       {%- for c in countries %}
       {%- if c.continent == cont.name %}

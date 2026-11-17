@@ -6,8 +6,8 @@
   "eleventyExcludeFromCollections": true,
   "eleventyComputed": {
     "seo": {
-      "title": "{{ v.feature.heading | replace('.', '') }} | Quickler",
-      "description": "{{ v.summary }}",
+      "title": "{{ v.feature.heading | replace('.', '') | replace(\"'\", '’') }} | Quickler",
+      "description": "{{ v.summary | replace(\"'\", '’') }}",
       "canonical": "https://quickler.co{{ v.page }}",
       "lang": "en"
     }

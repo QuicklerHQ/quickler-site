@@ -55,7 +55,7 @@
   {
     "slug": "quickler-full-demo",
     "title": "Quickler: the full demo, every feature in 28 minutes",
-    "summary": "A 28 minute walk through all of Quickler: signing up, setting up a Check, a walk on the phone, the Record, sharing and downloads, real jobs, and your account and pricing.",
+    "summary": "A 28 minute walk through Quickler: signing up, setting up a Check, a walk on the phone, the Record, sharing, downloads, real jobs, account and pricing.",
     "description": "The full Quickler demo in one film: sign up, set up a Check, do the walk on WhatsApp, then see the finished Record, share it and download it, with real jobs and pricing at the end. A note on sound: some sections were recorded on my laptop's built-in microphone, so the audio quality varies in places. Sorry about that.",
     "uploadDate": "2026-11-17",
     "duration": "PT27M43S",
@@ -96,7 +96,8 @@
         "G. Your account, and pricing"
       ]
     ],
-    "transcript": []
+    "transcript": [],
+    "more": "The demo covers each stage in order: signing up, setting up a Check, a walk on the phone, the Record, sharing and downloads, real jobs, and your account and pricing. The chapter list above jumps to each part. Quickler is £75 a month for each phone number, with a 14-day free trial and no card needed."
   },
   {
     "slug": "voice-notes",
@@ -135,7 +136,8 @@
       "short": "Talk instead of typing. Quickler writes your voice note out, in any accent, and puts each thing you said on the right question.",
       "intro": [
         "Typing on a phone during a visit is slow and fiddly. With Quickler you send a voice note on WhatsApp, just as you would to a friend.",
-        "Quickler writes it out, in any accent, and puts each thing you said on the right question in your report."
+        "Quickler writes it out, in any accent, and puts each thing you said on the right question in your report.",
+        "Voice notes work with any accent, and a voice note can hold several things at once: each is placed on its own question. The voice note itself stays in the whole chat attached to the Record, with the written-out words beneath it."
       ]
     }
   },
@@ -222,7 +224,8 @@
       "short": "After every message, Quickler replies with what you have not covered yet, so you never lose your place.",
       "intro": [
         "As you go round a site it is easy to lose track of what you have and have not said.",
-        "After every message, Quickler replies with what is still to cover. That way you always know what is left, and nothing gets forgotten on the way out."
+        "After every message, Quickler replies with what is still to cover. That way you always know what is left, and nothing gets forgotten on the way out.",
+        "The reply lists only what is still to cover, so you can answer in any order and in any form: text, voice note, photo, document or location. Anything you do not mention is filed as OK, so you do not tick every box."
       ]
     }
   },
@@ -263,7 +266,8 @@
       "short": "Saying done is how Quickler knows you have finished. Then it sorts every photo and word into the right place.",
       "intro": [
         "Saying done is how Quickler knows your inspection is over. Nothing is filed until you say it. If you forget, the Record is filed for you after 12 hours of quiet.",
-        "Then Quickler sorts all your photos and all your words into the right places in the Record, ready for you to read through and improve."
+        "Then Quickler sorts all your photos and all your words into the right places in the Record, ready for you to read through and improve.",
+        "If you forget to say done, Quickler reminds you after a while, and the Record is filed for you after 12 hours of quiet. Once filed, you can read through it and improve any word, and every change is kept in its history."
       ]
     }
   },
@@ -304,7 +308,8 @@
       "short": "Every Fault you mention goes on the To do list at the top of the Record, ready to copy and send on.",
       "intro": [
         "Every Fault you mention goes straight onto the To do list at the top of the Record, so nobody has to hunt through the report for it.",
-        "You can reword a line, hide one or change the order. Whoever receives the report can copy the list and paste it wherever it is needed."
+        "You can reword a line, hide one or change the order. Whoever receives the report can copy the list and paste it wherever it is needed.",
+        "The To do list is built from the Faults you mention on site, so it needs no separate write-up. You can copy it and paste it into your own system."
       ]
     }
   },
@@ -419,7 +424,7 @@
     "slug": "download-formats",
     "page": "/features/download-formats/",
     "title": "Quickler: download a report as PDF, Word, Excel, CSV or a web page",
-    "summary": "Anyone receiving a report can download it as a PDF, a Word document, an Excel file, a CSV or a web page, and you can download all of your own records at any time.",
+    "summary": "Anyone receiving a report can download it as a PDF, Word document, Excel file, CSV or web page, and you can download all your own Records at any time.",
     "description": "Many people receiving a report still want to keep the files for their own records. Quickler lets them download it as a PDF, a Word document, an Excel file, a CSV or a web page. You can also download all of your own records at any time.",
     "video": "/assets/video/feature-download-formats.mp4?v=1",
     "poster": "/assets/video/feature-download-formats-poster.jpg?v=1",
@@ -465,7 +470,7 @@
     "slug": "start-from-your-form",
     "page": "/features/start-from-your-form/",
     "title": "Quickler: start from the form you already use",
-    "summary": "Upload the form you already use, as Word, PDF, a spreadsheet or a photo, or paste the questions in. Quickler extracts the questions, you check them, and your team can use it on WhatsApp straight away.",
+    "summary": "Upload the form you already use (Word, PDF, spreadsheet or photo) or paste the questions in. You check them, and your team starts on WhatsApp.",
     "description": "Start from the form you already use. Upload a Word document, a PDF, a spreadsheet or a photo, paste the questions in, or upload a previously completed record from another app. Quickler extracts the questions, you check them over, make any edits and press continue, and your team can use it on WhatsApp straight away.",
     "video": "/assets/video/feature-start-from-your-form.mp4?v=1",
     "poster": "/assets/video/feature-start-from-your-form-poster.jpg?v=1",
@@ -558,7 +563,8 @@
       "short": "Text, voice note, photo, document or location, in any order. Each lands on the right question.",
       "intro": [
         "On a visit, things rarely happen in the order of a form. With Quickler you answer in the order that suits you best.",
-        "Send a text message, a voice note, a photo, a document or even your location, and Quickler puts each one in the right place."
+        "Send a text message, a voice note, a photo, a document or even your location, and Quickler puts each one in the right place.",
+        "After each message Quickler replies with what is still to cover, and when you say done it sorts every photo and word into place."
       ],
       "faq": []
     }
@@ -604,7 +610,8 @@
       "short": "No new app, no download, no login. If your team can send a message, they can use Quickler.",
       "intro": [
         "Nobody loves another app on their phone. Quickler works on WhatsApp, the same app that 90% of people in the UK already have.",
-        "There is nothing to download and no login for your team. If they know how to send a message, they know how to use Quickler."
+        "There is nothing to download and no login for your team. If they know how to send a message, they know how to use Quickler.",
+        "Quickler also works on Telegram for anyone who prefers it, and both work on iPhone and Android. Each person adds their name and phone number in Contacts and asks Quickler for a Check when it is due. Quickler is £75 a month for each phone number, with a 14-day free trial and no card needed."
       ],
       "faq": []
     }
@@ -650,7 +657,8 @@
       "short": "Send a finished report and every new record comes back in that layout.",
       "intro": [
         "You have probably spent years getting your reports to look just right. With Quickler, you do not have to change them.",
-        "Send a finished report as a Word document, a PDF or even a photo, and every new record comes back in that layout, with your headings, tables, logos and footers."
+        "Send a finished report as a Word document, a PDF or even a photo, and every new record comes back in that layout, with your headings, tables, logos and footers.",
+        "Your headings, tables, logos and footers are kept in every new Record. Anyone who receives a report can also download it as an Excel file, a CSV or a web page."
       ],
       "faq": []
     }
@@ -696,7 +704,8 @@
       "short": "Edit any word, before or after it goes out. Every edit is kept, with who and when.",
       "intro": [
         "Every word on a Record can be changed, before it goes out and after. But nothing is changed without trace.",
-        "Every edit is kept in the Record's history, with who made it and when, shown in the Changes and time taken panel. That way, you can always see exactly what was changed."
+        "Every edit is kept in the Record's history, with who made it and when, shown in the Changes and time taken panel. That way, you can always see exactly what was changed.",
+        "Because every edit is kept, a Record can be corrected after it has gone out and the earlier wording is still on file. The Changes and time taken panel on the Record shows each edit with its author and time."
       ],
       "faq": []
     }
@@ -705,7 +714,7 @@
     "slug": "schedules-and-reminders",
     "page": "/features/schedules-and-reminders/",
     "title": "Quickler: schedules and reminders",
-    "summary": "Many Checks happen on a routine. Pick the days and times and Quickler sends the Check to your team. Anyone who has not done it gets a reminder and their manager is told.",
+    "summary": "Pick the days and times and Quickler sends the Check to your team. Anyone who has not done it gets a reminder and their manager is told.",
     "description": "Schedule a Check on the days and times you choose, or every few days, weeks or months. Quickler sends it to your team, reminds anyone who has not done it and tells their manager. Need something done today? Send it now.",
     "video": "/assets/video/feature-schedules-and-reminders.mp4?v=1",
     "poster": "/assets/video/feature-schedules-and-reminders-poster.jpg?v=1",
@@ -756,7 +765,7 @@
     "slug": "works-with-no-signal",
     "page": "/features/works-with-no-signal/",
     "title": "Quickler: lose signal and keep going",
-    "summary": "No signal in a car park, tunnel or remote site? Keep sending messages and photos; WhatsApp sends them when you are back online. Quickler reminds you to say done after 15 minutes and files the record after 12 hours.",
+    "summary": "No signal in a car park, tunnel or remote site? Keep sending messages and photos; WhatsApp sends them when you are back online.",
     "description": "You will visit places with no internet connection, like a multi-storey car park, a tunnel or a remote project. Just carry on sending your messages and photos, and WhatsApp sends them as soon as you are back online. If you forget to say done, Quickler reminds you after 15 minutes and files the record after 12 hours.",
     "video": "/assets/video/feature-works-with-no-signal.mp4?v=1",
     "poster": "/assets/video/feature-works-with-no-signal-poster.jpg?v=1",
@@ -844,7 +853,8 @@
       "short": "Spotted a fault after saying done? Tell Quickler and the record is amended.",
       "intro": [
         "You have said done and your record is filing. Then, back at the car, you notice a fault you did not mention.",
-        "Just tell Quickler straight away, and the record is amended. That way, nothing gets left out."
+        "Just tell Quickler straight away, and the record is amended. That way, nothing gets left out.",
+        "The correction is added to the same Record rather than starting a new one, and the change is kept in the Record's history. Quickler also files a Record automatically after 12 hours of quiet if you do not say done."
       ],
       "faq": []
     }
@@ -853,7 +863,7 @@
     "slug": "simple-pricing",
     "page": "/features/simple-pricing/",
     "title": "Quickler pricing: 75 pounds a month per phone number",
-    "summary": "Quickler costs 75 pounds a month for each phone number, with no contract, or 750 pounds a year up front for two months free. Try it free for 14 days, no card needed.",
+    "summary": "Quickler costs 75 pounds a month for each phone number, no contract, or 750 pounds a year up front for two months free. Try it free for 14 days, no card.",
     "description": "Quickler costs 75 pounds a month for each phone number. There is no contract and you can cancel any time. Or pay 750 pounds a year up front and get two months free. Try it free for 14 days, with no card needed.",
     "video": "/assets/video/feature-simple-pricing.mp4?v=1",
     "poster": "/assets/video/feature-simple-pricing-poster.jpg?v=1",
@@ -890,7 +900,8 @@
       "short": "75 pounds a month for each phone number, no contract. Or 750 a year for two months free.",
       "intro": [
         "Quickler costs 75 pounds a month for each phone number. There is no contract, and you can cancel any time.",
-        "If you would like two months free, pay 750 pounds a year up front. You can try it free for 14 days, with no card needed."
+        "If you would like two months free, pay 750 pounds a year up front. You can try it free for 14 days, with no card needed.",
+        "Reports, the dashboard, sharing and downloads are free for everyone else who receives them. Billing is by UK Direct Debit, and you can cancel in two clicks from the Settings page."
       ],
       "faq": []
     }
@@ -1100,7 +1111,8 @@
       "short": "Type your standard paragraphs once and they appear in the Record under the matching answer.",
       "intro": [
         "Type your standard paragraphs into Quickler once. Quickler reads them into sentences, each tied to a Fault, and they appear in the Record under the matching answer.",
-        "You can pick or edit them on the Record. Your standard wording is always there, but never where it does not belong."
+        "You can pick or edit them on the Record. Your standard wording is always there, but never where it does not belong.",
+        "Each sentence is tied to a Fault, so it shows under the matching answer in the Record and nowhere else. You can pick or edit any of them on the Record, and every edit is kept in the history."
       ],
       "faq": []
     }
@@ -1192,7 +1204,8 @@
       "short": "Every Record keeps the whole chat it came from, with the time each message was sent.",
       "intro": [
         "Every Record keeps the whole chat it came from, attached at the bottom of the Record: every message, photo, voice note and any documents, with the time they were sent.",
-        "So if anyone ever asks where the data came from, you can show them."
+        "So if anyone ever asks where the data came from, you can show them.",
+        "Voice notes can be played back with the written-out words beneath them, and you can search the chat for a word. Messages are kept while the Record is in use and deleted three years after the last activity."
       ],
       "faq": []
     }
@@ -1336,7 +1349,8 @@
       "short": "Upload your logo once and it goes on every Record and all the downloads.",
       "intro": [
         "Quickler allows you to brand your reports. Upload your logo once and it goes on every Record and all the downloads.",
-        "You can even use a different logo on a single Check if you need to."
+        "You can even use a different logo on a single Check if you need to.",
+        "The logo goes on every Record and all the downloads. If your firm has its own report layout, you can also send a finished report as Word, PDF or a photo and new Records come back in that layout."
       ],
       "faq": []
     }
@@ -1345,7 +1359,7 @@
     "slug": "build-your-own-check",
     "page": "/features/build-your-own-check/",
     "title": "Quickler: build your own Check",
-    "summary": "Build your own Check with its own name, your questions in your own order, sections, the type of answer and the usual answers. The person on site sees its sections in WhatsApp.",
+    "summary": "Build your own Check: its name, your questions in your order, sections, answer types and usual answers. The person on site sees its sections in WhatsApp.",
     "description": "Every company does things a little differently. With Quickler you build your own Check: give it a name, put your questions in your own order, group them into sections, choose the type of answer and set the usual answers. Then your team can use it on WhatsApp straight away.",
     "video": "/assets/video/feature-build-your-own-check.mp4?v=1",
     "poster": "/assets/video/feature-build-your-own-check-poster.jpg?v=1",
@@ -1382,7 +1396,8 @@
       "short": "Name your Check, put your questions in your own order, group them into sections, and choose the type of answer and the usual answers.",
       "intro": [
         "Every company does things a little differently. With Quickler you build your own Check: its name, your own questions in your own order, grouped into sections, with the type of answer and the usual answers you choose.",
-        "Then the person on site sees its sections in WhatsApp, and your team can use it straight away."
+        "Then the person on site sees its sections in WhatsApp, and your team can use it straight away.",
+        "You can also start from a form you already use, uploaded as Word, PDF, a spreadsheet or a photo, and check the questions Quickler extracts. Checks can be tidied into folders and scheduled for the days and times you choose."
       ],
       "faq": []
     }
@@ -1391,7 +1406,7 @@
     "slug": "add-your-team",
     "page": "/features/add-your-team/",
     "title": "Quickler: add your team",
-    "summary": "Add a person in Contacts with their name and phone number. There is no app for them to download and no password to remember, and when it is time for a Check they ask Quickler for it on WhatsApp.",
+    "summary": "Add a person in Contacts with a name and phone number. No app to download and no password. When a Check is due, they ask Quickler for it on WhatsApp.",
     "description": "Adding someone to Quickler takes seconds. In Contacts, all you need is their name and their phone number. There is no app for them to download and no password to remember. When it is time for a Check, they just ask Quickler for it on WhatsApp.",
     "video": "/assets/video/feature-add-your-team.mp4?v=1",
     "poster": "/assets/video/feature-add-your-team-poster.jpg?v=1",
@@ -1428,7 +1443,8 @@
       "short": "Add a person in Contacts with their name and phone number. Nothing to download and no password to remember.",
       "intro": [
         "Adding someone to Quickler takes seconds. In Contacts, all you need is their name and their phone number.",
-        "There is no app for them to download and no password to remember. When it is time for a Check, they just ask Quickler for it on WhatsApp."
+        "There is no app for them to download and no password to remember. When it is time for a Check, they just ask Quickler for it on WhatsApp.",
+        "Each person can use WhatsApp or Telegram, whichever they already have, on iPhone or Android. Dashboard accounts for people who only read, share and download Records are free. Quickler is £75 a month for each phone number, with a 14-day free trial and no card needed."
       ],
       "faq": []
     }
@@ -1437,7 +1453,7 @@
     "slug": "getting-started",
     "page": "/features/getting-started/",
     "title": "Quickler: getting started",
-    "summary": "Set up a Check from a form you already use or from pasted questions, check them over, add your team with a name and phone number each, and they answer on WhatsApp. Try it free for 14 days, no card needed.",
+    "summary": "Set up a Check from a form you use or pasted questions, add your team by name and phone number, and they answer on WhatsApp. Free 14 days, no card.",
     "description": "Getting started with Quickler is simple. Set up a Check by uploading a form you already use or pasting in some questions, check over the questions and press Continue, then add your team with a name and phone number for each person. They answer on WhatsApp, say done, and the report is ready for you to check and share. Free for 14 days, no card needed.",
     "video": "/assets/video/feature-getting-started.mp4?v=1",
     "poster": "/assets/video/feature-getting-started-poster.jpg?v=1",
@@ -1504,7 +1520,7 @@
     "slug": "site-safety",
     "page": "/features/site-safety/",
     "title": "Quickler: site safety inspections",
-    "summary": "Walk the site and send photos and voice notes on WhatsApp. Send your location for the address and weather, and every fault lands on the To do list, ready to copy into your own system.",
+    "summary": "Walk the site and send photos and voice notes on WhatsApp. Send your location for the address and weather. Every fault lands on the To do list.",
     "description": "For a site safety inspection, walk the site and send photos and voice notes on WhatsApp as you go round. Send your location and Quickler adds the address and the weather. The faults you pick up go on the To do list, the site manager can copy the actions straight into their own system, and every inspection is kept with the whole chat and every photo.",
     "video": "/assets/video/feature-site-safety.mp4?v=1",
     "poster": "/assets/video/feature-site-safety-poster.jpg?v=1",
@@ -1555,7 +1571,7 @@
     "slug": "fire-risk-assessments",
     "page": "/features/fire-risk-assessments/",
     "title": "Quickler: fire risk assessments",
-    "summary": "Walk the building and talk, sending photos as you go. Each photo lands on the right question, every fault goes on the To do list, and the report comes back in your own layout with your own standard wording.",
+    "summary": "Walk the building and talk, sending photos as you go. Each photo lands on the right question, every fault goes on the To do list, in your own layout.",
     "description": "A fire risk assessment usually means a lot of notes, a lot of photos and a long write-up. With Quickler you walk the building and talk, sending photos as you go. Each photo lands on the right question and every fault goes on the To do list. Download the report as Word or a written report (PDF), and Quickler can use your own report layout with your own standard wording where it belongs.",
     "video": "/assets/video/feature-fire-risk-assessments.mp4?v=1",
     "poster": "/assets/video/feature-fire-risk-assessments-poster.jpg?v=1",
@@ -1601,7 +1617,7 @@
     "slug": "care-homes",
     "page": "/features/care-homes/",
     "title": "Quickler: checks for care homes",
-    "summary": "Staff do the regular checks in WhatsApp with voice notes and photos. Quickler writes the Record and puts every fault on the To do list, you schedule the checks, and you are notified if one is missed.",
+    "summary": "Staff do the regular checks in WhatsApp with voice notes and photos. Quickler writes the Record, lists every fault and tells you if a check is missed.",
     "description": "Care homes need lots of regular checks of rooms, fire doors, kitchens and equipment. With Quickler your staff do them in WhatsApp with a voice note or photos as they go around. Quickler writes the Record and puts every fault on the To do list. Schedule the checks for the days you need, and if one is missed, you will be notified. When an inspector asks, every Record is there with photos, dates and who did it.",
     "video": "/assets/video/feature-care-homes.mp4?v=1",
     "poster": "/assets/video/feature-care-homes-poster.jpg?v=1",
@@ -1652,7 +1668,7 @@
     "slug": "your-data-looked-after",
     "page": "/features/your-data-looked-after/",
     "title": "Quickler: your data, looked after",
-    "summary": "Your reports are kept on secure servers in the European Union, backed up and encrypted to a second location, and older messages and data are deleted after three years.",
+    "summary": "Your reports are kept on secure servers in the EU, backed up and encrypted to a second location. Older messages and data are deleted after three years.",
     "description": "Where is your data kept? Your reports are kept on secure servers in the European Union. They are backed up and encrypted to a second location. Any older messages and older data are deleted after three years.",
     "video": "/assets/video/feature-your-data.mp4?v=1",
     "poster": "/assets/video/feature-your-data-poster.jpg?v=1",
@@ -1684,7 +1700,8 @@
       "short": "Reports are kept on secure servers in the European Union, backed up and encrypted to a second location.",
       "intro": [
         "Your reports are kept on secure servers in the European Union. They are backed up and encrypted to a second location.",
-        "Any older messages and older data are deleted after three years."
+        "Any older messages and older data are deleted after three years.",
+        "Every Record also keeps the whole chat it was made from, with the time of each message, photo and voice note. Every edit is kept in the Record's history with who made it and when. Your Records can be downloaded at any time."
       ],
       "faq": []
     }
@@ -1693,7 +1710,7 @@
     "slug": "send-location-whatsapp-android",
     "page": "/features/send-location-whatsapp-android/",
     "title": "Quickler: send your location on WhatsApp (Android)",
-    "summary": "On Android, tap the paperclip, choose Location and send your current location, or open the full map and move the red pin, then press Send this location. Quickler adds the weather and address.",
+    "summary": "On Android, tap the paperclip, choose Location and send your current location, or move the red pin on the full map. Quickler adds the weather and address.",
     "description": "How to send your location on WhatsApp on an Android phone. Tap the paperclip at the bottom of the screen and choose Location. If you are on site, press Send your current location. If you are not, open the map to full screen, move the red pin to where you need and press Send this location. Quickler uses that pin to get the weather and the address.",
     "video": "/assets/video/feature-send-location-whatsapp-android.mp4?v=2",
     "poster": "/assets/video/feature-send-location-whatsapp-android-poster.jpg?v=1",
@@ -1760,7 +1777,7 @@
     "slug": "send-location-telegram",
     "page": "/features/send-location-telegram/",
     "title": "Quickler: send your location on Telegram",
-    "summary": "On Telegram, press the paperclip, choose Location and send your current location or pick another place. You can switch the base map to Satellite to choose a very specific spot.",
+    "summary": "On Telegram, press the paperclip, choose Location and send where you are or pick another place. Switch the map to Satellite to choose a very specific spot.",
     "description": "How to send your location to Quickler on Telegram. It is very similar to WhatsApp: press the paperclip, then select Location from the bar underneath. Send your current location or choose another place. On Telegram you can also change the base map to Satellite to pick a very specific spot, such as an allotment, then send the selected location.",
     "video": "/assets/video/feature-send-location-telegram.mp4?v=2",
     "poster": "/assets/video/feature-send-location-telegram-poster.jpg?v=1",
@@ -1820,7 +1837,7 @@
     "slug": "send-signature-whatsapp",
     "page": "/features/send-signature-whatsapp/",
     "title": "Quickler: send your signature on WhatsApp",
-    "summary": "Take a photo of something plain, select the pen, pick a colour, write your signature and send it. Quickler reads it as a signature, and you carry on with your check or say done.",
+    "summary": "Take a photo of something plain, select the pen, pick a colour, write your signature and send it. Quickler reads it as a signature and you carry on.",
     "description": "How to send your signature on WhatsApp on an Android phone. In the Quickler chat, tap the camera and take a photo of something plain. Select the pen, pick a colour, write your signature and send it. The rotation does not matter. Quickler reads it as a signature and you carry on, or say done.",
     "video": "/assets/video/feature-send-signature-whatsapp.mp4?v=2",
     "poster": "/assets/video/feature-send-signature-whatsapp-poster.jpg?v=1",
@@ -1899,7 +1916,7 @@
     "slug": "graded-answers",
     "page": "/features/graded-answers/",
     "title": "Quickler: graded answers",
-    "summary": "Set a question's answer type to Graded, choose the words people will use, order them best to worst and say what each means. On site nobody sees the list: they answer in their own words and Quickler picks the matching grade.",
+    "summary": "Set a question to Graded and put the words in order, best to worst. On site people answer in their own words and Quickler picks the matching grade.",
     "description": "How graded answers work in Quickler. Set a question's answer type to Graded and choose the words people will use, from a list you already use or by pressing Add word. Put the best answer first and the worst last, and click a word to write what it means; that sentence goes on the Record. You can grade with numbers instead. On site nobody sees the list, they answer in their own words and Quickler picks the matching grade. The key sits at the bottom of the Record and prints on the PDF.",
     "video": "/assets/video/feature-graded-answers.mp4?v=1",
     "poster": "/assets/video/feature-graded-answers-poster.jpg?v=1",
@@ -1979,7 +1996,7 @@
     "slug": "records-page",
     "page": "/features/records-page/",
     "title": "Quickler: the Records page",
-    "summary": "Every Check has a Records page with everything it has collected: filter by date, switch between By title and By user, download every Record at once, add and move photos, see every change, and delete with ten seconds to undo.",
+    "summary": "Every Check has a Records page: filter by date, switch By title and By user, download every Record at once, add photos, see every change, undo a delete.",
     "description": "A tour of the Records page in Quickler. Every Check has one, holding everything it has ever collected. Filter by date, switch between By title and By user, open a title to see its history, and press Download all to get every Record in a zip, each in its own folder. Open a Record to add, turn, caption, copy or archive photos, see documents sent during the walk, check the changes and time taken, and delete with about 10 seconds to undo. Deleted Records are kept for 30 days.",
     "video": "/assets/video/feature-records-page.mp4?v=1",
     "poster": "/assets/video/feature-records-page-poster.jpg?v=1",
@@ -2073,7 +2090,7 @@
     "slug": "your-account",
     "page": "/features/your-account/",
     "title": "Quickler: your account",
-    "summary": "Everything for your account lives on the Settings page: your plan and next bill, past invoices, cancelling in two clicks, signing in by password, link or code, and adding contacts by email, phone number or both.",
+    "summary": "Everything for your account is on the Settings page: your plan and next bill, past invoices, cancelling in two clicks, signing in, and adding contacts.",
     "description": "How your Quickler account works. Everything lives on the Settings page. Press Billing to see your plan, the phone numbers this month and your next bill, download any past invoice as a PDF, and cancel in two clicks. Sign in with email and password, a sign-in link that lasts a day or a six-digit code that works for 15 minutes. Add contacts with an email, a phone number or both. Everyone who joins by email joins as an admin, and Quickler asks you to confirm the cost before a new number takes you above your plan.",
     "video": "/assets/video/feature-your-account.mp4?v=1",
     "poster": "/assets/video/feature-your-account-poster.jpg?v=1",
@@ -2152,7 +2169,7 @@
     "slug": "setting-up-a-check",
     "page": "/features/setting-up-a-check/",
     "title": "Quickler: setting up a Check",
-    "summary": "Open a Check and press Edit to reach its Overview page: duplicate it, set up its questions, sentences and written report, choose who it is for and when, tidy Checks into folders and add sums to number questions.",
+    "summary": "Open a Check and press Edit to reach its Overview page: duplicate it, set its questions, sentences and written report, choose who and when, and add sums.",
     "description": "A tour of setting up a Check in Quickler. Open any Check and press Edit to land on its Overview page. Duplicate it, set up its questions and question sources, your sentences and the written report, which can follow your own layout. Under Who and when set the phone access times and who the Check is for, turn on Tell managers, use Send now, tidy Checks into folders on the home page, and add sums to number questions in words.",
     "video": "/assets/video/feature-setting-up-a-check.mp4?v=2",
     "poster": "/assets/video/feature-setting-up-a-check-poster.jpg?v=1",
@@ -2241,7 +2258,7 @@
     "slug": "why-ai-gets-things-wrong",
     "page": "/features/why-ai-gets-things-wrong/",
     "title": "Why AI gets things wrong",
-    "summary": "Why does AI get things wrong? Because it doesn't work like a light switch. It works more like rolling a dice: it weighs up the likely answers and picks one. This video shows what that means, and three habits that load the dice in your favour when you use AI for inspections and records.",
+    "summary": "Why does AI get things wrong? It works more like rolling a dice than a light switch. This video shows what that means and three habits that load the dice.",
     "description": "A 6 minute 26 second explainer on why AI gets things wrong, and how to guide it. Old-fashioned code is like a light switch, the same action gives the same result. AI is more like rolling a dice: it works out probabilities and picks one of the most likely answers, so now and then it lands on the wrong side. A desert island and two inspectors show how to paint your dice with sixes, and three habits make Quickler work better: precise questions, section headings as signposts, and saying what you see on site.",
     "video": "/assets/video/feature-why-ai-gets-things-wrong.mp4?v=3",
     "poster": "/assets/video/feature-why-ai-gets-things-wrong-poster.jpg?v=2",
