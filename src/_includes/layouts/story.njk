@@ -158,7 +158,7 @@
     {%- for q in wall.items %}
       <div class="hey-bubble">
         <div class="hey-bubble-who">{% if q.face %}<img src="{{ q.face }}" alt="" width="28" height="28">{% endif %}<b>{{ q.who }}</b></div>
-        {%- if q.quote %}<p class="hey-bubble-quote">{{ q.quote }}</p>{% endif %}
+        {%- if q.quote %}<p class="hey-bubble-quote">{% if q.bold %}{% set qp = q.quote.split(q.bold) %}{{ qp[0] }}<b>{{ q.bold }}</b>{{ qp[1] }}{% else %}{{ q.quote }}{% endif %}</p>{% endif %}
         {%- if q.text %}<p>{% if q.big %}<b>{{ q.big }}.</b> {% endif %}{{ q.text }}</p>{% endif %}
       </div>
     {%- endfor %}

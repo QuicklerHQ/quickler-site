@@ -425,12 +425,6 @@ body.app-home { background: #f6f4f1 !important; }
 .hey-p a { color: #5A4FCF; font-weight: 700; }
 .hey-shot { margin: 26px auto 0; max-width: 900px; border-radius: 16px; overflow: hidden; box-shadow: 0 12px 40px rgba(12,23,52,0.14); background: #fff; }
 .hey-shot img { display: block; width: 100%; height: auto; }
-.hey-bubbles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 18px; max-width: 900px; margin: 0 auto; text-align: left; }
-.hey-bubble { position: relative; background: linear-gradient(180deg, #eaf2ff, #d9e8ff); border-radius: 18px; padding: 34px 22px 20px; box-shadow: 0 6px 18px rgba(47,107,255,0.10); }
-.hey-bubble-who { position: absolute; top: -12px; left: 16px; display: flex; align-items: center; gap: 8px; background: #fff; border-radius: 999px; padding: 3px 12px 3px 4px; font-size: 0.85rem; color: #0c1734; box-shadow: 0 2px 8px rgba(12,23,52,0.08); }
-.hey-bubble-who img { border-radius: 50%; }
-.hey-bubble p { margin: 0; font-size: 1.05rem; line-height: 1.5; color: #0c1734; }
-.hey-bubble-quote { font-size: 1.5rem !important; font-weight: 800; letter-spacing: -0.02em; }
 .hey-paper { position: relative; max-width: 640px; margin: 10px auto 0; background: #fff; padding: clamp(28px, 6vw, 60px) clamp(24px, 6vw, 64px); text-align: left;
   box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 10px 30px rgba(12,23,52,0.10); transform: rotate(-0.6deg); }
 .hey-paper::before, .hey-paper::after { content: ""; position: absolute; inset: 0; background: #fff; z-index: -1; box-shadow: 0 6px 20px rgba(12,23,52,0.08); }
@@ -599,10 +593,6 @@ body.app-home .hey, body.app-heypage .hey { max-width: none; }
    weights, no mint or coral. The letter's words tilt with its page. */
 .hey-paper { transform: rotate(-0.7deg); }
 .hey-h2-plain { font-weight: 400 !important; }
-.hey-bubble { background: #fff !important; border: 1px solid #dfe3f0; box-shadow: 0 6px 20px rgba(12,23,52,0.06) !important; }
-.hey-bubble-who { border: 1px solid #dfe3f0; box-shadow: none !important; }
-.hey-bubble-quote { font-weight: 400 !important; }
-.hey-bubble p b { font-weight: 600; }
 .hey-band { margin: 0 auto 72px !important; padding: clamp(40px, 7vw, 72px) 24px !important; max-width: 1100px; border-radius: 28px; background: #fff !important; border: 1px solid #dfe3f0; color: #0c1734 !important; }
 .hey-band-h { font-weight: 400 !important; color: transparent !important; background: linear-gradient(90deg, #2F6BFF, #7C3AED 55%, #F43F8C); -webkit-background-clip: text; background-clip: text; }
 .hey-band-sub { font-weight: 400 !important; color: #213055 !important; }
@@ -631,13 +621,6 @@ nav[aria-label="Primary"] { position: sticky; z-index: 50; }
 /* Quotes as the app's Check tiles (Philip 5 Nov 2026 13:25): the words on the
    left, who said it as the small grey label at the top right inside the box,
    where a tile shows its time. */
-.hey-bubble { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 16px; row-gap: 6px; padding: 22px 22px 20px !important; border-radius: 18px !important; text-align: left; }
-.hey-bubble .hey-bubble-who { position: static !important; order: 2; margin-left: auto; padding: 0 !important; border: 0 !important; background: none !important; box-shadow: none !important; white-space: nowrap; }
-.hey-bubble .hey-bubble-who b { font-weight: 500; font-size: 0.85rem; color: #5c6b90; }
-.hey-bubble .hey-bubble-quote { order: 1; flex: 1 1 60%; min-width: 0; }
-.hey-bubble > p:not(.hey-bubble-quote) { order: 3; flex-basis: 100%; }
-@media (max-width: 600px) { .hey-bubble .hey-bubble-who { white-space: normal; text-align: right; } }
-.hey-bubble .hey-bubble-who { order: 0 !important; flex-basis: 100%; justify-content: flex-end; text-align: right; margin: -6px 0 0 !important; white-space: normal; }
 body.app-home footer, body.app-heypage footer { width: auto !important; box-sizing: border-box; }
 /* guides.quickler.co: every guide, A to Z (Philip 5 Nov 2026 13:40). */
 .guides-az { max-width: 900px; margin: 0 auto; }
@@ -868,3 +851,15 @@ html.aw-lb-on { overflow: hidden; }
   .fv-row, .fv-row:nth-of-type(even) { grid-template-columns: minmax(0, 1fr); gap: 14px; }
   .fv-row:nth-of-type(even) .fv-text, .fv-row:nth-of-type(even) .fv-media { order: 0; }
 }
+
+/* Quotes wall (Philip 17 Nov 2026: "our quotes a bit big"): masonry in CSS columns,
+   small text, the credit line as a small white pill on the card's top edge. */
+.hey-bubbles { columns: 3 260px; column-gap: 22px; display: block; max-width: 1100px; margin: 0 auto; padding-top: 14px; text-align: left; }
+.hey-bubble { position: relative; display: inline-block; width: 100%; box-sizing: border-box; break-inside: avoid; page-break-inside: avoid; margin: 0 0 30px; padding: 26px 22px 18px; background: linear-gradient(180deg, #f6f3ff, #fff) !important; border: 1px solid #dfe3f0; border-radius: 18px; box-shadow: 0 6px 20px rgba(12,23,52,0.06) !important; }
+.hey-bubble-who { position: absolute; top: -13px; left: 14px; display: block; max-width: calc(100% - 28px); padding: 3px 12px; background: #fff; border: 1px solid #dfe3f0; border-radius: 999px; box-shadow: 0 2px 8px rgba(12,23,52,0.06); font-size: 0.8rem; line-height: 1.4; color: #5A4FCF; }
+.hey-bubble-who b { font-weight: 600; }
+.hey-bubble p { margin: 0; font-size: 1.1rem; line-height: 1.5; color: #0c1734; }
+.hey-bubble p + p { margin-top: 8px; }
+.hey-bubble-quote { font-weight: 400; }
+.hey-bubble p b { font-weight: 700; }
+@media (max-width: 600px) { .hey-bubbles { columns: 1; } .hey-bubble p { font-size: 1rem; } }
