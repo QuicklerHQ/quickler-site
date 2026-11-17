@@ -1,5 +1,18 @@
 [
   {
+    "date": "2026-11-17",
+    "title": "Clearer starts and cleaner Records",
+    "items": [
+      "Asking for a Check by name starts it straight away. If it's not clear which one you mean, Quickler shows a short numbered list of your matching Checks.",
+      "Start, Restart, Done or New on their own never reopen your last Check or file an empty Record.",
+      "A PDF sent as a photo is read like any other file.",
+      "Records always show as written, with no layout switch.",
+      "In your own Word and PDF templates, labels like Do: keep their bold with plain answers.",
+      "A question can be set to print only when it's filled in, such as a reference number."
+    ],
+    "dateText": "17 November 2026"
+  },
+  {
     "date": "2026-11-13",
     "title": "Downloads that match the page",
     "items": [
