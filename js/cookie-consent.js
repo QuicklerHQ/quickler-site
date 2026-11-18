@@ -16,6 +16,11 @@
     const BANNER_ID = "quickler-cookie-banner";
     let navMenuIdCounter = 0;
 
+    // Quickler staff: app.quickler.co sets q_staff=1 (Domain=.quickler.co) at staff
+    // login. Their visits are tagged internal so GA4's Internal Traffic data filter
+    // drops them; Clarity and the Ads config are skipped.
+    const IS_STAFF = /(?:^|;\s*)q_staff=1(?:;|$)/.test(document.cookie || "");
+
     // --- Google Consent Mode v2 ---
     // GA loads for EVERY visitor immediately, but starts in a cookieless,
     // anonymised state (analytics_storage denied). In that state GA sends
@@ -57,11 +62,11 @@
         // cookies while consent is denied.
         window.gtag("set", "url_passthrough", true);
         window.gtag("set", "ads_data_redaction", true);
-        window.gtag("config", GA_ID, { anonymize_ip: true });
+        window.gtag("config", GA_ID, IS_STAFF ? { anonymize_ip: true, traffic_type: "internal" } : { anonymize_ip: true });
         // Ads runs in the same cookieless state until consent: ad_storage and
         // ad_personalization are denied in the default block above, and
         // ads_data_redaction strips ad identifiers from those pings.
-        window.gtag("config", ADS_ID);
+        if (!IS_STAFF) window.gtag("config", ADS_ID);
         loadGtagScript();
         if (prior === "granted") loadClarity();
         window.__quicklerConsentInit = true;
@@ -124,7 +129,7 @@
     // Microsoft Clarity — heatmaps, click maps, and session recordings.
     // Only loads behind the same consent gate as GA, and only if CLARITY_ID is set.
     function loadClarity() {
-        if (!CLARITY_ID) return;
+        if (!CLARITY_ID || IS_STAFF) return;
         if (window.clarity) return;
         (function (c, l, a, r, i, t, y) {
             c[a] = c[a] || function () {
