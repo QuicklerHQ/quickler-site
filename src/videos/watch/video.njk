@@ -5,6 +5,7 @@
   "permalink": "/videos/{{ v.slug }}/index.html",
   "eleventyExcludeFromCollections": true,
   "eleventyComputed": {
+    "headExtra": "<link rel=\"preconnect\" href=\"https://videos.quickler.co\"><link rel=\"preload\" as=\"image\" href=\"{{ v.poster }}\">",
     "seo": {
       "title": "{{ v.title }} | Quickler",
       "description": "{{ v.summary | replace(\"'\", '’') }}",

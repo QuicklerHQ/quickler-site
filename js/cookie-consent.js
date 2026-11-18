@@ -67,7 +67,16 @@
         // ad_personalization are denied in the default block above, and
         // ads_data_redaction strips ad identifiers from those pings.
         if (!IS_STAFF) window.gtag("config", ADS_ID);
-        loadGtagScript();
+        // The gtag.js download (about 350 KB, the page's heaviest script) waits until
+        // the browser is idle. Events queue in dataLayer meanwhile, so nothing is lost.
+        const startGtag = function () { loadGtagScript(); };
+        if (document.readyState === "complete") {
+            ("requestIdleCallback" in window) ? window.requestIdleCallback(startGtag, { timeout: 2000 }) : setTimeout(startGtag, 1500);
+        } else {
+            window.addEventListener("load", function () {
+                ("requestIdleCallback" in window) ? window.requestIdleCallback(startGtag, { timeout: 2000 }) : setTimeout(startGtag, 1500);
+            }, { once: true });
+        }
         if (prior === "granted") loadClarity();
         window.__quicklerConsentInit = true;
     }
