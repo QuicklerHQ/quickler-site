@@ -554,13 +554,13 @@
 {%- endfor %}
 {%- if articlePanels %}
 {%- set faqLd = articlePanels | faqSchema %}
-{%- if faqLd %}
+{%- if faqLd and not (seo.jsonld and 'FAQPage' in seo.jsonld) %}
 <script type="application/ld+json">
 {{ faqLd | safe }}
 </script>
 {%- endif %}
 {%- set articleLd = seo | articleSchema %}
-{%- if articleLd %}
+{%- if articleLd and not (seo.jsonld and 'Article' in seo.jsonld) %}
 <script type="application/ld+json">
 {{ articleLd | safe }}
 </script>
