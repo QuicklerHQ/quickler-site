@@ -357,3 +357,15 @@ document.addEventListener("click", function (e) {
   }, { threshold: 0.6 });
   io.observe(panel);
 })();
+
+/* Live app windows load only as the visitor scrolls near them (about 300px
+   ahead), so a phone does not fetch three apps at once. Same live iframes. */
+(function () {
+  var fs = document.querySelectorAll("iframe.aw-live[data-src]");
+  function load(f) { f.src = f.getAttribute("data-src"); f.removeAttribute("data-src"); }
+  if (!("IntersectionObserver" in window)) { fs.forEach(load); return; }
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (en) { if (en.isIntersecting) { io.unobserve(en.target); load(en.target); } });
+  }, { rootMargin: "300px 0px" });
+  fs.forEach(function (f) { io.observe(f); });
+})();
