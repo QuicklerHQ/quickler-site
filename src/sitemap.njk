@@ -7,7 +7,7 @@ eleventyExcludeFromCollections: true
 {%- for p in collections.sitemapPages %}
   <url>
     <loc>{{ p.loc }}</loc>
-    <lastmod>{{ page.date | isoDate }}</lastmod>
+    <lastmod>{{ (p.date or page.date) | isoDate }}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>{{ p.priority }}</priority>
   </url>

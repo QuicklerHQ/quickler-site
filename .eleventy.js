@@ -77,7 +77,10 @@ module.exports = function (eleventyConfig) {
         if (p.url === "/") priority = "1.0";
         else if (["services", "pricing", "about", "guides", "help"].includes(slug)) priority = "0.9";
         else if (/-uk$|^eicr|^cp12|^van|^dvsa|^fire|^near-miss|^risk|^coshh|^lone|^site-safety|^construction|^plumbing|^hvac|^facilities|^property|^inspection|^field-/.test(slug)) priority = "0.8";
-        return { loc: url, priority };
+        // Guide pages carry their git last-modified date (src/pages/pages.11tydata.json),
+        // so IndexNow sees a lastmod change when a page is edited (18 Nov 2026).
+        const date = p.url.startsWith("/pages/") ? p.date : null;
+        return { loc: url, priority, date };
       })
       .sort((a, b) => a.loc.localeCompare(b.loc));
   });
