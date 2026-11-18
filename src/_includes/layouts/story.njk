@@ -224,7 +224,8 @@
     {%- if hero.lede %}<p class="hey-sub hey-sub-page">{{ hero.lede | priceTokens | safe }}</p>{% endif %}
     {%- set a0 = (hero.actions or [])[0] %}{% if a0 %}<a class="hey-btn" href="{{ a0.href }}"{% if '//' in a0.href and site.domain not in a0.href %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ a0.label }}</a>{% endif %}
     {%- if a0 and 'signup' in a0.href %}<div class="hey-note">No card, no contract. Cancel any time.</div>{% elif hero.actionNote %}<div class="hey-note">{{ hero.actionNote }}</div>{% endif %}
-    {%- if hero.demoLine %}<div class="hey-note"><a href="{{ hero.demoLine.href }}">{{ hero.demoLine.label }}</a></div>{% endif %}
+    {%- set a1 = (hero.actions or [])[1] %}
+    {%- if hero.demoLine %}<div class="hey-note"><a href="{{ hero.demoLine.href }}">{{ hero.demoLine.label }}</a></div>{% elif a1 and 'demo.html' in a1.href %}<div class="hey-note"><a href="{{ a1.href }}">See a real Record in 60 seconds</a></div>{% endif %}
   </div>
   {#- Below the HEY hero, the page's parts sit in the app's own Checks panel
       (Philip 5 Nov 2026 12:17): a panel title like "All FAQs", a button top
