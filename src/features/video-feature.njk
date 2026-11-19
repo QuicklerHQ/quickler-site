@@ -36,6 +36,9 @@
   <h1 class="site-home-h2" style="font-size:2rem">{{ v.feature.heading }}</h1>
   {%- for p in v.feature.intro %}
   <p class="site-words">{{ p | safe }}</p>
+  {%- if loop.first and v.slug in ["your-sentences", "usual-answers", "forgot-something", "build-your-own-check", "coshh-assessments", "your-own-layout"] %}
+  <p><a href="{{ site.signupUrl }}" class="btn btn-primary">Start free trial</a></p>
+  {%- endif %}
   {%- endfor %}
   <div class="fx-video">{{ videoPlayer(v.video, v.poster, v.title) }}</div>
   <h2 class="site-home-h2 fx-h2">Transcript</h2>
