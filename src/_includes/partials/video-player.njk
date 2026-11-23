@@ -4,7 +4,7 @@
     JS: /js/qplayer.js (sets it up on load; without JS the browser's own
     controls show instead).
     Use: {% from "partials/video-player.njk" import videoPlayer %}
-         {{ videoPlayer(v.video, v.poster, v.title) }} -#}
-{%- macro videoPlayer(src, poster, label) -%}
-<div class="qp-wrap" data-qp><video src="{{ src }}" poster="{{ poster }}" preload="none" playsinline controls aria-label="{{ label | striptags }}"></video></div>
+         {{ videoPlayer(v.video, v.poster, v.title, v.slug) }} -#}
+{%- macro videoPlayer(src, poster, label, slug) -%}
+<div class="qp-wrap" data-qp><video src="{{ src }}" poster="{{ poster }}" preload="none" playsinline controls aria-label="{{ label | striptags }}">{% if slug and slug in captioned %}<track kind="captions" srclang="en" label="English" src="/captions/{{ slug }}.vtt">{% endif %}</video></div>
 {%- endmacro %}

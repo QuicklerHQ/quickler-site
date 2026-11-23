@@ -18,7 +18,7 @@
     2026, after hey.com/features and basecamp.com/features). Data: videos.json
     entries with "page" and "feature". The old /videos/<slug>/ address of each
     of these sends people here. -#}
-{%- from "partials/video-player.njk" import videoPlayer %}
+{%- from "partials/video-player.njk" import videoPlayer with context %}
 {%- set ld = {
   "@context": "https://schema.org",
   "@type": "VideoObject",
@@ -40,7 +40,7 @@
   <p><a href="{{ site.signupUrl }}" class="btn btn-primary">Start free trial</a></p>
   {%- endif %}
   {%- endfor %}
-  <div class="fx-video">{{ videoPlayer(v.video, v.poster, v.title) }}</div>
+  <div class="fx-video">{{ videoPlayer(v.video, v.poster, v.title, v.slug) }}</div>
   <h2 class="site-home-h2 fx-h2">Transcript</h2>
   {%- for p in v.transcript %}
   <p class="site-words">{{ p }}</p>

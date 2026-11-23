@@ -28,7 +28,40 @@
         seek.setAttribute("aria-label", "Seek");
         var fs = el("button", "qp-btn", SVG.full);
         fs.type = "button"; fs.setAttribute("aria-label", "Fullscreen");
-        bar.appendChild(pp); bar.appendChild(seek); bar.appendChild(fs);
+        bar.appendChild(pp); bar.appendChild(seek);
+        // Captions control (Philip 23 Nov 2026): CC button on and off, the active cue shown
+        // in a band just below the video; the native track stays in the video (hidden mode)
+        // for assistive technology. Choice is remembered; off unless the video autoplays muted.
+        var track = v.querySelector("track");
+        if (track) {
+            var cc = el("button", "qp-btn qp-cc", "CC");
+            cc.type = "button"; cc.setAttribute("aria-label", "Captions");
+            var band = el("div", "qp-cap"); band.setAttribute("aria-hidden", "true");
+            var line = el("span", "qp-cap-text"); band.appendChild(line);
+            wrap.appendChild(band);
+            var tt = track.track;
+            var capOn = false;
+            var saved = null;
+            try { saved = localStorage.getItem("qp-captions"); } catch (e) {}
+            var wantOn = saved === "on" ? true : saved === "off" ? false : (v.autoplay && v.muted);
+            var paintCue = function () {
+                var c = tt && tt.activeCues && tt.activeCues[0], s = "";
+                if (c) { var a = tt.activeCues; for (var i = 0; i < a.length; i++) s += (s ? " " : "") + a[i].text.replace(/<[^>]+>/g, ""); }
+                line.textContent = s;
+            };
+            var setCap = function (on, remember) {
+                capOn = on;
+                cc.setAttribute("aria-pressed", on ? "true" : "false");
+                wrap.classList.toggle("qp-cc-on", on);
+                if (remember) { try { localStorage.setItem("qp-captions", on ? "on" : "off"); } catch (e) {} }
+                paintCue();
+            };
+            if (tt) { tt.mode = "hidden"; tt.addEventListener("cuechange", paintCue); }
+            cc.addEventListener("click", function () { setCap(!capOn, true); });
+            bar.appendChild(cc);
+            setCap(wantOn, false);
+        }
+        bar.appendChild(fs);
         wrap.appendChild(bar);
 
         function full() { v.muted = false; v.volume = 1; }

@@ -1,0 +1,461 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:03.680
+You might have heard people say that AI gets things wrong, and then
+
+2
+00:00:03.680 --> 00:00:05.080
+it makes mistakes.
+
+3
+00:00:05.080 --> 00:00:06.120
+But why is that?
+
+4
+00:00:06.820 --> 00:00:11.920
+By the end of this video, you'll have an idea why, and how to guide it correctly.
+
+5
+00:00:11.920 --> 00:00:14.980
+To do so, we'll start by talking about a light switch.
+
+6
+00:00:15.760 --> 00:00:18.500
+It's a pretty simple and familiar thing.
+
+7
+00:00:18.500 --> 00:00:20.840
+You flick it on, and the light comes on.
+
+8
+00:00:21.580 --> 00:00:24.540
+That is how old-fashioned computer code works.
+
+9
+00:00:24.540 --> 00:00:27.560
+The same action gives the same result, with no surprises.
+
+10
+00:00:28.200 --> 00:00:30.680
+But AI is different.
+
+11
+00:00:30.680 --> 00:00:32.240
+It's much more like rolling a dice.
+
+12
+00:00:32.940 --> 00:00:35.620
+It's not magic, it's not human, and it's not thinking.
+
+13
+00:00:36.260 --> 00:00:37.080
+It is a machine.
+
+14
+00:00:37.940 --> 00:00:42.260
+It's working out probabilities using some clever maths, and then
+
+15
+00:00:42.260 --> 00:00:44.220
+picking one of the most likely answers.
+
+16
+00:00:45.220 --> 00:00:48.040
+Let's imagine a dice, and that we want to roll a six.
+
+17
+00:00:48.920 --> 00:00:52.000
+With a normal dice, we roll and we hope.
+
+18
+00:00:52.000 --> 00:00:55.340
+Most of the time we don't get a six, but now and then we do.
+
+19
+00:00:55.340 --> 00:01:01.540
+Real AI does far better than that, but it can still be wrong in a similar way.
+
+20
+00:01:02.420 --> 00:01:05.460
+And this is the root of how AI gets things wrong.
+
+21
+00:01:05.460 --> 00:01:09.380
+Not because it's broken, but because the dice landed on the wrong side.
+
+22
+00:01:10.140 --> 00:01:13.300
+Now imagine a shop that sells specialist dice.
+
+23
+00:01:14.260 --> 00:01:16.100
+Dice with a six on every side.
+
+24
+00:01:16.900 --> 00:01:20.000
+Roll one of these, and it can only land on a six.
+
+25
+00:01:20.000 --> 00:01:23.400
+That is what you're doing when you're trying to tell an AI clearly what you want.
+
+26
+00:01:23.400 --> 00:01:27.680
+Every clear, relevant thing you say paints another side with a six.
+
+27
+00:01:28.940 --> 00:01:33.875
+Now, our real AI dice doesn't have six sides, it has a hundred
+
+28
+00:01:33.875 --> 00:01:35.000
+thousand sides or more.
+
+29
+00:01:36.020 --> 00:01:39.540
+For every word that it writes, or even part of a word that it
+
+30
+00:01:39.540 --> 00:01:41.020
+writes, it rolls again.
+
+31
+00:01:41.840 --> 00:01:46.320
+You'll never manage to paint every side with your figurative sixes,
+
+32
+00:01:46.320 --> 00:01:50.220
+but the more you paint, the better your odds are of rolling a six.
+
+33
+00:01:51.200 --> 00:01:52.180
+But there's a catch.
+
+34
+00:01:52.180 --> 00:01:55.060
+Imagine you grew up in a remote desert island.
+
+35
+00:01:55.740 --> 00:01:59.620
+Your whole world is palm trees, sunshine and fish.
+
+36
+00:01:59.620 --> 00:02:02.860
+You do have one book though, and it's all about polar bears.
+
+37
+00:02:03.760 --> 00:02:06.500
+One day someone comes along and asks you about the North Pole.
+
+38
+00:02:07.360 --> 00:02:12.620
+Well, you certainly know a few things, but you have no real idea what it's like.
+
+39
+00:02:12.620 --> 00:02:17.620
+All you can picture is a cold desert island with large, white,
+
+40
+00:02:17.620 --> 00:02:19.220
+extremely hungry, fluffy mammals.
+
+41
+00:02:20.020 --> 00:02:21.320
+AI has the same problem.
+
+42
+00:02:21.320 --> 00:02:25.760
+If it hasn't been told something, it fills the gap with whatever seems likely.
+
+43
+00:02:26.380 --> 00:02:28.440
+And it won't say "I don't know".
+
+44
+00:02:28.440 --> 00:02:32.500
+Instead, it will guess as if it is the right answer, because it
+
+45
+00:02:32.500 --> 00:02:34.480
+doesn't know enough to know it's wrong.
+
+46
+00:02:35.240 --> 00:02:38.700
+Picture two inspectors walking round the same building, using the
+
+47
+00:02:38.700 --> 00:02:41.240
+same checklist and the same AI system.
+
+48
+00:02:42.000 --> 00:02:44.900
+One gets a report that's spot on, first time.
+
+49
+00:02:45.660 --> 00:02:47.940
+The other spends half an hour putting it right.
+
+50
+00:02:47.940 --> 00:02:49.500
+The difference isn't the AI.
+
+51
+00:02:49.500 --> 00:02:51.220
+It's how they talk.
+
+52
+00:02:52.300 --> 00:02:54.620
+One says "the door's closer is broken".
+
+53
+00:02:55.560 --> 00:02:56.040
+Which door?
+
+54
+00:02:56.900 --> 00:02:58.160
+The AI has to guess.
+
+55
+00:02:58.160 --> 00:03:02.800
+The other says "kitchen, second fire door, third floor, the door's
+
+56
+00:03:02.800 --> 00:03:03.520
+closer is broken".
+
+57
+00:03:04.440 --> 00:03:05.980
+There's nothing to guess.
+
+58
+00:03:05.980 --> 00:03:06.580
+It's clear.
+
+59
+00:03:07.540 --> 00:03:10.800
+There are three habits that make Quickler work better.
+
+60
+00:03:10.800 --> 00:03:15.440
+These are essentially the same as painting sixes on our dice.
+
+61
+00:03:15.440 --> 00:03:17.840
+The first two are for when we set things up.
+
+62
+00:03:17.840 --> 00:03:22.160
+First, make sure your questions are precise and distinct.
+
+63
+00:03:22.940 --> 00:03:26.820
+If two questions ask nearly the same thing, even a person would
+
+64
+00:03:26.820 --> 00:03:29.960
+struggle to know which box an answer belongs in.
+
+65
+00:03:29.960 --> 00:03:31.640
+An AI struggles here as well.
+
+66
+00:03:32.660 --> 00:03:37.680
+Secondly, we can use section headings as signposts, like Fire doors,
+
+67
+00:03:37.680 --> 00:03:39.500
+Lighting and Kitchen.
+
+68
+00:03:39.500 --> 00:03:44.220
+They help the AI, just as it would help a person, to work out where something goes.
+
+69
+00:03:44.920 --> 00:03:48.300
+Third is for when you're on site, and it's the main one.
+
+70
+00:03:49.040 --> 00:03:53.120
+As you go round, talk about what you're seeing, and be specific.
+
+71
+00:03:53.120 --> 00:03:56.260
+Don't just send photos or information on their own.
+
+72
+00:03:56.260 --> 00:03:59.880
+Something like "the fire extinguisher by the main stairs is in date,
+
+73
+00:03:59.880 --> 00:04:03.220
+and the pin and seal are in good order" is a great help.
+
+74
+00:04:03.960 --> 00:04:07.220
+If you send a photo, there's no knowing what it means, even for a
+
+75
+00:04:07.220 --> 00:04:11.060
+human, unless there is text that can be read in the photo.
+
+76
+00:04:11.060 --> 00:04:14.880
+In our own data, about a third of photos arrive with no words at all.
+
+77
+00:04:15.840 --> 00:04:20.600
+Think of a new apprentice on their first day, and you tell them "go
+
+78
+00:04:20.600 --> 00:04:23.980
+and sort that out", and neither of you really knows what will happen
+
+79
+00:04:23.980 --> 00:04:28.880
+next, because no one is entirely sure what that is.
+
+80
+00:04:28.880 --> 00:04:32.640
+But if we tell the apprentice "replace the cracked tile by door
+
+81
+00:04:32.640 --> 00:04:37.140
+three", you'll get a replaced cracked tile by door three.
+
+82
+00:04:37.140 --> 00:04:38.260
+AI is the same.
+
+83
+00:04:38.920 --> 00:04:41.740
+Say where you are first, and say what you are seeing.
+
+84
+00:04:41.740 --> 00:04:44.940
+"Room sixteen, the windows have damaged seals."
+
+85
+00:04:45.860 --> 00:04:49.680
+If we were to walk in somewhere and just say "damaged seals",
+
+86
+00:04:49.680 --> 00:04:53.700
+there's no context; there's no knowing if that is a damaged window
+
+87
+00:04:53.700 --> 00:04:57.460
+seal, a door seal or a sea mammal.
+
+88
+00:04:57.460 --> 00:05:00.260
+This is because AI isn't replacing your expertise.
+
+89
+00:05:00.900 --> 00:05:04.340
+That expertise is in your head, and the only way to get it out of
+
+90
+00:05:04.340 --> 00:05:06.140
+your head is for you to speak properly.
+
+91
+00:05:06.840 --> 00:05:10.620
+What all of this allows is for you to walk around and do your
+
+92
+00:05:10.620 --> 00:05:11.700
+inspection naturally.
+
+93
+00:05:12.340 --> 00:05:15.740
+Most inspection apps are like a lift, where you go from floor to
+
+94
+00:05:15.740 --> 00:05:17.560
+floor in a set order.
+
+95
+00:05:17.560 --> 00:05:20.440
+Question one, question two, question three.
+
+96
+00:05:20.440 --> 00:05:22.620
+In order, one at a time.
+
+97
+00:05:22.620 --> 00:05:24.140
+But that's not natural.
+
+98
+00:05:24.140 --> 00:05:28.340
+In reality, you walk into a classroom and see the floor, the walls
+
+99
+00:05:28.340 --> 00:05:30.530
+and the call points all at once.
+
+100
+00:05:30.530 --> 00:05:32.440
+Quickler lets you work that way.
+
+101
+00:05:33.240 --> 00:05:35.060
+It works a little like a mail room.
+
+102
+00:05:35.060 --> 00:05:39.620
+It tips out the whole sack, in other words all of your messages,
+
+103
+00:05:40.220 --> 00:05:44.480
+reads every address, and puts every letter in the right pigeonhole.
+
+104
+00:05:44.480 --> 00:05:48.600
+With the extra benefit that if you said "no defects" in the vans,
+
+105
+00:05:48.600 --> 00:05:52.200
+and ten minutes later spotted a broken wing mirror, you can just say
+
+106
+00:05:52.200 --> 00:05:54.460
+so, and the latest answer wins.
+
+107
+00:05:55.180 --> 00:05:59.360
+Of course, there are some things that must never be left to AI, and
+
+108
+00:05:59.360 --> 00:06:01.020
+Quickler doesn't leave everything to AI.
+
+109
+00:06:01.720 --> 00:06:05.640
+Many things are covered by our figurative light switches, and they
+
+110
+00:06:05.640 --> 00:06:07.100
+work the same way every time.
+
+111
+00:06:08.240 --> 00:06:12.540
+So next time you're on site, say what you see, be specific, and talk
+
+112
+00:06:12.540 --> 00:06:13.860
+about your photos.
+
+113
+00:06:13.860 --> 00:06:16.840
+Be the inspector who is precise in their language.
+
+114
+00:06:16.840 --> 00:06:21.100
+And in that way, you are painting your dice with sixes, and you're
+
+115
+00:06:21.100 --> 00:06:22.160
+going to roll a six.

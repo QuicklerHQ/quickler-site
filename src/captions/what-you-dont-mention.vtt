@@ -1,0 +1,29 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:03.280
+On a visit, you usually only mention what's wrong.
+
+2
+00:00:03.280 --> 00:00:07.770
+So Quickler automatically assumes anything you don't mention is OK.
+
+3
+00:00:07.770 --> 00:00:11.500
+Quickler reads each question to work out whether a place might
+
+4
+00:00:11.500 --> 00:00:12.840
+simply not have it.
+
+5
+00:00:12.840 --> 00:00:16.840
+For example, if your report asks about solar panels, most buildings
+
+6
+00:00:16.840 --> 00:00:21.600
+don't have them, so if they're not mentioned, Quickler marks them as not applicable.
+
+7
+00:00:21.600 --> 00:00:25.520
+And of course, you can always change any answer in the Record afterwards.

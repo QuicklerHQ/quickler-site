@@ -13,6 +13,8 @@ module.exports = function (eleventyConfig) {
   // rest, which keep a plain watch page at /videos/<slug>/ (11 Nov 2026).
   const _videos = () => JSON.parse(require("fs").readFileSync(__dirname + "/src/_data/videos.json", "utf8"));
   eleventyConfig.addGlobalData("featureVideos", () => _videos().filter((v) => v.feature && v.page));
+  // Videos that have a caption file in src/captions/<slug>.vtt get the CC control (23 Nov 2026).
+  eleventyConfig.addGlobalData("captioned", () => require("fs").readdirSync(__dirname + "/src/captions").filter((n) => n.endsWith(".vtt")).map((n) => n.slice(0, -4)));
   eleventyConfig.addGlobalData("watchVideos", () => _videos().filter((v) => !v.page));
   // Complete index of every content page (reel pages under /pages/), so the
   // guides/all-articles page can list ALL articles and none get orphaned.
@@ -247,6 +249,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "appui": "appui" });
   eleventyConfig.addPassthroughCopy({ "js": "js" });
   eleventyConfig.addPassthroughCopy({ "src/css": "css" });
+  eleventyConfig.addPassthroughCopy({ "src/captions": "captions" });
 
   // Speed: minify the built CSS in-place after the build. Zero dependency,
   // strips comments and collapses whitespace. The authored CSS stays readable;

@@ -15,7 +15,7 @@
   }
 }
 ---
-{%- from "partials/video-player.njk" import videoPlayer %}
+{%- from "partials/video-player.njk" import videoPlayer with context %}
 {%- set ld = {
   "@context": "https://schema.org",
   "@type": "VideoObject",
@@ -35,7 +35,7 @@
   {%- if v.more %}
   <p class="site-words">{{ v.more }}</p>
   {%- endif %}
-  <div class="fx-video">{{ videoPlayer(v.video, v.poster, v.title) }}</div>
+  <div class="fx-video">{{ videoPlayer(v.video, v.poster, v.title, v.slug) }}</div>
   <h2 class="site-home-h2" style="font-size:1.2rem;margin-top:24px">Chapters</h2>
   <ul>
   {%- for c in v.chapters %}

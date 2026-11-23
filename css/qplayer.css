@@ -33,3 +33,20 @@
 .qp-wrap .qp-bar { transition: opacity .3s ease; }
 .qp-wrap.qp-idle .qp-bar { opacity: 0; pointer-events: none; }
 .qp-wrap.qp-idle, .qp-wrap.qp-idle video { cursor: none; }
+
+/* Captions (Philip 23 Nov 2026): CC button in the bar, text in a band just below the video. The band's
+   room is reserved while captions are on, so cue changes never move the page. In fullscreen the band sits
+   over the foot of the picture, above the bar. */
+.qp-btn.qp-cc { width: auto; min-width: 36px; padding: 0 8px; font-size: 13px; font-weight: 700; line-height: 1; font-family: inherit; letter-spacing: .04em; }
+.qp-btn.qp-cc[aria-pressed="true"] { background: rgba(255,255,255,0.28); box-shadow: inset 0 -2px 0 #fff; }
+.qp-wrap .qp-cap { display: none; position: absolute; left: 0; right: 0; top: 100%; box-sizing: border-box; height: 4em; padding: 6px 8px 0; text-align: center; font-size: 1rem; line-height: 1.3; color: #1a1a1a; }
+.qp-wrap.qp-cc-on .qp-cap { display: block; }
+.qp-wrap.qp-cc-on { margin-bottom: 4em; }
+.qp-wrap:fullscreen .qp-cap { top: auto; bottom: 56px; height: auto; background: transparent; padding: 0 5%; color: #fff; font-size: clamp(1rem, 2.4vw, 1.6rem); }
+.qp-wrap:fullscreen .qp-cap-text { background: rgba(0,0,0,.72); padding: 2px 8px; border-radius: 4px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.qp-wrap:fullscreen.qp-cc-on { margin-bottom: 0; }
+.qp-wrap:-webkit-full-screen .qp-cap { top: auto; bottom: 56px; height: auto; color: #fff; }
+.qp-wrap:-webkit-full-screen.qp-cc-on { margin-bottom: 0; }
+@media (max-width: 520px) { .qp-wrap .qp-cap { font-size: .95rem; } }
+/* The home video sits in a gradient frame: captions there are white. */
+.hey-frame-playing .qp-wrap .qp-cap { color: #fff; }
