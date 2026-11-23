@@ -27,6 +27,7 @@
 {%- elif ('pricing' in _pl) or ('about' in _pl) or ('contact' in _pl) or ('/help/' in _pl) or ('faq' in _pl) or ('support' in _pl) or ('plans' in _pl) or ('legal' in _pl) or ('privacy' in _pl) or ('terms' in _pl) or ('cookies' in _pl) or ('dpa' in _pl) %}{% set _mode = 'settings' %}
 {%- else %}{% set _mode = 'checks' %}{% endif %}
 {%- if _mode == 'checks' or _mode == 'settings' %}{% set _mode = 'heypage' %}{% endif %}
+{%- if flat %}{% set _mode = 'flat' %}{% endif %}
 {%- set _chev %}<svg class="wf-expand-chevron" width="16" height="10" viewBox="0 0 12 7" fill="none" aria-hidden="true"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>{% endset %}
 
 {%- macro actionGroup(actions, domain) %}
@@ -213,6 +214,22 @@
   </section>
 </div>
 
+{%- elif _mode == 'flat' %}
+{#- A plain page (Philip 23 Nov 2026, /graeme/): the hero card, then each block open, a title above its words, no accordion, no panel. -#}
+<style>.flat-sec{max-width:420px;margin:0 auto 28px;padding:0 16px}.flat-sec h2{font-size:1.15rem;line-height:1.3;margin:0 0 12px;text-align:center}.flat-sec .site-note{text-align:center;margin:10px 0 0}.flat-end{max-width:420px;margin:0 auto 40px;padding:0 16px}.flat-end a{display:block;width:100%;box-sizing:border-box;text-align:center;white-space:normal;word-break:normal;overflow-wrap:normal;padding:14px 16px}</style>
+<div class="hey">
+  <div class="hey-hero hey-hero-page">
+    <h1 class="hey-h1 hey-h1-page">{{ hero.heading | safe }}</h1>
+    {%- if hero.lede %}<p class="hey-sub hey-sub-page">{{ hero.lede | priceTokens | safe }}</p>{% endif %}
+  </div>
+  {%- for b in blocks or [] %}
+    {%- if b.type == "raw" %}
+  <section class="flat-sec" id="{{ b.heading | striptags | slugify }}"><h2>{{ b.heading | safe }}</h2>{{ b.html | priceTokens | safe }}</section>
+    {%- elif b.type == "cta" %}
+  <div class="flat-end">{% for a in b.actions %}<a class="btn-round-add" href="{{ a.href }}">{{ a.label }}</a>{% endfor %}</div>
+    {%- endif %}
+  {%- endfor %}
+</div>
 {%- elif _mode == 'heypage' %}
 {#- ── EVERY OTHER PAGE, as HEY's own pages (Philip 5 Nov 2026 12:13-12:14: "we
     can copy things harder", the old Settings-style head "makes no sense"): the
