@@ -26,8 +26,8 @@
   <div class="story-inner" style="max-width:900px;text-align:left;">
     <h2 class="story-h2" style="text-align:left;">All pages</h2>
     <ul class="sitemap-list" style="columns:2;column-gap:48px;list-style:none;padding:0;line-height:1.9;">
-      {%- for p in collections.sitemapPages %}
-      <li style="break-inside:avoid;"><a href="{{ p.loc | replace('https://quickler.co', '') }}">{{ p.loc | replace('https://quickler.co/pages/', '') | replace('https://quickler.co/', 'Home') | replace('.html', '') | replace('-', ' ') }}</a></li>
+      {%- for p in collections.sitemapPages %}{% if not p.indexHidden %}
+      <li style="break-inside:avoid;"><a href="{{ p.loc | replace('https://quickler.co', '') }}">{{ p.loc | replace('https://quickler.co/pages/', '') | replace('https://quickler.co/', 'Home') | replace('.html', '') | replace('-', ' ') }}</a></li>{% endif %}
       {%- endfor %}
       {%- for c in countries %}
       <li style="break-inside:avoid;"><a href="/pages/country-hub-{{ c.slug }}.html">{{ c.name }} hub</a></li>

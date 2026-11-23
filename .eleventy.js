@@ -23,7 +23,7 @@ module.exports = function (eleventyConfig) {
   // guides.quickler.co home (Philip 5 Nov 2026 13:40).
   eleventyConfig.addCollection("guidesOnly", (api) => {
     return api.getAll()
-      .filter((p) => (p.url || "").startsWith("/pages/") && p.data.articlePanels && p.data.articlePanels.length)
+      .filter((p) => (p.url || "").startsWith("/pages/") && p.data.articlePanels && p.data.articlePanels.length && !p.data.indexHidden)
       .map((p) => {
         const t = ((p.data.seo && p.data.seo.title) || (p.data.hero && p.data.hero.heading) || p.fileSlug).split(" | ")[0].replace(/<[^>]+>/g, "");
         return { url: p.url, title: t, blurb: (p.data.seo && p.data.seo.description) || "" };
@@ -36,7 +36,7 @@ module.exports = function (eleventyConfig) {
     return api.getAll()
       .filter((p) => {
         const url = p.url || "";
-        return url.startsWith("/pages/") && url.endsWith(".html") && !skip.test(url);
+        return url.startsWith("/pages/") && url.endsWith(".html") && !skip.test(url) && !p.data.indexHidden;
       })
       .map((p) => ({
         url: p.url,
@@ -82,7 +82,7 @@ module.exports = function (eleventyConfig) {
         // Guide pages carry their git last-modified date (src/pages/pages.11tydata.json),
         // so IndexNow sees a lastmod change when a page is edited (18 Nov 2026).
         const date = p.url.startsWith("/pages/") ? p.date : null;
-        return { loc: url, priority, date };
+        return { loc: url, priority, date, indexHidden: !!p.data.indexHidden };
       })
       .sort((a, b) => a.loc.localeCompare(b.loc));
   });
