@@ -50,3 +50,6 @@
 @media (max-width: 520px) { .qp-wrap .qp-cap { font-size: .95rem; } }
 /* The home video sits in a gradient frame: captions there are white. */
 .hey-frame-playing .qp-wrap .qp-cap { color: #fff; }
+
+/* Upright films (Graeme's shorts, 23 Nov 2026): same player, 9:16 frame, no wider than a phone. */
+.qp-wrap.qp-upright { aspect-ratio: 9 / 16; max-width: 360px; margin: 0 auto; }
