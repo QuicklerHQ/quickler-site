@@ -52,7 +52,7 @@ const plans = [
   {
     name: "Paid",
     price: 75,
-    priceSuffix: " per phone number / mo",
+    priceSuffix: " per phone number, per month",
     quantity: 0,
     quantityLabel: "£75 per month per phone number & unlimited free dashboard accounts.",
     note: "Reports, the dashboard, sharing and downloads are free for everyone else.",
