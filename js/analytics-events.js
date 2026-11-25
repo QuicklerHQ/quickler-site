@@ -22,6 +22,10 @@
             track('demo_click', { link_label: label, page_path: path });
         } else if (/app\.quickler\.co/.test(href)) {
             track('app_click', { link_url: href, link_label: label, page_path: path });
+            // Sign-up / start-trial intent: the key event for the growth review.
+            if (/app\.quickler\.co\/signup/.test(href)) {
+                track('signup_click', { link_url: href, link_label: label, page_path: path });
+            }
         }
 
         // Generic CTA click (any styled button), kept for funnel breadth.
