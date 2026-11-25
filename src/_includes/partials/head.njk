@@ -86,11 +86,7 @@ preload are identical on every page -> defined ONCE here. -#}
   {#- Self-hosted font (see @font-face in styles.v2.css). Preload the 700 weight
       because the LCP heading uses it -- start the fetch before CSS parses. No
       more fonts.googleapis.com / fonts.gstatic.com round-trips. -#}
-  {%- if appUi %}
-  <link rel="preload" href="/appui/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-  {%- else %}
-  <link rel="preload" href="/assets/fonts/space-grotesk-700.woff2" as="font" type="font/woff2" crossorigin>
-  {%- endif %}
+  {#- No font preload: Space Grotesk is inlined in the stylesheet (base.css / styles.v2.css) so it is there at first paint. -#}
   {#- Warm the YouTube hosts cheaply so the lite-video thumbnail loads fast and
       a later click-to-play connects quickly. dns-prefetch only -- no handshake
       cost on initial paint; the player JS still loads only on click. -#}
