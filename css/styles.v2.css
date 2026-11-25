@@ -3,33 +3,34 @@
    no privacy dependency. 800 is synthesised from 700 (the design used 800 in a few
    spots but Google never delivered an 800 file anyway). font-display: swap keeps
    text visible while the woff2 loads. */
+/* Space Grotesk is ONE variable font (weights 300-700): one face, one file, one preload.
+   (It used to be four identical files, so the body weight arrived after the heading weight
+   and the page re-flowed twice.) "Space Grotesk Fallback" is Arial scaled to Space
+   Grotesk's width and height, so the swap to the real font moves nothing (25 Nov 2026). */
 @font-face {
     font-family: "Space Grotesk";
     font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url("/assets/fonts/space-grotesk-400.woff2") format("woff2");
-}
-@font-face {
-    font-family: "Space Grotesk";
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    src: url("/assets/fonts/space-grotesk-500.woff2") format("woff2");
-}
-@font-face {
-    font-family: "Space Grotesk";
-    font-style: normal;
-    font-weight: 600;
-    font-display: swap;
-    src: url("/assets/fonts/space-grotesk-600.woff2") format("woff2");
-}
-@font-face {
-    font-family: "Space Grotesk";
-    font-style: normal;
-    font-weight: 700;
+    font-weight: 300 700;
     font-display: swap;
     src: url("/assets/fonts/space-grotesk-700.woff2") format("woff2");
+}
+@font-face {
+    font-family: "Space Grotesk Fallback";
+    font-weight: 300 500;
+    src: local("Arial"), local("ArialMT"), local("Liberation Sans"), local("Helvetica");
+    size-adjust: 108.7%;
+    ascent-override: 90.5%;
+    descent-override: 26.9%;
+    line-gap-override: 0%;
+}
+@font-face {
+    font-family: "Space Grotesk Fallback";
+    font-weight: 600 700;
+    src: local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold"), local("Helvetica Bold");
+    size-adjust: 101.2%;
+    ascent-override: 97.2%;
+    descent-override: 28.9%;
+    line-gap-override: 0%;
 }
 
 * {

@@ -20,7 +20,7 @@
        font  = Space Grotesk on everything
        gradient kept, used SPARINGLY as accent only
   */
-  --font: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --font: "Space Grotesk", "Space Grotesk Fallback", "Segoe UI", system-ui, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 
   --blue: #2d69fb; /* THE Quickler blue -- straight from the logo. Fills/buttons. */
