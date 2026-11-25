@@ -1,5 +1,17 @@
 [
   {
+    "date": "2026-11-25",
+    "title": "Client accounts for partners",
+    "items": [
+      "Partners can add a client account for each of their own clients and look after it from their Home.",
+      "Each client gets its own Checks, Records and logo, with a 14-day trial that starts when the client joins.",
+      "The Records page now has one By title / By user switch, and the date filter covers combined Records too.",
+      "If a file is too big for WhatsApp, you now get a plain message saying so, with what to send instead.",
+      "Fixes: editable notes and PDF tiles now work on pages that show several Records; logos line up on Home."
+    ],
+    "dateText": "25 November 2026"
+  },
+  {
     "date": "2026-11-17",
     "title": "Clearer starts and cleaner Records",
     "items": [
