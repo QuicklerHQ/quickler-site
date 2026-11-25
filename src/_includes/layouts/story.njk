@@ -157,11 +157,11 @@
     {%- if wall.sub %}<p class="hey-wall-sub">{{ wall.sub }}</p>{% endif %}
     <div class="hey-bubbles">
     {%- for q in wall.items %}
-      <div class="hey-bubble">
+      {%- if q.href %}<a class="hey-bubble hey-bubble-link" href="{{ q.href }}" title="Read Graeme's story">{% else %}<div class="hey-bubble">{% endif %}
         <div class="hey-bubble-who">{% if q.face %}<img src="{{ q.face }}" alt="" width="28" height="28">{% endif %}{% if q.whoUrl %}<a href="{{ q.whoUrl }}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none"><b>{{ q.who }}</b></a>{% else %}<b>{{ q.who }}</b>{% endif %}</div>
         {%- if q.quote %}<p class="hey-bubble-quote">{% if q.bold %}{% set qp = q.quote.split(q.bold) %}{{ qp[0] }}<b>{{ q.bold }}</b>{{ qp[1] }}{% else %}{{ q.quote }}{% endif %}</p>{% endif %}
         {%- if q.text %}<p>{% if q.big %}<b>{{ q.big }}.</b> {% endif %}{{ q.text }}</p>{% endif %}
-      </div>
+      {%- if q.href %}</a>{% else %}</div>{% endif %}
     {%- endfor %}
     </div>
   </section>
