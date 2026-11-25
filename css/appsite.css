@@ -857,3 +857,9 @@ html.aw-lb-on { overflow: hidden; }
 .hey-bubble p b { font-weight: 700; }
 @media (max-width: 600px) { .hey-bubbles { columns: 1; } .hey-bubble p { font-size: 1rem; } }
 @media (min-width: 601px) and (max-width: 1000px) { .hey-bubble-who { font-size: 0.72rem; padding: 3px 10px; } }
+
+/* Social logo row in the footer (Philip 25 Nov 2026): one row, footer link colour, 40px tap targets. */
+footer .site-foot-social { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 12px; margin: 22px auto 0; padding: 0 16px; }
+footer .site-foot-social a { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; color: var(--ink-soft); opacity: .85; transition: opacity .15s, color .15s; }
+footer .site-foot-social a:hover, footer .site-foot-social a:focus-visible { opacity: 1; color: var(--accent); }
+footer .site-foot-social svg { display: block; }
