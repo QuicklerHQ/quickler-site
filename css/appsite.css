@@ -867,5 +867,8 @@ footer .site-foot-social svg { display: block; }
 /* Graeme quotes link to his story (Philip 25 Nov 2026): same look as the quote, normal link cursor, subtle hover. */
 .graeme-link { color: inherit; text-decoration: none; cursor: pointer; }
 .graeme-link:hover, .graeme-link:focus-visible { text-decoration: underline; text-decoration-color: rgba(12,23,52,0.35); text-underline-offset: 3px; }
-a.hey-bubble-link { display: inline-block; color: inherit; text-decoration: none; cursor: pointer; transition: box-shadow .15s ease; }
-a.hey-bubble-link:hover, a.hey-bubble-link:focus-visible { box-shadow: 0 8px 24px rgba(12,23,52,0.12) !important; }
+a.hey-bubble-link { display: inline-block; color: inherit; text-decoration: none; cursor: pointer; border-color: #c9c3f3; transition: box-shadow .15s ease, border-color .15s ease, transform .15s ease, background .15s ease; }
+a.hey-bubble-link .hey-bubble-who { transition: background .15s ease, color .15s ease, border-color .15s ease; }
+a.hey-bubble-link:hover, a.hey-bubble-link:focus-visible { border-color: #5A4FCF; background: linear-gradient(180deg, #ece7ff, #f8f6ff) !important; box-shadow: 0 10px 28px rgba(90,79,207,0.22) !important; transform: translateY(-2px); }
+a.hey-bubble-link:hover .hey-bubble-who, a.hey-bubble-link:focus-visible .hey-bubble-who { background: #5A4FCF; color: #fff; border-color: #5A4FCF; }
+a.hey-bubble-link:active { transform: translateY(0); }
