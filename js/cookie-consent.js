@@ -67,16 +67,26 @@
         // ad_personalization are denied in the default block above, and
         // ads_data_redaction strips ad identifiers from those pings.
         if (!IS_STAFF) window.gtag("config", ADS_ID);
-        // The gtag.js download (about 350 KB, the page's heaviest script) waits until
-        // the browser is idle. Events queue in dataLayer meanwhile, so nothing is lost.
-        const startGtag = function () { loadGtagScript(); };
-        if (document.readyState === "complete") {
-            ("requestIdleCallback" in window) ? window.requestIdleCallback(startGtag, { timeout: 2000 }) : setTimeout(startGtag, 1500);
-        } else {
-            window.addEventListener("load", function () {
-                ("requestIdleCallback" in window) ? window.requestIdleCallback(startGtag, { timeout: 2000 }) : setTimeout(startGtag, 1500);
-            }, { once: true });
-        }
+        // The gtag.js download (about 350 KB) and its evaluation (the page's biggest
+        // main-thread cost) wait for the first touch, scroll, key or click, or 4 s after
+        // load, whichever comes first, so they never compete with the first view.
+        // Events queue in dataLayer meanwhile, so nothing is lost.
+        const startGtag = function () {
+            if (startGtag.done) return;
+            startGtag.done = true;
+            ["pointerdown", "keydown", "scroll", "touchstart"].forEach(function (t) {
+                window.removeEventListener(t, startGtag, true);
+            });
+            loadGtagScript();
+        };
+        const armGtag = function () {
+            ["pointerdown", "keydown", "scroll", "touchstart"].forEach(function (t) {
+                window.addEventListener(t, startGtag, { capture: true, passive: true, once: true });
+            });
+            setTimeout(startGtag, 4000);
+        };
+        if (document.readyState === "complete") armGtag();
+        else window.addEventListener("load", armGtag, { once: true });
         if (prior === "granted") loadClarity();
         window.__quicklerConsentInit = true;
     }
