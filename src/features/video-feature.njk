@@ -41,6 +41,14 @@
   {%- endif %}
   {%- endfor %}
   <div class="fx-video">{{ videoPlayer(v.video, v.poster, v.title, v.slug) }}</div>
+  {%- if v.shorts %}
+  <h2 class="site-home-h2 fx-h2">Short clips</h2>
+  {%- for s in v.shorts %}
+  <h3 class="site-home-h2" style="font-size:1.05rem;margin-top:18px">{{ s.title }}</h3>
+  <div class="qp-wrap qp-upright" data-qp><video src="{{ s.video }}" poster="{{ s.poster }}" preload="none" playsinline controls aria-label="{{ v.title }}: {{ s.title }}"></video></div>
+  <script type="application/ld+json">{{ {"@context": "https://schema.org", "@type": "VideoObject", "name": v.title + ": " + s.title, "description": s.description, "thumbnailUrl": [s.poster], "uploadDate": s.uploadDate, "duration": s.duration, "contentUrl": s.video, "embedUrl": site.domain + v.page} | dump | safe }}</script>
+  {%- endfor %}
+  {%- endif %}
   <h2 class="site-home-h2 fx-h2">Transcript</h2>
   {%- for p in v.transcript %}
   <p class="site-words">{{ p }}</p>

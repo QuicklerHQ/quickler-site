@@ -2320,6 +2320,64 @@
         "Quickler works best when you say where you are and what you see, be specific, and talk about your photos instead of sending them on their own. When you set up a Check, make your questions precise and distinct and use section headings as signposts. Then walk round naturally: Quickler reads every message and puts each answer in the right place."
       ],
       "faq": []
-    }
+    },
+    "shorts": [
+      {
+        "title": "A light switch and a dice",
+        "description": "Code is a light switch: the same action, the same result. AI is more like rolling a dice, so now and then it lands on the wrong side.",
+        "video": "https://videos.quickler.co/ai-clip-a-720.mp4",
+        "poster": "https://videos.quickler.co/ai-clip-a-thumb.jpg",
+        "duration": "PT54S",
+        "uploadDate": "2026-11-26"
+      },
+      {
+        "title": "The desert island and the polar bears",
+        "description": "Why AI fills the gap with whatever seems likely when it has not been told something, and will not say it does not know.",
+        "video": "https://videos.quickler.co/ai-clip-b-720.mp4",
+        "poster": "https://videos.quickler.co/ai-clip-b-thumb.jpg",
+        "duration": "PT45S",
+        "uploadDate": "2026-11-26"
+      },
+      {
+        "title": "Two inspectors, one building",
+        "description": "The same building, checklist and AI, but one report is right first time. The difference is how the inspector talks.",
+        "video": "https://videos.quickler.co/ai-clip-c-720.mp4",
+        "poster": "https://videos.quickler.co/ai-clip-c-thumb.jpg",
+        "duration": "PT35S",
+        "uploadDate": "2026-11-26"
+      },
+      {
+        "title": "Paint your dice with sixes",
+        "description": "Every clear, relevant thing you tell an AI paints another side of the dice with a six, so the odds get better.",
+        "video": "https://videos.quickler.co/ai-clip-d-720.mp4",
+        "poster": "https://videos.quickler.co/ai-clip-d-thumb.jpg",
+        "duration": "PT43S",
+        "uploadDate": "2026-11-26"
+      },
+      {
+        "title": "Damaged seals, or a sea mammal?",
+        "description": "Say where you are first, then what you see: just damaged seals could be a window seal, a door seal or a sea mammal.",
+        "video": "https://videos.quickler.co/ai-clip-e-720.mp4",
+        "poster": "https://videos.quickler.co/ai-clip-e-thumb.jpg",
+        "duration": "PT54S",
+        "uploadDate": "2026-11-26"
+      },
+      {
+        "title": "Talk about your photos",
+        "description": "On site, talk about what you are seeing and be specific: a photo on its own could mean anything, even to a person.",
+        "video": "https://videos.quickler.co/ai-clip-f-720.mp4",
+        "poster": "https://videos.quickler.co/ai-clip-f-thumb.jpg",
+        "duration": "PT29S",
+        "uploadDate": "2026-11-26"
+      },
+      {
+        "title": "A lift or a mail room",
+        "description": "Most inspection apps work like a lift, one question at a time. Quickler works like a mail room: it reads every message and puts each answer in the right place.",
+        "video": "https://videos.quickler.co/ai-clip-g-720.mp4",
+        "poster": "https://videos.quickler.co/ai-clip-g-thumb.jpg",
+        "duration": "PT46S",
+        "uploadDate": "2026-11-26"
+      }
+    ]
   }
 ]
