@@ -1,5 +1,18 @@
 [
   {
+    "date": "2026-11-27",
+    "title": "Smoother questions and cleaner late additions",
+    "items": [
+      "If someone new asks a question part way through a Check, they get a short, true answer and are taken straight back to where they were.",
+      "Someone messaging from a number Quickler does not know can try a 2-minute walk round the room they are in, get a real Link, then start a free trial.",
+      "Adding something late and then saying done now gives one 'Working on your report' message and the updated Link, without the Check list or an 'already filed' message.",
+      "A mark on a photographed sheet only counts as a Fault when the sheet's own key, Defect column or comment says so.",
+      "Slow proofread no longer comes back empty.",
+      "The demo on the website works again."
+    ],
+    "dateText": "27 November 2026"
+  },
+  {
     "date": "2026-11-25",
     "title": "Client accounts for partners",
     "items": [
