@@ -48,7 +48,7 @@
     tags as the app's round pills, actions as its Edit / Records buttons. -#}
 {%- macro blockBody(b, domain) %}
 {%- if b.type == "prose" %}
-  {%- if b.html %}<div class="site-words">{{ b.html | priceTokens | safe }}</div>{% elif b.text %}<p class="site-words">{{ b.text | priceTokens | safe }}</p>{% endif %}
+  {%- if b.html %}<div class="site-words">{{ b.html | priceTokens | statTokens | safe }}</div>{% elif b.text %}<p class="site-words">{{ b.text | priceTokens | safe }}</p>{% endif %}
 {%- elif b.type == "split" %}
   <p class="site-words">{{ b.text | priceTokens | safe }}</p>
 {%- elif b.type == "steps" %}
@@ -78,7 +78,7 @@
   {%- if b.text %}<p class="site-words">{{ b.text | priceTokens | safe }}</p>{% endif %}
   {{ actionGroup(b.actions, domain) }}
 {%- elif b.type == "raw" %}
-  <div class="site-raw">{{ b.html | priceTokens | safe }}</div>
+  <div class="site-raw">{{ b.html | priceTokens | statTokens | safe }}</div>
 {%- elif b.type == "video" and b.video %}
   {%- if b.text %}<p class="site-words">{{ b.text | priceTokens | safe }}</p>{% endif %}
   <div class="story-video-embed yt-lite{% if b.portrait %} portrait{% endif %}" data-yt="{{ b.video }}" role="button" tabindex="0" aria-label="Play the Quickler walkthrough video">
@@ -224,7 +224,7 @@
   </div>
   {%- for b in blocks or [] %}
     {%- if b.type == "raw" %}
-  <section class="flat-sec" id="{{ b.heading | striptags | slugify }}"><h2>{{ b.heading | safe }}</h2>{{ b.html | priceTokens | safe }}</section>
+  <section class="flat-sec" id="{{ b.heading | striptags | slugify }}"><h2>{{ b.heading | safe }}</h2>{{ b.html | priceTokens | statTokens | safe }}</section>
     {%- elif b.type == "cta" %}
   <div class="flat-end">{% for a in b.actions %}<a class="btn-round-add" href="{{ a.href }}">{{ a.label }}</a>{% endfor %}</div>
     {%- endif %}

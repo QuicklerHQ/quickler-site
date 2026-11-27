@@ -150,6 +150,16 @@ module.exports = function (eleventyConfig) {
     )
   );
 
+  // [[stat:records]] and [[stat:messages]] in page words come from src/_data/stats.json,
+  // refreshed nightly by areas/website/tools/site-stats.py (Philip 27 Nov 2026).
+  eleventyConfig.addFilter("statTokens", (str) => {
+    let st = {};
+    try { st = JSON.parse(require("fs").readFileSync(__dirname + "/src/_data/stats.json", "utf8")); } catch (e) {}
+    const vals = { records: st.records, messages: st.messagesRounded };
+    return String(str || "").replace(/\[\[stat:([a-z]+)\]\]/g, (m, k) =>
+      vals[k] != null ? Number(vals[k]).toLocaleString("en-GB") : m);
+  });
+
   // ---- Structured data (JSON-LD) generated from content already on the page ----
   // Strip tags + decode the handful of entities our content uses, to plain text.
   const _plain = (html) =>
